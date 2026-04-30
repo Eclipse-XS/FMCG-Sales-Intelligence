@@ -1,0 +1,41 @@
+schema: '2.0'
+stages:
+  forecasting_v1:
+    cmd: python -m src.modeling.cli run --task forecasting --output 
+      artifacts/canonical/forecasting_v1 --experiment-id 
+      forecasting_v1_canonical --overwrite
+    deps:
+    - path: configs/modeling/forecasting.yaml
+      hash: md5
+      md5: 93ccab285460e4c33bfd8e69d5ac7d0f
+      size: 1369
+    - path: data/processed/forecasting/forecasting_v1.parquet
+      hash: md5
+      md5: ff7817045cab0a7a2aa66e3bbedeef61
+      size: 1060872
+    - path: src/modeling/__init__.py
+      hash: md5
+      md5: 62b91455f1f0d0926582e0ebb6795c5d
+      size: 153
+    - path: src/modeling/cli.py
+      hash: md5
+      md5: a06e7b6d13c700ee0062a0d3779bc111
+      size: 1380
+    - path: src/modeling/forecasting.py
+      hash: md5
+      md5: 1f7a0f838c4f408b2a55e99f6a255a42
+      size: 15839
+    - path: src/modeling/metrics.py
+      hash: md5
+      md5: d48714a734e886b9506c78bb6e0923d3
+      size: 660
+    outs:
+    - path: artifacts/canonical/forecasting_v1
+      hash: md5
+      md5: 6f3aae3fa6535702fc3c9699150d1530.dir
+      size: 2399415
+      nfiles: 14
+    - path: artifacts/forecasting_v1_metrics.json
+      hash: md5
+      md5: b5db53edebf547800bd7d20d63c05320
+      size: 155

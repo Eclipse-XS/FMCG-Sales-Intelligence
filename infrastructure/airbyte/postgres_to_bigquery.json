@@ -1,0 +1,7 @@
+{
+  "purpose": "Template for batch replication; do not treat as an executed Airbyte connection.",
+  "source": {"type": "Postgres", "host_env": "POSTGRES_HOST", "port_env": "POSTGRES_PORT", "database_env": "POSTGRES_DB", "schema": "fmcg", "cdc": false},
+  "destination": {"type": "BigQuery", "project_env": "BIGQUERY_PROJECT_ID", "dataset": "fmcg_raw"},
+  "streams": ["sales", "inventory", "orders", "order_items", "deliveries", "delivery_items", "skus", "products", "stores", "warehouses", "promotions"],
+  "incremental_strategy": {"sales": "sale_date + business key", "inventory": "snapshot_date + business key", "orders": "order_date + order_id", "deliveries": "shipped_at + delivery_id"}
+}

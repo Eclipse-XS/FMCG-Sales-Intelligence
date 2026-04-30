@@ -1,0 +1,15 @@
+stages:
+  forecasting_v1:
+    cmd: python -m src.modeling.cli run --task forecasting --output artifacts/canonical/forecasting_v1 --experiment-id forecasting_v1_canonical --overwrite
+    deps:
+      - configs/modeling/forecasting.yaml
+      - data/processed/forecasting/forecasting_v1.parquet
+      - src/modeling/__init__.py
+      - src/modeling/cli.py
+      - src/modeling/forecasting.py
+      - src/modeling/metrics.py
+    outs:
+      - artifacts/canonical/forecasting_v1
+    metrics:
+      - artifacts/forecasting_v1_metrics.json:
+          cache: false

@@ -1,0 +1,29 @@
+contract_version: 1
+task: forecasting
+status: READY_WITH_LIMITATIONS
+prediction_time: start_of_day_t
+grain: [prediction_date, store_id, sku_id]
+primary_target: target_units_next_7d
+secondary_targets: [target_requested_demand_next_7d]
+target_window: "(t,t+7d]"
+row_filter: target_observed_next_7d == true
+features:
+  numerical_count: [lag_1, lag_7, lag_14, lag_28, sales_velocity_7d]
+  numerical_continuous: [rolling_mean_7d, rolling_std_7d, scheduled_selling_price]
+  categorical: [store_id, sku_id, region_id, brand_name, category_name, store_type, channel]
+  binary: []
+  optional_experimental: [censored_days_prior_7d, scheduled_is_promo]
+identifiers: [prediction_date, store_id, sku_id]
+forbidden_features: [target_observed_days_next_7d, target_observed_next_7d, target_units_next_7d, target_requested_demand_next_7d, target_lost_sales_next_7d]
+split:
+  target_horizon_days: 7
+  selection_train: {start: 2024-01-01, end: 2024-02-04, rows: 33600}
+  validation: {start: 2024-02-12, end: 2024-02-25, rows: 13440}
+  final_train: {start: 2024-01-01, end: 2024-02-25, rows: 53760}
+  test: {start: 2024-03-04, end: 2024-03-23, rows: 19200}
+  embargo_days: 7
+primary_metric: wape
+secondary_metrics: [mae, rmse, bias]
+baselines: [zero, last_value_7x, trailing_7_day_sum, prior_week_sum]
+candidate_models: [ridge, poisson_regressor, catboost_regressor]
+random_seed: 20260916

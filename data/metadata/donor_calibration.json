@@ -1,0 +1,106 @@
+{
+  "instacart": {
+    "source": "psparks/instacart-market-basket-analysis",
+    "basket_size_quantiles": {
+      "0.25": 5.0,
+      "0.5": 8.0,
+      "0.75": 14.0,
+      "0.9": 20.0,
+      "0.95": 25.0
+    },
+    "reorder_rate": 0.5896974667922161,
+    "order_dow_distribution": {
+      "0": 0.175648,
+      "1": 0.171723,
+      "2": 0.136582,
+      "3": 0.127729,
+      "4": 0.124621,
+      "5": 0.132522,
+      "6": 0.131175
+    },
+    "order_hour_distribution": {
+      "0": 0.006652,
+      "1": 0.003624,
+      "2": 0.002204,
+      "3": 0.0016,
+      "4": 0.001616,
+      "5": 0.002797,
+      "6": 0.008924,
+      "7": 0.026853,
+      "8": 0.052089,
+      "9": 0.07536,
+      "10": 0.084306,
+      "11": 0.083227,
+      "12": 0.079753,
+      "13": 0.081261,
+      "14": 0.082735,
+      "15": 0.082909,
+      "16": 0.079669,
+      "17": 0.066878,
+      "18": 0.053466,
+      "19": 0.041089,
+      "20": 0.030485,
+      "21": 0.022832,
+      "22": 0.017967,
+      "23": 0.011705
+    },
+    "days_since_prior_quantiles": {
+      "0.25": 4.0,
+      "0.5": 7.0,
+      "0.75": 15.0,
+      "0.9": 30.0
+    },
+    "limitations": "Basket quantiles are approximate because chunk boundaries can split orders; used only as generator calibration."
+  },
+  "favorita": {
+    "source": "evgeniypolin/favorita-grocery-sales-forecasting",
+    "upstream": "favorita-grocery-sales-forecasting competition",
+    "window": [
+      "2016-01-01",
+      "2016-12-31"
+    ],
+    "stores": 10,
+    "items": 372,
+    "rows": 455269,
+    "promotion_rate": 0.11955569125066719,
+    "positive_sales_quantiles": {
+      "0.25": 1.0,
+      "0.5": 3.0,
+      "0.75": 8.0,
+      "0.9": 18.0,
+      "0.95": 29.0
+    },
+    "negative_return_rate": 0.00016254126681148948,
+    "selection": "Two stores per store type across cluster ordering; up to 400 items stratified across family/class; one continuous full-year window.",
+    "limitations": "Mirror license is unspecified. Subset is representative by dimensions, not a probability sample of the enterprise."
+  },
+  "m5": {
+    "source": "Zenodo 10.5281/zenodo.10203108",
+    "upstream": "M5 Forecasting Accuracy / Mcompetitions",
+    "series": 30490,
+    "items": 3049,
+    "stores": 10,
+    "days": 1941,
+    "calendar_rows": 1969,
+    "sample_series": 1200,
+    "price_rows_in_subset": 274957,
+    "daily_units_quantiles": {
+      "0.5": 0.0,
+      "0.75": 1.0,
+      "0.9": 3.0,
+      "0.95": 5.0,
+      "0.99": 12.0
+    },
+    "nonzero_rate": 0.32537480680061825,
+    "price_to_series_max_quantiles": {
+      "0.05": 0.8564593301435407,
+      "0.25": 0.9514731369150781,
+      "0.5": 1.0,
+      "0.75": 1.0,
+      "0.95": 1.0
+    },
+    "schema_verified": true,
+    "md5_verified": true,
+    "limitations": "Walmart hierarchy and prices are statistical donors only; identifiers are never joined to Favorita or canonical SKUs."
+  }
+}

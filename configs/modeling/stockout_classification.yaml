@@ -1,0 +1,26 @@
+contract_version: 1
+task: stockout_classification
+status: READY_WITH_LIMITATIONS
+prediction_time: inventory_snapshot_at_t
+grain: [prediction_date, warehouse_id, sku_id]
+target: stockout_within_7d
+target_window: "(t,t+7d]"
+row_filter: event_observed == true OR horizon_complete == true
+features:
+  numerical_count: [stock_quantity, reserved_quantity, available_quantity, reorder_point, safety_stock, distance_to_reorder_point, replenishment_sum_7d]
+  numerical_continuous: [stock_to_safety_ratio, sales_velocity_7d]
+  categorical: [warehouse_id, sku_id]
+identifiers: [prediction_date, warehouse_id, sku_id]
+forbidden_features: [first_stockout_date, stockout_within_7d, event_observed, event_time_days, censor_time_days, horizon_complete]
+split:
+  selection_train: {start: 2024-01-01, end: 2024-02-04, rows: 6720, positive_horizons: 166, episode_starts: 17}
+  validation: {start: 2024-02-12, end: 2024-02-25, rows: 2688, positive_horizons: 74, episode_starts: 8}
+  final_train: {start: 2024-01-01, end: 2024-02-25, rows: 10752, positive_horizons: 281, episode_starts: 32}
+  test: {start: 2024-03-04, end: 2024-03-23, rows: 3840, positive_horizons: 186, episode_starts: 27}
+  embargo_days: 7
+  episode_aware_purge: true
+primary_metric: average_precision
+secondary_metrics: [precision, recall, f1, roc_auc, brier_score]
+baselines: [always_no_stockout, below_reorder_point, below_safety_stock, days_of_cover_rule]
+candidate_models: [logistic_regression_balanced, histogram_gradient_boosting]
+random_seed: 20260916

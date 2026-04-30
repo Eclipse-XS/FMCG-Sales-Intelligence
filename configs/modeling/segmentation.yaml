@@ -1,0 +1,15 @@
+contract_version: 1
+task: segmentation
+status: READY_WITH_LIMITATIONS
+unit_of_analysis: store
+primary_snapshot: 2024-03-30
+stability_snapshots: [2024-01-31, 2024-02-29, 2024-03-30]
+features: [floor_area_m2, revenue_30d, units_30d, profit_30d, active_skus_30d, average_price_30d, promotion_unit_share_30d, revenue_volatility_30d]
+context_only: [region_id, store_type, channel]
+identifiers: [snapshot_date, store_id]
+preprocessing: robust_scaling_fit_on_primary_snapshot
+baselines: [kmeans]
+candidate_models: [agglomerative_clustering]
+cluster_count_candidates: [2, 3, 4, 5]
+metrics: [silhouette, davies_bouldin, cluster_size_balance, bootstrap_stability, business_interpretability]
+random_seed: 20260916

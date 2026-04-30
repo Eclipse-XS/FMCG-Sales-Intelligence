@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-09-16T14:03:52.224736+00:00",
+  "sections": [
+    "general",
+    "forecasting",
+    "stockout",
+    "segmentation",
+    "anomaly",
+    "basket",
+    "promotion"
+  ],
+  "status": "PASS"
+}

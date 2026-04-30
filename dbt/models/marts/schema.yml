@@ -1,0 +1,25 @@
+version: 2
+models:
+  - name: fact_daily_demand
+    description: "Complete daily store × SKU observation grid with requested demand, realized sales and inventory-censored lost sales."
+    columns:
+      - {name: demand_observation_id, tests: [unique, not_null]}
+      - {name: observation_date, tests: [not_null]}
+      - {name: store_id, tests: [not_null]}
+      - {name: sku_id, tests: [not_null]}
+  - name: fact_sales
+    description: "Grain: one observed store × SKU × sale day. Price temporal join is validated as non-fanout."
+    columns:
+      - {name: sale_id, tests: [unique, not_null]}
+      - {name: store_id, tests: [not_null, relationships: {to: ref('dim_store'), field: store_id}]}
+      - {name: sku_id, tests: [not_null, relationships: {to: ref('dim_product'), field: sku_id}]}
+  - name: fact_inventory
+    columns:
+      - {name: inventory_id, tests: [unique, not_null]}
+  - name: mart_sales_daily
+    columns:
+      - {name: sale_date, tests: [not_null]}
+      - {name: net_revenue, tests: [not_null]}
+  - name: mart_inventory_status
+    columns:
+      - {name: available_quantity, tests: [not_null]}

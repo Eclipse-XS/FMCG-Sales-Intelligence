@@ -1,0 +1,17 @@
+contract_version: 1
+task: stockout_survival
+status: READY_WITH_LIMITATIONS
+time_origin: inventory_snapshot_at_t
+time_scale: days
+horizon_days: 7
+event_indicator: event_observed
+event_time: event_time_days
+censor_time: censor_time_days
+features: [stock_quantity, reserved_quantity, available_quantity, reorder_point, safety_stock, stock_to_safety_ratio, distance_to_reorder_point, sales_velocity_7d, replenishment_sum_7d]
+identifiers: [prediction_date, warehouse_id, sku_id]
+forbidden_features: [first_stockout_date, stockout_within_7d, horizon_complete]
+baselines: [kaplan_meier]
+candidate_models: [cox_proportional_hazards]
+metrics: [concordance_index, integrated_brier_score_1_to_7d]
+split_reference: stockout_classification.yaml
+random_seed: 20260916

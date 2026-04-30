@@ -1,0 +1,5 @@
+outs:
+- md5: ff7817045cab0a7a2aa66e3bbedeef61
+  size: 1060872
+  hash: md5
+  path: forecasting_v1.parquet

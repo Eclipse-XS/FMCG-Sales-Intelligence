@@ -1,0 +1,11 @@
+contract_version: 1
+task: market_basket
+status: READY
+transaction_id: order_id
+item_levels: [sku_id, brand_name, category_name]
+quantity_policy: binary_item_presence_for_rules
+baseline_algorithm: apriori
+candidate_algorithm: fp_growth
+metrics: [support, confidence, lift]
+threshold_policy: derive_from_empirical_item_and_basket_frequency
+temporal_stability_period: calendar_month

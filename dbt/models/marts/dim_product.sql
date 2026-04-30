@@ -1,0 +1,2 @@
+select k.sku_id as product_key,k.sku_id,k.sku_code,p.product_id,p.product_name,b.brand_id,b.brand_name,c.category_id,c.category_name,k.flavor,k.package_type,k.volume_ml,k.units_per_case,k.base_price,k.standard_cost,p.sugar_free
+from {{ source('raw','skus') }} k join {{ source('raw','products') }} p using(product_id) join {{ source('raw','brands') }} b using(brand_id) join {{ source('raw','categories') }} c using(category_id)

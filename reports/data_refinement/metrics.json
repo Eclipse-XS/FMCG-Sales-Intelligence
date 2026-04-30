@@ -1,0 +1,222 @@
+{
+  "generated_at": "2026-09-16T14:27:12.753999+00:00",
+  "forecasting": {
+    "rows": 86400,
+    "positive_realized_rows": 35032,
+    "zero_realized_rows": 51368,
+    "zero_realized_rate": 0.5945370370370371,
+    "complete_targets": 79680,
+    "incomplete_targets": 6720,
+    "target_coverage": 0.9222222222222223,
+    "inventory_censored_rows": 242,
+    "inventory_censored_rate": 0.002800925925925926,
+    "target_distribution": [
+      {
+        "statistic": "count",
+        "value": 79680.0
+      },
+      {
+        "statistic": "null_count",
+        "value": 0.0
+      },
+      {
+        "statistic": "mean",
+        "value": 12.813729919678714
+      },
+      {
+        "statistic": "std",
+        "value": 11.163536547312152
+      },
+      {
+        "statistic": "min",
+        "value": 0.0
+      },
+      {
+        "statistic": "25%",
+        "value": 5.0
+      },
+      {
+        "statistic": "50%",
+        "value": 10.0
+      },
+      {
+        "statistic": "75%",
+        "value": 18.0
+      },
+      {
+        "statistic": "max",
+        "value": 111.0
+      }
+    ],
+    "series_count": 960,
+    "observations_per_series_min": 90,
+    "observations_per_series_max": 90,
+    "requested_units": 159099,
+    "realized_units": 157604,
+    "lost_units": 1495
+  },
+  "stockout": {
+    "prediction_rows": 17280,
+    "positive_prediction_horizons": 548,
+    "known_label_rows": 15955,
+    "positive_rate_known_labels": 0.03434659981197117,
+    "incomplete_non_event_rows": 1325,
+    "incomplete_non_event_rate": 0.07667824074074074,
+    "physical_episodes": 73,
+    "affected_warehouse_sku_series": 44,
+    "right_censored_episodes": 1,
+    "duration_days": [
+      {
+        "statistic": "count",
+        "value": 73.0
+      },
+      {
+        "statistic": "null_count",
+        "value": 0.0
+      },
+      {
+        "statistic": "mean",
+        "value": 1.6027397260273972
+      },
+      {
+        "statistic": "std",
+        "value": 0.9536439765941839
+      },
+      {
+        "statistic": "min",
+        "value": 1.0
+      },
+      {
+        "statistic": "25%",
+        "value": 1.0
+      },
+      {
+        "statistic": "50%",
+        "value": 1.0
+      },
+      {
+        "statistic": "75%",
+        "value": 2.0
+      },
+      {
+        "statistic": "max",
+        "value": 5.0
+      }
+    ],
+    "episodes_by_period": [
+      {
+        "period": "early",
+        "len": 15
+      },
+      {
+        "period": "late",
+        "len": 36
+      },
+      {
+        "period": "middle",
+        "len": 22
+      }
+    ],
+    "episodes_by_warehouse": [
+      {
+        "warehouse_id": 1,
+        "len": 7
+      },
+      {
+        "warehouse_id": 2,
+        "len": 15
+      },
+      {
+        "warehouse_id": 3,
+        "len": 23
+      },
+      {
+        "warehouse_id": 4,
+        "len": 28
+      }
+    ],
+    "top_episodes_by_sku": [
+      {
+        "sku_id": 2,
+        "len": 12
+      },
+      {
+        "sku_id": 1,
+        "len": 12
+      },
+      {
+        "sku_id": 6,
+        "len": 6
+      },
+      {
+        "sku_id": 4,
+        "len": 5
+      },
+      {
+        "sku_id": 3,
+        "len": 5
+      },
+      {
+        "sku_id": 15,
+        "len": 4
+      },
+      {
+        "sku_id": 7,
+        "len": 4
+      },
+      {
+        "sku_id": 5,
+        "len": 3
+      },
+      {
+        "sku_id": 13,
+        "len": 2
+      },
+      {
+        "sku_id": 8,
+        "len": 2
+      },
+      {
+        "sku_id": 19,
+        "len": 2
+      },
+      {
+        "sku_id": 11,
+        "len": 1
+      },
+      {
+        "sku_id": 37,
+        "len": 1
+      },
+      {
+        "sku_id": 25,
+        "len": 1
+      },
+      {
+        "sku_id": 14,
+        "len": 1
+      }
+    ],
+    "feature_means": {
+      "event": {
+        "available_quantity": 59.14963503649635,
+        "stock_to_safety_ratio": 1.5877299481333476,
+        "distance_to_reorder_point": -24.03102189781022,
+        "sales_velocity_7d": 6.205028313576753,
+        "replenishment_sum_7d": 101.94698354661791
+      },
+      "non_event_complete": {
+        "available_quantity": 85.94859479457389,
+        "stock_to_safety_ratio": 3.1775694055550714,
+        "distance_to_reorder_point": 20.17686765755825,
+        "sales_velocity_7d": 4.197384414730141,
+        "replenishment_sum_7d": 55.1369610935857
+      }
+    }
+  },
+  "before": {
+    "forecast_complete_targets": 1035,
+    "stockout_positive_prediction_horizons": 14,
+    "physical_stockout_episodes": 2
+  }
+}

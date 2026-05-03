@@ -23,3 +23,28 @@ models:
   - name: mart_inventory_status
     columns:
       - {name: available_quantity, tests: [not_null]}
+  - name: mart_promotion_daily
+    description: "Complete matched-duration PRE/DURING/POST promotion exposure grid. Observable zero-sales days are zero; dates outside the dataset boundary retain null outcomes."
+    columns:
+      - name: promotion_id
+        tests: [not_null]
+      - name: store_id
+        tests: [not_null]
+      - name: sku_id
+        tests: [not_null]
+      - name: calendar_date
+        tests: [not_null]
+      - name: period
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['PRE', 'DURING', 'POST']
+  - name: mart_promotion_performance
+    description: "Exposure-level promotion summary with explicit window completeness and eligibility; descriptive, not causal."
+    columns:
+      - name: promotion_id
+        tests: [not_null]
+      - name: store_id
+        tests: [not_null]
+      - name: sku_id
+        tests: [not_null]

@@ -1,0 +1,5 @@
+outs:
+- md5: e60f74472a031f0a54a9ca27052f948b
+  size: 208437
+  hash: md5
+  path: stockout_v1.parquet

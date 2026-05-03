@@ -15,6 +15,7 @@ SPECS={
  "segment_assignment":("segment_assignment/segment_assignment_v1.parquet",["snapshot_date","store_id"],["revenue_30d","units_30d"]),
  "anomaly":("anomaly/anomaly_v1.parquet",["event_date","store_id","sku_id"],["event_observed_units","event_transaction_unit_price"]),
  "basket":("basket/basket_v1.parquet",["order_id","sku_id"],["quantity"]),
+ "promotion_daily":("promotion_daily/promotion_daily_v1.parquet",["promotion_id","store_id","sku_id","calendar_date"],["promotion_duration_days"]),
  "promotion_performance":("promotion_performance/promotion_performance_v1.parquet",["promotion_id","store_id","sku_id"],[]),
 }
 def main():

@@ -1,5 +1,5 @@
 {
-  "ran_at": "2026-09-16T14:23:50.833739+00:00",
+  "ran_at": "2026-09-18T08:31:02.051171+00:00",
   "engine": "Great Expectations",
   "datasets": {
     "forecasting": {
@@ -265,6 +265,56 @@
         },
         {
           "expectation": "expect_column_to_exist",
+          "success": true
+        },
+        {
+          "expectation": "expect_column_values_to_not_be_null",
+          "success": true
+        },
+        {
+          "expectation": "expect_column_values_to_not_be_null",
+          "success": true
+        },
+        {
+          "expectation": "expect_compound_columns_to_be_unique",
+          "success": true
+        },
+        {
+          "expectation": "expect_column_values_to_be_between",
+          "success": true
+        }
+      ],
+      "passed": true
+    },
+    "promotion_daily": {
+      "rows": 259200,
+      "expectations": [
+        {
+          "expectation": "expect_column_to_exist",
+          "success": true
+        },
+        {
+          "expectation": "expect_column_to_exist",
+          "success": true
+        },
+        {
+          "expectation": "expect_column_to_exist",
+          "success": true
+        },
+        {
+          "expectation": "expect_column_to_exist",
+          "success": true
+        },
+        {
+          "expectation": "expect_column_to_exist",
+          "success": true
+        },
+        {
+          "expectation": "expect_column_values_to_not_be_null",
+          "success": true
+        },
+        {
+          "expectation": "expect_column_values_to_not_be_null",
           "success": true
         },
         {

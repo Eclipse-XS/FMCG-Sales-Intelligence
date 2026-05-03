@@ -1,13 +1,12 @@
-with grid as (
- select p.promotion_id,p.start_date,p.end_date,ps.store_id,pk.sku_id
- from {{ ref('dim_promotion') }} p join {{ source('raw','promotion_stores') }} ps using(promotion_id) join {{ source('raw','promotion_skus') }} pk using(promotion_id)
-), sales as (select * from {{ ref('fact_sales') }})
-select g.promotion_id,g.store_id,g.sku_id,g.start_date,g.end_date,
- sum(case when s.sale_date between g.start_date-30 and g.start_date-1 then s.quantity_units end) baseline_units,
- sum(case when s.sale_date between g.start_date and g.end_date then s.quantity_units end) promo_units,
- sum(case when s.sale_date between g.end_date+1 and g.end_date+30 then s.quantity_units end) post_units,
- sum(case when s.sale_date between g.start_date and g.end_date then s.net_revenue end) promo_revenue,
- sum(case when s.sale_date between g.start_date and g.end_date then s.gross_profit end) promo_profit
-from grid g left join sales s on s.store_id=g.store_id and s.sku_id=g.sku_id and s.sale_date between g.start_date-30 and g.end_date+30
-group by all
-
+with a as (select promotion_id,store_id,sku_id,min(promotion_start_date) start_date,min(promotion_end_date) end_date,min(promotion_duration_days) duration_days,bool_or(promotion_overlap) promotion_overlap,
+count(*) filter(where period='PRE') pre_expected_days,count(*) filter(where period='PRE' and is_observable) pre_observed_days,count(*) filter(where period='DURING') during_expected_days,count(*) filter(where period='DURING' and is_observable) during_observed_days,count(*) filter(where period='POST') post_expected_days,count(*) filter(where period='POST' and is_observable) post_observed_days,
+sum(realized_sales_units) filter(where period='PRE' and is_observable) partial_pre_units,sum(realized_sales_units) filter(where period='DURING' and is_observable) partial_during_units,sum(realized_sales_units) filter(where period='POST' and is_observable) partial_post_units,
+sum(realized_revenue) filter(where period='PRE' and is_observable) partial_pre_revenue,sum(realized_revenue) filter(where period='DURING' and is_observable) partial_during_revenue,sum(realized_revenue) filter(where period='POST' and is_observable) partial_post_revenue,
+avg(valid_selling_price) filter(where period='PRE' and is_observable) pre_average_price,avg(valid_selling_price) filter(where period='DURING' and is_observable) during_average_price,avg(valid_selling_price) filter(where period='POST' and is_observable) post_average_price,
+count(*) filter(where period='PRE' and demand_censored_by_inventory) pre_inventory_censored_days,count(*) filter(where period='DURING' and demand_censored_by_inventory) during_inventory_censored_days,count(*) filter(where period='POST' and demand_censored_by_inventory) post_inventory_censored_days,
+any_value(brand_name) brand_name,any_value(category_name) category_name,any_value(region_id) region_id,any_value(store_type) store_type,any_value(channel) channel from {{ ref('mart_promotion_daily') }} group by 1,2,3),f as (select *,pre_observed_days=pre_expected_days pre_window_complete,during_observed_days=during_expected_days during_window_complete,post_observed_days=post_expected_days post_window_complete from a)
+select *,pre_window_complete and during_window_complete and not promotion_overlap eligible_pre_vs_during,during_window_complete and post_window_complete and not promotion_overlap eligible_during_vs_post,pre_window_complete and during_window_complete and post_window_complete and not promotion_overlap eligible_full_cycle,
+case when pre_window_complete then partial_pre_units end pre_realized_units,case when during_window_complete then partial_during_units end during_realized_units,case when post_window_complete then partial_post_units end post_realized_units,
+case when pre_observed_days>0 then partial_pre_units/pre_observed_days::double end pre_units_per_observed_day,case when during_observed_days>0 then partial_during_units/during_observed_days::double end during_units_per_observed_day,case when post_observed_days>0 then partial_post_units/post_observed_days::double end post_units_per_observed_day,
+case when pre_observed_days>0 then pre_inventory_censored_days/pre_observed_days::double end pre_inventory_censored_day_rate,case when during_observed_days>0 then during_inventory_censored_days/during_observed_days::double end during_inventory_censored_day_rate,case when post_observed_days>0 then post_inventory_censored_days/post_observed_days::double end post_inventory_censored_day_rate,
+case when pre_window_complete then partial_pre_revenue end pre_revenue,case when during_window_complete then partial_during_revenue end during_revenue,case when post_window_complete then partial_post_revenue end post_revenue from f

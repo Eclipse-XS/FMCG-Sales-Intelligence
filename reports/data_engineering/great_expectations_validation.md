@@ -26,6 +26,10 @@ Rows: 35032; expectations: 11; result: **PASS**.
 
 Rows: 24370; expectations: 7; result: **PASS**.
 
+## promotion_daily
+
+Rows: 259200; expectations: 11; result: **PASS**.
+
 ## promotion_performance
 
 Rows: 2880; expectations: 7; result: **PASS**.

@@ -8,10 +8,19 @@ event_indicator: event_observed
 event_time: event_time_days
 censor_time: censor_time_days
 features: [stock_quantity, reserved_quantity, available_quantity, reorder_point, safety_stock, stock_to_safety_ratio, distance_to_reorder_point, sales_velocity_7d, replenishment_sum_7d]
+model_features: [available_quantity, reorder_point, safety_stock, sales_velocity_7d, replenishment_sum_7d]
 identifiers: [prediction_date, warehouse_id, sku_id]
-forbidden_features: [first_stockout_date, stockout_within_7d, horizon_complete]
+forbidden_features: [first_stockout_date, stockout_within_7d, event_observed, event_time_days, censor_time_days, horizon_complete, analytical_episode_id]
 baselines: [kaplan_meier]
 candidate_models: [cox_proportional_hazards]
-metrics: [concordance_index, integrated_brier_score_1_to_7d]
+metrics: [concordance_index, supported_horizon_brier]
 split_reference: stockout_classification.yaml
 random_seed: 20260916
+risk_set: available_quantity > 0 AND observable_followup_days > 0
+duration_definition: event_time_days when event_observed else censor_time_days
+event_definition: first future physical stockout onset in (t,t+7d]
+censoring_definition: administrative at 7 days or earlier at dataset end
+cox_penalizers: [0.1, 1.0]
+selection_metric: concordance_index
+evaluation_horizons_days: [3, 5, 7]
+episode_purge_policy: remove_training_rows_whose_observed_event_episode_is_represented_in_evaluation

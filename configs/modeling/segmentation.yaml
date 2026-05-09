@@ -5,11 +5,24 @@ unit_of_analysis: store
 primary_snapshot: 2024-03-30
 stability_snapshots: [2024-01-31, 2024-02-29, 2024-03-30]
 features: [floor_area_m2, revenue_30d, units_30d, profit_30d, active_skus_30d, average_price_30d, promotion_unit_share_30d, revenue_volatility_30d]
+selected_features: [revenue_30d, average_price_30d, promotion_unit_share_30d, revenue_volatility_30d]
+excluded_after_audit:
+  floor_area_m2: static capacity context and highly correlated with revenue and units
+  units_30d: highly redundant with revenue_30d
+  profit_30d: highly redundant with revenue_30d
+  active_skus_30d: zero variance on the reference snapshot
 context_only: [region_id, store_type, channel]
 identifiers: [snapshot_date, store_id]
 preprocessing: robust_scaling_fit_on_primary_snapshot
-baselines: [kmeans]
-candidate_models: [agglomerative_clustering]
+transformations: {log1p: []}
+candidate_models: [kmeans, agglomerative_clustering]
 cluster_count_candidates: [2, 3, 4, 5]
-metrics: [silhouette, davies_bouldin, cluster_size_balance, bootstrap_stability, business_interpretability]
+metrics: [silhouette, davies_bouldin, calinski_harabasz, cluster_size_balance, temporal_assignment_retention, business_interpretability]
+selection:
+  algorithm: kmeans
+  clusters: 3
+  rationale: balanced non-singleton clusters, strongest joint internal geometry, and tied-best temporal retention; KMeans provides a native future assignment rule
+kmeans: {n_init: 50}
+agglomerative: {linkage: ward, metric: euclidean}
+pseudo_label_version: segmentation_v1
 random_seed: 20260916

@@ -2,11 +2,30 @@ contract_version: 1
 task: anomaly_detection
 status: READY_WITH_LIMITATIONS
 contract: post_event_unsupervised
-features: [event_observed_units, event_transaction_unit_price, event_is_promo, lag_1, lag_7, rolling_mean_7d, rolling_std_7d, brand_name, category_name]
+features: [event_observed_units, event_transaction_unit_price, event_is_promo, lag_1, lag_7, rolling_mean_7d, rolling_std_7d]
+context_only: [brand_name, category_name]
 identifiers: [event_date, store_id, sku_id]
-forbidden_features: [anomaly_label, is_anomaly, forecast_residual]
+forbidden_features: [anomaly_label, is_anomaly, forecast_residual, future_sales, future_demand, future_stockout]
 baseline: historical_rolling_z_score
+rolling:
+  window_days: 7
+  minimum_positive_event_history: 2
+  grouping: [store_id, sku_id]
+  current_observation_excluded: true
+  zero_variance_policy: equal_is_non_extreme_otherwise_signed_infinite
+  threshold_abs_z: 3.0
 candidate_models: [isolation_forest]
 optional_local_method: lof_for_offline_reference_only
 evaluation: [candidate_rate, score_distribution, temporal_stability, slice_stability, manual_business_review]
+temporal_design:
+  reference: {start: 2024-01-01, end: 2024-02-18}
+  scoring: {start: 2024-02-19, end: 2024-03-30}
+isolation_forest:
+  contamination: 0.02
+  n_estimators: 300
+  threshold_policy: fitted_reference_contamination_offset
+  score_orientation: higher_is_more_anomalous
+  sensitivity_contamination: [0.01, 0.02, 0.05]
+  sensitivity_seeds: [20260916, 20260917, 20260918]
+review_top_n: 100
 random_seed: 20260916

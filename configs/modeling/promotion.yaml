@@ -1,10 +1,31 @@
 contract_version: 1
 task: promotion_performance
 status: READY_WITH_LIMITATIONS
+modeling_status: COMPLETE_DESCRIPTIVE_ANALYSIS
 analysis_type: descriptive_non_causal
 grain: [promotion_id, store_id, sku_id]
-measures: [baseline_units, promo_units, post_units, promo_revenue, promo_profit]
-derived_measures: [absolute_uplift, percentage_uplift_with_nonzero_baseline]
+daily_grain: [promotion_id, store_id, sku_id, calendar_date]
+primary_outcome: realized_sales_units
+context_measures: [requested_demand_units, lost_sales_units, demand_censored_by_inventory]
+canonical_measures: [pre_realized_units, during_realized_units, post_realized_units, pre_revenue, during_revenue, post_revenue]
+derived_measures: [units_per_observed_day]
 slice_columns: [promotion_id, promotion_type, store_type, region_id, channel]
 forbidden_claims: [causal_uplift, treatment_effect, incremental_sales]
 future_predictive_question: predict_promo_period_sales_not_causal_effect
+window_policy: matched_promotion_duration
+overlap_policy: exclude_ambiguous_overlap_from_canonical_comparison
+zero_sales_policy: observable_missing_positive_fact_is_zero
+boundary_policy: outside_dataset_boundary_is_unobservable_null
+profitability: NOT_AVAILABLE_FOR_CANONICAL_PROMOTION_ANALYSIS
+roi: NOT_AVAILABLE
+canonical_baseline: MATCHED_DURATION_PRE
+low_baseline_units_per_day: 0.5
+sensitivity_pre_days: [14]
+aggregation_policy: reconstruct_from_eligible_exposure_totals
+relative_change_policy: null_when_baseline_is_zero
+price_metric_policy: units_weighted_realized_price_when_units_positive_else_mean_valid_posted_price
+eligibility_policy:
+  pre_vs_during: eligible_pre_vs_during
+  during_vs_post: eligible_during_vs_post
+  full_cycle: eligible_full_cycle
+review_status: UNREVIEWED

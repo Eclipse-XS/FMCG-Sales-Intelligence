@@ -18,3 +18,5 @@ catboost==1.2.8
 joblib==1.5.2
 dvc==3.63.0
 pathspec==0.12.1
+lifelines==0.30.0
+mlxtend==0.23.4

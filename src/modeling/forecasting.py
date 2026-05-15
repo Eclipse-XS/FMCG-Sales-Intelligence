@@ -26,6 +26,14 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from .metrics import nonnegative, regression_metrics
 
 ROOT = Path(__file__).resolve().parents[2]
+
+
+def _portable_path(path: Path | str) -> str:
+    resolved = Path(path).resolve()
+    try:
+        return resolved.relative_to(ROOT).as_posix()
+    except ValueError:
+        return resolved.as_posix()
 DEFAULT_CONFIG = ROOT / "configs/modeling/forecasting.yaml"
 DEFAULT_DATA = ROOT / "data/processed/forecasting/forecasting_v1.parquet"
 
@@ -233,7 +241,7 @@ def run_experiment(*, config_path: Path | str = DEFAULT_CONFIG, data_path: Path 
     (out / "dvc_metrics.json").write_text(json.dumps({"test_wape": test_metrics["wape"], "test_mae": test_metrics["mae"], "test_rmse": test_metrics["rmse"], "test_signed_bias": test_metrics["signed_bias"]}, indent=2), encoding="utf-8")
     shutil.copy2(config_path, out / "resolved_config.yaml")
     manifest = {"experiment_id": experiment_id, "created_at_utc": now.isoformat(), "task": "forecasting",
-                "data_path": str(data_path.resolve()), "data_rows": len(df), "data_columns": list(df.columns),
+                "data_path": _portable_path(data_path), "data_rows": len(df), "data_columns": list(df.columns),
                 "splits": {n: {"rows": len(p), "start": str(p.prediction_date.min().date()), "end": str(p.prediction_date.max().date())} for n,p in parts.items()},
                 "features": features, "excluded_optional_features": cfg["features"]["optional_experimental"],
                 "target": cfg["primary_target"], "git": _git_info(), "python": platform.python_version(),

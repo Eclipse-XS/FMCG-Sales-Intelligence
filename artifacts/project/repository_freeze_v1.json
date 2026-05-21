@@ -1,0 +1,29 @@
+{
+  "checkpoint_version": "repository_freeze_v1",
+  "starting_head": "d6f2d9d8a3c72bfb4ed75b102e43c7c49f9d2465",
+  "ending_head": "SELF",
+  "ending_head_note": "The containing freeze-record commit is self-referential; resolve the exact SHA with git rev-parse HEAD.",
+  "branch": "main",
+  "commits_created": [
+    {"sha": "b3c55d6", "message": "feat(data): refine promotion analytical contracts", "logical_scope": "promotion marts/contracts, quality evidence, and seven processed dataset pointers"},
+    {"sha": "c4f3891", "message": "feat(stockout): add classification and survival V1", "logical_scope": "stockout classification and survival code, configs, tests, and documentation"},
+    {"sha": "c49d466", "message": "feat(analytics): add segmentation and anomaly V1", "logical_scope": "segmentation and anomaly code, configs, tests, and documentation"},
+    {"sha": "c15a1e1", "message": "feat(analytics): add basket and promotion V1", "logical_scope": "basket and promotion analytics code, configs, tests, and documentation"},
+    {"sha": "cb1ca42", "message": "feat(modeling): expand experiment API and DVC pipeline", "logical_scope": "shared API/CLI, forecasting portability, dependencies, DVC stages and lock metadata"},
+    {"sha": "de77518", "message": "docs(project): add V1 modeling checkpoint", "logical_scope": "project registry, status, architectural decisions, claims, and checkpoint tests"},
+    {"sha": "SELF", "message": "chore(repo): record repository freeze V1", "logical_scope": "freeze evidence and final project status"}
+  ],
+  "working_tree_clean": true,
+  "remaining_dirty_files": [],
+  "pytest_result": {"passed": 105, "failed": 0, "warnings": 4358, "runtime_seconds": 113.13},
+  "dbt_result": {"passed": 55, "warned": 0, "failed": 0, "runtime_seconds": 4.18},
+  "quality_result": {"status": "PASS", "published_artifacts": 8},
+  "dvc_status": "Data and pipelines are up to date.",
+  "dvc_remote_configured": false,
+  "security_status": "PASS_NO_ACTUAL_SECRETS_FOUND",
+  "large_file_status": "PASS_NO_GIT_CANDIDATE_OVER_1_MB",
+  "portability_status": "PASS_REPOSITORY_FACING_PATHS_PORTABLE",
+  "scientific_results_changed": false,
+  "clean_machine_reproduction_proven": false,
+  "next_action": "Configure an external DVC remote, then test reproduction in a clean clone before serving or BI work."
+}

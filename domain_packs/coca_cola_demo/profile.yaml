@@ -1,0 +1,11 @@
+profile_id: coca_cola_demo
+profile_version: v1
+display_name: Coca-Cola-oriented Beverage Demo
+source_system_type: CURRENT_SYNTHETIC_POSTGRESQL
+currency: UAH
+timezone: Europe/Kyiv
+disclaimer: Academic portfolio demonstration; not official Coca-Cola HBC software, no internal company data, affiliation, or endorsement.
+contracts: [sales_daily, sku_master, locations, prices, inventory_snapshots, deliveries, orders, order_items, promotions, promotion_stores, promotion_skus]
+labels: {item: SKU, location: Store / Outlet, brand: Brand, promotion: Promotion}
+theme: {primary: "#b91c1c", accent: "#111827"}
+

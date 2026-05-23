@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fmcg-sales-intelligence"
+version = "1.0.0"
+description = "Reusable sales, retail, and distribution intelligence kernel"
+requires-python = ">=3.11"
+dependencies = [
+  "pandas==3.0.5", "polars==1.44.2", "pyarrow==25.0.1",
+  "scikit-learn==1.7.2", "catboost==1.2.8", "joblib==1.5.2",
+  "PyYAML==6.0.3", "duckdb==1.5.5", "fastapi==0.116.1", "pydantic==2.11.7",
+  "pydantic-settings==2.10.1", "uvicorn==0.35.0", "prometheus-client==0.22.1",
+]
+
+[project.optional-dependencies]
+analytics = ["lifelines==0.30.0", "mlxtend==0.23.4"]
+dev = ["pytest==9.1.1", "httpx==0.28.1", "ruff==0.12.11"]
+
+[project.scripts]
+fsi = "fmcg_sales_intelligence.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["fmcg_sales_intelligence*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"

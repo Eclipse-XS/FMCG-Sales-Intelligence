@@ -1,0 +1,10 @@
+mapping_version: v1
+source: synthetic_fixture
+datasets:
+  sales_daily:
+    columns: {day: observation_date, branch_code: store_id, item_code: sku_id, quantity: observed_units}
+  sku_master:
+    columns: {item_code: sku_id, family_code: product_id, item_name: sku_name}
+  locations:
+    columns: {branch_code: store_id, territory_code: region_id, branch_name: store_name}
+

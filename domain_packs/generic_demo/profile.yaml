@@ -1,0 +1,11 @@
+profile_id: generic_demo
+profile_version: v1
+display_name: Northwind-style Retail Fixture
+source_system_type: TEST_FIXTURE
+currency: EUR
+timezone: UTC
+disclaimer: Tiny synthetic fixture used only to prove company-name detachability.
+contracts: [sales_daily, sku_master, locations]
+labels: {item: Item, location: Branch, brand: Product Family, promotion: Campaign}
+theme: {primary: "#1d4ed8", accent: "#0f172a"}
+

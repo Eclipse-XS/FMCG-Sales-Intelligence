@@ -1,0 +1,11 @@
+profile_id: company_template
+profile_version: v1
+display_name: Replaceable Company Demo
+source_system_type: CSV_OR_PARQUET_EXPORT
+currency: USD
+timezone: UTC
+disclaimer: Template configuration only; replace mappings with validated company data.
+contracts: []
+labels: {item: Item, location: Location, brand: Brand, promotion: Campaign}
+theme: {primary: "#334155", accent: "#0f766e"}
+

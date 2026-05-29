@@ -1,0 +1,4 @@
+# Install in the dedicated MLflow container/environment. Its dependency graph
+# is intentionally isolated from the frozen scientific runtime.
+mlflow==3.16.1
+psycopg[binary]==3.3.5

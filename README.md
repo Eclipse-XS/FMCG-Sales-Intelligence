@@ -1,6 +1,55 @@
 # FMCG Sales Intelligence
 
-Operational PostgreSQL foundation for a synthetic beverage company. The hierarchy is `category → brand → product → SKU`; the SKU is the sellable and stocked unit. No generated record is represented as internal Coca-Cola company data.
+A reusable local sales/retail/distribution intelligence product: canonical company onboarding contracts, PostgreSQL and DuckDB/dbt data layers, seven frozen ML/analytics cores, MLflow/DVC governance, FastAPI inference and an API-driven React dashboard. The `coca_cola_demo` domain pack is replaceable presentation/mapping configuration—not an official Coca-Cola product and not internal company data.
+
+```mermaid
+flowchart LR
+  A[Company data] --> B[Adapter + domain pack]
+  B --> C[Canonical contracts]
+  C --> D[PostgreSQL → DuckDB/dbt → quality]
+  D --> E[ML / analytics cores]
+  E --> F[DVC + MLflow]
+  F --> G[Serving / analytics API]
+  G --> H[Company-configured dashboard]
+```
+
+## Product quick start
+
+```powershell
+Copy-Item .env.example .env
+.venv\Scripts\python -m pip install -r requirements.txt
+.venv\Scripts\python -m pip install -e . --no-deps
+.venv\Scripts\python scripts/verify_environment.py
+.venv\Scripts\python -m fmcg_sales_intelligence.cli serve
+```
+
+Dashboard development: `cd apps/dashboard`, then `npm ci` and `npm run dev`. Docker product stack: `docker compose --profile core up -d --build`. Optional MLflow: `docker compose --profile mlops up -d --build`.
+
+| Core | Method | Mode | Serving |
+|---|---|---|---|
+| Demand Forecasting | CatBoost regression | scheduled batch + HTTP demo | frozen V1 |
+| Stockout Classification | histogram gradient boosting | scheduled batch + HTTP demo | frozen V1 |
+| Stockout Survival | Cox PH | offline experimental | no |
+| Store Segmentation | k-means | human-review analytics | no |
+| Sales Anomaly Detection | Isolation Forest | human-review analytics | no |
+| Market Basket | FP-Growth | human-review analytics | no |
+| Promotion Performance | descriptive matched windows | offline analytics | no |
+| Segment Assignment | unavailable target | blocked | no |
+
+| Technology | Role | Evidence-based state |
+|---|---|---|
+| PostgreSQL | operational source | active/executed |
+| DuckDB + dbt | local warehouse | active/executed |
+| DVC | data/pipeline ownership | active; no remote |
+| MLflow | runs/registry metadata | active/executed in isolated container |
+| FastAPI | product backend | active/tested |
+| React/Vite/ECharts | business dashboard | active/build- and Docker-tested |
+| Prometheus / Grafana | local engineering observability | active/executed |
+| Kafka | replay simulation | implemented, runtime proof pending |
+| Airflow | DAG definition | not runtime verified |
+| Airbyte / BigQuery | connector/cloud templates | template only |
+
+Architecture: [system](docs/architecture/system_architecture.md), [repository](docs/architecture/repository_structure.md), [contracts](docs/data/canonical_contracts_v1.md), [serving](docs/deployment/serving_v1.md), [dashboard](docs/visualization/dashboard_v1.md), and [technology registry](docs/architecture/technology_stack_v1.md).
 
 ## Reproduce
 

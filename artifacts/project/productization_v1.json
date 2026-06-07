@@ -1,0 +1,15 @@
+{
+  "milestone": "productization_v1",
+  "status": "PRODUCTIZATION_V1_COMPLETE_WITH_BLOCKERS",
+  "completed_at": "2026-09-18",
+  "scientific_results_changed": false,
+  "architecture": "hybrid generic product package plus frozen scientific core",
+  "contracts": 11,
+  "domain_packs": ["_template", "coca_cola_demo", "generic_demo"],
+  "api_models": ["forecasting", "stockout_classification"],
+  "mlflow": {"version": "3.16.1", "experiments": 7, "runs": 7, "registered_models": 2, "idempotent_sync": true},
+  "dashboard_pages": 11,
+  "docker_services_validated": ["postgres", "api", "frontend", "mlflow", "prometheus", "grafana"],
+  "validation": {"pytest": 121, "dbt": 55, "great_expectations_datasets": 8, "frontend_tests": 2, "npm_vulnerabilities": 0},
+  "blockers": ["segment_assignment", "dvc_remote", "production_security_controls", "dashboard_global_filters"]
+}

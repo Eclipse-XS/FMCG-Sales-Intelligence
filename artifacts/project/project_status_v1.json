@@ -1,17 +1,53 @@
 {
-  "project_status": "V1_MODELING_ANALYTICS_SCOPE_COMPLETE_WITH_LIMITATIONS",
-  "checkpoint_version": "v1",
-  "git": {"branch": "main", "head": "HEAD", "working_tree": "CLEAN_AFTER_FREEZE_COMMIT", "remote": "https://github.com/Eclipse-XS/FMCG-Sales-Intelligence.git", "local_freeze": "COMPLETE", "pushed": false},
-  "dvc": {"version": "3.63.0", "stage_count": 7, "status": "UP_TO_DATE", "remote": null},
-  "data_platform_status": {"postgresql": "EXECUTED_LOCAL", "duckdb_dbt": "EXECUTED_LOCAL", "kafka": "IMPLEMENTED_DEMO_NO_RECORDED_RUNTIME_EVIDENCE", "airflow": "DEFINITION_ONLY_NOT_DEPLOYED", "airbyte": "CONFIGURED_NOT_EXECUTED", "bigquery": "CONFIGURED_NOT_EXECUTED", "grafana": "COMPOSE_PROFILE_NOT_RUNTIME_VERIFIED"},
+  "project_status": "PRODUCTIZATION_V1_COMPLETE_WITH_BLOCKERS",
+  "checkpoint_version": "productization_v1",
+  "scientific_core_status": "FROZEN_V1_UNCHANGED",
+  "core_boundary_status": "PASS",
+  "contract_registry_status": "PASS_11_CONTRACTS",
+  "domain_pack_status": "PASS",
+  "coca_cola_demo_status": "PASS_SYNTHETIC_UNOFFICIAL",
+  "mlflow_status": "PASS_7_CANONICAL_RUNS",
+  "mlflow_server_status": "HEALTHY_DOCKER",
+  "mlflow_registered_models": ["fsi.forecasting@serving-v1", "fsi.stockout_classification@serving-v1"],
+  "canonical_import_status": "PASS_IDEMPOTENT",
+  "backend_status": "PASS_DOCKER_AND_TESTCLIENT",
+  "dashboard_status": "PASS_API_DRIVEN_WITH_LIMITATIONS",
+  "frontend_status": "PASS_2_TESTS_BUILD_AUDIT_ZERO_HIGH_VULNERABILITIES",
+  "capability_registry_status": "PASS_7_AVAILABLE_1_SCIENTIFICALLY_BLOCKED",
+  "company_onboarding_status": "PASS_TEMPLATE_AND_TWO_PROFILES",
+  "Docker_status": "PASS_CORE_MLOPS_OBSERVABILITY",
+  "observability_status": "PASS_LOCAL_PROMETHEUS_GRAFANA",
+  "data_platform_status": {
+    "postgresql": "HEALTHY_LOCAL",
+    "duckdb_dbt": "PASS_55",
+    "great_expectations": "PASS_8_DATASETS",
+    "kafka": "IMPLEMENTED_NOT_REVALIDATED_THIS_MILESTONE",
+    "airflow": "DEFINITION_ONLY_NOT_DEPLOYED",
+    "airbyte": "TEMPLATE_ONLY",
+    "bigquery": "TEMPLATE_ONLY"
+  },
+  "test_status": {
+    "pytest": "121_PASS",
+    "ruff": "PASS",
+    "dbt": "55_PASS",
+    "great_expectations": "PASS_8_DATASETS",
+    "frontend": "2_PASS_BUILD_PASS_NPM_AUDIT_0",
+    "docker": "API_FRONTEND_MLFLOW_PROMETHEUS_GRAFANA_HEALTHY"
+  },
   "implemented_core_count": 7,
   "blocked_core_count": 1,
   "serving_candidates": ["forecasting", "stockout_classification"],
   "offline_analytics": ["stockout_survival", "segmentation", "anomaly", "basket", "promotion"],
-  "bi_consumers": ["forecasting", "stockout_classification", "segmentation_with_caveat", "anomaly", "basket", "promotion"],
-  "human_review_outputs": ["segmentation profiles", "anomaly candidates", "basket rules", "promotion summaries", "survival diagnostics"],
-  "test_status": {"pytest": "105_PASS", "dbt_full_latest_recorded": "55_PASS", "dbt_promotion_latest": "14_PASS", "great_expectations": "PASS_8_DATASETS"},
-  "quality_status": "PASS_WITH_SCIENTIFIC_LIMITATIONS",
-  "major_blockers": ["no DVC remote", "segment assignment blocked", "no implemented inference service", "no production monitoring", "cloud/orchestration templates not executed", "synthetic short-history data"],
-  "next_milestones": ["DVC remote decision", "clean-machine reproduction", "predictive serving design for forecasting and stockout classification", "BI mart design", "monitoring contracts", "portfolio documentation and demo"]
+  "blockers": [
+    "segment assignment remains scientifically blocked",
+    "no DVC remote or clean-machine artifact reproduction proof",
+    "local demo has no authentication, authorization, TLS, rate limiting or production secrets manager",
+    "dashboard has no cross-page global dimension filters and frontend bundle exceeds the preferred 500 kB chunk threshold",
+    "Kafka, Airflow, Airbyte and BigQuery are not part of the validated default runtime"
+  ],
+  "git": {
+    "branch": "main",
+    "upstream_push_performed": false,
+    "scientific_history_rewritten": false
+  }
 }

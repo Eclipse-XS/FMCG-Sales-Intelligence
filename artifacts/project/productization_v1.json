@@ -11,5 +11,15 @@
   "dashboard_pages": 11,
   "docker_services_validated": ["postgres", "api", "frontend", "mlflow", "prometheus", "grafana"],
   "validation": {"pytest": 121, "dbt": 55, "great_expectations_datasets": 8, "frontend_tests": 2, "npm_vulnerabilities": 0},
-  "blockers": ["segment_assignment", "dvc_remote", "production_security_controls", "dashboard_global_filters"]
+  "blockers": ["segment_assignment", "dvc_gdrive_oauth", "production_security_controls", "docker_runtime_unavailable"]
+  ,"v1_1": {
+    "status": "REPRODUCIBILITY_HARDENING_V1_1_COMPLETE_WITH_EXTERNAL_AUTH_BLOCKER",
+    "dvc_remote": "gdrive_configured_push_blocked_auth",
+    "clean_clone": "blocked_auth",
+    "dashboard": "global_filters_and_code_splitting_pass",
+    "security": "local_demo_baseline_hardened",
+    "kafka": "active_partial_docker_engine_unavailable",
+    "airflow": "implemented_not_runtime_verified",
+    "scientific_results_changed": false
+  }
 }

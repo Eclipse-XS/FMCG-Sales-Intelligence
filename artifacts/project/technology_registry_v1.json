@@ -744,7 +744,7 @@
       "name": "DVC",
       "category": "reproducibility",
       "version": "3.63.0",
-      "state": "ACTIVE_EXECUTED",
+      "state": "ACTIVE_PARTIAL",
       "purpose": "data, pipeline and canonical artifact ownership",
       "required_for_default_stack": false,
       "required_for_training": true,
@@ -766,7 +766,7 @@
       "health_check": "dvc status/dag/doctor/metrics",
       "validation_command": "dvc status/dag/doctor/metrics",
       "persistent_state": "local cache",
-      "credentials_required": false,
+      "credentials_required": true,
       "network_ports": [],
       "dependencies_on_other_services": [
         "Git"
@@ -779,9 +779,9 @@
         "Repository audit: dvc status/dag/doctor/metrics"
       ],
       "known_limitations": [
-        "no remote"
+        "Google Drive remote configured; upload blocked on interactive OAuth consent"
       ],
-      "planned_action": "retain"
+      "planned_action": "authorize and push DVC objects"
     },
     {
       "name": "MLflow",
@@ -1033,10 +1033,8 @@
       "evidence": [
         "Repository audit: npm audit/test/build"
       ],
-      "known_limitations": [
-        "large JS bundle warning"
-      ],
-      "planned_action": "retain and code-split later"
+      "known_limitations": [],
+      "planned_action": "retain V1.1 global filter contract and split bundles"
     },
     {
       "name": "Git + GitHub",

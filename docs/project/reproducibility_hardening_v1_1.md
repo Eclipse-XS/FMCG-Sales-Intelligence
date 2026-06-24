@@ -6,6 +6,8 @@ The starting point was clean `main` at `d0e8284fcd39c1960d059f0a86a088e437ecf0b6
 
 The tracked `gdrive` remote is now configured and `dvc-gdrive==3.0.1` is pinned. Seven processed dataset pointers and seven canonical stage outputs were audited; serving bundles are owned. `dvc push -v` reached Google OAuth and stopped at interactive consent. No token or secret entered Git. Consequently DVC push, second-push completeness, Git push and genuine remote clean-clone pull/serving parity are not claimed.
 
+A separate local clone with a new Python 3.13.5 virtual environment completed the locked requirements install, editable package install and package import (`1.0.0`). API liveness returned 200 and readiness correctly returned 503 without DVC artifacts. A fresh `npm ci`, 7 frontend tests and production build passed. The clean clone exposed cross-platform DVC dependency hash drift from line-ending conversion; `.gitattributes` now fixes pipeline text dependencies to LF, and a second new clone confirms only the expected missing DVC-managed datasets/artifacts remain. This is `LOCAL_CLONE_REPRO_PROVEN_ONLY`, not remote artifact reproduction.
+
 Dashboard V1.1 implements typed backend-driven global filters, URL persistence, supported-page propagation, explicit non-applicability, no-data/loading/error states, freshness/model metadata, modular ECharts and code splitting. The largest V1.1 chunk is 360.59 kB versus the former 1,341.16 kB entry bundle.
 
 The local-demo API now has restricted CORS, body/batch/page/list limits, structured safe errors, request IDs, security headers and parameterized analytical queries. Authentication, authorization, TLS, distributed rate limits and secrets management remain production-deferred.

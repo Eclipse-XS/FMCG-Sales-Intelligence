@@ -31,7 +31,8 @@ data/processed/stockout/*
 data/processed/segmentation/*
 !data/processed/segmentation/*.dvc
 !data/processed/segmentation/.gitignore
-data/warehouse/
+data/warehouse/**
+!data/warehouse/*.dvc
 artifacts/experiments/
 artifacts/canonical/
 artifacts/forecasting_v1_metrics.json

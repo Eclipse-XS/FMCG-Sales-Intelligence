@@ -10,12 +10,12 @@
   "mlflow": {"version": "3.16.1", "experiments": 7, "runs": 7, "registered_models": 2, "idempotent_sync": true},
   "dashboard_pages": 11,
   "docker_services_validated": ["postgres", "api", "frontend", "mlflow", "prometheus", "grafana"],
-  "validation": {"pytest": 121, "dbt": 55, "great_expectations_datasets": 8, "frontend_tests": 2, "npm_vulnerabilities": 0},
-  "blockers": ["segment_assignment", "dvc_gdrive_oauth", "production_security_controls", "docker_runtime_unavailable"]
+  "validation": {"pytest": 124, "pytest_skipped": 3, "dbt": 55, "great_expectations_datasets": 8, "frontend_tests": 7, "npm_vulnerabilities": 0},
+  "blockers": ["segment_assignment", "production_security_controls", "docker_runtime_unavailable"]
   ,"v1_1": {
-    "status": "REPRODUCIBILITY_HARDENING_V1_1_COMPLETE_WITH_EXTERNAL_AUTH_BLOCKER",
-    "dvc_remote": "gdrive_configured_push_blocked_auth",
-    "clean_clone": "local_code_env_frontend_pass_dvc_pull_blocked_auth",
+    "status": "CROSS_MACHINE_REPRODUCIBILITY_PROVEN_WITH_OPTIONAL_RUNTIME_BLOCKERS",
+    "dvc_remote": "gdrive_complete_first_and_second_push_pass",
+    "clean_clone": "proven_from_github_and_dvc",
     "dashboard": "global_filters_and_code_splitting_pass",
     "security": "local_demo_baseline_hardened",
     "kafka": "active_partial_docker_engine_unavailable",

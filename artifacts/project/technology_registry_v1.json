@@ -744,7 +744,7 @@
       "name": "DVC",
       "category": "reproducibility",
       "version": "3.63.0",
-      "state": "ACTIVE_PARTIAL",
+      "state": "ACTIVE_EXECUTED",
       "purpose": "data, pipeline and canonical artifact ownership",
       "required_for_default_stack": false,
       "required_for_training": true,
@@ -761,11 +761,13 @@
       ],
       "main_source_paths": [
         "data/processed",
+        "data/generated",
+        "data/warehouse",
         "artifacts/canonical"
       ],
       "health_check": "dvc status/dag/doctor/metrics",
       "validation_command": "dvc status/dag/doctor/metrics",
-      "persistent_state": "local cache",
+      "persistent_state": "local cache and Google Drive remote",
       "credentials_required": true,
       "network_ports": [],
       "dependencies_on_other_services": [
@@ -776,12 +778,10 @@
       ],
       "owner_layer": "reproducibility",
       "evidence": [
-        "Repository audit: dvc status/dag/doctor/metrics"
+        "GitHub clean-clone DVC pull, status, hash and serving-parity proof"
       ],
-      "known_limitations": [
-        "Google Drive remote configured; upload blocked on interactive OAuth consent"
-      ],
-      "planned_action": "authorize and push DVC objects"
+      "known_limitations": [],
+      "planned_action": "retain"
     },
     {
       "name": "MLflow",
@@ -1111,9 +1111,9 @@
         "Repository audit: workflow syntax and future remote run"
       ],
       "known_limitations": [
-        "cannot reproduce DVC artifacts without remote"
+        "container CI remains deferred"
       ],
-      "planned_action": "validate after push"
+      "planned_action": "retain"
     },
     {
       "name": "OpenAPI",

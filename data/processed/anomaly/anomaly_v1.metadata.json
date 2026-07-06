@@ -1,0 +1,35 @@
+{
+  "dataset_name": "anomaly",
+  "dataset_version": "v1",
+  "feature_version": "v1",
+  "generated_at": "2026-09-16T14:21:49.579584+00:00",
+  "source_cutoff": "2024-03-30",
+  "row_count": 35032,
+  "column_count": 12,
+  "date_column": "event_date",
+  "date_range": [
+    "2024-01-01",
+    "2024-03-30"
+  ],
+  "keys": [
+    "event_date",
+    "store_id",
+    "sku_id"
+  ],
+  "duplicate_keys": 0,
+  "targets": [],
+  "schema": {
+    "event_date": "Date",
+    "store_id": "Int64",
+    "sku_id": "Int64",
+    "event_observed_units": "Int64",
+    "event_transaction_unit_price": "Decimal(precision=38, scale=2)",
+    "event_is_promo": "Boolean",
+    "lag_1": "Int64",
+    "lag_7": "Int64",
+    "rolling_mean_7d": "Float64",
+    "rolling_std_7d": "Float64",
+    "brand_name": "String",
+    "category_name": "String"
+  }
+}

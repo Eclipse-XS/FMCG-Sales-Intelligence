@@ -60,6 +60,13 @@ data/processed/promotion_daily/*
 data/processed/promotion_performance/*
 !data/processed/promotion_performance/*.dvc
 !data/processed/promotion_performance/.gitignore
+!data/processed/anomaly/*.metadata.json
+!data/processed/basket/*.metadata.json
+!data/processed/forecasting/*.metadata.json
+!data/processed/promotion_daily/*.metadata.json
+!data/processed/promotion_performance/*.metadata.json
+!data/processed/segmentation/*.metadata.json
+!data/processed/stockout/*.metadata.json
 .dvc/cache/
 dbt/target/
 dbt/logs/

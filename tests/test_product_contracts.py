@@ -39,7 +39,8 @@ def test_domain_packs_and_capability_semantics():
     generic_caps = {x["capability"]: x["status"] for x in evaluate_capabilities(generic["contracts"])}
     assert generic_caps["forecasting"] == "AVAILABLE"
     assert generic_caps["basket"] == "UNAVAILABLE_MISSING_CONTRACT"
-    assert generic_caps["segment_assignment"] == "BLOCKED_SCIENTIFICALLY"
+    assert generic_caps["segment_cluster_membership_assignment"] == "ACTIVE_EXPERIMENTAL"
+    assert generic_caps["supervised_segment_classification"] == "BLOCKED_SCIENTIFICALLY"
 
 
 def test_generic_package_does_not_import_coca_cola_pack():

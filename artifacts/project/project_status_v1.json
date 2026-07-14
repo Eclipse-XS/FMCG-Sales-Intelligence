@@ -1,6 +1,6 @@
 {
-  "project_status": "CROSS_MACHINE_REPRODUCIBILITY_PROVEN_WITH_OPTIONAL_RUNTIME_BLOCKERS",
-  "checkpoint_version": "reproducibility_hardening_v1_1",
+  "project_status": "RUNTIME_PLATFORM_V1_2_COMPLETE",
+  "checkpoint_version": "runtime_platform_and_segment_assignment_v1_2",
   "scientific_core_status": "FROZEN_V1_UNCHANGED",
   "core_boundary_status": "PASS",
   "contract_registry_status": "PASS_11_CONTRACTS",
@@ -19,38 +19,39 @@
   "clean_clone_result": "PROVEN_FROM_GITHUB_AND_DVC",
   "dashboard_v1_1_status": "PASS",
   "security_boundary_status": "LOCAL_DEMO_BASELINE_HARDENED",
-  "kafka_runtime_status": "ACTIVE_PARTIAL_DOCKER_ENGINE_UNAVAILABLE",
-  "airflow_runtime_status": "IMPLEMENTED_NOT_RUNTIME_VERIFIED",
-  "capability_registry_status": "PASS_7_AVAILABLE_1_SCIENTIFICALLY_BLOCKED",
+  "kafka_runtime_status": "ACTIVE_EXECUTED_LOCAL_SIMULATION",
+  "airflow_runtime_status": "ACTIVE_EXECUTED_LOCAL_ORCHESTRATION_DEMO",
+  "capability_registry_status": "PASS_7_AVAILABLE_1_EXPERIMENTAL_1_SCIENTIFICALLY_DEFERRED",
   "company_onboarding_status": "PASS_TEMPLATE_AND_TWO_PROFILES",
-  "Docker_status": "ENGINE_UNAVAILABLE_CURRENT_OPTIONAL_RUNTIME_BLOCKER",
+  "Docker_status": "ACTIVE_EXECUTED_LOCAL",
   "observability_status": "PASS_LOCAL_PROMETHEUS_GRAFANA",
   "data_platform_status": {
     "postgresql": "HEALTHY_LOCAL",
     "duckdb_dbt": "PASS_55",
     "great_expectations": "PASS_8_DATASETS",
-    "kafka": "ACTIVE_PARTIAL_DOCKER_ENGINE_UNAVAILABLE",
-    "airflow": "SYNTAX_AND_STRUCTURE_VALIDATED_RUNTIME_NOT_DEPLOYED",
+    "kafka": "ACTIVE_EXECUTED_LOCAL_SIMULATION",
+    "airflow": "ACTIVE_EXECUTED_LOCAL_ORCHESTRATION_DEMO",
     "airbyte": "TEMPLATE_ONLY",
     "bigquery": "TEMPLATE_ONLY"
   },
   "test_status": {
-    "pytest": "124_PASS_3_SKIPPED",
+    "pytest": "130_PASS_0_SKIPPED",
     "ruff": "PASS",
     "dbt": "55_PASS",
     "great_expectations": "PASS_8_DATASETS",
     "frontend": "7_PASS_BUILD_PASS_NPM_AUDIT_0",
-    "docker": "PREVIOUS_V1_PASS_CURRENT_ENGINE_UNAVAILABLE"
+    "docker": "PASS_LOCAL_RUNTIME_V1_2"
   },
   "implemented_core_count": 7,
-  "blocked_core_count": 1,
+  "blocked_core_count": 0,
+  "segment_cluster_membership_assignment": "ACTIVE_EXPERIMENTAL",
+  "supervised_segment_classification": "DEFERRED_NOT_JUSTIFIED_V1",
   "serving_candidates": ["forecasting", "stockout_classification"],
   "offline_analytics": ["stockout_survival", "segmentation", "anomaly", "basket", "promotion"],
   "blockers": [
-    "segment assignment remains scientifically blocked",
     "production authentication, authorization, TLS, distributed rate limiting and secrets management remain deferred",
-    "Docker engine unavailable for current Kafka and stack revalidation",
-    "Airflow is definition-only; Airbyte and BigQuery are templates"
+    "supervised business segment classification lacks governed ground truth",
+    "Airbyte and BigQuery remain templates"
   ],
   "git": {
     "branch": "main",

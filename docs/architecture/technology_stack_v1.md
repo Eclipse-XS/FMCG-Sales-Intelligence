@@ -8,15 +8,15 @@ Lifecycle states follow `artifacts/project/technology_registry_v1.json`.
 | PostgreSQL | operational business source | ACTIVE_EXECUTED |
 | DuckDB + dbt | local analytical warehouse and transformations | ACTIVE_EXECUTED |
 | dbt tests + Great Expectations + pytest + Pydantic | layered warehouse, dataset, application and API quality | ACTIVE_EXECUTED |
-| DVC | data/pipeline/canonical-artifact ownership | ACTIVE_PARTIAL; gdrive configured, push BLOCKED_AUTH |
+| DVC | data/pipeline/canonical-artifact ownership | ACTIVE_EXECUTED; GitHub + gdrive clean-clone proof passed |
 | scikit-learn, CatBoost, lifelines, mlxtend, joblib | frozen classical ML/statistical implementations | ACTIVE_EXECUTED |
 | FastAPI, Pydantic, Uvicorn | typed local backend and frozen inference | ACTIVE_EXECUTED |
 | React, TypeScript, Vite, ECharts | business dashboard | ACTIVE_EXECUTED_V1_1 |
-| MLflow | optional local run tracking/registry, isolated due dependency conflict | ACTIVE_PARTIAL |
-| Prometheus | API metrics collection | ACTIVE_PARTIAL |
-| Grafana | engineering observability provisioning | IMPLEMENTED_NOT_RUNTIME_VERIFIED |
-| Kafka | ingestion/replay simulation | ACTIVE_PARTIAL; Docker engine unavailable for runtime smoke |
-| Airflow | DAG definition | IMPLEMENTED_NOT_RUNTIME_VERIFIED; syntax/structure validated |
+| MLflow | optional local run tracking/registry, isolated from operational tables | ACTIVE_EXECUTED_LOCAL |
+| Prometheus | API metrics collection | ACTIVE_EXECUTED_LOCAL |
+| Grafana | engineering observability provisioning | ACTIVE_EXECUTED_LOCAL |
+| Kafka | ingestion/replay simulation | ACTIVE_EXECUTED_LOCAL_SIMULATION |
+| Airflow | DAG definition and bounded orchestration demo | ACTIVE_EXECUTED_LOCAL_ORCHESTRATION_DEMO |
 | Airbyte, BigQuery | future integration/cloud templates | TEMPLATE_ONLY |
 | GitHub Actions | fixture-safe CI | ACTIVE_PARTIAL until remote execution |
 

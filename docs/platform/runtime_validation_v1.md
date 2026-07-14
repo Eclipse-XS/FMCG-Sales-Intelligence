@@ -7,4 +7,4 @@
 | Airbyte | Connector configuration only; no sync or server deployed. | TEMPLATE_ONLY |
 | BigQuery | dbt target template only; no credentials, dataset or cloud execution. | TEMPLATE_ONLY |
 
-Kafka remains optional and isolated from canonical `fmcg.sales`. Re-run the documented producer/consumer/idempotency/DLQ smoke when Docker Desktop is available. Airflow runtime validation requires a deliberate Airflow environment and must not retrain frozen models.
+This document preserves the V1.1 state. Current executed evidence is recorded in [runtime_validation_v1_2.md](runtime_validation_v1_2.md). Kafka remains isolated from canonical `fmcg.sales`, and Airflow runtime validation does not retrain frozen models.

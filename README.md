@@ -34,7 +34,8 @@ Dashboard development: `cd apps/dashboard`, then `npm ci` and `npm run dev`. Doc
 | Sales Anomaly Detection | Isolation Forest | human-review analytics | no |
 | Market Basket | FP-Growth | human-review analytics | no |
 | Promotion Performance | descriptive matched windows | offline analytics | no |
-| Segment Assignment | unavailable target | blocked | no |
+| Cluster Membership Assignment | frozen KMeans predict | experimental API analytics | exploratory |
+| Supervised Segment Classification | no governed target | deferred/not justified V1 | no |
 
 | Technology | Role | Evidence-based state |
 |---|---|---|
@@ -145,10 +146,10 @@ docker compose --profile streaming up -d
 
 Kafka UI is available at `http://localhost:8088`. The producer uses broker-level idempotence; replay rows are deduplicated by `event_id`. One deliberately malformed event exercises `sales.dlq`. See [Kafka operations](docs/operations/kafka.md).
 
-`dags/fmcg_platform.py` supplies an Airflow DAG definition but Airflow is not deployed in this environment, so no DAG execution is claimed. Start the optional Grafana profile with `docker compose --profile observability up -d`; its provisioned operational dashboard is at `http://localhost:3001`. See [Airflow](docs/operations/airflow.md) and [Grafana](docs/operations/grafana.md).
+`dags/fmcg_platform.py` supplies the batch definition, and `dags/fmcg_runtime_smoke.py` provides a bounded non-scientific runtime proof. Airflow was executed as a local ephemeral orchestration demo, not deployed as a production scheduler. Start the optional Grafana profile with `docker compose --profile observability up -d`; its provisioned operational dashboard is at `http://localhost:3001`. See [Airflow](docs/operations/airflow.md) and [Grafana](docs/operations/grafana.md).
 
 ## Modeling and reproducibility status
 
-Forecasting Modeling V1, Stockout Classification V1, Stockout Survival V1, Store Segmentation V1 and Sales Anomaly Detection V1 are implemented and verified. Store segmentation outputs versioned pseudo-labels, not ground truth. Anomaly V1 compares a strict-prior rolling z-score with reference-fitted Isolation Forest and produces unreviewed candidates rather than verified anomaly labels. Segment Assignment, the remaining ML tasks, a production API, MLflow and production deployment are not implemented.
+Forecasting Modeling V1, Stockout Classification V1, Stockout Survival V1, Store Segmentation V1 and Sales Anomaly Detection V1 are implemented and verified. Store segmentation outputs versioned pseudo-labels, not ground truth. V1.2 exposes only frozen KMeans cluster membership assignment; supervised business-segment classification remains deferred because stable labels do not exist. Anomaly V1 produces unreviewed candidates rather than verified anomaly labels.
 
-DVC locally owns all seven processed datasets and all seven canonical stage outputs. A private Google Drive remote is configured as `gdrive`, but remote population and clean-clone pull proof remain blocked on normal owner OAuth consent. Credentials are not stored in Git. See [DVC remote status](docs/deployment/dvc_remote_v1.md) and [clean-clone procedure](docs/deployment/clean_clone_v1.md).
+DVC owns the processed datasets, generated validation inputs, analytical warehouse, metrics, and canonical artifacts. The private `gdrive` remote is synchronized and a real GitHub clean-clone pull proof passed. Credentials are not stored in Git. See [clean-clone proof](docs/project/clean_clone_reproduction_v1.md) and [clean-clone procedure](docs/deployment/clean_clone_v1.md).

@@ -8,4 +8,4 @@ Monthly and operational-context diagnostics describe stability. Segmentation pse
 
 The synthetic generator samples basket sizes from donor-calibrated quantiles and SKUs without replacement using weights proportional to `1 / sku_id^0.7`. Consequently, recovered popularity and co-occurrence patterns partly reflect generator mechanics.
 
-Reproduce with `.venv\Scripts\python.exe -m src.modeling.cli run --task basket --output artifacts/canonical/basket_v1 --experiment-id basket_v1_canonical --overwrite`.
+Reproduce with `.venv\Scripts\python.exe -m fmcg_sales_intelligence.science.cli run --task basket --output artifacts/canonical/basket_v1 --experiment-id basket_v1_canonical --overwrite`.

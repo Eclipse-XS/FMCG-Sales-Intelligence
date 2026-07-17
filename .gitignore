@@ -68,12 +68,12 @@ data/processed/promotion_performance/*
 !data/processed/segmentation/*.metadata.json
 !data/processed/stockout/*.metadata.json
 .dvc/cache/
-dbt/target/
-dbt/logs/
-dbt/.user.yml
+platform/dbt/target/
+platform/dbt/logs/
+platform/dbt/.user.yml
 great_expectations/uncommitted/
-reports/eda/runs/
-reports/eda/latest.json
+artifacts/reports/eda/runs/
+artifacts/reports/eda/latest.json
 *.tmp
 *.temp
 node_modules/

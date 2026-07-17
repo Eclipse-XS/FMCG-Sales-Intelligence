@@ -32,5 +32,15 @@
     "segment_cluster_membership_assignment": "ACTIVE_EXPERIMENTAL",
     "supervised_segment_classification": "DEFERRED_NOT_JUSTIFIED_V1",
     "scientific_results_changed": false
+  },
+  "v1_3": {
+    "status": "REPOSITORY_STRUCTURAL_CONSOLIDATION_V1_3_COMPLETE_WITH_DOCUMENTED_EXCEPTIONS",
+    "root_compaction": "PASS",
+    "python_package": "src/fmcg_sales_intelligence",
+    "configuration_root": "config",
+    "platform_root": "platform",
+    "report_root": "artifacts/reports",
+    "test_taxonomy": ["unit", "integration", "scientific", "runtime"],
+    "scientific_results_changed": false
   }
 }

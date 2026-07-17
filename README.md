@@ -19,7 +19,7 @@ flowchart LR
 Copy-Item .env.example .env
 .venv\Scripts\python -m pip install -r requirements.txt
 .venv\Scripts\python -m pip install -e . --no-deps
-.venv\Scripts\python scripts/verify_environment.py
+.venv\Scripts\python tools/verify_environment.py
 .venv\Scripts\python -m fmcg_sales_intelligence.cli serve
 ```
 
@@ -41,26 +41,37 @@ Dashboard development: `cd apps/dashboard`, then `npm ci` and `npm run dev`. Doc
 |---|---|---|
 | PostgreSQL | operational source | active/executed |
 | DuckDB + dbt | local warehouse | active/executed |
-| DVC | data/pipeline ownership | gdrive configured; push blocked on owner OAuth consent |
+| DVC | data/pipeline ownership | Google Drive remote synchronized; repeat push is a no-op |
 | MLflow | runs/registry metadata | active/executed in isolated container |
 | FastAPI | product backend | active/tested |
 | React/Vite/ECharts | business dashboard | V1.1 global filters, URL state and split bundles tested |
 | Prometheus / Grafana | local engineering observability | active/executed |
-| Kafka | replay simulation | implemented; current runtime smoke blocked by unavailable Docker engine |
-| Airflow | DAG definition | not runtime verified |
+| Kafka | replay simulation | active/executed local simulation; replay and DLQ smoke passed |
+| Airflow | DAG definition | active bounded local orchestration demo; safe task passed |
 | Airbyte / BigQuery | connector/cloud templates | template only |
 
-Architecture: [system](docs/architecture/system_architecture.md), [repository](docs/architecture/repository_structure.md), [contracts](docs/data/canonical_contracts_v1.md), [serving](docs/deployment/serving_v1.md), [dashboard](docs/visualization/dashboard_v1.md), and [technology registry](docs/architecture/technology_stack_v1.md).
+Architecture: [system](docs/architecture/system_architecture.md), [repository V1.3](docs/architecture/repository_structure_v1_3.md), [contracts](docs/data/canonical_contracts_v1.md), [serving](docs/deployment/serving_v1.md), [dashboard](docs/visualization/dashboard_v1.md), and [technology registry](docs/architecture/technology_stack_v1.md).
+
+## Repository map
+
+- `apps/`: React dashboard.
+- `src/fmcg_sales_intelligence/`: one installable Python boundary: `product`, `science`, `pipelines`, `tracking`, and `common`.
+- `config/`: modeling, contract, and replaceable domain-pack configuration.
+- `platform/`: PostgreSQL, dbt, Airflow, Docker, Airbyte, and observability assets.
+- `data/`: raw/external, generated, processed, metadata, and warehouse data ownership.
+- `artifacts/`: canonical scientific objects, generated reports, and project evidence.
+- `tests/`: unit, integration, scientific, and runtime validation.
+- `tools/`: developer-facing utilities.
 
 ## Reproduce
 
 ```powershell
 Copy-Item .env.example .env
 .venv\Scripts\python -m pip install -r requirements.txt
-.venv\Scripts\python src/ingestion/download_sources.py
-.venv\Scripts\python src/profiling/profile_sources.py
-.venv\Scripts\python src/generation/generate_dev_data.py
-.venv\Scripts\python src/validation/validate_generated.py
+.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/ingestion/download_sources.py
+.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/profiling/profile_sources.py
+.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/generation/generate_dev_data.py
+.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/validation/validate_generated.py
 docker compose up -d
 ```
 
@@ -87,15 +98,15 @@ python -m venv .venv
 Generate canonical data, start PostgreSQL, recreate the schema, load data and validate it:
 
 ```powershell
-.venv\Scripts\python src/generation/generate_dev_data.py --days 90 --stores 20 --skus 48
+.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/generation/generate_dev_data.py --days 90 --stores 20 --skus 48
 docker compose up -d
-.venv\Scripts\python src/database/create_schema.py --reset
-.venv\Scripts\python src/database/load_data.py
-.venv\Scripts\python src/database/validate_database.py
+.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/persistence/create_schema.py --reset
+.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/persistence/load_data.py
+.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/persistence/validate_database.py
 .venv\Scripts\python -m pytest -q
 ```
 
-`create_schema.py --reset` drops only the `fmcg` schema and is the supported local-development reset. The loader uses one transaction, dependency-safe ordering and PostgreSQL `COPY`; any error rolls back the entire load. It loads only canonical files from `data/generated`, never raw donors. Validation writes `reports/database_validation.md` and its machine-readable JSON equivalent.
+`create_schema.py --reset` drops only the `fmcg` schema and is the supported local-development reset. The loader uses one transaction, dependency-safe ordering and PostgreSQL `COPY`; any error rolls back the entire load. It loads only canonical files from `data/generated`, never raw donors. Validation writes `artifacts/reports/database_validation.md` and its machine-readable JSON equivalent.
 
 Connect with `psql`:
 
@@ -104,28 +115,28 @@ $env:PGPASSWORD = 'change_me'
 psql -h localhost -p 55432 -U fmcg -d fmcg
 ```
 
-Use the same host, port, database, user and password in DBeaver or pgAdmin. Configuration comes from `.env`; do not commit that file. Operational smoke queries are in `db/queries/smoke.sql`.
+Use the same host, port, database, user and password in DBeaver or pgAdmin. Configuration comes from `.env`; do not commit that file. Operational smoke queries are in `platform/postgres/queries/smoke.sql`.
 
 To destroy the local project database completely and recreate it:
 
 ```powershell
 docker compose down -v
 docker compose up -d
-.venv\Scripts\python src/database/create_schema.py --reset
-.venv\Scripts\python src/database/load_data.py
-.venv\Scripts\python src/database/validate_database.py
+.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/persistence/create_schema.py --reset
+.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/persistence/load_data.py
+.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/persistence/validate_database.py
 ```
 
 The `-v` command deletes only this Compose project's PostgreSQL volume. Derived ML features and predictions are deliberately excluded from the operational schema.
 
 ## Data platform
 
-The operational schema remains the source of record. The executed analytical fallback is DuckDB: `src/warehouse/extract_operational.py` copies all 18 `fmcg` tables to `data/warehouse/fmcg.duckdb` under the `raw` schema and writes matching raw Parquet extracts. This includes the complete `daily_demand` date × store × SKU grid that distinguishes requested, realized and inventory-censored demand. dbt builds `analytics` staging, intermediate, dimensions, facts and marts in the same DuckDB database. Polars then creates versioned Parquet datasets; Great Expectations checks their contracts.
+The operational schema remains the source of record. The executed analytical fallback is DuckDB: `src/fmcg_sales_intelligence/pipelines/warehouse/extract_operational.py` copies all 18 `fmcg` tables to `data/warehouse/fmcg.duckdb` under the `raw` schema and writes matching raw Parquet extracts. This includes the complete `daily_demand` date × store × SKU grid that distinguishes requested, realized and inventory-censored demand. dbt builds `analytics` staging, intermediate, dimensions, facts and marts in the same DuckDB database. Polars then creates versioned Parquet datasets; Great Expectations checks their contracts.
 
 Run the complete local analytical path after the OLTP database is loaded:
 
 ```powershell
-.venv\Scripts\python src/pipeline/run_local.py
+.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/orchestration/run_local.py
 .venv\Scripts\python -m pytest -q
 ```
 
@@ -139,14 +150,14 @@ Kafka is an optional Compose profile. It is isolated from the operational `fmcg`
 
 ```powershell
 docker compose --profile streaming up -d
-.venv\Scripts\python src/streaming/init_streaming.py
-.venv\Scripts\python src/streaming/produce_replay.py
-.venv\Scripts\python src/streaming/consume_replay.py
+.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/streaming/init_streaming.py
+.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/streaming/produce_replay.py
+.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/streaming/consume_replay.py
 ```
 
 Kafka UI is available at `http://localhost:8088`. The producer uses broker-level idempotence; replay rows are deduplicated by `event_id`. One deliberately malformed event exercises `sales.dlq`. See [Kafka operations](docs/operations/kafka.md).
 
-`dags/fmcg_platform.py` supplies the batch definition, and `dags/fmcg_runtime_smoke.py` provides a bounded non-scientific runtime proof. Airflow was executed as a local ephemeral orchestration demo, not deployed as a production scheduler. Start the optional Grafana profile with `docker compose --profile observability up -d`; its provisioned operational dashboard is at `http://localhost:3001`. See [Airflow](docs/operations/airflow.md) and [Grafana](docs/operations/grafana.md).
+`platform/airflow/dags/fmcg_platform.py` supplies the batch definition, and `platform/airflow/dags/fmcg_runtime_smoke.py` provides a bounded non-scientific runtime proof. Airflow was executed as a local ephemeral orchestration demo, not deployed as a production scheduler. Start the optional Grafana profile with `docker compose --profile observability up -d`; its provisioned operational dashboard is at `http://localhost:3001`. See [Airflow](docs/operations/airflow.md) and [Grafana](docs/operations/grafana.md).
 
 ## Modeling and reproducibility status
 

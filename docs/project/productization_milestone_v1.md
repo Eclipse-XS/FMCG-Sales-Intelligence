@@ -29,7 +29,7 @@ Forecast WAPE remains 0.3778884755; stockout average precision 0.2551216857; sur
 
 - Technology state: `artifacts/project/technology_registry_v1.json`
 - Machine status: `artifacts/project/productization_v1.json`
-- Contracts: `contracts/registry_v1.yaml`
+- Contracts: `config/contracts/registry_v1.yaml`
 - Architecture: `docs/architecture/system_architecture.md`
 - MLflow/DVC ownership: `docs/mlops/mlflow_v1.md`
 - Serving: `docs/deployment/serving_v1.md`

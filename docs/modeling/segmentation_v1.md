@@ -23,5 +23,5 @@ The data are synthetic, span about 90 days, and contain only 20 independent stor
 ## Reproduction
 
 ```powershell
-.venv\Scripts\python.exe -m src.modeling.cli run --task segmentation --output artifacts/canonical/segmentation_v1 --experiment-id segmentation_v1_canonical --overwrite
+.venv\Scripts\python.exe -m fmcg_sales_intelligence.science.cli run --task segmentation --output artifacts/canonical/segmentation_v1 --experiment-id segmentation_v1_canonical --overwrite
 ```

@@ -1,0 +1,5 @@
+outs:
+- md5: cd7362200a066bc13ef9d8fffc825317
+  size: 2760
+  hash: md5
+  path: stockout_episodes.parquet

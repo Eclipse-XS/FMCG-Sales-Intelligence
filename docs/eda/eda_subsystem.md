@@ -7,7 +7,7 @@ EDA in this project has three distinct roles. Development-time scientific EDA in
 `EDAService.run(EDARequest(...))` is the stable application boundary. Task analyzers and generic profiling produce an `EDAResult`; Markdown, JSON, figures, CLI and a future FastAPI adapter consume that object. HTTP code must call the service directly and serialize `result.to_dict()`; it must not invoke a subprocess or parse Markdown.
 
 ```python
-from src.eda import run_eda
+from fmcg_sales_intelligence.science.eda import run_eda
 
 result = run_eda(task="forecasting")
 payload = result.to_dict()
@@ -18,20 +18,20 @@ Errors such as unknown tasks, missing files, missing required columns and incomp
 ## CLI
 
 ```text
-python -m src.eda.cli run --task all
-python -m src.eda.cli run --task forecasting
-python -m src.eda.cli run --task stockout
-python -m src.eda.cli run --task forecasting --dataset path/to/forecasting.parquet
-python -m src.eda.cli list-runs
-python -m src.eda.cli show-run RUN_ID
-python -m src.eda.cli latest --task forecasting
-python -m src.eda.cli compare RUN_A RUN_B
-python -m src.eda.run_all
+python -m fmcg_sales_intelligence.science.eda.cli run --task all
+python -m fmcg_sales_intelligence.science.eda.cli run --task forecasting
+python -m fmcg_sales_intelligence.science.eda.cli run --task stockout
+python -m fmcg_sales_intelligence.science.eda.cli run --task forecasting --dataset path/to/forecasting.parquet
+python -m fmcg_sales_intelligence.science.eda.cli list-runs
+python -m fmcg_sales_intelligence.science.eda.cli show-run RUN_ID
+python -m fmcg_sales_intelligence.science.eda.cli latest --task forecasting
+python -m fmcg_sales_intelligence.science.eda.cli compare RUN_A RUN_B
+python -m fmcg_sales_intelligence.science.eda.run_all
 ```
 
 ## Run format and identity
 
-Canonical history is stored under `reports/eda/runs/<run_id>/` with `manifest.json`, `metrics.json`, `findings.json`, `report.md`, and `figures/`. `reports/eda/latest.json` is a Windows-safe pointer. Input data is never copied. Each identity records file SHA-256, schema SHA-256, byte size, row count and schema. Run IDs combine a UTC timestamp, data fingerprint prefix and random suffix, preventing collisions.
+Canonical history is stored under `artifacts/reports/eda/runs/<run_id>/` with `manifest.json`, `metrics.json`, `findings.json`, `report.md`, and `figures/`. `artifacts/reports/eda/latest.json` is a Windows-safe pointer. Input data is never copied. Each identity records file SHA-256, schema SHA-256, byte size, row count and schema. Run IDs combine a UTC timestamp, data fingerprint prefix and random suffix, preventing collisions.
 
 The manifest contains task, status, inputs, profiles, metrics, structured findings, readiness and artifact references. Project-local paths are persisted relative to the repository. Explicit external input paths remain external paths because rewriting them would destroy provenance.
 

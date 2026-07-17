@@ -1,11 +1,11 @@
 # Company onboarding V1
 
-1. Copy `domain_packs/_template` and assign a profile/version.
+1. Copy `config/domains/_template` and assign a profile/version.
 2. Register CSV, Parquet, database export, or current canonical source.
 3. Map source columns declaratively before feature logic.
 4. Validate required fields, nulls, keys and domain constraints.
-5. Normalize to the versioned contracts in `contracts/registry_v1.yaml`.
-6. Run dbt/Great Expectations/pytest quality gates as applicable.
+5. Normalize to the versioned contracts in `config/contracts/registry_v1.yaml`.
+6. Run platform/dbt/Great Expectations/pytest quality gates as applicable.
 7. Evaluate capability availability; absent concepts remain unavailable.
 8. Build only supported task datasets.
 9. Run training explicitly through offline CLI/batch workflows, never an HTTP side effect.

@@ -1,6 +1,6 @@
 {
   "registry_version": "v1",
-  "generated_from": "repository audit 2026-09-18",
+  "generated_from": "repository structural consolidation V1.3 2026-09-19",
   "state_taxonomy": [
     "ACTIVE_EXECUTED",
     "ACTIVE_PARTIAL",
@@ -113,7 +113,7 @@
         ".env.example"
       ],
       "main_source_paths": [
-        "db/"
+        "platform/postgres/"
       ],
       "health_check": "pg_isready; validate_database.py",
       "validation_command": "pg_isready; validate_database.py",
@@ -152,11 +152,11 @@
       "required_for_ci": false,
       "runtime_location": "local file",
       "configuration_paths": [
-        "dbt/profiles.yml"
+        "platform/dbt/profiles.yml"
       ],
       "main_source_paths": [
-        "src/warehouse",
-        "dbt/"
+        "src/fmcg_sales_intelligence/pipelines/warehouse",
+        "platform/dbt/"
       ],
       "health_check": "dbt build",
       "validation_command": "dbt build",
@@ -193,12 +193,12 @@
       "required_for_ci": false,
       "runtime_location": "host",
       "configuration_paths": [
-        "dbt/dbt_project.yml",
-        "dbt/profiles.yml"
+        "platform/dbt/dbt_project.yml",
+        "platform/dbt/profiles.yml"
       ],
       "main_source_paths": [
-        "dbt/models",
-        "dbt/tests"
+        "platform/dbt/models",
+        "platform/dbt/tests"
       ],
       "health_check": "dbt build",
       "validation_command": "dbt build",
@@ -237,7 +237,7 @@
         "requirements.txt"
       ],
       "main_source_paths": [
-        "src/datasets"
+        "src/fmcg_sales_intelligence/pipelines/datasets"
       ],
       "health_check": "pytest",
       "validation_command": "pytest",
@@ -276,7 +276,7 @@
         "requirements.txt"
       ],
       "main_source_paths": [
-        "src/modeling",
+        "src/fmcg_sales_intelligence/science",
         "src/fmcg_sales_intelligence"
       ],
       "health_check": "pytest",
@@ -317,10 +317,10 @@
         "requirements.txt"
       ],
       "main_source_paths": [
-        "src/quality"
+        "src/fmcg_sales_intelligence/pipelines/quality"
       ],
-      "health_check": "python src/quality/validate_datasets.py",
-      "validation_command": "python src/quality/validate_datasets.py",
+      "health_check": "python src/fmcg_sales_intelligence/pipelines/quality/validate_datasets.py",
+      "validation_command": "python src/fmcg_sales_intelligence/pipelines/quality/validate_datasets.py",
       "persistent_state": "reports",
       "credentials_required": false,
       "network_ports": [],
@@ -332,7 +332,7 @@
       ],
       "owner_layer": "quality",
       "evidence": [
-        "Repository audit: python src/quality/validate_datasets.py"
+        "Repository audit: python src/fmcg_sales_intelligence/pipelines/quality/validate_datasets.py"
       ],
       "known_limitations": [],
       "planned_action": "retain"
@@ -396,7 +396,7 @@
         "docker-compose.yml"
       ],
       "main_source_paths": [
-        "src/streaming"
+        "src/fmcg_sales_intelligence/pipelines/streaming"
       ],
       "health_check": "broker health plus deterministic replay and DLQ",
       "validation_command": "producer, consumer, replay idempotency and DLQ smoke",
@@ -438,7 +438,7 @@
       "runtime_location": "ephemeral local Docker orchestration demo",
       "configuration_paths": [],
       "main_source_paths": [
-        "dags/"
+        "platform/airflow/dags/"
       ],
       "health_check": "DAG discovery and bounded task execution",
       "validation_command": "airflow tasks test fmcg_runtime_smoke verify_frozen_evidence",
@@ -476,7 +476,7 @@
       "required_for_ci": false,
       "runtime_location": "template",
       "configuration_paths": [
-        "infrastructure/airbyte/postgres_to_bigquery.json"
+        "platform/airbyte/postgres_to_bigquery.json"
       ],
       "main_source_paths": [],
       "health_check": "schema inspection only",
@@ -516,7 +516,7 @@
       "required_for_ci": false,
       "runtime_location": "dbt template",
       "configuration_paths": [
-        "dbt/profiles.yml"
+        "platform/dbt/profiles.yml"
       ],
       "main_source_paths": [],
       "health_check": "configuration inspection",
@@ -558,7 +558,7 @@
         "requirements.txt"
       ],
       "main_source_paths": [
-        "src/modeling"
+        "src/fmcg_sales_intelligence/science"
       ],
       "health_check": "trusted artifact load tests",
       "validation_command": "trusted artifact load tests",
@@ -597,7 +597,7 @@
         "requirements.txt"
       ],
       "main_source_paths": [
-        "src/modeling/forecasting.py"
+        "src/fmcg_sales_intelligence/science/forecasting/__init__.py"
       ],
       "health_check": "forecast parity test",
       "validation_command": "forecast parity test",
@@ -636,7 +636,7 @@
         "requirements.txt"
       ],
       "main_source_paths": [
-        "src/modeling/survival.py"
+        "src/fmcg_sales_intelligence/science/survival/__init__.py"
       ],
       "health_check": "survival tests",
       "validation_command": "survival tests",
@@ -677,7 +677,7 @@
         "requirements.txt"
       ],
       "main_source_paths": [
-        "src/modeling/basket.py"
+        "src/fmcg_sales_intelligence/science/basket/__init__.py"
       ],
       "health_check": "basket tests",
       "validation_command": "basket tests",
@@ -847,7 +847,7 @@
         ".env.example"
       ],
       "main_source_paths": [
-        "src/fmcg_sales_intelligence/api"
+        "src/fmcg_sales_intelligence/product/api"
       ],
       "health_check": "TestClient and /ready",
       "validation_command": "TestClient and /ready",
@@ -887,10 +887,10 @@
       "runtime_location": "Docker observability profile",
       "configuration_paths": [
         "docker-compose.yml",
-        "infrastructure/prometheus/prometheus.yml"
+        "platform/observability/prometheus/prometheus.yml"
       ],
       "main_source_paths": [
-        "src/fmcg_sales_intelligence/api"
+        "src/fmcg_sales_intelligence/product/api"
       ],
       "health_check": "/metrics scrape config",
       "validation_command": "/metrics scrape config",
@@ -931,7 +931,7 @@
         "docker-compose.yml"
       ],
       "main_source_paths": [
-        "infrastructure/grafana"
+        "platform/observability/grafana"
       ],
       "health_check": "/api/health",
       "validation_command": "/api/health",
@@ -973,7 +973,7 @@
         "docker-compose.yml"
       ],
       "main_source_paths": [
-        "infrastructure/docker",
+        "platform/docker",
         "apps/dashboard/Dockerfile"
       ],
       "health_check": "docker compose config/build/ps",
@@ -1131,7 +1131,7 @@
       "required_for_ci": false,
       "runtime_location": "API",
       "configuration_paths": [
-        "src/fmcg_sales_intelligence/api"
+        "src/fmcg_sales_intelligence/product/api"
       ],
       "main_source_paths": [],
       "health_check": "GET /openapi.json",

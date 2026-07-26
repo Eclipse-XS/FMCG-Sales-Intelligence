@@ -39,8 +39,21 @@ All six canonical joblib bundles were loaded before migration. Their top-level v
 
 ## Clean-clone proof and commits
 
-The clean-clone result and final commit identities are finalized after feature-branch validation and normal main integration. No data, model, environment, DVC cache, Docker state or credentials are copied into the reproduction workspace.
+An independent clone of `refactor/repository-structure-v1.3` was created under the system temporary directory. A new Python 3.13.5 venv installed locked requirements plus package version 1.0.0. Machine-local, Git-ignored `.dvc/config.local` was copied only after Git-ignore and tracking checks; no DVC cache, dataset, artifact, model, warehouse, environment, or Docker state was copied.
+
+The first broad pull exposed that standalone `.dvc` targets must be pulled explicitly in addition to pipeline outputs. It also exposed one missing newly migrated object (`stockout_episodes.parquet`), which was pushed from the original DVC cache and verified by a no-op second push. Every tracked `.dvc` target then restored from Google Drive. DVC status was clean after dependency line endings and lock hashes were normalized to repository LF policy without running stages.
+
+Clean-clone evidence:
+
+- 134/134 files under `artifacts/canonical` matched original SHA-256 identities.
+- package import PASS; FastAPI health/readiness/version/contracts/capabilities/models all HTTP 200.
+- forecast output `7.575987283169399` and stockout output `0.022034461844789233` at threshold `0.7695666515458811` matched exactly.
+- frozen KMeans membership assigned the reference store without fitting.
+- pytest: 127 passed and 3 operational-environment tests skipped; the fully configured original runtime passed 130/130.
+- dbt 55/55, Great Expectations 8/8, frontend 7/7, npm audit 0, production build PASS.
+
+Migration commits before integration: `257d910`, `7887cb9`, and `2af2dec`. Final GitHub identity is recorded after normal fast-forward integration.
 
 ## Documented exceptions
 
-Airflow remains a bounded local demo, not a persistent scheduler deployment. Ruff retains three pre-existing compact-style rule exclusions to avoid a non-structural mass rewrite. The minimal MLflow image can run canonical sync directly but does not expose the product CLI because its intentionally isolated dependency set omits API metrics dependencies. Ignored cache-only legacy directories may remain in this existing checkout but are absent from Git and clean clones.
+Airflow remains a bounded local demo, not a persistent scheduler deployment. Ruff retains three pre-existing compact-style rule exclusions to avoid a non-structural mass rewrite. The minimal MLflow image can run canonical sync directly but does not expose the product CLI because its intentionally isolated dependency set omits API metrics dependencies. Clean-clone pytest skips three operational tests when no `.env` is copied; the configured original runtime executes all 130 tests. Ignored cache-only legacy directories may remain in this existing checkout but are absent from Git and clean clones.

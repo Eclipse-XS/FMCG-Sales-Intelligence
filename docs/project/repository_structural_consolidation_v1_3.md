@@ -54,6 +54,8 @@ Clean-clone evidence:
 
 Migration commits before integration: `257d910`, `7887cb9`, and `2af2dec`. Final GitHub identity is recorded after normal fast-forward integration.
 
+After fast-forward integration, `main` was pushed normally and local/remote matched at `a28a80a3dc0634c4d17aac1566584052e4357fa4`. A second clone was then made from the actual GitHub URL, not the local repository. A new venv installed the package, all DVC targets restored from Google Drive, DVC status was clean, all 134 canonical file hashes matched, readiness passed, and forecast/stockout exact parity passed. The final evidence-only commit follows this validated GitHub state.
+
 ## Documented exceptions
 
 Airflow remains a bounded local demo, not a persistent scheduler deployment. Ruff retains three pre-existing compact-style rule exclusions to avoid a non-structural mass rewrite. The minimal MLflow image can run canonical sync directly but does not expose the product CLI because its intentionally isolated dependency set omits API metrics dependencies. Clean-clone pytest skips three operational tests when no `.env` is copied; the configured original runtime executes all 130 tests. Ignored cache-only legacy directories may remain in this existing checkout but are absent from Git and clean clones.

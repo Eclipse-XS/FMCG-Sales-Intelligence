@@ -1,12 +1,13 @@
 # Current project status
 
-Current checkpoint: **Repository Structural Consolidation V1.3**.
+Current checkpoint: **Portfolio Release V1.3.0 polish and validation**.
 
 - Scientific core: frozen V1; persisted metrics and serving outputs unchanged.
 - Repository: one Python package, consolidated `config`, `platform`, `artifacts/reports`, categorized tests, and developer `tools`.
 - Runtime: PostgreSQL, FastAPI, frontend, MLflow, Prometheus, Grafana and Kafka validated locally; Airflow validated as a bounded ephemeral orchestration demo.
 - Reproducibility: DVC Google Drive remote synchronized; GitHub clone plus DVC restoration and exact serving parity proven.
 - Segment membership: frozen KMeans assignment is experimental and active; supervised segment classification remains `DEFERRED_NOT_JUSTIFIED_V1`.
+- Licensing: no repository license has been selected; this remains an explicit project-owner decision.
 
 Evidence:
 
@@ -17,3 +18,4 @@ Evidence:
 - [Segment assignment resolution](../modeling/segmentation_v1.md)
 - [Repository structure V1.3](../architecture/repository_structure_v1_3.md)
 - [V1.3 migration report](repository_structural_consolidation_v1_3.md)
+- [V1.3.0 release notes](release_v1_3.md)

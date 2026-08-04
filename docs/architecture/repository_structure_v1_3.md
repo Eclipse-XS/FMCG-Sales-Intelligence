@@ -24,6 +24,8 @@ platform/
 src/fmcg_sales_intelligence/
   product/                   API, serving, analytics and contracts
   science/                   seven scientific cores and EDA
+    <core>/__init__.py       stable package-level API facade
+    <core>/experiment.py     scientific experiment implementation
   pipelines/                 ingestion through validation and streaming
   tracking/                  MLflow canonical import integration
   common/                    genuinely shared low-level utilities

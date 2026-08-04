@@ -7,6 +7,7 @@ stages:
       - src/fmcg_sales_intelligence/science/__init__.py
       - src/fmcg_sales_intelligence/science/cli.py
       - src/fmcg_sales_intelligence/science/forecasting/__init__.py
+      - src/fmcg_sales_intelligence/science/forecasting/experiment.py
       - src/fmcg_sales_intelligence/science/metrics.py
     outs:
       - artifacts/canonical/forecasting_v1
@@ -21,6 +22,7 @@ stages:
       - src/fmcg_sales_intelligence/science/__init__.py
       - src/fmcg_sales_intelligence/science/cli.py
       - src/fmcg_sales_intelligence/science/stockout/__init__.py
+      - src/fmcg_sales_intelligence/science/stockout/experiment.py
     outs:
       - artifacts/canonical/stockout_classification_v1
     metrics:
@@ -33,7 +35,9 @@ stages:
       - data/processed/stockout/stockout_v1.parquet
       - data/processed/stockout/stockout_episodes.parquet
       - src/fmcg_sales_intelligence/science/survival/__init__.py
+      - src/fmcg_sales_intelligence/science/survival/experiment.py
       - src/fmcg_sales_intelligence/science/stockout/__init__.py
+      - src/fmcg_sales_intelligence/science/stockout/experiment.py
     outs:
       - artifacts/canonical/stockout_survival_v1
     metrics:
@@ -44,6 +48,7 @@ stages:
       - config/modeling/segmentation.yaml
       - data/processed/segmentation/segmentation_v1.parquet
       - src/fmcg_sales_intelligence/science/segmentation/__init__.py
+      - src/fmcg_sales_intelligence/science/segmentation/experiment.py
     outs:
       - artifacts/canonical/segmentation_v1
     metrics:
@@ -54,6 +59,7 @@ stages:
       - config/modeling/anomaly.yaml
       - data/processed/anomaly/anomaly_v1.parquet
       - src/fmcg_sales_intelligence/science/anomaly/__init__.py
+      - src/fmcg_sales_intelligence/science/anomaly/experiment.py
     outs:
       - artifacts/canonical/anomaly_v1
     metrics:
@@ -64,6 +70,7 @@ stages:
       - config/modeling/basket.yaml
       - data/processed/basket/basket_v1.parquet
       - src/fmcg_sales_intelligence/science/basket/__init__.py
+      - src/fmcg_sales_intelligence/science/basket/experiment.py
     outs:
       - artifacts/canonical/basket_v1
     metrics:
@@ -75,6 +82,7 @@ stages:
       - data/processed/promotion_daily/promotion_daily_v1.parquet
       - data/processed/promotion_performance/promotion_performance_v1.parquet
       - src/fmcg_sales_intelligence/science/promotion/__init__.py
+      - src/fmcg_sales_intelligence/science/promotion/experiment.py
     outs:
       - artifacts/canonical/promotion_v1
     metrics:

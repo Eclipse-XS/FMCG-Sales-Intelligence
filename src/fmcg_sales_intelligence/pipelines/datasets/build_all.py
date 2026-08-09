@@ -2,9 +2,11 @@
 from __future__ import annotations
 
 from fmcg_sales_intelligence.common.paths import PROJECT_ROOT
-import json,logging
+import json
+import logging
 from datetime import datetime,timezone
-import duckdb,polars as pl
+import duckdb
+import polars as pl
 
 ROOT = PROJECT_ROOT;DB=ROOT/"data/warehouse/fmcg.duckdb";OUT=ROOT/"data/processed";REPORTS=ROOT/"artifacts/reports/data_engineering"
 logging.basicConfig(level=logging.INFO,format="%(asctime)s %(levelname)s %(message)s");log=logging.getLogger(__name__)

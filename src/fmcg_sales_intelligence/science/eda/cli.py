@@ -1,5 +1,7 @@
 from __future__ import annotations
-import argparse,json,sys
+import argparse
+import json
+import sys
 from .comparison import compare_runs
 from .config import EDAConfig
 from .errors import EDAError

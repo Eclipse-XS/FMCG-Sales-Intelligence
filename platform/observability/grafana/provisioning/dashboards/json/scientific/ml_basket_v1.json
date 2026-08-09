@@ -1,0 +1,602 @@
+{
+  "title": "ML \u2014 Market Basket Analysis",
+  "uid": "ml_basket_v1",
+  "timezone": "browser",
+  "refresh": "5m",
+  "schemaVersion": 39,
+  "tags": [
+    "scientific",
+    "ml",
+    "market-basket",
+    "association-rules",
+    "fmcg"
+  ],
+  "time": {
+    "from": "2024-01-01T00:00:00.000Z",
+    "to": "2024-03-31T23:59:59.000Z"
+  },
+  "templating": {
+    "list": []
+  },
+  "panels": [
+    {
+      "id": 1,
+      "title": "Scientific Model Card & Market Basket Context",
+      "type": "text",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 3
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "**Core:** `basket_v1` | **Algorithm:** `Apriori Frequent Itemset Mining & Association Rule Mining`\n**Scope:** Transactional point-of-sale receipt basket co-occurrence.\n> \u26a0\ufe0f **Descriptive Co-occurrence Caveat:** Association rules establish empirical co-occurrence patterns in transactional logs; they do not establish causal purchasing mechanisms.\n**Rule Statistics:** Total Canonical Mined Rules = **1,262 rules** | Displayed = **Governed top rules**."
+      }
+    },
+    {
+      "id": 2,
+      "title": "Canonical Rules Discovered",
+      "type": "stat",
+      "description": "Total rules mined in canonical execution meeting threshold criteria",
+      "gridPos": {
+        "x": 0,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT canonical_rule_count FROM ml_results.basket_v1_metrics LIMIT 1;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 3,
+      "title": "Displayed Top Rules",
+      "type": "stat",
+      "description": "Governed rules published to operational presentation tables",
+      "gridPos": {
+        "x": 6,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT COUNT(*) FROM ml_results.basket_v1_rules;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 4,
+      "title": "Maximum Rule Lift",
+      "type": "stat",
+      "description": "Peak affinity lift multiplier discovered",
+      "gridPos": {
+        "x": 12,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT max_rule_lift FROM ml_results.basket_v1_metrics LIMIT 1;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "orange"
+          },
+          "decimals": 3
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 5,
+      "title": "Median Rule Confidence",
+      "type": "stat",
+      "description": "Median conditional probability across discovered association rules",
+      "gridPos": {
+        "x": 18,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT median_rule_confidence * 100 FROM ml_results.basket_v1_metrics LIMIT 1;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "purple"
+          },
+          "decimals": 1
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 6,
+      "title": "Support vs. Confidence Scatter with Statistical Lift Encoding",
+      "type": "xychart",
+      "pluginVersion": "11.5.2",
+      "description": "Association rule confidence vs basket support trade-off with statistical lift tier color encoding",
+      "gridPos": {
+        "x": 0,
+        "y": 6,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "postgres",
+        "uid": "postgres_db"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT round((support * 100)::numeric, 2) as support_pct,        case when lift >= 1.55 then round((confidence * 100)::numeric, 1) end as \"High Affinity (Lift >= 1.55)\",        case when lift >= 1.45 and lift < 1.55 then round((confidence * 100)::numeric, 1) end as \"Moderate Affinity (Lift 1.45 - 1.55)\",        case when lift < 1.45 then round((confidence * 100)::numeric, 1) end as \"Standard Affinity (Lift < 1.45)\" FROM ml_results.basket_v1_rules ORDER BY support_pct ASC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "mapping": "manual",
+        "series": [
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "support_pct"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "High Affinity (Lift >= 1.55)"
+              }
+            },
+            "name": {
+              "fixed": "High Affinity (Lift >= 1.55)"
+            }
+          },
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "support_pct"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "Moderate Affinity (Lift 1.45 - 1.55)"
+              }
+            },
+            "name": {
+              "fixed": "Moderate Affinity (Lift 1.45 - 1.55)"
+            }
+          },
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "support_pct"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "Standard Affinity (Lift < 1.45)"
+              }
+            },
+            "name": {
+              "fixed": "Standard Affinity (Lift < 1.45)"
+            }
+          }
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "show": "points",
+            "pointSize": {
+              "fixed": 4
+            },
+            "lineWidth": 2,
+            "fillOpacity": 50
+          },
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "#5794F2"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "High Affinity (Lift >= 1.55)"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "points"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 6
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#FF9830"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Moderate Affinity (Lift 1.45 - 1.55)"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "points"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 5
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#B877D9"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Standard Affinity (Lift < 1.45)"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "points"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 4
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#5794F2"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "title": "Top 12 Association Rules by Lift (Joined Product Names)",
+      "type": "barchart",
+      "description": "Highest-affinity cross-merchandising product pairs ranked by statistical lift",
+      "gridPos": {
+        "x": 12,
+        "y": 6,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT concat(pa.product_name, ' -> ', pc.product_name) as rule_pair, round(r.lift::numeric, 3) as lift FROM ml_results.basket_v1_rules r JOIN fmcg.skus sa ON r.antecedent = sa.sku_id JOIN fmcg.products pa ON sa.product_id = pa.product_id JOIN fmcg.skus sc ON r.consequent = sc.sku_id JOIN fmcg.products pc ON sc.product_id = pc.product_id ORDER BY r.lift DESC LIMIT 12;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "showValue": "always",
+        "xField": null,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "orange"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 8,
+      "title": "Most Frequent Recommended Consequents",
+      "type": "barchart",
+      "description": "Products appearing most frequently as rule consequents for cross-sell",
+      "gridPos": {
+        "x": 0,
+        "y": 14,
+        "w": 12,
+        "h": 7
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT pc.product_name as recommended_product, count(*) as rule_count FROM ml_results.basket_v1_rules r JOIN fmcg.skus sc ON r.consequent = sc.sku_id JOIN fmcg.products pc ON sc.product_id = pc.product_id GROUP BY 1 ORDER BY 2 DESC LIMIT 8;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "showValue": "always",
+        "xField": null,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "blue"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 9,
+      "title": "Rule Confidence Distribution",
+      "type": "barchart",
+      "description": "Confidence distribution indicating conditional buying probabilities",
+      "gridPos": {
+        "x": 12,
+        "y": 14,
+        "w": 12,
+        "h": 7
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT case when confidence < 0.25 then '< 25% Confidence' when confidence < 0.35 then '25% - 35% Confidence' when confidence < 0.45 then '35% - 45% Confidence' else '>= 45% High Confidence' end as confidence_tier, count(*) as rule_count FROM ml_results.basket_v1_rules GROUP BY 1 ORDER BY min(confidence) ASC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "showValue": "always",
+        "xField": null,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "purple"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 10,
+      "title": "Top 100 Association Rules Detail & Cross-Sell Potential",
+      "type": "table",
+      "description": "Interactive audit table of discovered association rules with joined product catalog metadata",
+      "gridPos": {
+        "x": 0,
+        "y": 21,
+        "w": 24,
+        "h": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT concat(pa.product_name, ' [SKU ', r.antecedent, ']') as antecedent_product, concat(pc.product_name, ' [SKU ', r.consequent, ']') as consequent_product, round((r.support * 100)::numeric, 2) as support_pct, round((r.confidence * 100)::numeric, 1) as confidence_pct, round(r.lift::numeric, 3) as lift FROM ml_results.basket_v1_rules r JOIN fmcg.skus sa ON r.antecedent = sa.sku_id JOIN fmcg.products pa ON sa.product_id = pa.product_id JOIN fmcg.skus sc ON r.consequent = sc.sku_id JOIN fmcg.products pc ON sc.product_id = pc.product_id ORDER BY r.lift DESC LIMIT 100;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "footer": {
+          "enablePagination": true,
+          "show": true
+        },
+        "showHeader": true
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          }
+        },
+        "overrides": []
+      }
+    }
+  ]
+}

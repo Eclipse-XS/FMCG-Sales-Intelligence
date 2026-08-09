@@ -2,7 +2,9 @@
 from __future__ import annotations
 
 from fmcg_sales_intelligence.common.paths import PROJECT_ROOT
-import html,json,re
+import html
+import json
+import re
 from datetime import datetime,timezone
 from pathlib import Path
 from xml.etree.ElementTree import Element,SubElement,ElementTree
@@ -69,7 +71,7 @@ def mermaid(meta):
     return "\n".join(lines)
 
 def drawio(meta,path):
-    mx=Element("mxfile",{"host":"app.diagrams.net","modified":meta["generated_at"],"agent":"Codex PostgreSQL metadata generator","version":"24.7.17","type":"device"})
+    mx=Element("mxfile",{"host":"app.diagrams.net","modified":meta["generated_at"],"agent":"FMCG Schema Visualizer","version":"24.7.17","type":"device"})
     diagram=SubElement(mx,"diagram",{"id":"fmcg-operational-erd","name":"FMCG Operational ERD"})
     model=SubElement(diagram,"mxGraphModel",{"dx":"1900","dy":"1450","grid":"1","gridSize":"10","guides":"1","tooltips":"1","connect":"1","arrows":"1","fold":"1","page":"1","pageScale":"1","pageWidth":"1900","pageHeight":"1500","math":"0","shadow":"0"})
     root=SubElement(model,"root");SubElement(root,"mxCell",{"id":"0"});SubElement(root,"mxCell",{"id":"1","parent":"0"})

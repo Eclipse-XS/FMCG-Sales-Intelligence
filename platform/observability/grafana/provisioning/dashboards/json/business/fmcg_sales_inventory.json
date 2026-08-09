@@ -1,0 +1,459 @@
+{
+  "title": "FMCG Sales & Inventory",
+  "uid": "fmcg_sales_inventory",
+  "timezone": "browser",
+  "refresh": "5m",
+  "schemaVersion": 39,
+  "tags": [
+    "business",
+    "inventory",
+    "fmcg"
+  ],
+  "time": {
+    "from": "2024-01-01T00:00:00.000Z",
+    "to": "2024-03-31T23:59:59.000Z"
+  },
+  "templating": {
+    "list": []
+  },
+  "panels": [
+    {
+      "id": 1,
+      "title": "Operational Inventory & Fulfillment Context",
+      "type": "text",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 2
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "**Supply Chain Real-Time Health & Depot Stock Positioning** \u2014 Available warehouse inventory vs retail sales volume.\n*Source:* Operational database (`fmcg.inventory`, `fmcg.sales`, `fmcg.warehouses`)."
+      }
+    },
+    {
+      "id": 2,
+      "title": "Current On-Hand Inventory Units",
+      "type": "stat",
+      "description": "Latest total available stock on hand across all fulfillment hubs",
+      "gridPos": {
+        "x": 0,
+        "y": 2,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT sum(available_quantity) FROM fmcg.inventory WHERE snapshot_date = (SELECT max(snapshot_date) FROM fmcg.inventory);",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "blue"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 3,
+      "title": "Active Warehouses",
+      "type": "stat",
+      "description": "Monitored central fulfillment hubs",
+      "gridPos": {
+        "x": 6,
+        "y": 2,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT count(*) FROM fmcg.warehouses;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 4,
+      "title": "Monitored SKU Inventory Positions",
+      "type": "stat",
+      "description": "Distinct products tracked across inventory registers",
+      "gridPos": {
+        "x": 12,
+        "y": 2,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT count(distinct sku_id) FROM fmcg.inventory;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "purple"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 5,
+      "title": "Stockout Episodes Recorded (< 5 Units)",
+      "type": "stat",
+      "description": "Historical inventory positions breaching minimum buffer threshold",
+      "gridPos": {
+        "x": 18,
+        "y": 2,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT count(*) FROM fmcg.inventory WHERE available_quantity < 5;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "red"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 6,
+      "title": "Warehouse Inventory Balance",
+      "type": "barchart",
+      "description": "Available stock units distributed across regional depots",
+      "gridPos": {
+        "x": 0,
+        "y": 5,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT concat('Warehouse ', warehouse_id) as warehouse, sum(available_quantity) as total_units FROM fmcg.inventory WHERE snapshot_date = (SELECT max(snapshot_date) FROM fmcg.inventory) GROUP BY 1 ORDER BY 2 DESC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "showValue": "always",
+        "xField": null,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "blue"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 7,
+      "title": "Stockout Incidents by Fulfillment Warehouse",
+      "type": "barchart",
+      "description": "Total critical low-stock (<5 units) recorded events per warehouse",
+      "gridPos": {
+        "x": 12,
+        "y": 5,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT concat('Warehouse ', warehouse_id) as warehouse, count(*) as stockout_episodes FROM fmcg.inventory WHERE available_quantity < 5 GROUP BY 1 ORDER BY 2 DESC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "showValue": "always",
+        "xField": null,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "red"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 8,
+      "title": "Daily Sales Volume vs Inventory Depletion (March 2024)",
+      "type": "timeseries",
+      "description": "Trajectory of aggregate retail sales velocity over last 30 operational days",
+      "gridPos": {
+        "x": 0,
+        "y": 13,
+        "w": 14,
+        "h": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "time_series",
+          "rawSql": "SELECT sale_date as time, sum(quantity_units) as \"Daily Units Sold\" FROM fmcg.sales WHERE sale_date >= '2024-03-01' GROUP BY 1 ORDER BY 1;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "fillOpacity": 15,
+            "pointSize": 5,
+            "showPoints": "auto"
+          },
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Daily Units Sold"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "green"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "title": "Available Stock by Product Category",
+      "type": "barchart",
+      "description": "Current warehouse stock distribution across commercial product lines",
+      "gridPos": {
+        "x": 14,
+        "y": 13,
+        "w": 10,
+        "h": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT c.category_name as category, sum(i.available_quantity) as available_units FROM fmcg.inventory i JOIN fmcg.skus k ON i.sku_id = k.sku_id JOIN fmcg.products p ON k.product_id = p.product_id JOIN fmcg.categories c ON p.category_id = c.category_id WHERE i.snapshot_date = (SELECT max(snapshot_date) FROM fmcg.inventory) GROUP BY 1 ORDER BY 2 DESC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "showValue": "always",
+        "xField": null,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "purple"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 10,
+      "title": "Recent Sales Activity",
+      "type": "table",
+      "description": "Recent store-level daily sales records",
+      "gridPos": {
+        "x": 0,
+        "y": 21,
+        "w": 24,
+        "h": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT to_char(sale_date, 'YYYY-MM-DD') as date, store_id, sku_id, quantity_units as units, round(gross_revenue::numeric, 2) as revenue, round(gross_profit::numeric, 2) as profit FROM fmcg.sales ORDER BY sale_date DESC, gross_revenue DESC LIMIT 100;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "footer": {
+          "enablePagination": true,
+          "show": true
+        },
+        "showHeader": true
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "revenue"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "currencyUSD"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

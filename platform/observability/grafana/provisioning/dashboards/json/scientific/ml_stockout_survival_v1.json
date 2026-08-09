@@ -1,0 +1,690 @@
+{
+  "title": "ML \u2014 Stockout Survival Analysis",
+  "uid": "ml_stockout_survival_v1",
+  "timezone": "browser",
+  "refresh": "5m",
+  "schemaVersion": 39,
+  "tags": [
+    "scientific",
+    "ml",
+    "survival",
+    "cox",
+    "fmcg"
+  ],
+  "time": {
+    "from": "2024-01-01T00:00:00.000Z",
+    "to": "2024-03-31T23:59:59.000Z"
+  },
+  "templating": {
+    "list": []
+  },
+  "panels": [
+    {
+      "id": 1,
+      "title": "Scientific Model Card & Survival Analysis Context",
+      "type": "text",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 3
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "**Core:** `stockout_survival_v1` | **Model Architecture:** `Cox Proportional Hazards Model with L2 Regularization`\n**Time Horizon:** 7-Day continuous evaluation study with administrative right-censoring at Day 7 (3,797 test episodes).\n> \u26a0\ufe0f **Kaplan-Meier Semantics:** Empirical survival step functions are calculated directly from duration_days and depletion events. Administrative censoring ends the study at Day 7."
+      }
+    },
+    {
+      "id": 2,
+      "title": "Concordance Index (C-Index)",
+      "type": "stat",
+      "description": "Harrell's C-index measuring ranking concordance of survival times",
+      "gridPos": {
+        "x": 0,
+        "y": 3,
+        "w": 8,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT cast(test::json->>'concordance_index' as float) FROM ml_results.stockout_survival_v1_metrics LIMIT 1;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "blue"
+          },
+          "decimals": 3
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 3,
+      "title": "Mean 3-Day Depletion-Free Rate",
+      "type": "stat",
+      "description": "Average cohort probability of maintaining stock availability through Day 3",
+      "gridPos": {
+        "x": 8,
+        "y": 3,
+        "w": 8,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT round((avg(survival_probability_day_3) * 100)::numeric, 1) FROM ml_results.stockout_survival_v1_predictions;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "green"
+          },
+          "decimals": 1
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 4,
+      "title": "Mean 7-Day Depletion-Free Rate",
+      "type": "stat",
+      "description": "Average cohort probability of maintaining stock availability through Day 7",
+      "gridPos": {
+        "x": 16,
+        "y": 3,
+        "w": 8,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT round((avg(survival_probability_day_7) * 100)::numeric, 1) FROM ml_results.stockout_survival_v1_predictions;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "green"
+          },
+          "decimals": 1
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 5,
+      "title": "Empirical Kaplan\u2013Meier Survival Step Function (Days 0 to 7)",
+      "type": "xychart",
+      "pluginVersion": "11.5.2",
+      "description": "Empirical Kaplan-Meier survival step function across the 7-day study horizon derived from duration_days and survival_event",
+      "gridPos": {
+        "x": 0,
+        "y": 6,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "postgres",
+        "uid": "postgres_db"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "WITH days AS (    SELECT generate_series(0, 7) as day), events AS (    SELECT duration_days::int as day, sum(case when survival_event then 1 else 0 end) as events, count(*) as removed     FROM ml_results.stockout_survival_v1_predictions GROUP BY duration_days::int), timeline AS (    SELECT d.day, coalesce(e.events, 0) as events, coalesce(e.removed, 0) as removed,            (SELECT count(*) FROM ml_results.stockout_survival_v1_predictions) - coalesce(sum(e.removed) over (order by d.day rows between unbounded preceding and 1 preceding), 0) as at_risk     FROM days d LEFT JOIN events e ON d.day = e.day) SELECT day, case when day = 0 then 100.0 else round((exp(sum(ln(case when events = 0 then 1.0 else (1.0 - events::numeric / at_risk) end)) over (order by day rows between unbounded preceding and current row)) * 100)::numeric, 2) end as km_survival_pct FROM timeline ORDER BY day ASC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "mapping": "manual",
+        "series": [
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "day"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "km_survival_pct"
+              }
+            },
+            "name": {
+              "fixed": "Kaplan-Meier Survival Rate (%)"
+            }
+          }
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "show": "points",
+            "pointSize": {
+              "fixed": 4
+            },
+            "lineWidth": 2,
+            "fillOpacity": 50
+          },
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "#5794F2"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "km_survival_pct"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "lines"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 4
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#73BF69"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "title": "Stratified Kaplan\u2013Meier Survival by Hazard Risk Cohort",
+      "type": "xychart",
+      "pluginVersion": "11.5.2",
+      "description": "Empirical survival trajectory divergence comparing elevated hazard positions against baseline low-hazard stock",
+      "gridPos": {
+        "x": 12,
+        "y": 6,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "postgres",
+        "uid": "postgres_db"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "WITH base AS (    SELECT case when risk_score > 1.0 then 'Elevated Hazard (Risk > 1.0)' else 'Baseline / Low Hazard (Risk <= 1.0)' end as risk_group,            duration_days::int as day, survival_event     FROM ml_results.stockout_survival_v1_predictions), totals AS (    SELECT risk_group, count(*) as total_cohort FROM base GROUP BY risk_group), days AS (    SELECT d.day, t.risk_group, t.total_cohort FROM generate_series(0, 7) d(day) CROSS JOIN totals t), events AS (    SELECT risk_group, day, sum(case when survival_event then 1 else 0 end) as events, count(*) as removed FROM base GROUP BY risk_group, day), timeline AS (    SELECT d.risk_group, d.day, coalesce(e.events, 0) as events, coalesce(e.removed, 0) as removed,            d.total_cohort - coalesce(sum(e.removed) over (partition by d.risk_group order by d.day rows between unbounded preceding and 1 preceding), 0) as at_risk     FROM days d LEFT JOIN events e ON d.risk_group = e.risk_group AND d.day = e.day), km AS (    SELECT day, risk_group, case when day = 0 then 100.0 else round((exp(sum(ln(case when events = 0 then 1.0 else (1.0 - events::numeric / at_risk) end)) over (partition by risk_group order by day rows between unbounded preceding and current row)) * 100)::numeric, 2) end as km_survival_pct     FROM timeline) SELECT day, max(case when risk_group like 'Baseline%' then km_survival_pct end) as \"Low Hazard Cohort (Risk <= 1.0)\",        max(case when risk_group like 'Elevated%' then km_survival_pct end) as \"Elevated Hazard Cohort (Risk > 1.0)\" FROM km GROUP BY day ORDER BY day ASC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "mapping": "manual",
+        "series": [
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "day"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "Low Hazard Cohort (Risk <= 1.0)"
+              }
+            },
+            "name": {
+              "fixed": "Low Hazard Cohort (Risk <= 1.0)"
+            }
+          },
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "day"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "Elevated Hazard Cohort (Risk > 1.0)"
+              }
+            },
+            "name": {
+              "fixed": "Elevated Hazard Cohort (Risk > 1.0)"
+            }
+          }
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "show": "points",
+            "pointSize": {
+              "fixed": 4
+            },
+            "lineWidth": 2,
+            "fillOpacity": 50
+          },
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "#5794F2"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Low Hazard Cohort (Risk <= 1.0)"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "lines"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 4
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#73BF69"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Elevated Hazard Cohort (Risk > 1.0)"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "lines"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 4
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#F2495C"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "title": "Cox Hazard Model Feature Log-Hazard Coefficients",
+      "type": "barchart",
+      "description": "Log-hazard ratio coefficients indicating risk accelerators (>0) and protective buffers (<0)",
+      "gridPos": {
+        "x": 0,
+        "y": 14,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT feature, round(coef::numeric, 3) as log_hazard_coefficient FROM ml_results.stockout_survival_v1_coefficients ORDER BY coef DESC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "showValue": "always",
+        "xField": null,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "orange"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "log_hazard_coefficient"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "blue",
+                      "value": null
+                    },
+                    {
+                      "color": "orange",
+                      "value": 0
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "title": "Multi-Horizon Predicted Survival Probability Decay",
+      "type": "barchart",
+      "description": "Cohort mean predicted survival probability decay across discrete horizons",
+      "gridPos": {
+        "x": 12,
+        "y": 14,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT 'Day 3 Horizon' as horizon, round((avg(survival_probability_day_3) * 100)::numeric, 2) as \"Predicted Survival Rate (%)\" FROM ml_results.stockout_survival_v1_predictions UNION ALL SELECT 'Day 5 Horizon', round((avg(survival_probability_day_5) * 100)::numeric, 2) FROM ml_results.stockout_survival_v1_predictions UNION ALL SELECT 'Day 7 Horizon', round((avg(survival_probability_day_7) * 100)::numeric, 2) FROM ml_results.stockout_survival_v1_predictions ORDER BY 1;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "vertical",
+        "showValue": "always",
+        "xField": "horizon",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 9,
+      "title": "Average 7-Day Survival Probability by Warehouse",
+      "type": "barchart",
+      "description": "Geographic fulfillment comparison across 7-day survival rates",
+      "gridPos": {
+        "x": 0,
+        "y": 22,
+        "w": 12,
+        "h": 7
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT concat('Warehouse ', warehouse_id) as warehouse, round((avg(survival_probability_day_7) * 100)::numeric, 1) as avg_7d_survival_pct FROM ml_results.stockout_survival_v1_predictions GROUP BY 1 ORDER BY 2 DESC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "showValue": "always",
+        "xField": null,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "blue"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 10,
+      "title": "Depletion Risk Score Tier Distribution",
+      "type": "barchart",
+      "description": "Inventory cohort segmented into operational risk urgency categories",
+      "gridPos": {
+        "x": 12,
+        "y": 22,
+        "w": 12,
+        "h": 7
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT case when risk_score < 0.5 then 'Moderate Risk (< 0.5)' when risk_score < 1.0 then 'Elevated Risk (0.5 - 1.0)' else 'Critical Depletion Risk (> 1.0)' end as risk_tier, count(*) as episode_count FROM ml_results.stockout_survival_v1_predictions GROUP BY 1 ORDER BY min(risk_score) ASC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "showValue": "always",
+        "xField": null,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "red"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 11,
+      "title": "Highest-Risk Survival Episodes & Depletion Curves",
+      "type": "table",
+      "description": "Top prioritized inventory positions with full 3-day, 5-day, and 7-day survival probability projections",
+      "gridPos": {
+        "x": 0,
+        "y": 29,
+        "w": 24,
+        "h": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT to_char(prediction_date, 'YYYY-MM-DD') as date, warehouse_id, sku_id, round(risk_score::numeric, 2) as hazard_score, round((survival_probability_day_3 * 100)::numeric, 1) as prob_day_3_pct, round((survival_probability_day_5 * 100)::numeric, 1) as prob_day_5_pct, round((survival_probability_day_7 * 100)::numeric, 1) as prob_day_7_pct, available_quantity, round(sales_velocity_7d::numeric, 2) as velocity_7d FROM ml_results.stockout_survival_v1_predictions ORDER BY risk_score DESC LIMIT 200;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "footer": {
+          "enablePagination": true,
+          "show": true
+        },
+        "showHeader": true
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          }
+        },
+        "overrides": []
+      }
+    }
+  ]
+}

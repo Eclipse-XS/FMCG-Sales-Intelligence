@@ -1,0 +1,11 @@
+# Published Dataset Summary
+
+| Dataset | Task | Path | Grain | Rows | Columns | Primary keys / grain keys | Target / outcome semantics | Version / DVC relation |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| anomaly_v1 | Anomaly Detection | data/processed/anomaly/anomaly_v1.parquet | event_date, store_id, sku_id | 35032 | 12 | event_date, store_id, sku_id | No supervised target | v1; data/processed/anomaly/anomaly_v1.parquet.dvc |
+| basket_v1 | Market Basket Analysis | data/processed/basket/basket_v1.parquet | order_id, sku_id | 24370 | 11 | order_id, sku_id | No supervised target | v1; data/processed/basket/basket_v1.parquet.dvc |
+| forecasting_v1 | Forecasting | data/processed/forecasting/forecasting_v1.parquet | prediction_date, store_id, sku_id | 86400 | 24 | prediction_date, store_id, sku_id | target_units_next_7d, target_requested_demand_next_7d, target_lost_sales_next_7d, target_observed_next_7d | v1; data/processed/forecasting/forecasting_v1.parquet.dvc |
+| promotion_daily_v1 | Promotion Performance | data/processed/promotion_daily/promotion_daily_v1.parquet | promotion_id, store_id, sku_id, calendar_date | 259200 | 26 | promotion_id, store_id, sku_id, calendar_date | No supervised target | v1; data/processed/promotion_daily/promotion_daily_v1.parquet.dvc |
+| promotion_performance_v1 | Promotion Performance | data/processed/promotion_performance/promotion_performance_v1.parquet | promotion_id, store_id, sku_id | 2880 | 51 | promotion_id, store_id, sku_id | No supervised target | v1; data/processed/promotion_performance/promotion_performance_v1.parquet.dvc |
+| segmentation_v1 | Segmentation | data/processed/segmentation/segmentation_v1.parquet | snapshot_date, store_id | 60 | 13 | snapshot_date, store_id | No supervised target | v1; data/processed/segmentation/segmentation_v1.parquet.dvc |
+| stockout_v1 | Stockout Classification; Stockout Survival | data/processed/stockout/stockout_v1.parquet | prediction_date, warehouse_id, sku_id | 17280 | 18 | prediction_date, warehouse_id, sku_id | stockout_within_7d, event_observed, event_time_days, censor_time_days, horizon_complete | v1; data/processed/stockout/stockout_v1.parquet.dvc |

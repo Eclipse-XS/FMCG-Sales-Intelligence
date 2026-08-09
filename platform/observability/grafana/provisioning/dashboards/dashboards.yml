@@ -1,6 +1,17 @@
 apiVersion: 1
 providers:
-  - name: fmcg
-    folder: FMCG Data Platform
+  - name: fmcg-business
+    folder: Business
     type: file
-    options: {path: /etc/grafana/provisioning/dashboards/json}
+    options:
+      path: /etc/grafana/provisioning/dashboards/json/business
+  - name: fmcg-scientific
+    folder: Scientific Analytics
+    type: file
+    options:
+      path: /etc/grafana/provisioning/dashboards/json/scientific
+  - name: fmcg-operations
+    folder: Operations
+    type: file
+    options:
+      path: /etc/grafana/provisioning/dashboards/json/operations

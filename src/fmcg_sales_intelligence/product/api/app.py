@@ -18,8 +18,8 @@ from ..analytics import AnalyticsFilters, AnalyticsReadService, BusinessIntellig
 from ..capabilities import evaluate_capabilities
 from ..contracts import load_registry
 from ..domains import DomainPackRegistry
-from ..serving import ForecastService, FrozenModelRegistry, SegmentMembershipService, StockoutService
-from .schemas import BatchRequest, ContractRowsRequest
+from ..serving import FeatureResolver, ForecastService, FrozenModelRegistry, SegmentMembershipService, StockoutService
+from .schemas import BatchRequest, ContractRowsRequest, BusinessForecastRequest, BusinessStockoutRequest, BusinessSegmentationRequest
 from .settings import Settings
 
 
@@ -58,6 +58,7 @@ def create_app(settings: Settings | None = None, artifact_root: str | Path | Non
         segment_membership = SegmentMembershipService(artifact_root or settings.artifact_root)
     except (FileNotFoundError, ValueError):
         segment_membership = None
+    feature_resolver = FeatureResolver()
     for name, record in registry.records.items():
         READY.labels(model=name).set(1 if record.ready else 0)
 
@@ -222,6 +223,52 @@ def create_app(settings: Settings | None = None, artifact_root: str | Path | Non
         values = stockout.predict(body.rows)
         INFERENCE.labels("stockout_classification", "success").inc(len(values))
         return {"items": values}
+
+    @application.post("/api/v1/business/forecast", summary="Forecast via business identifiers")
+    def business_forecast(body: BusinessForecastRequest):
+        features = feature_resolver.resolve_forecast_features(body.store_id, body.sku_id)
+        if not features:
+            raise HTTPException(404, "Features not found for this store/SKU")
+        preds = forecast.predict([features])
+        for p in preds:
+            p["store_id"] = body.store_id
+            p["sku_id"] = body.sku_id
+            p["as_of_date"] = str(features.get("prediction_date", ""))
+        return {"items": preds}
+
+    @application.post("/api/v1/business/stockout", summary="Predict stockout via business identifiers")
+    def business_stockout(body: BusinessStockoutRequest):
+        features = feature_resolver.resolve_stockout_features(body.warehouse_id, body.sku_id)
+        if not features:
+            raise HTTPException(404, "Features not found for this warehouse/SKU")
+        preds = stockout.predict([features])
+        for p in preds:
+            p["warehouse_id"] = body.warehouse_id
+            p["sku_id"] = body.sku_id
+            p["as_of_date"] = str(features.get("prediction_date", ""))
+        return {"items": preds}
+
+    @application.post("/api/v1/business/segments/assign", summary="Assign segment via business identifiers")
+    def business_segments(body: BusinessSegmentationRequest):
+        if segment_membership is None:
+            raise HTTPException(503, "Frozen segmentation artifact is unavailable")
+        features = feature_resolver.resolve_segmentation_features(body.store_id)
+        if not features:
+            raise HTTPException(404, "Features not found for this store")
+        preds = segment_membership.assign([features])
+        for p in preds:
+            p["store_id"] = body.store_id
+            p["as_of_date"] = str(features.get("snapshot_date", ""))
+        return {"items": preds}
+
+    @application.get("/api/v1/business/entities", summary="List business entities for selection")
+    def business_entities():
+        filters = bi.filter_metadata()
+        return {
+            "stores": filters.get("stores", []),
+            "skus": filters.get("skus", []),
+            "warehouses": [1, 2, 3, 4]  # Static for this demo, derived from regions/warehouses
+        }
 
     @application.get("/api/v1/analytics/filters", summary="Read bounded analytical filter values")
     def analytics_filters():

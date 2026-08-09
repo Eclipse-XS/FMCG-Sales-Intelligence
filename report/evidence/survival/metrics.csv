@@ -1,0 +1,34 @@
+metric,value
+kaplan_meier_selection_train.survival_probability.3,0.991470896304055
+kaplan_meier_selection_train.survival_probability.5,0.9848870267843775
+kaplan_meier_selection_train.survival_probability.7,0.9783031572647017
+kaplan_meier_selection_train.median_survival_days,
+validation_candidates.cox_l2_0.1.penalizer,0.1
+validation_candidates.cox_l2_0.1.concordance_index,0.8673364082475096
+validation_candidates.cox_l2_0.1.ph_diagnostics.status,completed
+validation_candidates.cox_l2_0.1.ph_diagnostics.method,Schoenfeld residual rank transform
+validation_candidates.cox_l2_1.0.penalizer,1.0
+validation_candidates.cox_l2_1.0.concordance_index,0.8543627977506792
+validation_candidates.cox_l2_1.0.ph_diagnostics.status,completed
+validation_candidates.cox_l2_1.0.ph_diagnostics.method,Schoenfeld residual rank transform
+selection.configuration,cox_l2_0.1
+selection.penalizer,0.1
+selection.concordance_index,0.8673364082475096
+test.concordance_index,0.7922890233095247
+test.horizon_metrics.3.brier,0.018454311957231004
+test.horizon_metrics.3.mean_predicted_survival,0.988463693515802
+test.horizon_metrics.3.observed_event_free_rate,0.9805109296813274
+test.horizon_metrics.3.early_censored,0
+test.horizon_metrics.5.brier,0.029544807446487416
+test.horizon_metrics.5.mean_predicted_survival,0.9804502934346667
+test.horizon_metrics.5.observed_event_free_rate,0.9678693705557019
+test.horizon_metrics.5.early_censored,0
+test.horizon_metrics.7.brier,0.039456467919962
+test.horizon_metrics.7.mean_predicted_survival,0.9726203771464438
+test.horizon_metrics.7.observed_event_free_rate,0.9557545430603108
+test.horizon_metrics.7.early_censored,0
+test.mean_supported_horizon_brier,0.029151862441226806
+test.rows,3797
+test.events,168
+test.censored,3629
+test.represented_physical_events,31

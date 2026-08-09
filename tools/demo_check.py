@@ -52,7 +52,7 @@ def main() -> int:
         "api_health": _http_status("http://localhost:8000/health"),
         "api_ready": _http_status("http://localhost:8000/ready"),
         "mlflow": _http_status("http://localhost:5000/health"),
-        "dashboard": _http_status("http://localhost:8080"),
+        "grafana": _http_status("http://localhost:3001/api/health"),
     }
     print(json.dumps(result, indent=2))
     required = (result["canonical_artifacts_present"], result["forecasting_loadable"], result["stockout_loadable"], result["segmentation_loadable"])

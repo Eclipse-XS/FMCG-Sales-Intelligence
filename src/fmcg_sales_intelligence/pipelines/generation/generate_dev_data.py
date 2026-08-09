@@ -2,7 +2,11 @@
 from __future__ import annotations
 
 from fmcg_sales_intelligence.common.paths import PROJECT_ROOT
-import argparse, csv, json, math, random
+import argparse
+import csv
+import json
+import math
+import random
 from datetime import date,timedelta
 ROOT = PROJECT_ROOT; OUT=ROOT/"data/generated"
 def write(name,cols,rows):

@@ -1,0 +1,551 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-23T19:44:51.110015+00:00",
+  "generator": "scripts/generate_report_evidence.py",
+  "outputs": [
+    {
+      "evidence_type": "metrics_table",
+      "source_artifacts": [
+        "artifacts/canonical/forecasting_v1/metrics.json",
+        "artifacts/canonical/forecasting_v1/manifest.json"
+      ],
+      "source_datasets": [
+        "data/processed/forecasting/forecasting_v1.parquet"
+      ],
+      "generated_file": "report/evidence/forecasting/metrics.csv",
+      "core": "Forecasting",
+      "methodology_note": "Canonical metrics flattened without recomputation.",
+      "limitations_caveats": [],
+      "sha256": "6325c2ed0835f5848a77a8fb422fe0e61c50b8e2116d2d9f83927c0d13bd1074",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "figure",
+      "source_artifacts": [
+        "artifacts/canonical/forecasting_v1/predictions/test_predictions.parquet"
+      ],
+      "source_datasets": [
+        "data/processed/forecasting/forecasting_v1.parquet"
+      ],
+      "generated_file": "report/evidence/forecasting/actual_vs_predicted.png",
+      "core": "Forecasting",
+      "methodology_note": "Daily aggregate of frozen out-of-sample actual and predicted 7-day units.",
+      "limitations_caveats": [
+        "Aggregation hides store-SKU variation."
+      ],
+      "sha256": "0bee29bb711abb5a06bc1ffd84c105adef7c6c543657b205ba2c1051f0f4cf2c",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "figure",
+      "source_artifacts": [
+        "artifacts/canonical/forecasting_v1/predictions/test_predictions.parquet"
+      ],
+      "source_datasets": [
+        "data/processed/forecasting/forecasting_v1.parquet"
+      ],
+      "generated_file": "report/evidence/forecasting/actual_vs_predicted.svg",
+      "core": "Forecasting",
+      "methodology_note": "Daily aggregate of frozen out-of-sample actual and predicted 7-day units.",
+      "limitations_caveats": [
+        "Aggregation hides store-SKU variation."
+      ],
+      "sha256": "abfd10239a1103a587771acce3fdfde6f5b0cd7c9fa0411be18abbf4558a0606",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "metrics_table",
+      "source_artifacts": [
+        "artifacts/canonical/stockout_classification_v1/metrics.json",
+        "artifacts/canonical/stockout_classification_v1/manifest.json"
+      ],
+      "source_datasets": [
+        "data/processed/stockout/stockout_v1.parquet"
+      ],
+      "generated_file": "report/evidence/stockout/metrics.csv",
+      "core": "Stockout Classification",
+      "methodology_note": "Canonical metrics flattened without recomputation.",
+      "limitations_caveats": [],
+      "sha256": "20f6aa583b6088e87af28c3f5b20cd4f5533e98e1a7b09df68e44569158b3007",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "figure",
+      "source_artifacts": [
+        "artifacts/canonical/stockout_classification_v1/predictions/test_predictions.parquet",
+        "artifacts/canonical/stockout_classification_v1/metrics.json"
+      ],
+      "source_datasets": [
+        "data/processed/stockout/stockout_v1.parquet"
+      ],
+      "generated_file": "report/evidence/stockout/precision_recall.png",
+      "core": "Stockout Classification",
+      "methodology_note": "Curves computed from frozen out-of-sample labels and probabilities; no model inference or fitting.",
+      "limitations_caveats": [
+        "Rare-event prevalence affects precision."
+      ],
+      "sha256": "e4a4d0169aae764b6ac3239ec118c10634c03a4f2025c042fb6b47268a4d3fea",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "figure",
+      "source_artifacts": [
+        "artifacts/canonical/stockout_classification_v1/predictions/test_predictions.parquet",
+        "artifacts/canonical/stockout_classification_v1/metrics.json"
+      ],
+      "source_datasets": [
+        "data/processed/stockout/stockout_v1.parquet"
+      ],
+      "generated_file": "report/evidence/stockout/precision_recall.svg",
+      "core": "Stockout Classification",
+      "methodology_note": "Curves computed from frozen out-of-sample labels and probabilities; no model inference or fitting.",
+      "limitations_caveats": [
+        "Rare-event prevalence affects precision."
+      ],
+      "sha256": "b760605ddd47c96b1e34face0800cebafdfca703e83e792c492cff5aada2c758",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "figure",
+      "source_artifacts": [
+        "artifacts/canonical/stockout_classification_v1/predictions/test_predictions.parquet",
+        "artifacts/canonical/stockout_classification_v1/metrics.json"
+      ],
+      "source_datasets": [
+        "data/processed/stockout/stockout_v1.parquet"
+      ],
+      "generated_file": "report/evidence/stockout/roc_curve.png",
+      "core": "Stockout Classification",
+      "methodology_note": "Curves computed from frozen out-of-sample labels and probabilities; no model inference or fitting.",
+      "limitations_caveats": [
+        "Rare-event prevalence affects precision."
+      ],
+      "sha256": "c69b2630dd168987177f00b60bcf992088f5dee6251f6363834f473e93612855",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "figure",
+      "source_artifacts": [
+        "artifacts/canonical/stockout_classification_v1/predictions/test_predictions.parquet",
+        "artifacts/canonical/stockout_classification_v1/metrics.json"
+      ],
+      "source_datasets": [
+        "data/processed/stockout/stockout_v1.parquet"
+      ],
+      "generated_file": "report/evidence/stockout/roc_curve.svg",
+      "core": "Stockout Classification",
+      "methodology_note": "Curves computed from frozen out-of-sample labels and probabilities; no model inference or fitting.",
+      "limitations_caveats": [
+        "Rare-event prevalence affects precision."
+      ],
+      "sha256": "961cbff15604a91d601d96e5d4c5bbf750f855663ce733eeacf3021a8442397b",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "metrics_table",
+      "source_artifacts": [
+        "artifacts/canonical/stockout_survival_v1/metrics.json",
+        "artifacts/canonical/stockout_survival_v1/manifest.json"
+      ],
+      "source_datasets": [
+        "data/processed/stockout/stockout_v1.parquet"
+      ],
+      "generated_file": "report/evidence/survival/metrics.csv",
+      "core": "Stockout Survival",
+      "methodology_note": "Canonical metrics flattened without recomputation.",
+      "limitations_caveats": [],
+      "sha256": "e0484166e4d343fda65602cd00ce81b42f8db298041a79c9a7fd74f5db83e055",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "figure",
+      "source_artifacts": [
+        "artifacts/canonical/stockout_survival_v1/metrics.json"
+      ],
+      "source_datasets": [
+        "data/processed/stockout/stockout_v1.parquet"
+      ],
+      "generated_file": "report/evidence/survival/survival_curve.png",
+      "core": "Stockout Survival",
+      "methodology_note": "Mean predicted survival and observed event-free rate at supported test horizons.",
+      "limitations_caveats": [
+        "Not a classification probability; the risk set is censored and limited to seven days."
+      ],
+      "sha256": "8084078f2a4f1da98f17f11645e0cdff58599e627d28a1948c95534b96cac027",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "figure",
+      "source_artifacts": [
+        "artifacts/canonical/stockout_survival_v1/metrics.json"
+      ],
+      "source_datasets": [
+        "data/processed/stockout/stockout_v1.parquet"
+      ],
+      "generated_file": "report/evidence/survival/survival_curve.svg",
+      "core": "Stockout Survival",
+      "methodology_note": "Mean predicted survival and observed event-free rate at supported test horizons.",
+      "limitations_caveats": [
+        "Not a classification probability; the risk set is censored and limited to seven days."
+      ],
+      "sha256": "78987caf54323b176f1a4af5f30d8e4b556d21fa9942c396a734c1a8b98889bc",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "metrics_table",
+      "source_artifacts": [
+        "artifacts/canonical/segmentation_v1/metrics.json",
+        "artifacts/canonical/segmentation_v1/manifest.json"
+      ],
+      "source_datasets": [
+        "data/processed/segmentation/segmentation_v1.parquet"
+      ],
+      "generated_file": "report/evidence/segmentation/metrics.csv",
+      "core": "Segmentation",
+      "methodology_note": "Canonical metrics flattened without recomputation.",
+      "limitations_caveats": [],
+      "sha256": "94eb481bbf733803c0b2267b3778895b534b689b095b0941acda206d791befcc",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "cluster_sizes",
+      "source_artifacts": [
+        "artifacts/canonical/segmentation_v1/predictions_or_labels/store_segments.parquet"
+      ],
+      "source_datasets": [
+        "data/processed/segmentation/segmentation_v1.parquet"
+      ],
+      "generated_file": "report/evidence/segmentation/cluster_sizes.csv",
+      "core": "Segmentation",
+      "methodology_note": "Counts of frozen reference-snapshot cluster assignments.",
+      "limitations_caveats": [
+        "Cluster identifiers are exploratory pseudo-labels."
+      ],
+      "sha256": "da0764bad3b45c86563b742fa2ed89841433f8b3ab413084d5363d49a739ae06",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "figure",
+      "source_artifacts": [
+        "artifacts/canonical/segmentation_v1/predictions_or_labels/store_segments.parquet",
+        "artifacts/canonical/segmentation_v1/selected_model.json"
+      ],
+      "source_datasets": [
+        "data/processed/segmentation/segmentation_v1.parquet"
+      ],
+      "generated_file": "report/evidence/segmentation/clusters.png",
+      "core": "Segmentation",
+      "methodology_note": "PCA is used only for two-dimensional visualization of frozen cluster assignments.",
+      "limitations_caveats": [
+        "PCA geometry is illustrative and does not refit or alter KMeans."
+      ],
+      "sha256": "52ca7c78ba2c27e9577c7b5b2706a4c60f0070e0e3fe5dff9f642b529ffbd9a4",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "figure",
+      "source_artifacts": [
+        "artifacts/canonical/segmentation_v1/predictions_or_labels/store_segments.parquet",
+        "artifacts/canonical/segmentation_v1/selected_model.json"
+      ],
+      "source_datasets": [
+        "data/processed/segmentation/segmentation_v1.parquet"
+      ],
+      "generated_file": "report/evidence/segmentation/clusters.svg",
+      "core": "Segmentation",
+      "methodology_note": "PCA is used only for two-dimensional visualization of frozen cluster assignments.",
+      "limitations_caveats": [
+        "PCA geometry is illustrative and does not refit or alter KMeans."
+      ],
+      "sha256": "9739b23cf5cae5996277ac8754fc7d01c4782e4ca9c6f7088b79b27adcf997e4",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "metrics_table",
+      "source_artifacts": [
+        "artifacts/canonical/anomaly_v1/metrics.json",
+        "artifacts/canonical/anomaly_v1/manifest.json"
+      ],
+      "source_datasets": [
+        "data/processed/anomaly/anomaly_v1.parquet"
+      ],
+      "generated_file": "report/evidence/anomaly/metrics.csv",
+      "core": "Anomaly Detection",
+      "methodology_note": "Canonical metrics flattened without recomputation.",
+      "limitations_caveats": [],
+      "sha256": "0a6741df8ebb69376f2aee6ca4435504fed066580824c33ef735694898b92596",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "candidate_examples",
+      "source_artifacts": [
+        "artifacts/canonical/anomaly_v1/predictions_or_scores/anomaly_scores.parquet"
+      ],
+      "source_datasets": [
+        "data/processed/anomaly/anomaly_v1.parquet"
+      ],
+      "generated_file": "report/evidence/anomaly/anomaly_examples.csv",
+      "core": "Anomaly Detection",
+      "methodology_note": "Top 20 frozen Isolation Forest candidates ranked by anomaly score.",
+      "limitations_caveats": [
+        "Candidates are not confirmed errors, fraud, or events; no ground truth exists."
+      ],
+      "sha256": "982489fe61a5b235e86f14077796417a030cab3f89e3d0ea5e32f345585a6cd2",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "figure",
+      "source_artifacts": [
+        "artifacts/canonical/anomaly_v1/predictions_or_scores/anomaly_scores.parquet"
+      ],
+      "source_datasets": [
+        "data/processed/anomaly/anomaly_v1.parquet"
+      ],
+      "generated_file": "report/evidence/anomaly/anomaly_candidates.png",
+      "core": "Anomaly Detection",
+      "methodology_note": "Frozen scoring-period observations with Isolation Forest candidates highlighted.",
+      "limitations_caveats": [
+        "Candidate density and units do not establish root cause."
+      ],
+      "sha256": "be9e32e9d01405f2a90177244bb9d6ddb62ff81d8b4f7c8e09df4322fb220042",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "figure",
+      "source_artifacts": [
+        "artifacts/canonical/anomaly_v1/predictions_or_scores/anomaly_scores.parquet"
+      ],
+      "source_datasets": [
+        "data/processed/anomaly/anomaly_v1.parquet"
+      ],
+      "generated_file": "report/evidence/anomaly/anomaly_candidates.svg",
+      "core": "Anomaly Detection",
+      "methodology_note": "Frozen scoring-period observations with Isolation Forest candidates highlighted.",
+      "limitations_caveats": [
+        "Candidate density and units do not establish root cause."
+      ],
+      "sha256": "52370ce59659f6e278dc44a8a66587470355f5f135fa50d9f3c12ad12659fd6e",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "metrics_table",
+      "source_artifacts": [
+        "artifacts/canonical/basket_v1/metrics.json",
+        "artifacts/canonical/basket_v1/manifest.json"
+      ],
+      "source_datasets": [
+        "data/processed/basket/basket_v1.parquet"
+      ],
+      "generated_file": "report/evidence/basket/metrics.csv",
+      "core": "Market Basket Analysis",
+      "methodology_note": "Canonical metrics flattened without recomputation.",
+      "limitations_caveats": [],
+      "sha256": "096291e26ad4cd1492adc5ef5236d4628f1d6d6b137c21b28ed95a9f551ff17e",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "top_rules",
+      "source_artifacts": [
+        "artifacts/canonical/basket_v1/outputs/top_rules.csv",
+        "artifacts/canonical/basket_v1/diagnostics/temporal_stability.csv"
+      ],
+      "source_datasets": [
+        "data/processed/basket/basket_v1.parquet"
+      ],
+      "generated_file": "report/evidence/basket/top_rules.csv",
+      "core": "Market Basket Analysis",
+      "methodology_note": "Top 15 temporally stable canonical rules by support × confidence × lift; canonical support threshold already applies.",
+      "limitations_caveats": [
+        "Associations are descriptive and are not recommendations or causal relations."
+      ],
+      "sha256": "426cc1b3c5691e7a00be7974966bd2269d6ed97d73c26367eed650bd13782f1b",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "figure",
+      "source_artifacts": [
+        "artifacts/canonical/basket_v1/outputs/top_rules.csv",
+        "artifacts/canonical/basket_v1/diagnostics/temporal_stability.csv"
+      ],
+      "source_datasets": [
+        "data/processed/basket/basket_v1.parquet"
+      ],
+      "generated_file": "report/evidence/basket/top_rules.png",
+      "core": "Market Basket Analysis",
+      "methodology_note": "Lift by rule; marker size encodes support and color encodes confidence.",
+      "limitations_caveats": [
+        "Only selected stable rules are shown."
+      ],
+      "sha256": "43dd5848d0007d76a60d2a27f786caf0c3f46d5df1fec2033a8053cbdef158d9",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "figure",
+      "source_artifacts": [
+        "artifacts/canonical/basket_v1/outputs/top_rules.csv",
+        "artifacts/canonical/basket_v1/diagnostics/temporal_stability.csv"
+      ],
+      "source_datasets": [
+        "data/processed/basket/basket_v1.parquet"
+      ],
+      "generated_file": "report/evidence/basket/top_rules.svg",
+      "core": "Market Basket Analysis",
+      "methodology_note": "Lift by rule; marker size encodes support and color encodes confidence.",
+      "limitations_caveats": [
+        "Only selected stable rules are shown."
+      ],
+      "sha256": "b6be14cb4d5e9d93fe71cb96374e02efba74b9f80d95cc9b13b2f1d05418b962",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "metrics_table",
+      "source_artifacts": [
+        "artifacts/canonical/promotion_v1/metrics.json",
+        "artifacts/canonical/promotion_v1/manifest.json"
+      ],
+      "source_datasets": [
+        "data/processed/promotion_daily/promotion_daily_v1.parquet",
+        "data/processed/promotion_performance/promotion_performance_v1.parquet"
+      ],
+      "generated_file": "report/evidence/promotion/metrics.csv",
+      "core": "Promotion Performance",
+      "methodology_note": "Canonical metrics flattened without recomputation.",
+      "limitations_caveats": [],
+      "sha256": "a78f0e6b2e0d2f53e7447815dd1870ae7bf964ce1244ae0f5a883e4cabd99bac",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "promotion_summary",
+      "source_artifacts": [
+        "artifacts/canonical/promotion_v1/outputs/promotion_summary.parquet"
+      ],
+      "source_datasets": [
+        "data/processed/promotion_daily/promotion_daily_v1.parquet",
+        "data/processed/promotion_performance/promotion_performance_v1.parquet"
+      ],
+      "generated_file": "report/evidence/promotion/promotion_summary.csv",
+      "core": "Promotion Performance",
+      "methodology_note": "Canonical promotion-level descriptive summary exported to CSV.",
+      "limitations_caveats": [
+        "Observed changes are non-causal; only three physical promotions are available."
+      ],
+      "sha256": "8b2f1378410a1dc9e4fb8cec264088c46665524c7da897a6bcf0d31e6cb2e9a0",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "figure",
+      "source_artifacts": [
+        "artifacts/canonical/promotion_v1/outputs/exposure_metrics.parquet"
+      ],
+      "source_datasets": [
+        "data/processed/promotion_daily/promotion_daily_v1.parquet",
+        "data/processed/promotion_performance/promotion_performance_v1.parquet"
+      ],
+      "generated_file": "report/evidence/promotion/pre_during_post.png",
+      "core": "Promotion Performance",
+      "methodology_note": "PRE/DURING/POST realized units per observed exposure-day among full-cycle eligible exposures.",
+      "limitations_caveats": [
+        "Descriptive comparison only; full-cycle evidence is limited to one promotion cohort."
+      ],
+      "sha256": "620c39b652dc7fa2648bfb2e841de1f38f4bba86e6de72f07f1101b18647da77",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "figure",
+      "source_artifacts": [
+        "artifacts/canonical/promotion_v1/outputs/exposure_metrics.parquet"
+      ],
+      "source_datasets": [
+        "data/processed/promotion_daily/promotion_daily_v1.parquet",
+        "data/processed/promotion_performance/promotion_performance_v1.parquet"
+      ],
+      "generated_file": "report/evidence/promotion/pre_during_post.svg",
+      "core": "Promotion Performance",
+      "methodology_note": "PRE/DURING/POST realized units per observed exposure-day among full-cycle eligible exposures.",
+      "limitations_caveats": [
+        "Descriptive comparison only; full-cycle evidence is limited to one promotion cohort."
+      ],
+      "sha256": "b035e5d65b7a1676ebd3cd097f5346fb55e0e7a88e2fcff504c5ce319b914870",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "cross_core_summary",
+      "source_artifacts": [
+        "artifacts/project/modeling_registry_v1.json"
+      ],
+      "source_datasets": [],
+      "generated_file": "report/evidence/summary/scientific_cores_summary.csv",
+      "core": "Cross-project",
+      "methodology_note": "Generated from canonical metadata, processed dataset contracts, and/or the current pytest run.",
+      "limitations_caveats": [],
+      "sha256": "00baa0537baeaf06a8891b32e60a785cf6802a2200dd6268893c933796036af9",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "cross_core_summary",
+      "source_artifacts": [
+        "artifacts/project/modeling_registry_v1.json"
+      ],
+      "source_datasets": [],
+      "generated_file": "report/evidence/summary/scientific_cores_summary.md",
+      "core": "Cross-project",
+      "methodology_note": "Generated from canonical metadata, processed dataset contracts, and/or the current pytest run.",
+      "limitations_caveats": [],
+      "sha256": "8fed4de19a46864e15b5ad4b52e2e88dd7857309b8371607caa32f434607ddd6",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "dataset_summary",
+      "source_artifacts": [
+        "artifacts/project/modeling_registry_v1.json"
+      ],
+      "source_datasets": [],
+      "generated_file": "report/evidence/summary/datasets_summary.csv",
+      "core": "Cross-project",
+      "methodology_note": "Generated from canonical metadata, processed dataset contracts, and/or the current pytest run.",
+      "limitations_caveats": [],
+      "sha256": "df18a47c816abe9b6588f7315924b2adfe56741f0c85d8e5a4cc90120d12746e",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "dataset_summary",
+      "source_artifacts": [
+        "artifacts/project/modeling_registry_v1.json"
+      ],
+      "source_datasets": [],
+      "generated_file": "report/evidence/summary/datasets_summary.md",
+      "core": "Cross-project",
+      "methodology_note": "Generated from canonical metadata, processed dataset contracts, and/or the current pytest run.",
+      "limitations_caveats": [],
+      "sha256": "ad57acadc88234f9dfb997443e42fab9395ca4845bdd522c6e47289b701118fc",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "testing_summary",
+      "source_artifacts": [
+        "artifacts/project/modeling_registry_v1.json"
+      ],
+      "source_datasets": [],
+      "generated_file": "report/evidence/summary/testing_summary.md",
+      "core": "Cross-project",
+      "methodology_note": "Generated from canonical metadata, processed dataset contracts, and/or the current pytest run.",
+      "limitations_caveats": [],
+      "sha256": "6712c173da97d2fea5924cbb4f53b29a9d1a2dff7d60b1bec0558a3d8b8e332d",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    },
+    {
+      "evidence_type": "package_documentation",
+      "source_artifacts": [
+        "artifacts/project/modeling_registry_v1.json"
+      ],
+      "source_datasets": [],
+      "generated_file": "report/evidence/README.md",
+      "core": "Cross-project",
+      "methodology_note": "Documents reproduction and interpretation boundaries.",
+      "limitations_caveats": [],
+      "sha256": "1b0672970e214222d2735d786bcfeee4cc03873168e6a1373a5402dd4b565d02",
+      "generated_at": "2026-09-23T19:44:51.110015+00:00"
+    }
+  ],
+  "unsupported_evidence": []
+}

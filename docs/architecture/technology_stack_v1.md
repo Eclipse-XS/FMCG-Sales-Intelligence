@@ -11,10 +11,8 @@ Lifecycle states follow `artifacts/project/technology_registry_v1.json`.
 | DVC | data/pipeline/canonical-artifact ownership | ACTIVE_EXECUTED; GitHub + gdrive clean-clone proof passed |
 | scikit-learn, CatBoost, lifelines, mlxtend, joblib | frozen classical ML/statistical implementations | ACTIVE_EXECUTED |
 | FastAPI, Pydantic, Uvicorn | typed local backend and frozen inference | ACTIVE_EXECUTED |
-| React, TypeScript, Vite, ECharts | business dashboard | ACTIVE_EXECUTED_V1_1 |
-| MLflow | optional local run tracking/registry, isolated from operational tables | ACTIVE_EXECUTED_LOCAL |
+| Grafana | primary human-facing analytics and ML results interface | ACTIVE_EXECUTED |
 | Prometheus | API metrics collection | ACTIVE_EXECUTED_LOCAL |
-| Grafana | engineering observability provisioning | ACTIVE_EXECUTED_LOCAL |
 | Kafka | ingestion/replay simulation | ACTIVE_EXECUTED_LOCAL_SIMULATION |
 | Airflow | DAG definition and bounded orchestration demo | ACTIVE_EXECUTED_LOCAL_ORCHESTRATION_DEMO |
 | Airbyte, BigQuery | future integration/cloud templates | TEMPLATE_ONLY |

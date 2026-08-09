@@ -3,7 +3,11 @@ from __future__ import annotations
 
 from fmcg_sales_intelligence.common.paths import PROJECT_ROOT
 
-import hashlib, json, platform, shutil, subprocess
+import hashlib
+import json
+import platform
+import shutil
+import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 

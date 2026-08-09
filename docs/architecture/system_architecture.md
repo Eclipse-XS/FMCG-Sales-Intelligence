@@ -11,10 +11,11 @@ flowchart LR
   V --> M[ML/analytics cores]
   M --> F[Frozen canonical artifacts]
   F --> API[FastAPI services]
-  API --> UI[React business dashboard]
+  API --> DOCS[FastAPI / Swagger docs]
   F --> MF[MLflow run/registry metadata]
   API --> PR[Prometheus]
-  PR --> G[Grafana engineering view]
+  PG --> G[Grafana Analytical Dashboards]
+  PR --> G
 ```
 
 The generic package never imports `coca_cola_demo`. Domain packs depend on canonical contracts and are selected at the boundary. Kafka is optional replay simulation; Airflow is a DAG definition; Airbyte and BigQuery are templates. Batch inference is primary, HTTP inference is integration/demo access.

@@ -1,0 +1,342 @@
+{
+  "title": "ML \u2014 Publication Registry",
+  "uid": "ml_publication_registry",
+  "timezone": "browser",
+  "refresh": "5m",
+  "schemaVersion": 39,
+  "tags": [
+    "operations",
+    "governance",
+    "registry",
+    "fmcg"
+  ],
+  "time": {
+    "from": "2024-01-01T00:00:00.000Z",
+    "to": "2024-03-31T23:59:59.000Z"
+  },
+  "templating": {
+    "list": []
+  },
+  "panels": [
+    {
+      "id": 1,
+      "title": "Scientific Publication Governance Card",
+      "type": "text",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 3
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "**Publication Registry & Presentation Data Integrity Ledger** \u2014 Authoritative sync record governing `ml_results` presentation tables.\n*Audit Policy:* Authoritative presentation tables across 7 scientific cores. Verifies artifact sources, published tables, and exact row counts."
+      }
+    },
+    {
+      "id": 2,
+      "title": "Published Presentation Tables",
+      "type": "stat",
+      "description": "Total published tables registered in ml_results",
+      "gridPos": {
+        "x": 0,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT count(*) FROM ml_results.publication_manifest;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "blue"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 3,
+      "title": "Authoritative Published Rows",
+      "type": "stat",
+      "description": "Authoritative total row count published across all presentation tables",
+      "gridPos": {
+        "x": 6,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT sum(row_count) FROM ml_results.publication_manifest;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "purple"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 4,
+      "title": "Scientific Cores Governed",
+      "type": "stat",
+      "description": "Number of scientific ML cores integrated into publication layer",
+      "gridPos": {
+        "x": 12,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT count(distinct core) FROM ml_results.publication_manifest;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "green"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 5,
+      "title": "Artifact Sync Status",
+      "type": "stat",
+      "description": "Synchronization state between canonical artifacts and published tables",
+      "gridPos": {
+        "x": 18,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT 'SYNCED' AS sync_status;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "value",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false,
+          "fields": "/.*/"
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "string",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "green"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 6,
+      "title": "Presentation Rows by Scientific Core",
+      "type": "barchart",
+      "description": "Row distribution across the 7 governed scientific cores",
+      "gridPos": {
+        "x": 0,
+        "y": 6,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT core, sum(row_count) as total_rows FROM ml_results.publication_manifest GROUP BY 1 ORDER BY 2 DESC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "showValue": "always",
+        "xField": null,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "blue"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 7,
+      "title": "Published Tables per Scientific Core",
+      "type": "barchart",
+      "description": "Table count registered per scientific core",
+      "gridPos": {
+        "x": 12,
+        "y": 6,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT core, count(*) as table_count FROM ml_results.publication_manifest GROUP BY 1 ORDER BY 2 DESC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "showValue": "always",
+        "xField": null,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "purple"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 8,
+      "title": "Publication Manifest Audit Trail",
+      "type": "table",
+      "description": "Exhaustive registry audit trail detailing artifact source paths and published row counts",
+      "gridPos": {
+        "x": 0,
+        "y": 14,
+        "w": 24,
+        "h": 10
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT table_name, core, source_file, row_count, to_char(published_at, 'YYYY-MM-DD HH24:MI:SS') as published_timestamp FROM ml_results.publication_manifest ORDER BY table_name;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "footer": {
+          "enablePagination": true,
+          "show": true
+        },
+        "showHeader": true
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          }
+        },
+        "overrides": []
+      }
+    }
+  ]
+}

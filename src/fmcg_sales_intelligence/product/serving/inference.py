@@ -36,6 +36,8 @@ def _validate_rows(rows: list[dict[str, Any]], features: list[str], forbidden: s
     missing = set(features) - supplied
     if missing:
         raise ValueError(f"Missing required features: {sorted(missing)}")
+    if any(set(features) - set(row) for row in rows):
+        raise ValueError("Missing required features in individual batch rows")
     frame = pd.DataFrame(rows)
     numeric = frame[features].select_dtypes(include=["number"])
     if not numeric.empty and np.isinf(numeric.to_numpy(dtype=float)).any():

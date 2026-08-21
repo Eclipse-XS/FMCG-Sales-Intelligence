@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 import json
+import yaml
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-import joblib
+from ...integrations.trust import load_approved_bundle
 
 from ...common.paths import project_path, relative_path, sha256_file
 
@@ -40,14 +41,10 @@ class ModelRecord:
 
 
 class FrozenModelRegistry:
-    SPECS = {
-        "forecasting": ("forecasting_v1", "models/final_model.joblib"),
-        "stockout_classification": ("stockout_classification_v1", "models/final_model.joblib"),
-    }
-
-    def __init__(self, artifact_root: str | Path | None = None):
+    def __init__(self, artifact_root: str | Path | None = None, catalog: str | Path | None = None):
         self.artifact_root = Path(artifact_root) if artifact_root else project_path("artifacts", "canonical")
-        self.records = {name: self._load(name, version, rel) for name, (version, rel) in self.SPECS.items()}
+        specs = yaml.safe_load(Path(catalog or project_path("config", "frozen_models.yaml")).read_text(encoding="utf-8"))
+        self.records = {name: self._load(name, spec["version"], spec["artifact"]) for name, spec in specs.items()}
 
     def _load(self, name: str, version: str, rel: str) -> ModelRecord:
         root = self.artifact_root / version
@@ -57,7 +54,7 @@ class FrozenModelRegistry:
             if not artifact.is_file() or not manifest_path.is_file():
                 raise FileNotFoundError(f"Required canonical files are unavailable for {version}")
             manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-            bundle = joblib.load(artifact)
+            bundle = load_approved_bundle(artifact, self.artifact_root / "trusted-artifacts.json")
             if list(bundle.get("features", [])) != list(manifest.get("features", [])):
                 raise ValueError("Model bundle and manifest feature contracts differ")
             if bundle.get("target") != manifest.get("target"):

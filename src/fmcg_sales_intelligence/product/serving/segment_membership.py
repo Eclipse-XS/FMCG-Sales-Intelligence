@@ -4,7 +4,7 @@ import math
 from pathlib import Path
 from typing import Any
 
-import joblib
+from ...integrations.trust import load_approved_bundle
 import pandas as pd
 
 from ...common.paths import project_path, sha256_file
@@ -21,7 +21,7 @@ class SegmentMembershipService:
         self.artifact = root / self.VERSION / "models" / "final_model.joblib"
         if not self.artifact.is_file():
             raise FileNotFoundError("Frozen segmentation artifact is unavailable")
-        state = joblib.load(self.artifact)
+        state = load_approved_bundle(self.artifact, root / "trusted-artifacts.json")
         required = {"preprocessor", "model", "features", "canonical_mapping", "segment_names", "version"}
         if not required.issubset(state) or state.get("algorithm") != "kmeans":
             raise ValueError("Frozen segmentation artifact does not support native membership assignment")

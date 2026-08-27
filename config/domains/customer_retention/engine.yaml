@@ -1,0 +1,12 @@
+name: customer-retention
+version: '1'
+signature:
+  features:
+    - {name: tenure_months, dtype: number, coerce: true}
+    - {name: monthly_charge, dtype: number, coerce: true}
+    - {name: contract, dtype: string, categories: [monthly, annual]}
+  forbidden: [churned]
+mapping:
+  months: tenure_months
+  fee: monthly_charge
+  plan: contract

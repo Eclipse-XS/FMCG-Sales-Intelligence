@@ -36,6 +36,15 @@ class DomainPack:
     scales: dict[str, float] = field(default_factory=dict)
     transform: Callable[[pd.DataFrame], pd.DataFrame] | None = None
 
+    @classmethod
+    def from_yaml(cls, path):
+        import yaml
+        spec = yaml.safe_load(Path(path).read_text(encoding="utf-8"))
+        allowed = {"name", "version", "signature", "mapping", "scales"}
+        if set(spec) - allowed:
+            raise ValueError("Unsupported domain configuration keys; Python transforms are injected by operators")
+        return cls(**{**spec, "signature": Signature.from_dict(spec["signature"])})
+
     def normalize(self, frame: pd.DataFrame) -> pd.DataFrame:
         if not frame.columns.is_unique or len(set(self.mapping.values())) != len(self.mapping.values()):
             raise EngineError("INVALID_MAPPING", "Duplicate source or destination columns")

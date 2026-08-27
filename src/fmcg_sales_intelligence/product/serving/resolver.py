@@ -7,6 +7,7 @@ from pathlib import Path
 import numpy as np
 
 from ...common.paths import project_path
+from ...engine.contracts import DependencyUnavailable
 
 LOGGER = logging.getLogger("fsi.resolver")
 
@@ -17,7 +18,7 @@ class FeatureResolver:
     def _query_latest(self, dataset: str, filters: dict[str, Any], order_by: str) -> dict[str, Any] | None:
         parquet_path = self.data_root / dataset / f"{dataset}_v1.parquet"
         if not parquet_path.exists():
-            raise RuntimeError(f"Processed dataset {dataset} not found at {parquet_path}")
+            raise DependencyUnavailable(f"Processed dataset {dataset} not found at {parquet_path}")
 
         conditions = []
         params = []

@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 
 from .registry import FrozenModelRegistry
+from ...engine.contracts import DependencyUnavailable
 
 
 FORBIDDEN_FORECAST = {
@@ -51,7 +52,7 @@ class ForecastService:
 
     def predict(self, rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
         if not self.record.ready:
-            raise RuntimeError("Forecast model unavailable")
+            raise DependencyUnavailable("Forecast model unavailable")
         bundle = self.record.bundle
         features, categorical = bundle["features"], bundle["categorical"]
         frame = _validate_rows(rows, features, FORBIDDEN_FORECAST)
@@ -79,7 +80,7 @@ class StockoutService:
 
     def predict(self, rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
         if not self.record.ready:
-            raise RuntimeError("Stockout model unavailable")
+            raise DependencyUnavailable("Stockout model unavailable")
         bundle = self.record.bundle
         frame = _validate_rows(rows, bundle["features"], FORBIDDEN_STOCKOUT)
         probabilities = bundle["model"].predict_proba(frame)[:, 1]

@@ -13,6 +13,10 @@ class EngineError(Exception):
         self.code, self.status = code, status
 
 
+class DependencyUnavailable(RuntimeError):
+    """A known unavailable deployment dependency, distinct from runtime bugs."""
+
+
 @dataclass(frozen=True)
 class Feature:
     name: str

@@ -1,6 +1,10 @@
 .git
 .github
 .venv
+.env
+.env.*
+!.env.example
+.demo
 .dvc/cache
 **/__pycache__
 **/*.pyc

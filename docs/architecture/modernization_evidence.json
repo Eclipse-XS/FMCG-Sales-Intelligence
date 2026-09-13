@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-16",
+  "base_commit": "d37585ecca912f2f7c7fe380e74a6f85d7d61ff7",
+  "implementation_commit": "3048a15",
+  "reports": {
+    "full_regression": {
+      "tests": "171",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "217.606",
+      "junit_sha256": "278108ea1843b9178cabf5576cf62ea6665a35ced248a8ffb2919af893b8e396"
+    },
+    "postgres": {
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "1.486",
+      "junit_sha256": "5ca1a9ed1078d3d3d0b7cbb94907a3024da065c1e39c553ded40d531b91fda31"
+    },
+    "isolated_before_two_added_tests": {
+      "tests": "40",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "69.959",
+      "junit_sha256": "5d2cd1a67ae6038f6d15079f7173d7bdca379bbde20c4018efc6f5172b6e66bc"
+    }
+  },
+  "additional_credentials_timeout_tests": {
+    "passed": 2,
+    "failed": 0,
+    "note": "Added after full-run collection; also covered by final CI isolated job"
+  },
+  "scientific_preservation": {
+    "files_compared": 134,
+    "all_hashes_identical": true,
+    "retraining_claimed": false
+  },
+  "ci_runs": [
+    43777041007,
+    43777045243
+  ],
+  "ci_jobs": [
+    "lint",
+    "isolated",
+    "docker-demo"
+  ],
+  "ci_result": "success",
+  "pull_request": "https://github.com/Eclipse-XS/FMCG-Sales-Intelligence/pull/2",
+  "merge_gate": "Merge only after final documentation commit CI is green",
+  "limitations": [
+    "Historical DVC lock source drift is preserved honestly; full scientific retraining not claimed",
+    "No production authentication, tenancy, load/capacity certification or model sandbox",
+    "Kafka is optional experimental replay only"
+  ]
+}

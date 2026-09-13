@@ -19,7 +19,9 @@ def test_frozen_scientific_registry_values_are_exact():
 
 
 def test_serving_source_contains_no_training_calls():
-    for path in Path("src/fmcg_sales_intelligence/serving").rglob("*.py"):
+    paths = list(Path("src/fmcg_sales_intelligence/product/serving").rglob("*.py"))
+    assert paths
+    for path in paths:
         tree = ast.parse(path.read_text(encoding="utf-8"))
         calls = [n for n in ast.walk(tree) if isinstance(n, ast.Call) and isinstance(n.func, ast.Attribute)]
         assert not any(n.func.attr in {"fit", "fit_transform"} for n in calls)

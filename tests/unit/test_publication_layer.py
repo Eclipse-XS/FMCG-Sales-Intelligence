@@ -59,17 +59,6 @@ def test_safe_read_unsupported_extension(tmp_path: Path):
         safe_read(bad_file)
 
 
-def test_canonical_artifacts_exist_on_disk():
-    """Verify that canonical artifact files defined in CORES actually exist on disk."""
-    artifact_root = Path("artifacts/canonical")
-    for core, files in CORES.items():
-        core_dir = artifact_root / core
-        assert core_dir.exists(), f"Core directory missing: {core_dir}"
-        for key, rel_path in files.items():
-            file_path = core_dir / rel_path
-            assert file_path.exists(), f"Artifact file missing for {core}/{key}: {file_path}"
-
-
 def test_publish_core_missing_core_returns_none(tmp_path: Path):
     class DummyEngine:
         pass

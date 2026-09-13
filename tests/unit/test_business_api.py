@@ -1,8 +1,23 @@
 from fastapi.testclient import TestClient
 
-from fmcg_sales_intelligence.product.api.app import app
+import pytest
+from fmcg_sales_intelligence.product.api.app import create_app
+from fmcg_sales_intelligence.product.serving.resolver import FeatureResolver
 
-client = TestClient(app)
+@pytest.fixture(autouse=True)
+def isolated_client(canonical_fixture, monkeypatch):
+    global client
+    def forecast(self, store_id, sku_id):
+        return {"signal": 2., "prediction_date": "2024-01-01"} if store_id == sku_id == 1 else None
+    def stockout(self, warehouse_id, sku_id):
+        return {"signal": 2., "prediction_date": "2024-01-01"} if warehouse_id == sku_id == 1 else None
+    def segment(self, store_id):
+        return {"store_id": store_id, "revenue_30d": 2., "average_price_30d": 3.,
+                "promotion_unit_share_30d": 4., "revenue_volatility_30d": 5.}
+    monkeypatch.setattr(FeatureResolver, "resolve_forecast_features", forecast)
+    monkeypatch.setattr(FeatureResolver, "resolve_stockout_features", stockout)
+    monkeypatch.setattr(FeatureResolver, "resolve_segmentation_features", segment)
+    client = TestClient(create_app(artifact_root=canonical_fixture))
 
 def test_business_forecast_success():
     # Use real store and sku that should exist

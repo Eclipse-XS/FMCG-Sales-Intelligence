@@ -1,0 +1,14 @@
+SET search_path TO fmcg, public;
+CREATE INDEX sales_sku_store_date_idx ON sales(sku_id, store_id, sale_date);
+CREATE INDEX sales_store_date_idx ON sales(store_id, sale_date);
+CREATE INDEX sales_date_idx ON sales(sale_date);
+CREATE INDEX inventory_sku_date_idx ON inventory(sku_id, snapshot_date);
+CREATE INDEX inventory_warehouse_sku_date_idx ON inventory(warehouse_id, sku_id, snapshot_date);
+CREATE INDEX order_items_sku_idx ON order_items(sku_id);
+CREATE INDEX orders_store_date_idx ON orders(store_id, order_date);
+CREATE INDEX orders_date_idx ON orders(order_date);
+CREATE INDEX prices_lookup_idx ON product_prices(store_id, sku_id, valid_from, valid_to);
+CREATE INDEX promotions_dates_idx ON promotions(start_date, end_date);
+CREATE INDEX deliveries_store_status_idx ON deliveries(store_id, status);
+CREATE INDEX daily_demand_store_sku_date_idx ON daily_demand(store_id, sku_id, observation_date);
+CREATE INDEX daily_demand_warehouse_date_idx ON daily_demand(warehouse_id, observation_date);

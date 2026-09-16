@@ -1,0 +1,12 @@
+contract_version: 1
+task: anomaly_detection
+status: READY_WITH_LIMITATIONS
+contract: post_event_unsupervised
+features: [event_observed_units, event_transaction_unit_price, event_is_promo, lag_1, lag_7, rolling_mean_7d, rolling_std_7d, brand_name, category_name]
+identifiers: [event_date, store_id, sku_id]
+forbidden_features: [anomaly_label, is_anomaly, forecast_residual]
+baseline: historical_rolling_z_score
+candidate_models: [isolation_forest]
+optional_local_method: lof_for_offline_reference_only
+evaluation: [candidate_rate, score_distribution, temporal_stability, slice_stability, manual_business_review]
+random_seed: 20260916

@@ -1,0 +1,2010 @@
+{
+  "prediction_rows": 86400,
+  "observed_positive_sales_rows": 35892,
+  "observed_fraction": 0.41541666666666666,
+  "missing_or_zero_sales_combinations": 50508,
+  "missing_fraction": 0.5845833333333333,
+  "complete_target_rows": 1035,
+  "complete_target_fraction": 0.011979166666666667,
+  "incomplete_due_dataset_end_rows": 6720,
+  "incomplete_due_sparse_sales_rows": 78645,
+  "target": {
+    "count": 1035,
+    "mean": 48.38937198067633,
+    "median": 47.0,
+    "std": 16.968285444336757,
+    "min": 12.0,
+    "p25": 35.0,
+    "p75": 61.0,
+    "p95": 78.0,
+    "max": 90.0,
+    "zero_count": 0,
+    "skewness": 0.2596232388515862
+  },
+  "feature_null_counts": {
+    "lag_1": 50899,
+    "lag_7": 53279,
+    "lag_14": 56092,
+    "lag_28": 61715,
+    "rolling_mean_7d": 6709,
+    "rolling_std_7d": 20416,
+    "sales_velocity_7d": 6709,
+    "scheduled_selling_price": 0
+  },
+  "target_correlations": {
+    "lag_1": 0.7629670900664856,
+    "lag_7": 0.7571954353666672,
+    "lag_14": 0.7418606475820497,
+    "lag_28": 0.7666650992125248,
+    "rolling_mean_7d": 0.9079513566652299,
+    "rolling_std_7d": 0.36501936782589134,
+    "sales_velocity_7d": 0.8354984060177577,
+    "scheduled_selling_price": -0.7701244114812115
+  },
+  "series_active_fraction": {
+    "observed_days": {
+      "count": 960,
+      "mean": 37.3875,
+      "median": 37.0,
+      "std": 13.337671565703577,
+      "min": 8.0,
+      "p25": 27.0,
+      "p75": 46.0,
+      "p95": 59.0,
+      "max": 81.0
+    },
+    "active_fraction": {
+      "count": 960,
+      "mean": 0.4154166666666667,
+      "median": 0.4111111111111111,
+      "std": 0.14819635073003973,
+      "min": 0.08888888888888889,
+      "p25": 0.3,
+      "p75": 0.5111111111111111,
+      "p95": 0.6555555555555556,
+      "max": 0.9
+    }
+  },
+  "inter_sale_gap_days": {
+    "count": 34932,
+    "mean": 2.3480762624527656,
+    "median": 2.0,
+    "std": 2.115044113862702,
+    "min": 1.0,
+    "p25": 1.0,
+    "p75": 3.0,
+    "p95": 6.0,
+    "max": 46.0
+  },
+  "coverage_by_date": [
+    {
+      "prediction_date": "2024-01-01",
+      "observed": 397,
+      "missing": 563,
+      "complete_targets": "13"
+    },
+    {
+      "prediction_date": "2024-01-02",
+      "observed": 370,
+      "missing": 590,
+      "complete_targets": "12"
+    },
+    {
+      "prediction_date": "2024-01-03",
+      "observed": 412,
+      "missing": 548,
+      "complete_targets": "12"
+    },
+    {
+      "prediction_date": "2024-01-04",
+      "observed": 364,
+      "missing": 596,
+      "complete_targets": "15"
+    },
+    {
+      "prediction_date": "2024-01-05",
+      "observed": 389,
+      "missing": 571,
+      "complete_targets": "18"
+    },
+    {
+      "prediction_date": "2024-01-06",
+      "observed": 390,
+      "missing": 570,
+      "complete_targets": "20"
+    },
+    {
+      "prediction_date": "2024-01-07",
+      "observed": 426,
+      "missing": 534,
+      "complete_targets": "22"
+    },
+    {
+      "prediction_date": "2024-01-08",
+      "observed": 418,
+      "missing": 542,
+      "complete_targets": "14"
+    },
+    {
+      "prediction_date": "2024-01-09",
+      "observed": 403,
+      "missing": 557,
+      "complete_targets": "14"
+    },
+    {
+      "prediction_date": "2024-01-10",
+      "observed": 410,
+      "missing": 550,
+      "complete_targets": "13"
+    },
+    {
+      "prediction_date": "2024-01-11",
+      "observed": 377,
+      "missing": 583,
+      "complete_targets": "12"
+    },
+    {
+      "prediction_date": "2024-01-12",
+      "observed": 386,
+      "missing": 574,
+      "complete_targets": "10"
+    },
+    {
+      "prediction_date": "2024-01-13",
+      "observed": 426,
+      "missing": 534,
+      "complete_targets": "6"
+    },
+    {
+      "prediction_date": "2024-01-14",
+      "observed": 407,
+      "missing": 553,
+      "complete_targets": "7"
+    },
+    {
+      "prediction_date": "2024-01-15",
+      "observed": 398,
+      "missing": 562,
+      "complete_targets": "11"
+    },
+    {
+      "prediction_date": "2024-01-16",
+      "observed": 403,
+      "missing": 557,
+      "complete_targets": "11"
+    },
+    {
+      "prediction_date": "2024-01-17",
+      "observed": 383,
+      "missing": 577,
+      "complete_targets": "9"
+    },
+    {
+      "prediction_date": "2024-01-18",
+      "observed": 408,
+      "missing": 552,
+      "complete_targets": "9"
+    },
+    {
+      "prediction_date": "2024-01-19",
+      "observed": 405,
+      "missing": 555,
+      "complete_targets": "6"
+    },
+    {
+      "prediction_date": "2024-01-20",
+      "observed": 376,
+      "missing": 584,
+      "complete_targets": "10"
+    },
+    {
+      "prediction_date": "2024-01-21",
+      "observed": 401,
+      "missing": 559,
+      "complete_targets": "12"
+    },
+    {
+      "prediction_date": "2024-01-22",
+      "observed": 386,
+      "missing": 574,
+      "complete_targets": "13"
+    },
+    {
+      "prediction_date": "2024-01-23",
+      "observed": 385,
+      "missing": 575,
+      "complete_targets": "15"
+    },
+    {
+      "prediction_date": "2024-01-24",
+      "observed": 386,
+      "missing": 574,
+      "complete_targets": "14"
+    },
+    {
+      "prediction_date": "2024-01-25",
+      "observed": 406,
+      "missing": 554,
+      "complete_targets": "22"
+    },
+    {
+      "prediction_date": "2024-01-26",
+      "observed": 389,
+      "missing": 571,
+      "complete_targets": "17"
+    },
+    {
+      "prediction_date": "2024-01-27",
+      "observed": 414,
+      "missing": 546,
+      "complete_targets": "17"
+    },
+    {
+      "prediction_date": "2024-01-28",
+      "observed": 408,
+      "missing": 552,
+      "complete_targets": "16"
+    },
+    {
+      "prediction_date": "2024-01-29",
+      "observed": 401,
+      "missing": 559,
+      "complete_targets": "20"
+    },
+    {
+      "prediction_date": "2024-01-30",
+      "observed": 415,
+      "missing": 545,
+      "complete_targets": "17"
+    },
+    {
+      "prediction_date": "2024-01-31",
+      "observed": 417,
+      "missing": 543,
+      "complete_targets": "12"
+    },
+    {
+      "prediction_date": "2024-02-01",
+      "observed": 379,
+      "missing": 581,
+      "complete_targets": "12"
+    },
+    {
+      "prediction_date": "2024-02-02",
+      "observed": 381,
+      "missing": 579,
+      "complete_targets": "10"
+    },
+    {
+      "prediction_date": "2024-02-03",
+      "observed": 384,
+      "missing": 576,
+      "complete_targets": "13"
+    },
+    {
+      "prediction_date": "2024-02-04",
+      "observed": 391,
+      "missing": 569,
+      "complete_targets": "12"
+    },
+    {
+      "prediction_date": "2024-02-05",
+      "observed": 406,
+      "missing": 554,
+      "complete_targets": "11"
+    },
+    {
+      "prediction_date": "2024-02-06",
+      "observed": 412,
+      "missing": 548,
+      "complete_targets": "14"
+    },
+    {
+      "prediction_date": "2024-02-07",
+      "observed": 382,
+      "missing": 578,
+      "complete_targets": "13"
+    },
+    {
+      "prediction_date": "2024-02-08",
+      "observed": 401,
+      "missing": 559,
+      "complete_targets": "15"
+    },
+    {
+      "prediction_date": "2024-02-09",
+      "observed": 404,
+      "missing": 556,
+      "complete_targets": "14"
+    },
+    {
+      "prediction_date": "2024-02-10",
+      "observed": 396,
+      "missing": 564,
+      "complete_targets": "17"
+    },
+    {
+      "prediction_date": "2024-02-11",
+      "observed": 374,
+      "missing": 586,
+      "complete_targets": "14"
+    },
+    {
+      "prediction_date": "2024-02-12",
+      "observed": 407,
+      "missing": 553,
+      "complete_targets": "15"
+    },
+    {
+      "prediction_date": "2024-02-13",
+      "observed": 383,
+      "missing": 577,
+      "complete_targets": "16"
+    },
+    {
+      "prediction_date": "2024-02-14",
+      "observed": 386,
+      "missing": 574,
+      "complete_targets": "12"
+    },
+    {
+      "prediction_date": "2024-02-15",
+      "observed": 402,
+      "missing": 558,
+      "complete_targets": "11"
+    },
+    {
+      "prediction_date": "2024-02-16",
+      "observed": 411,
+      "missing": 549,
+      "complete_targets": "8"
+    },
+    {
+      "prediction_date": "2024-02-17",
+      "observed": 421,
+      "missing": 539,
+      "complete_targets": "8"
+    },
+    {
+      "prediction_date": "2024-02-18",
+      "observed": 409,
+      "missing": 551,
+      "complete_targets": "6"
+    },
+    {
+      "prediction_date": "2024-02-19",
+      "observed": 373,
+      "missing": 587,
+      "complete_targets": "10"
+    },
+    {
+      "prediction_date": "2024-02-20",
+      "observed": 404,
+      "missing": 556,
+      "complete_targets": "9"
+    },
+    {
+      "prediction_date": "2024-02-21",
+      "observed": 403,
+      "missing": 557,
+      "complete_targets": "10"
+    },
+    {
+      "prediction_date": "2024-02-22",
+      "observed": 404,
+      "missing": 556,
+      "complete_targets": "12"
+    },
+    {
+      "prediction_date": "2024-02-23",
+      "observed": 414,
+      "missing": 546,
+      "complete_targets": "8"
+    },
+    {
+      "prediction_date": "2024-02-24",
+      "observed": 404,
+      "missing": 556,
+      "complete_targets": "8"
+    },
+    {
+      "prediction_date": "2024-02-25",
+      "observed": 413,
+      "missing": 547,
+      "complete_targets": "10"
+    },
+    {
+      "prediction_date": "2024-02-26",
+      "observed": 404,
+      "missing": 556,
+      "complete_targets": "12"
+    },
+    {
+      "prediction_date": "2024-02-27",
+      "observed": 399,
+      "missing": 561,
+      "complete_targets": "12"
+    },
+    {
+      "prediction_date": "2024-02-28",
+      "observed": 390,
+      "missing": 570,
+      "complete_targets": "11"
+    },
+    {
+      "prediction_date": "2024-02-29",
+      "observed": 406,
+      "missing": 554,
+      "complete_targets": "11"
+    },
+    {
+      "prediction_date": "2024-03-01",
+      "observed": 395,
+      "missing": 565,
+      "complete_targets": "10"
+    },
+    {
+      "prediction_date": "2024-03-02",
+      "observed": 391,
+      "missing": 569,
+      "complete_targets": "7"
+    },
+    {
+      "prediction_date": "2024-03-03",
+      "observed": 404,
+      "missing": 556,
+      "complete_targets": "7"
+    },
+    {
+      "prediction_date": "2024-03-04",
+      "observed": 386,
+      "missing": 574,
+      "complete_targets": "7"
+    },
+    {
+      "prediction_date": "2024-03-05",
+      "observed": 417,
+      "missing": 543,
+      "complete_targets": "11"
+    },
+    {
+      "prediction_date": "2024-03-06",
+      "observed": 399,
+      "missing": 561,
+      "complete_targets": "19"
+    },
+    {
+      "prediction_date": "2024-03-07",
+      "observed": 389,
+      "missing": 571,
+      "complete_targets": "17"
+    },
+    {
+      "prediction_date": "2024-03-08",
+      "observed": 410,
+      "missing": 550,
+      "complete_targets": "13"
+    },
+    {
+      "prediction_date": "2024-03-09",
+      "observed": 418,
+      "missing": 542,
+      "complete_targets": "16"
+    },
+    {
+      "prediction_date": "2024-03-10",
+      "observed": 395,
+      "missing": 565,
+      "complete_targets": "14"
+    },
+    {
+      "prediction_date": "2024-03-11",
+      "observed": 409,
+      "missing": 551,
+      "complete_targets": "16"
+    },
+    {
+      "prediction_date": "2024-03-12",
+      "observed": 407,
+      "missing": 553,
+      "complete_targets": "15"
+    },
+    {
+      "prediction_date": "2024-03-13",
+      "observed": 416,
+      "missing": 544,
+      "complete_targets": "14"
+    },
+    {
+      "prediction_date": "2024-03-14",
+      "observed": 391,
+      "missing": 569,
+      "complete_targets": "14"
+    },
+    {
+      "prediction_date": "2024-03-15",
+      "observed": 384,
+      "missing": 576,
+      "complete_targets": "14"
+    },
+    {
+      "prediction_date": "2024-03-16",
+      "observed": 398,
+      "missing": 562,
+      "complete_targets": "18"
+    },
+    {
+      "prediction_date": "2024-03-17",
+      "observed": 404,
+      "missing": 556,
+      "complete_targets": "17"
+    },
+    {
+      "prediction_date": "2024-03-18",
+      "observed": 415,
+      "missing": 545,
+      "complete_targets": "10"
+    },
+    {
+      "prediction_date": "2024-03-19",
+      "observed": 410,
+      "missing": 550,
+      "complete_targets": "8"
+    },
+    {
+      "prediction_date": "2024-03-20",
+      "observed": 396,
+      "missing": 564,
+      "complete_targets": "8"
+    },
+    {
+      "prediction_date": "2024-03-21",
+      "observed": 398,
+      "missing": 562,
+      "complete_targets": "8"
+    },
+    {
+      "prediction_date": "2024-03-22",
+      "observed": 390,
+      "missing": 570,
+      "complete_targets": "9"
+    },
+    {
+      "prediction_date": "2024-03-23",
+      "observed": 400,
+      "missing": 560,
+      "complete_targets": "10"
+    },
+    {
+      "prediction_date": "2024-03-24",
+      "observed": 400,
+      "missing": 560,
+      "complete_targets": "0"
+    },
+    {
+      "prediction_date": "2024-03-25",
+      "observed": 374,
+      "missing": 586,
+      "complete_targets": "0"
+    },
+    {
+      "prediction_date": "2024-03-26",
+      "observed": 408,
+      "missing": 552,
+      "complete_targets": "0"
+    },
+    {
+      "prediction_date": "2024-03-27",
+      "observed": 397,
+      "missing": 563,
+      "complete_targets": "0"
+    },
+    {
+      "prediction_date": "2024-03-28",
+      "observed": 403,
+      "missing": 557,
+      "complete_targets": "0"
+    },
+    {
+      "prediction_date": "2024-03-29",
+      "observed": 398,
+      "missing": 562,
+      "complete_targets": "0"
+    },
+    {
+      "prediction_date": "2024-03-30",
+      "observed": 391,
+      "missing": 569,
+      "complete_targets": "0"
+    }
+  ],
+  "coverage_by_store": [
+    {
+      "store_id": 1,
+      "observed": 970,
+      "coverage": 0.22453703703703703
+    },
+    {
+      "store_id": 2,
+      "observed": 1005,
+      "coverage": 0.2326388888888889
+    },
+    {
+      "store_id": 3,
+      "observed": 1134,
+      "coverage": 0.2625
+    },
+    {
+      "store_id": 4,
+      "observed": 1149,
+      "coverage": 0.2659722222222222
+    },
+    {
+      "store_id": 5,
+      "observed": 1297,
+      "coverage": 0.3002314814814815
+    },
+    {
+      "store_id": 6,
+      "observed": 1387,
+      "coverage": 0.3210648148148148
+    },
+    {
+      "store_id": 7,
+      "observed": 1530,
+      "coverage": 0.3541666666666667
+    },
+    {
+      "store_id": 8,
+      "observed": 1534,
+      "coverage": 0.35509259259259257
+    },
+    {
+      "store_id": 9,
+      "observed": 1664,
+      "coverage": 0.3851851851851852
+    },
+    {
+      "store_id": 10,
+      "observed": 1707,
+      "coverage": 0.3951388888888889
+    },
+    {
+      "store_id": 11,
+      "observed": 1871,
+      "coverage": 0.43310185185185185
+    },
+    {
+      "store_id": 12,
+      "observed": 1982,
+      "coverage": 0.4587962962962963
+    },
+    {
+      "store_id": 13,
+      "observed": 2088,
+      "coverage": 0.48333333333333334
+    },
+    {
+      "store_id": 14,
+      "observed": 2115,
+      "coverage": 0.4895833333333333
+    },
+    {
+      "store_id": 15,
+      "observed": 2178,
+      "coverage": 0.5041666666666667
+    },
+    {
+      "store_id": 16,
+      "observed": 2228,
+      "coverage": 0.5157407407407407
+    },
+    {
+      "store_id": 17,
+      "observed": 2357,
+      "coverage": 0.5456018518518518
+    },
+    {
+      "store_id": 18,
+      "observed": 2489,
+      "coverage": 0.5761574074074074
+    },
+    {
+      "store_id": 19,
+      "observed": 2585,
+      "coverage": 0.5983796296296297
+    },
+    {
+      "store_id": 20,
+      "observed": 2622,
+      "coverage": 0.6069444444444444
+    }
+  ],
+  "coverage_by_sku": [
+    {
+      "sku_id": 1,
+      "brand_name": "Northstar Cola",
+      "category_name": "Carbonated Soft Drinks",
+      "observed": 1209,
+      "coverage": 0.6716666666666666
+    },
+    {
+      "sku_id": 2,
+      "brand_name": "Volt",
+      "category_name": "Energy Drinks",
+      "observed": 1043,
+      "coverage": 0.5794444444444444
+    },
+    {
+      "sku_id": 3,
+      "brand_name": "Orchard",
+      "category_name": "Juice",
+      "observed": 1020,
+      "coverage": 0.5666666666666667
+    },
+    {
+      "sku_id": 4,
+      "brand_name": "ClearSpring",
+      "category_name": "Water",
+      "observed": 951,
+      "coverage": 0.5283333333333333
+    },
+    {
+      "sku_id": 5,
+      "brand_name": "Leafline",
+      "category_name": "RTD Tea",
+      "observed": 908,
+      "coverage": 0.5044444444444445
+    },
+    {
+      "sku_id": 6,
+      "brand_name": "RoastGo",
+      "category_name": "Coffee",
+      "observed": 928,
+      "coverage": 0.5155555555555555
+    },
+    {
+      "sku_id": 7,
+      "brand_name": "Northstar Cola",
+      "category_name": "Carbonated Soft Drinks",
+      "observed": 871,
+      "coverage": 0.48388888888888887
+    },
+    {
+      "sku_id": 8,
+      "brand_name": "Volt",
+      "category_name": "Energy Drinks",
+      "observed": 837,
+      "coverage": 0.465
+    },
+    {
+      "sku_id": 9,
+      "brand_name": "Orchard",
+      "category_name": "Juice",
+      "observed": 828,
+      "coverage": 0.46
+    },
+    {
+      "sku_id": 10,
+      "brand_name": "ClearSpring",
+      "category_name": "Water",
+      "observed": 823,
+      "coverage": 0.4572222222222222
+    },
+    {
+      "sku_id": 11,
+      "brand_name": "Leafline",
+      "category_name": "RTD Tea",
+      "observed": 831,
+      "coverage": 0.46166666666666667
+    },
+    {
+      "sku_id": 12,
+      "brand_name": "RoastGo",
+      "category_name": "Coffee",
+      "observed": 823,
+      "coverage": 0.4572222222222222
+    },
+    {
+      "sku_id": 13,
+      "brand_name": "Northstar Cola",
+      "category_name": "Carbonated Soft Drinks",
+      "observed": 786,
+      "coverage": 0.43666666666666665
+    },
+    {
+      "sku_id": 14,
+      "brand_name": "Volt",
+      "category_name": "Energy Drinks",
+      "observed": 803,
+      "coverage": 0.4461111111111111
+    },
+    {
+      "sku_id": 15,
+      "brand_name": "Orchard",
+      "category_name": "Juice",
+      "observed": 789,
+      "coverage": 0.43833333333333335
+    },
+    {
+      "sku_id": 16,
+      "brand_name": "ClearSpring",
+      "category_name": "Water",
+      "observed": 740,
+      "coverage": 0.4111111111111111
+    },
+    {
+      "sku_id": 17,
+      "brand_name": "Leafline",
+      "category_name": "RTD Tea",
+      "observed": 773,
+      "coverage": 0.42944444444444446
+    },
+    {
+      "sku_id": 18,
+      "brand_name": "RoastGo",
+      "category_name": "Coffee",
+      "observed": 779,
+      "coverage": 0.43277777777777776
+    },
+    {
+      "sku_id": 19,
+      "brand_name": "Northstar Cola",
+      "category_name": "Carbonated Soft Drinks",
+      "observed": 731,
+      "coverage": 0.4061111111111111
+    },
+    {
+      "sku_id": 20,
+      "brand_name": "Volt",
+      "category_name": "Energy Drinks",
+      "observed": 783,
+      "coverage": 0.435
+    },
+    {
+      "sku_id": 21,
+      "brand_name": "Orchard",
+      "category_name": "Juice",
+      "observed": 756,
+      "coverage": 0.42
+    },
+    {
+      "sku_id": 22,
+      "brand_name": "ClearSpring",
+      "category_name": "Water",
+      "observed": 744,
+      "coverage": 0.41333333333333333
+    },
+    {
+      "sku_id": 23,
+      "brand_name": "Leafline",
+      "category_name": "RTD Tea",
+      "observed": 722,
+      "coverage": 0.4011111111111111
+    },
+    {
+      "sku_id": 24,
+      "brand_name": "RoastGo",
+      "category_name": "Coffee",
+      "observed": 723,
+      "coverage": 0.40166666666666667
+    },
+    {
+      "sku_id": 25,
+      "brand_name": "Northstar Cola",
+      "category_name": "Carbonated Soft Drinks",
+      "observed": 710,
+      "coverage": 0.39444444444444443
+    },
+    {
+      "sku_id": 26,
+      "brand_name": "Volt",
+      "category_name": "Energy Drinks",
+      "observed": 712,
+      "coverage": 0.39555555555555555
+    },
+    {
+      "sku_id": 27,
+      "brand_name": "Orchard",
+      "category_name": "Juice",
+      "observed": 757,
+      "coverage": 0.42055555555555557
+    },
+    {
+      "sku_id": 28,
+      "brand_name": "ClearSpring",
+      "category_name": "Water",
+      "observed": 691,
+      "coverage": 0.3838888888888889
+    },
+    {
+      "sku_id": 29,
+      "brand_name": "Leafline",
+      "category_name": "RTD Tea",
+      "observed": 656,
+      "coverage": 0.36444444444444446
+    },
+    {
+      "sku_id": 30,
+      "brand_name": "RoastGo",
+      "category_name": "Coffee",
+      "observed": 686,
+      "coverage": 0.3811111111111111
+    },
+    {
+      "sku_id": 31,
+      "brand_name": "Northstar Cola",
+      "category_name": "Carbonated Soft Drinks",
+      "observed": 675,
+      "coverage": 0.375
+    },
+    {
+      "sku_id": 32,
+      "brand_name": "Volt",
+      "category_name": "Energy Drinks",
+      "observed": 631,
+      "coverage": 0.35055555555555556
+    },
+    {
+      "sku_id": 33,
+      "brand_name": "Orchard",
+      "category_name": "Juice",
+      "observed": 691,
+      "coverage": 0.3838888888888889
+    },
+    {
+      "sku_id": 34,
+      "brand_name": "ClearSpring",
+      "category_name": "Water",
+      "observed": 663,
+      "coverage": 0.36833333333333335
+    },
+    {
+      "sku_id": 35,
+      "brand_name": "Leafline",
+      "category_name": "RTD Tea",
+      "observed": 628,
+      "coverage": 0.3488888888888889
+    },
+    {
+      "sku_id": 36,
+      "brand_name": "RoastGo",
+      "category_name": "Coffee",
+      "observed": 663,
+      "coverage": 0.36833333333333335
+    },
+    {
+      "sku_id": 37,
+      "brand_name": "Northstar Cola",
+      "category_name": "Carbonated Soft Drinks",
+      "observed": 652,
+      "coverage": 0.3622222222222222
+    },
+    {
+      "sku_id": 38,
+      "brand_name": "Volt",
+      "category_name": "Energy Drinks",
+      "observed": 650,
+      "coverage": 0.3611111111111111
+    },
+    {
+      "sku_id": 39,
+      "brand_name": "Orchard",
+      "category_name": "Juice",
+      "observed": 662,
+      "coverage": 0.36777777777777776
+    },
+    {
+      "sku_id": 40,
+      "brand_name": "ClearSpring",
+      "category_name": "Water",
+      "observed": 627,
+      "coverage": 0.34833333333333333
+    },
+    {
+      "sku_id": 41,
+      "brand_name": "Leafline",
+      "category_name": "RTD Tea",
+      "observed": 674,
+      "coverage": 0.37444444444444447
+    },
+    {
+      "sku_id": 42,
+      "brand_name": "RoastGo",
+      "category_name": "Coffee",
+      "observed": 659,
+      "coverage": 0.3661111111111111
+    },
+    {
+      "sku_id": 43,
+      "brand_name": "Northstar Cola",
+      "category_name": "Carbonated Soft Drinks",
+      "observed": 646,
+      "coverage": 0.35888888888888887
+    },
+    {
+      "sku_id": 44,
+      "brand_name": "Volt",
+      "category_name": "Energy Drinks",
+      "observed": 605,
+      "coverage": 0.33611111111111114
+    },
+    {
+      "sku_id": 45,
+      "brand_name": "Orchard",
+      "category_name": "Juice",
+      "observed": 568,
+      "coverage": 0.31555555555555553
+    },
+    {
+      "sku_id": 46,
+      "brand_name": "ClearSpring",
+      "category_name": "Water",
+      "observed": 617,
+      "coverage": 0.3427777777777778
+    },
+    {
+      "sku_id": 47,
+      "brand_name": "Leafline",
+      "category_name": "RTD Tea",
+      "observed": 583,
+      "coverage": 0.3238888888888889
+    },
+    {
+      "sku_id": 48,
+      "brand_name": "RoastGo",
+      "category_name": "Coffee",
+      "observed": 585,
+      "coverage": 0.325
+    }
+  ],
+  "coverage_by_brand": [
+    {
+      "brand_name": "ClearSpring",
+      "observed": 5856,
+      "coverage": 0.4066666666666667
+    },
+    {
+      "brand_name": "Leafline",
+      "observed": 5775,
+      "coverage": 0.4010416666666667
+    },
+    {
+      "brand_name": "Northstar Cola",
+      "observed": 6280,
+      "coverage": 0.4361111111111111
+    },
+    {
+      "brand_name": "Orchard",
+      "observed": 6071,
+      "coverage": 0.42159722222222223
+    },
+    {
+      "brand_name": "RoastGo",
+      "observed": 5846,
+      "coverage": 0.40597222222222223
+    },
+    {
+      "brand_name": "Volt",
+      "observed": 6064,
+      "coverage": 0.4211111111111111
+    }
+  ],
+  "coverage_by_category": [
+    {
+      "category_name": "Carbonated Soft Drinks",
+      "observed": 6280,
+      "coverage": 0.4361111111111111
+    },
+    {
+      "category_name": "Coffee",
+      "observed": 5846,
+      "coverage": 0.40597222222222223
+    },
+    {
+      "category_name": "Energy Drinks",
+      "observed": 6064,
+      "coverage": 0.4211111111111111
+    },
+    {
+      "category_name": "Juice",
+      "observed": 6071,
+      "coverage": 0.42159722222222223
+    },
+    {
+      "category_name": "RTD Tea",
+      "observed": 5775,
+      "coverage": 0.4010416666666667
+    },
+    {
+      "category_name": "Water",
+      "observed": 5856,
+      "coverage": 0.4066666666666667
+    }
+  ],
+  "target_by_group": {
+    "store": [
+      {
+        "store_id": 6,
+        "complete_rows": 6,
+        "mean_target": 39.5
+      },
+      {
+        "store_id": 7,
+        "complete_rows": 4,
+        "mean_target": 20.0
+      },
+      {
+        "store_id": 8,
+        "complete_rows": 8,
+        "mean_target": 22.875
+      },
+      {
+        "store_id": 9,
+        "complete_rows": 5,
+        "mean_target": 36.2
+      },
+      {
+        "store_id": 10,
+        "complete_rows": 13,
+        "mean_target": 41.92307692307692
+      },
+      {
+        "store_id": 11,
+        "complete_rows": 19,
+        "mean_target": 41.36842105263158
+      },
+      {
+        "store_id": 12,
+        "complete_rows": 48,
+        "mean_target": 43.104166666666664
+      },
+      {
+        "store_id": 13,
+        "complete_rows": 43,
+        "mean_target": 32.44186046511628
+      },
+      {
+        "store_id": 14,
+        "complete_rows": 69,
+        "mean_target": 51.14492753623188
+      },
+      {
+        "store_id": 15,
+        "complete_rows": 48,
+        "mean_target": 45.020833333333336
+      },
+      {
+        "store_id": 16,
+        "complete_rows": 92,
+        "mean_target": 48.53260869565217
+      },
+      {
+        "store_id": 17,
+        "complete_rows": 117,
+        "mean_target": 51.52991452991453
+      },
+      {
+        "store_id": 18,
+        "complete_rows": 185,
+        "mean_target": 48.77297297297297
+      },
+      {
+        "store_id": 19,
+        "complete_rows": 153,
+        "mean_target": 50.830065359477125
+      },
+      {
+        "store_id": 20,
+        "complete_rows": 225,
+        "mean_target": 51.65777777777778
+      }
+    ],
+    "sku": [
+      {
+        "sku_id": 1,
+        "complete_rows": 252,
+        "mean_target": 68.73412698412699
+      },
+      {
+        "sku_id": 2,
+        "complete_rows": 133,
+        "mean_target": 59.81954887218045
+      },
+      {
+        "sku_id": 3,
+        "complete_rows": 71,
+        "mean_target": 52.66197183098591
+      },
+      {
+        "sku_id": 4,
+        "complete_rows": 57,
+        "mean_target": 48.26315789473684
+      },
+      {
+        "sku_id": 5,
+        "complete_rows": 29,
+        "mean_target": 47.275862068965516
+      },
+      {
+        "sku_id": 6,
+        "complete_rows": 31,
+        "mean_target": 46.74193548387097
+      },
+      {
+        "sku_id": 7,
+        "complete_rows": 33,
+        "mean_target": 43.39393939393939
+      },
+      {
+        "sku_id": 8,
+        "complete_rows": 16,
+        "mean_target": 43.4375
+      },
+      {
+        "sku_id": 9,
+        "complete_rows": 24,
+        "mean_target": 41.041666666666664
+      },
+      {
+        "sku_id": 10,
+        "complete_rows": 22,
+        "mean_target": 36.0
+      },
+      {
+        "sku_id": 11,
+        "complete_rows": 30,
+        "mean_target": 37.666666666666664
+      },
+      {
+        "sku_id": 12,
+        "complete_rows": 14,
+        "mean_target": 39.0
+      },
+      {
+        "sku_id": 13,
+        "complete_rows": 24,
+        "mean_target": 31.5
+      },
+      {
+        "sku_id": 14,
+        "complete_rows": 20,
+        "mean_target": 38.85
+      },
+      {
+        "sku_id": 15,
+        "complete_rows": 12,
+        "mean_target": 33.416666666666664
+      },
+      {
+        "sku_id": 16,
+        "complete_rows": 19,
+        "mean_target": 36.8421052631579
+      },
+      {
+        "sku_id": 17,
+        "complete_rows": 9,
+        "mean_target": 37.55555555555556
+      },
+      {
+        "sku_id": 18,
+        "complete_rows": 8,
+        "mean_target": 33.75
+      },
+      {
+        "sku_id": 19,
+        "complete_rows": 12,
+        "mean_target": 32.916666666666664
+      },
+      {
+        "sku_id": 20,
+        "complete_rows": 16,
+        "mean_target": 29.25
+      },
+      {
+        "sku_id": 21,
+        "complete_rows": 23,
+        "mean_target": 32.69565217391305
+      },
+      {
+        "sku_id": 22,
+        "complete_rows": 18,
+        "mean_target": 36.44444444444444
+      },
+      {
+        "sku_id": 23,
+        "complete_rows": 5,
+        "mean_target": 34.2
+      },
+      {
+        "sku_id": 24,
+        "complete_rows": 18,
+        "mean_target": 30.166666666666668
+      },
+      {
+        "sku_id": 25,
+        "complete_rows": 6,
+        "mean_target": 24.5
+      },
+      {
+        "sku_id": 26,
+        "complete_rows": 2,
+        "mean_target": 35.5
+      },
+      {
+        "sku_id": 27,
+        "complete_rows": 4,
+        "mean_target": 28.25
+      },
+      {
+        "sku_id": 28,
+        "complete_rows": 7,
+        "mean_target": 31.857142857142858
+      },
+      {
+        "sku_id": 29,
+        "complete_rows": 7,
+        "mean_target": 24.142857142857142
+      },
+      {
+        "sku_id": 30,
+        "complete_rows": 3,
+        "mean_target": 24.333333333333332
+      },
+      {
+        "sku_id": 31,
+        "complete_rows": 14,
+        "mean_target": 29.071428571428573
+      },
+      {
+        "sku_id": 32,
+        "complete_rows": 3,
+        "mean_target": 23.0
+      },
+      {
+        "sku_id": 33,
+        "complete_rows": 13,
+        "mean_target": 26.23076923076923
+      },
+      {
+        "sku_id": 34,
+        "complete_rows": 1,
+        "mean_target": 29.0
+      },
+      {
+        "sku_id": 35,
+        "complete_rows": 5,
+        "mean_target": 28.6
+      },
+      {
+        "sku_id": 36,
+        "complete_rows": 7,
+        "mean_target": 28.0
+      },
+      {
+        "sku_id": 37,
+        "complete_rows": 9,
+        "mean_target": 31.333333333333332
+      },
+      {
+        "sku_id": 38,
+        "complete_rows": 9,
+        "mean_target": 25.444444444444443
+      },
+      {
+        "sku_id": 39,
+        "complete_rows": 7,
+        "mean_target": 22.857142857142858
+      },
+      {
+        "sku_id": 40,
+        "complete_rows": 11,
+        "mean_target": 21.818181818181817
+      },
+      {
+        "sku_id": 41,
+        "complete_rows": 9,
+        "mean_target": 27.555555555555557
+      },
+      {
+        "sku_id": 42,
+        "complete_rows": 8,
+        "mean_target": 26.875
+      },
+      {
+        "sku_id": 43,
+        "complete_rows": 2,
+        "mean_target": 23.0
+      },
+      {
+        "sku_id": 44,
+        "complete_rows": 2,
+        "mean_target": 22.5
+      },
+      {
+        "sku_id": 45,
+        "complete_rows": 4,
+        "mean_target": 22.5
+      },
+      {
+        "sku_id": 46,
+        "complete_rows": 5,
+        "mean_target": 26.2
+      },
+      {
+        "sku_id": 47,
+        "complete_rows": 1,
+        "mean_target": 22.0
+      }
+    ],
+    "brand": [
+      {
+        "brand_name": "ClearSpring",
+        "complete_rows": 140,
+        "mean_target": 39.44285714285714
+      },
+      {
+        "brand_name": "Leafline",
+        "complete_rows": 95,
+        "mean_target": 37.810526315789474
+      },
+      {
+        "brand_name": "Northstar Cola",
+        "complete_rows": 352,
+        "mean_target": 59.05113636363637
+      },
+      {
+        "brand_name": "Orchard",
+        "complete_rows": 158,
+        "mean_target": 41.651898734177216
+      },
+      {
+        "brand_name": "RoastGo",
+        "complete_rows": 89,
+        "mean_target": 36.98876404494382
+      },
+      {
+        "brand_name": "Volt",
+        "complete_rows": 201,
+        "mean_target": 51.29353233830846
+      }
+    ],
+    "category": [
+      {
+        "category_name": "Carbonated Soft Drinks",
+        "complete_rows": 352,
+        "mean_target": 59.05113636363637
+      },
+      {
+        "category_name": "Coffee",
+        "complete_rows": 89,
+        "mean_target": 36.98876404494382
+      },
+      {
+        "category_name": "Energy Drinks",
+        "complete_rows": 201,
+        "mean_target": 51.29353233830846
+      },
+      {
+        "category_name": "Juice",
+        "complete_rows": 158,
+        "mean_target": 41.651898734177216
+      },
+      {
+        "category_name": "RTD Tea",
+        "complete_rows": 95,
+        "mean_target": 37.810526315789474
+      },
+      {
+        "category_name": "Water",
+        "complete_rows": 140,
+        "mean_target": 39.44285714285714
+      }
+    ],
+    "store_type": [
+      {
+        "store_type": "convenience",
+        "complete_rows": 273,
+        "mean_target": 48.84249084249084
+      },
+      {
+        "store_type": "discount",
+        "complete_rows": 165,
+        "mean_target": 46.09090909090909
+      },
+      {
+        "store_type": "horeca",
+        "complete_rows": 224,
+        "mean_target": 48.232142857142854
+      },
+      {
+        "store_type": "supermarket",
+        "complete_rows": 373,
+        "mean_target": 49.16890080428954
+      }
+    ],
+    "channel": [
+      {
+        "channel": "convenience",
+        "complete_rows": 169,
+        "mean_target": 48.3905325443787
+      },
+      {
+        "channel": "ecommerce",
+        "complete_rows": 227,
+        "mean_target": 50.60352422907489
+      },
+      {
+        "channel": "horeca",
+        "complete_rows": 236,
+        "mean_target": 44.91949152542373
+      },
+      {
+        "channel": "modern_trade",
+        "complete_rows": 286,
+        "mean_target": 50.1013986013986
+      },
+      {
+        "channel": "traditional_trade",
+        "complete_rows": 117,
+        "mean_target": 46.9059829059829
+      }
+    ],
+    "date": [
+      {
+        "prediction_date": "2024-01-01",
+        "complete_rows": 13,
+        "mean_target": 49.15384615384615
+      },
+      {
+        "prediction_date": "2024-01-02",
+        "complete_rows": 12,
+        "mean_target": 50.416666666666664
+      },
+      {
+        "prediction_date": "2024-01-03",
+        "complete_rows": 12,
+        "mean_target": 49.916666666666664
+      },
+      {
+        "prediction_date": "2024-01-04",
+        "complete_rows": 15,
+        "mean_target": 40.733333333333334
+      },
+      {
+        "prediction_date": "2024-01-05",
+        "complete_rows": 18,
+        "mean_target": 41.94444444444444
+      },
+      {
+        "prediction_date": "2024-01-06",
+        "complete_rows": 20,
+        "mean_target": 40.05
+      },
+      {
+        "prediction_date": "2024-01-07",
+        "complete_rows": 22,
+        "mean_target": 36.86363636363637
+      },
+      {
+        "prediction_date": "2024-01-08",
+        "complete_rows": 14,
+        "mean_target": 40.5
+      },
+      {
+        "prediction_date": "2024-01-09",
+        "complete_rows": 14,
+        "mean_target": 45.142857142857146
+      },
+      {
+        "prediction_date": "2024-01-10",
+        "complete_rows": 13,
+        "mean_target": 44.23076923076923
+      },
+      {
+        "prediction_date": "2024-01-11",
+        "complete_rows": 12,
+        "mean_target": 47.583333333333336
+      },
+      {
+        "prediction_date": "2024-01-12",
+        "complete_rows": 10,
+        "mean_target": 47.7
+      },
+      {
+        "prediction_date": "2024-01-13",
+        "complete_rows": 6,
+        "mean_target": 51.5
+      },
+      {
+        "prediction_date": "2024-01-14",
+        "complete_rows": 7,
+        "mean_target": 50.142857142857146
+      },
+      {
+        "prediction_date": "2024-01-15",
+        "complete_rows": 11,
+        "mean_target": 42.72727272727273
+      },
+      {
+        "prediction_date": "2024-01-16",
+        "complete_rows": 11,
+        "mean_target": 45.18181818181818
+      },
+      {
+        "prediction_date": "2024-01-17",
+        "complete_rows": 9,
+        "mean_target": 51.55555555555556
+      },
+      {
+        "prediction_date": "2024-01-18",
+        "complete_rows": 9,
+        "mean_target": 44.111111111111114
+      },
+      {
+        "prediction_date": "2024-01-19",
+        "complete_rows": 6,
+        "mean_target": 51.333333333333336
+      },
+      {
+        "prediction_date": "2024-01-20",
+        "complete_rows": 10,
+        "mean_target": 48.4
+      },
+      {
+        "prediction_date": "2024-01-21",
+        "complete_rows": 12,
+        "mean_target": 40.333333333333336
+      },
+      {
+        "prediction_date": "2024-01-22",
+        "complete_rows": 13,
+        "mean_target": 42.0
+      },
+      {
+        "prediction_date": "2024-01-23",
+        "complete_rows": 15,
+        "mean_target": 44.666666666666664
+      },
+      {
+        "prediction_date": "2024-01-24",
+        "complete_rows": 14,
+        "mean_target": 44.92857142857143
+      },
+      {
+        "prediction_date": "2024-01-25",
+        "complete_rows": 22,
+        "mean_target": 47.13636363636363
+      },
+      {
+        "prediction_date": "2024-01-26",
+        "complete_rows": 17,
+        "mean_target": 51.705882352941174
+      },
+      {
+        "prediction_date": "2024-01-27",
+        "complete_rows": 17,
+        "mean_target": 52.705882352941174
+      },
+      {
+        "prediction_date": "2024-01-28",
+        "complete_rows": 16,
+        "mean_target": 53.75
+      },
+      {
+        "prediction_date": "2024-01-29",
+        "complete_rows": 20,
+        "mean_target": 52.0
+      },
+      {
+        "prediction_date": "2024-01-30",
+        "complete_rows": 17,
+        "mean_target": 53.11764705882353
+      },
+      {
+        "prediction_date": "2024-01-31",
+        "complete_rows": 12,
+        "mean_target": 54.0
+      },
+      {
+        "prediction_date": "2024-02-01",
+        "complete_rows": 12,
+        "mean_target": 49.75
+      },
+      {
+        "prediction_date": "2024-02-02",
+        "complete_rows": 10,
+        "mean_target": 52.0
+      },
+      {
+        "prediction_date": "2024-02-03",
+        "complete_rows": 13,
+        "mean_target": 45.84615384615385
+      },
+      {
+        "prediction_date": "2024-02-04",
+        "complete_rows": 12,
+        "mean_target": 47.25
+      },
+      {
+        "prediction_date": "2024-02-05",
+        "complete_rows": 11,
+        "mean_target": 47.54545454545455
+      },
+      {
+        "prediction_date": "2024-02-06",
+        "complete_rows": 14,
+        "mean_target": 45.785714285714285
+      },
+      {
+        "prediction_date": "2024-02-07",
+        "complete_rows": 13,
+        "mean_target": 53.76923076923077
+      },
+      {
+        "prediction_date": "2024-02-08",
+        "complete_rows": 15,
+        "mean_target": 43.666666666666664
+      },
+      {
+        "prediction_date": "2024-02-09",
+        "complete_rows": 14,
+        "mean_target": 45.5
+      },
+      {
+        "prediction_date": "2024-02-10",
+        "complete_rows": 17,
+        "mean_target": 39.705882352941174
+      },
+      {
+        "prediction_date": "2024-02-11",
+        "complete_rows": 14,
+        "mean_target": 41.214285714285715
+      },
+      {
+        "prediction_date": "2024-02-12",
+        "complete_rows": 15,
+        "mean_target": 45.6
+      },
+      {
+        "prediction_date": "2024-02-13",
+        "complete_rows": 16,
+        "mean_target": 46.375
+      },
+      {
+        "prediction_date": "2024-02-14",
+        "complete_rows": 12,
+        "mean_target": 48.75
+      },
+      {
+        "prediction_date": "2024-02-15",
+        "complete_rows": 11,
+        "mean_target": 49.27272727272727
+      },
+      {
+        "prediction_date": "2024-02-16",
+        "complete_rows": 8,
+        "mean_target": 54.375
+      },
+      {
+        "prediction_date": "2024-02-17",
+        "complete_rows": 8,
+        "mean_target": 49.625
+      },
+      {
+        "prediction_date": "2024-02-18",
+        "complete_rows": 6,
+        "mean_target": 57.333333333333336
+      },
+      {
+        "prediction_date": "2024-02-19",
+        "complete_rows": 10,
+        "mean_target": 42.3
+      },
+      {
+        "prediction_date": "2024-02-20",
+        "complete_rows": 9,
+        "mean_target": 43.666666666666664
+      },
+      {
+        "prediction_date": "2024-02-21",
+        "complete_rows": 10,
+        "mean_target": 41.0
+      },
+      {
+        "prediction_date": "2024-02-22",
+        "complete_rows": 12,
+        "mean_target": 43.083333333333336
+      },
+      {
+        "prediction_date": "2024-02-23",
+        "complete_rows": 8,
+        "mean_target": 47.5
+      },
+      {
+        "prediction_date": "2024-02-24",
+        "complete_rows": 8,
+        "mean_target": 55.625
+      },
+      {
+        "prediction_date": "2024-02-25",
+        "complete_rows": 10,
+        "mean_target": 56.1
+      },
+      {
+        "prediction_date": "2024-02-26",
+        "complete_rows": 12,
+        "mean_target": 51.75
+      },
+      {
+        "prediction_date": "2024-02-27",
+        "complete_rows": 12,
+        "mean_target": 49.333333333333336
+      },
+      {
+        "prediction_date": "2024-02-28",
+        "complete_rows": 11,
+        "mean_target": 47.90909090909091
+      },
+      {
+        "prediction_date": "2024-02-29",
+        "complete_rows": 11,
+        "mean_target": 46.45454545454545
+      },
+      {
+        "prediction_date": "2024-03-01",
+        "complete_rows": 10,
+        "mean_target": 43.4
+      },
+      {
+        "prediction_date": "2024-03-02",
+        "complete_rows": 7,
+        "mean_target": 41.714285714285715
+      },
+      {
+        "prediction_date": "2024-03-03",
+        "complete_rows": 7,
+        "mean_target": 49.714285714285715
+      },
+      {
+        "prediction_date": "2024-03-04",
+        "complete_rows": 7,
+        "mean_target": 54.857142857142854
+      },
+      {
+        "prediction_date": "2024-03-05",
+        "complete_rows": 11,
+        "mean_target": 52.09090909090909
+      },
+      {
+        "prediction_date": "2024-03-06",
+        "complete_rows": 19,
+        "mean_target": 54.578947368421055
+      },
+      {
+        "prediction_date": "2024-03-07",
+        "complete_rows": 17,
+        "mean_target": 57.1764705882353
+      },
+      {
+        "prediction_date": "2024-03-08",
+        "complete_rows": 13,
+        "mean_target": 56.69230769230769
+      },
+      {
+        "prediction_date": "2024-03-09",
+        "complete_rows": 16,
+        "mean_target": 54.125
+      },
+      {
+        "prediction_date": "2024-03-10",
+        "complete_rows": 14,
+        "mean_target": 57.857142857142854
+      },
+      {
+        "prediction_date": "2024-03-11",
+        "complete_rows": 16,
+        "mean_target": 57.6875
+      },
+      {
+        "prediction_date": "2024-03-12",
+        "complete_rows": 15,
+        "mean_target": 58.06666666666667
+      },
+      {
+        "prediction_date": "2024-03-13",
+        "complete_rows": 14,
+        "mean_target": 53.42857142857143
+      },
+      {
+        "prediction_date": "2024-03-14",
+        "complete_rows": 14,
+        "mean_target": 48.142857142857146
+      },
+      {
+        "prediction_date": "2024-03-15",
+        "complete_rows": 14,
+        "mean_target": 49.857142857142854
+      },
+      {
+        "prediction_date": "2024-03-16",
+        "complete_rows": 18,
+        "mean_target": 43.94444444444444
+      },
+      {
+        "prediction_date": "2024-03-17",
+        "complete_rows": 17,
+        "mean_target": 44.8235294117647
+      },
+      {
+        "prediction_date": "2024-03-18",
+        "complete_rows": 10,
+        "mean_target": 48.5
+      },
+      {
+        "prediction_date": "2024-03-19",
+        "complete_rows": 8,
+        "mean_target": 51.875
+      },
+      {
+        "prediction_date": "2024-03-20",
+        "complete_rows": 8,
+        "mean_target": 53.25
+      },
+      {
+        "prediction_date": "2024-03-21",
+        "complete_rows": 8,
+        "mean_target": 57.375
+      },
+      {
+        "prediction_date": "2024-03-22",
+        "complete_rows": 9,
+        "mean_target": 56.44444444444444
+      },
+      {
+        "prediction_date": "2024-03-23",
+        "complete_rows": 10,
+        "mean_target": 55.9
+      }
+    ]
+  },
+  "weekday_sales": [
+    {
+      "weekday": "Friday",
+      "units": "20612",
+      "positive_rows": 5156
+    },
+    {
+      "weekday": "Monday",
+      "units": "20537",
+      "positive_rows": 5174
+    },
+    {
+      "weekday": "Saturday",
+      "units": "24554",
+      "positive_rows": 5209
+    },
+    {
+      "weekday": "Sunday",
+      "units": "22705",
+      "positive_rows": 4832
+    },
+    {
+      "weekday": "Thursday",
+      "units": "20479",
+      "positive_rows": 5128
+    },
+    {
+      "weekday": "Tuesday",
+      "units": "20634",
+      "positive_rows": 5216
+    },
+    {
+      "weekday": "Wednesday",
+      "units": "20645",
+      "positive_rows": 5177
+    }
+  ],
+  "scheduled_promo_true_fraction": 1.0,
+  "generator_semantics": "sales row emitted only when sold > 0; absence is observed zero sales, while latent demand can be censored by zero inventory"
+}

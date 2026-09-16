@@ -1,0 +1,25 @@
+version: 2
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: sales
+        freshness: {warn_after: {count: 2, period: day}}
+        loaded_at_field: sale_date
+      - name: daily_demand
+      - name: inventory
+      - name: orders
+      - name: order_items
+      - name: products
+      - name: skus
+      - name: brands
+      - name: categories
+      - name: stores
+      - name: regions
+      - name: warehouses
+      - name: product_prices
+      - name: promotions
+      - name: deliveries
+      - name: delivery_items
+      - name: promotion_skus
+      - name: promotion_stores

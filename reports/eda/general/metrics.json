@@ -1,0 +1,564 @@
+{
+  "forecasting": {
+    "path": "data/processed/forecasting/forecasting_v1.parquet",
+    "rows": 86400,
+    "columns": 21,
+    "grain": [
+      "prediction_date",
+      "store_id",
+      "sku_id"
+    ],
+    "targets": [
+      "target_units_next_7d",
+      "target_observed_next_7d"
+    ],
+    "date_column": "prediction_date",
+    "date_range": [
+      "2024-01-01",
+      "2024-03-30"
+    ],
+    "numerical": [
+      "lag_1",
+      "lag_7",
+      "lag_14",
+      "lag_28",
+      "rolling_mean_7d",
+      "rolling_std_7d",
+      "sales_velocity_7d",
+      "scheduled_selling_price",
+      "target_observed_days_next_7d",
+      "target_units_next_7d"
+    ],
+    "categorical": [
+      "brand_name",
+      "category_name",
+      "store_type",
+      "channel"
+    ],
+    "binary": [
+      "scheduled_is_promo",
+      "target_observed_next_7d"
+    ],
+    "temporal": [
+      "prediction_date"
+    ],
+    "identifiers": [
+      "store_id",
+      "sku_id",
+      "scheduled_promotion_id",
+      "region_id"
+    ],
+    "null_rates": {
+      "prediction_date": 0.0,
+      "store_id": 0.0,
+      "sku_id": 0.0,
+      "lag_1": 0.5891087962962963,
+      "lag_7": 0.6166550925925925,
+      "lag_14": 0.6492129629629629,
+      "lag_28": 0.7142939814814815,
+      "rolling_mean_7d": 0.07765046296296296,
+      "rolling_std_7d": 0.2362962962962963,
+      "sales_velocity_7d": 0.07765046296296296,
+      "scheduled_selling_price": 0.0,
+      "scheduled_promotion_id": 0.0,
+      "scheduled_is_promo": 0.0,
+      "brand_name": 0.0,
+      "category_name": 0.0,
+      "region_id": 0.0,
+      "store_type": 0.0,
+      "channel": 0.0,
+      "target_observed_days_next_7d": 0.0,
+      "target_observed_next_7d": 0.0,
+      "target_units_next_7d": 0.9880208333333333
+    },
+    "categorical_cardinality": {
+      "brand_name": 6,
+      "category_name": 6,
+      "store_type": 4,
+      "channel": 5
+    },
+    "duplicate_business_keys": 0,
+    "schema": {
+      "prediction_date": "Date",
+      "store_id": "Int64",
+      "sku_id": "Int64",
+      "lag_1": "Int64",
+      "lag_7": "Int64",
+      "lag_14": "Int64",
+      "lag_28": "Int64",
+      "rolling_mean_7d": "Float64",
+      "rolling_std_7d": "Float64",
+      "sales_velocity_7d": "Decimal(precision=38, scale=0)",
+      "scheduled_selling_price": "Decimal(precision=38, scale=2)",
+      "scheduled_promotion_id": "Int64",
+      "scheduled_is_promo": "Boolean",
+      "brand_name": "String",
+      "category_name": "String",
+      "region_id": "Int64",
+      "store_type": "String",
+      "channel": "String",
+      "target_observed_days_next_7d": "Int64",
+      "target_observed_next_7d": "Boolean",
+      "target_units_next_7d": "Decimal(precision=38, scale=0)"
+    }
+  },
+  "stockout": {
+    "path": "data/processed/stockout/stockout_v1.parquet",
+    "rows": 17280,
+    "columns": 18,
+    "grain": [
+      "prediction_date",
+      "warehouse_id",
+      "sku_id"
+    ],
+    "targets": [
+      "stockout_within_7d",
+      "event_observed",
+      "event_time_days",
+      "censor_time_days",
+      "horizon_complete"
+    ],
+    "date_column": "prediction_date",
+    "date_range": [
+      "2024-01-01",
+      "2024-03-30"
+    ],
+    "numerical": [
+      "stock_quantity",
+      "reserved_quantity",
+      "available_quantity",
+      "reorder_point",
+      "safety_stock",
+      "stock_to_safety_ratio",
+      "distance_to_reorder_point",
+      "sales_velocity_7d",
+      "replenishment_sum_7d",
+      "event_time_days",
+      "censor_time_days"
+    ],
+    "categorical": [],
+    "binary": [
+      "stockout_within_7d",
+      "event_observed",
+      "horizon_complete"
+    ],
+    "temporal": [
+      "prediction_date",
+      "first_stockout_date"
+    ],
+    "identifiers": [
+      "warehouse_id",
+      "sku_id"
+    ],
+    "null_rates": {
+      "prediction_date": 0.0,
+      "warehouse_id": 0.0,
+      "sku_id": 0.0,
+      "stock_quantity": 0.0,
+      "reserved_quantity": 0.0,
+      "available_quantity": 0.0,
+      "reorder_point": 0.0,
+      "safety_stock": 0.0,
+      "stock_to_safety_ratio": 0.0,
+      "distance_to_reorder_point": 0.0,
+      "sales_velocity_7d": 0.011863425925925927,
+      "replenishment_sum_7d": 0.011111111111111112,
+      "first_stockout_date": 0.9991898148148148,
+      "stockout_within_7d": 0.0,
+      "event_observed": 0.0,
+      "event_time_days": 0.9991898148148148,
+      "censor_time_days": 0.0008101851851851852,
+      "horizon_complete": 0.0
+    },
+    "categorical_cardinality": {},
+    "duplicate_business_keys": 0,
+    "schema": {
+      "prediction_date": "Date",
+      "warehouse_id": "Int64",
+      "sku_id": "Int64",
+      "stock_quantity": "Int64",
+      "reserved_quantity": "Int64",
+      "available_quantity": "Int64",
+      "reorder_point": "Int64",
+      "safety_stock": "Int64",
+      "stock_to_safety_ratio": "Float64",
+      "distance_to_reorder_point": "Int64",
+      "sales_velocity_7d": "Float64",
+      "replenishment_sum_7d": "Decimal(precision=38, scale=0)",
+      "first_stockout_date": "Date",
+      "stockout_within_7d": "Boolean",
+      "event_observed": "Boolean",
+      "event_time_days": "Int64",
+      "censor_time_days": "Int64",
+      "horizon_complete": "Boolean"
+    }
+  },
+  "segmentation": {
+    "path": "data/processed/segmentation/segmentation_v1.parquet",
+    "rows": 60,
+    "columns": 13,
+    "grain": [
+      "snapshot_date",
+      "store_id"
+    ],
+    "targets": [],
+    "date_column": "snapshot_date",
+    "date_range": [
+      "2024-01-31",
+      "2024-03-30"
+    ],
+    "numerical": [
+      "floor_area_m2",
+      "revenue_30d",
+      "units_30d",
+      "profit_30d",
+      "active_skus_30d",
+      "average_price_30d",
+      "promotion_unit_share_30d",
+      "revenue_volatility_30d"
+    ],
+    "categorical": [
+      "store_type",
+      "channel"
+    ],
+    "binary": [],
+    "temporal": [
+      "snapshot_date"
+    ],
+    "identifiers": [
+      "store_id",
+      "region_id"
+    ],
+    "null_rates": {
+      "snapshot_date": 0.0,
+      "store_id": 0.0,
+      "region_id": 0.0,
+      "store_type": 0.0,
+      "channel": 0.0,
+      "floor_area_m2": 0.0,
+      "revenue_30d": 0.0,
+      "units_30d": 0.0,
+      "profit_30d": 0.0,
+      "active_skus_30d": 0.0,
+      "average_price_30d": 0.0,
+      "promotion_unit_share_30d": 0.0,
+      "revenue_volatility_30d": 0.0
+    },
+    "categorical_cardinality": {
+      "store_type": 4,
+      "channel": 5
+    },
+    "duplicate_business_keys": 0,
+    "schema": {
+      "snapshot_date": "Date",
+      "store_id": "Int64",
+      "region_id": "Int64",
+      "store_type": "String",
+      "channel": "String",
+      "floor_area_m2": "Decimal(precision=38, scale=2)",
+      "revenue_30d": "Decimal(precision=38, scale=2)",
+      "units_30d": "Decimal(precision=38, scale=0)",
+      "profit_30d": "Decimal(precision=38, scale=2)",
+      "active_skus_30d": "Int64",
+      "average_price_30d": "Float64",
+      "promotion_unit_share_30d": "Float64",
+      "revenue_volatility_30d": "Float64"
+    }
+  },
+  "segment_assignment": {
+    "path": "data/processed/segment_assignment/segment_assignment_v1.parquet",
+    "rows": 60,
+    "columns": 13,
+    "grain": [
+      "snapshot_date",
+      "store_id"
+    ],
+    "targets": [],
+    "date_column": "snapshot_date",
+    "date_range": [
+      "2024-01-31",
+      "2024-03-30"
+    ],
+    "numerical": [
+      "floor_area_m2",
+      "revenue_30d",
+      "units_30d",
+      "profit_30d",
+      "active_skus_30d",
+      "average_price_30d",
+      "promotion_unit_share_30d",
+      "revenue_volatility_30d"
+    ],
+    "categorical": [
+      "store_type",
+      "channel"
+    ],
+    "binary": [],
+    "temporal": [
+      "snapshot_date"
+    ],
+    "identifiers": [
+      "store_id",
+      "region_id"
+    ],
+    "null_rates": {
+      "snapshot_date": 0.0,
+      "store_id": 0.0,
+      "region_id": 0.0,
+      "store_type": 0.0,
+      "channel": 0.0,
+      "floor_area_m2": 0.0,
+      "revenue_30d": 0.0,
+      "units_30d": 0.0,
+      "profit_30d": 0.0,
+      "active_skus_30d": 0.0,
+      "average_price_30d": 0.0,
+      "promotion_unit_share_30d": 0.0,
+      "revenue_volatility_30d": 0.0
+    },
+    "categorical_cardinality": {
+      "store_type": 4,
+      "channel": 5
+    },
+    "duplicate_business_keys": 0,
+    "schema": {
+      "snapshot_date": "Date",
+      "store_id": "Int64",
+      "region_id": "Int64",
+      "store_type": "String",
+      "channel": "String",
+      "floor_area_m2": "Decimal(precision=38, scale=2)",
+      "revenue_30d": "Decimal(precision=38, scale=2)",
+      "units_30d": "Decimal(precision=38, scale=0)",
+      "profit_30d": "Decimal(precision=38, scale=2)",
+      "active_skus_30d": "Int64",
+      "average_price_30d": "Float64",
+      "promotion_unit_share_30d": "Float64",
+      "revenue_volatility_30d": "Float64"
+    }
+  },
+  "anomaly": {
+    "path": "data/processed/anomaly/anomaly_v1.parquet",
+    "rows": 35892,
+    "columns": 12,
+    "grain": [
+      "event_date",
+      "store_id",
+      "sku_id"
+    ],
+    "targets": [],
+    "date_column": "event_date",
+    "date_range": [
+      "2024-01-01",
+      "2024-03-30"
+    ],
+    "numerical": [
+      "event_observed_units",
+      "event_transaction_unit_price",
+      "lag_1",
+      "lag_7",
+      "rolling_mean_7d",
+      "rolling_std_7d"
+    ],
+    "categorical": [
+      "brand_name",
+      "category_name"
+    ],
+    "binary": [
+      "event_is_promo"
+    ],
+    "temporal": [
+      "event_date"
+    ],
+    "identifiers": [
+      "store_id",
+      "sku_id"
+    ],
+    "null_rates": {
+      "event_date": 0.0,
+      "store_id": 0.0,
+      "sku_id": 0.0,
+      "event_observed_units": 0.0,
+      "event_transaction_unit_price": 0.0,
+      "event_is_promo": 0.0,
+      "lag_1": 0.5444110108102084,
+      "lag_7": 0.5736654407667446,
+      "rolling_mean_7d": 0.05678145547754374,
+      "rolling_std_7d": 0.18274267246182993,
+      "brand_name": 0.0,
+      "category_name": 0.0
+    },
+    "categorical_cardinality": {
+      "brand_name": 6,
+      "category_name": 6
+    },
+    "duplicate_business_keys": 0,
+    "schema": {
+      "event_date": "Date",
+      "store_id": "Int64",
+      "sku_id": "Int64",
+      "event_observed_units": "Int64",
+      "event_transaction_unit_price": "Decimal(precision=38, scale=2)",
+      "event_is_promo": "Boolean",
+      "lag_1": "Int64",
+      "lag_7": "Int64",
+      "rolling_mean_7d": "Float64",
+      "rolling_std_7d": "Float64",
+      "brand_name": "String",
+      "category_name": "String"
+    }
+  },
+  "basket": {
+    "path": "data/processed/basket/basket_v1.parquet",
+    "rows": 24216,
+    "columns": 11,
+    "grain": [
+      "order_id",
+      "sku_id"
+    ],
+    "targets": [],
+    "date_column": "order_date",
+    "date_range": [
+      "2024-01-01",
+      "2024-03-30"
+    ],
+    "numerical": [
+      "quantity"
+    ],
+    "categorical": [
+      "product_name",
+      "brand_name",
+      "category_name",
+      "store_type",
+      "channel"
+    ],
+    "binary": [],
+    "temporal": [
+      "order_date"
+    ],
+    "identifiers": [
+      "order_id",
+      "store_id",
+      "sku_id",
+      "region_id"
+    ],
+    "null_rates": {
+      "order_id": 0.0,
+      "order_date": 0.0,
+      "store_id": 0.0,
+      "sku_id": 0.0,
+      "quantity": 0.0,
+      "product_name": 0.0,
+      "brand_name": 0.0,
+      "category_name": 0.0,
+      "region_id": 0.0,
+      "store_type": 0.0,
+      "channel": 0.0
+    },
+    "categorical_cardinality": {
+      "product_name": 48,
+      "brand_name": 6,
+      "category_name": 6,
+      "store_type": 4,
+      "channel": 5
+    },
+    "duplicate_business_keys": 0,
+    "schema": {
+      "order_id": "Int64",
+      "order_date": "Date",
+      "store_id": "Int64",
+      "sku_id": "Int64",
+      "quantity": "Int64",
+      "product_name": "String",
+      "brand_name": "String",
+      "category_name": "String",
+      "region_id": "Int64",
+      "store_type": "String",
+      "channel": "String"
+    }
+  },
+  "promotion_performance": {
+    "path": "data/processed/promotion_performance/promotion_performance_v1.parquet",
+    "rows": 2880,
+    "columns": 16,
+    "grain": [
+      "promotion_id",
+      "store_id",
+      "sku_id"
+    ],
+    "targets": [],
+    "date_column": "start_date",
+    "date_range": [
+      "2024-01-01",
+      "2024-03-01"
+    ],
+    "numerical": [
+      "baseline_units",
+      "promo_units",
+      "post_units",
+      "promo_revenue",
+      "promo_profit",
+      "discount_value"
+    ],
+    "categorical": [
+      "promotion_type",
+      "discount_type",
+      "store_type",
+      "channel"
+    ],
+    "binary": [],
+    "temporal": [
+      "start_date",
+      "end_date"
+    ],
+    "identifiers": [
+      "promotion_id",
+      "store_id",
+      "sku_id",
+      "region_id"
+    ],
+    "null_rates": {
+      "promotion_id": 0.0,
+      "store_id": 0.0,
+      "sku_id": 0.0,
+      "start_date": 0.0,
+      "end_date": 0.0,
+      "baseline_units": 0.3333333333333333,
+      "promo_units": 0.0,
+      "post_units": 0.3333333333333333,
+      "promo_revenue": 0.0,
+      "promo_profit": 0.0,
+      "promotion_type": 0.0,
+      "discount_type": 0.0,
+      "discount_value": 0.0,
+      "region_id": 0.0,
+      "store_type": 0.0,
+      "channel": 0.0
+    },
+    "categorical_cardinality": {
+      "promotion_type": 1,
+      "discount_type": 1,
+      "store_type": 4,
+      "channel": 5
+    },
+    "duplicate_business_keys": 0,
+    "schema": {
+      "promotion_id": "Int64",
+      "store_id": "Int64",
+      "sku_id": "Int64",
+      "start_date": "Date",
+      "end_date": "Date",
+      "baseline_units": "Decimal(precision=38, scale=0)",
+      "promo_units": "Decimal(precision=38, scale=0)",
+      "post_units": "Decimal(precision=38, scale=0)",
+      "promo_revenue": "Decimal(precision=38, scale=2)",
+      "promo_profit": "Decimal(precision=38, scale=2)",
+      "promotion_type": "String",
+      "discount_type": "String",
+      "discount_value": "Decimal(precision=38, scale=2)",
+      "region_id": "Int64",
+      "store_type": "String",
+      "channel": "String"
+    }
+  }
+}

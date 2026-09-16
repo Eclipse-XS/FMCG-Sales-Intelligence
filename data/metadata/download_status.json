@@ -1,0 +1,13 @@
+[
+  {"source":"online_retail_ii","status":"downloaded"},
+  {"source":"favorita","status":"downloaded_from_public_mirror","url":"https://www.kaggle.com/datasets/evgeniypolin/favorita-grocery-sales-forecasting","upstream":"favorita-grocery-sales-forecasting competition","license":"unspecified"},
+  {"source":"m5","status":"downloaded_from_university_zenodo","url":"https://doi.org/10.5281/zenodo.10203108","upstream":"M5 Forecasting Accuracy","verification":"all five published MD5 checksums match"},
+  {"source":"instacart","status":"downloaded_from_public_mirror","url":"https://www.kaggle.com/datasets/psparks/instacart-market-basket-analysis","license":"CC0-1.0 declared by mirror"},
+  {"source":"grocery_inventory","status":"downloaded"},
+  {"source":"supply_chain_inventory","status":"downloaded"},
+  {"source":"retail_warehouse","status":"downloaded"},
+  {"source":"fmcg_daily","status":"downloaded"},
+  {"source":"retail_fmcg_2024","status":"downloaded"},
+  {"source":"dunnhumby","status":"downloaded_repository_representation"},
+  {"source":"coca_cola_reference","status":"inspected_no_source_table_found"}
+]

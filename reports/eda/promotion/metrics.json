@@ -1,0 +1,226 @@
+{
+  "rows": 2880,
+  "baseline_null_rows": 960,
+  "post_null_rows": 960,
+  "valid_baseline_rows": 1920,
+  "derived_metrics": {
+    "units_uplift_absolute": {
+      "count": 1920,
+      "mean": 3.238020833333333,
+      "median": 2.0,
+      "std": 17.314643690464944,
+      "min": -77.0,
+      "p25": -7.0,
+      "p75": 13.0,
+      "p95": 32.0,
+      "max": 81.0
+    },
+    "units_uplift_percent": {
+      "count": 1920,
+      "mean": 0.19583333333333333,
+      "median": 0.0,
+      "std": 0.6152341948147402,
+      "min": -1.0,
+      "p25": 0.0,
+      "p75": 0.0,
+      "p95": 1.0,
+      "max": 8.0
+    },
+    "post_vs_baseline": {
+      "count": 960,
+      "mean": 0.26979166666666665,
+      "median": 0.0,
+      "std": 0.7837797502529009,
+      "min": -1.0,
+      "p25": 0.0,
+      "p75": 0.0,
+      "p95": 1.0,
+      "max": 14.0
+    }
+  },
+  "by_promotion": [
+    {
+      "promotion_id": 1,
+      "rows": 960,
+      "baseline_null": 960,
+      "post_null": 0,
+      "promo_units": "46905",
+      "promo_revenue": "113205.87",
+      "promo_profit": "56094.33"
+    },
+    {
+      "promotion_id": 2,
+      "rows": 960,
+      "baseline_null": 0,
+      "post_null": 0,
+      "promo_units": "50139",
+      "promo_revenue": "121418.36",
+      "promo_profit": "60170.30"
+    },
+    {
+      "promotion_id": 3,
+      "rows": 960,
+      "baseline_null": 0,
+      "post_null": 960,
+      "promo_units": "53122",
+      "promo_revenue": "128704.37",
+      "promo_profit": "63751.22"
+    }
+  ],
+  "by_category": [
+    {
+      "category_name": "Carbonated Soft Drinks",
+      "promo_units": "29421",
+      "promo_revenue": "62758.33"
+    },
+    {
+      "category_name": "Energy Drinks",
+      "promo_units": "26211",
+      "promo_revenue": "59906.32"
+    },
+    {
+      "category_name": "Juice",
+      "promo_units": "25189",
+      "promo_revenue": "60597.17"
+    },
+    {
+      "category_name": "Water",
+      "promo_units": "23704",
+      "promo_revenue": "59530.61"
+    },
+    {
+      "category_name": "Coffee",
+      "promo_units": "22821",
+      "promo_revenue": "61306.52"
+    },
+    {
+      "category_name": "RTD Tea",
+      "promo_units": "22820",
+      "promo_revenue": "59229.65"
+    }
+  ],
+  "by_context": {
+    "brand_name": [
+      {
+        "brand_name": "ClearSpring",
+        "promo_units": "23704",
+        "promo_revenue": "59530.61",
+        "promo_profit": "29553.62"
+      },
+      {
+        "brand_name": "Leafline",
+        "promo_units": "22820",
+        "promo_revenue": "59229.65",
+        "promo_profit": "29310.64"
+      },
+      {
+        "brand_name": "Northstar Cola",
+        "promo_units": "29421",
+        "promo_revenue": "62758.33",
+        "promo_profit": "31008.22"
+      },
+      {
+        "brand_name": "Orchard",
+        "promo_units": "25189",
+        "promo_revenue": "60597.17",
+        "promo_profit": "29976.72"
+      },
+      {
+        "brand_name": "RoastGo",
+        "promo_units": "22821",
+        "promo_revenue": "61306.52",
+        "promo_profit": "30423.86"
+      },
+      {
+        "brand_name": "Volt",
+        "promo_units": "26211",
+        "promo_revenue": "59906.32",
+        "promo_profit": "29742.79"
+      }
+    ],
+    "region_id": [
+      {
+        "region_id": 1,
+        "promo_units": "33051",
+        "promo_revenue": "80402.29",
+        "promo_profit": "39837.94"
+      },
+      {
+        "region_id": 2,
+        "promo_units": "36035",
+        "promo_revenue": "86862.09",
+        "promo_profit": "43028.44"
+      },
+      {
+        "region_id": 3,
+        "promo_units": "39336",
+        "promo_revenue": "94787.32",
+        "promo_profit": "46948.74"
+      },
+      {
+        "region_id": 4,
+        "promo_units": "41744",
+        "promo_revenue": "101276.90",
+        "promo_profit": "50200.73"
+      }
+    ],
+    "store_type": [
+      {
+        "store_type": "convenience",
+        "promo_units": "36035",
+        "promo_revenue": "86862.09",
+        "promo_profit": "43028.44"
+      },
+      {
+        "store_type": "discount",
+        "promo_units": "33051",
+        "promo_revenue": "80402.29",
+        "promo_profit": "39837.94"
+      },
+      {
+        "store_type": "horeca",
+        "promo_units": "39336",
+        "promo_revenue": "94787.32",
+        "promo_profit": "46948.74"
+      },
+      {
+        "store_type": "supermarket",
+        "promo_units": "41744",
+        "promo_revenue": "101276.90",
+        "promo_profit": "50200.73"
+      }
+    ],
+    "channel": [
+      {
+        "channel": "convenience",
+        "promo_units": "27671",
+        "promo_revenue": "67080.62",
+        "promo_profit": "33238.91"
+      },
+      {
+        "channel": "ecommerce",
+        "promo_units": "32594",
+        "promo_revenue": "79013.71",
+        "promo_profit": "39157.52"
+      },
+      {
+        "channel": "horeca",
+        "promo_units": "30205",
+        "promo_revenue": "73246.02",
+        "promo_profit": "36284.77"
+      },
+      {
+        "channel": "modern_trade",
+        "promo_units": "34799",
+        "promo_revenue": "84171.64",
+        "promo_profit": "41694.09"
+      },
+      {
+        "channel": "traditional_trade",
+        "promo_units": "24897",
+        "promo_revenue": "59816.61",
+        "promo_profit": "29640.56"
+      }
+    ]
+  }
+}

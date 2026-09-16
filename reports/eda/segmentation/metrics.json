@@ -1,0 +1,276 @@
+{
+  "rows": 60,
+  "unique_stores": 20,
+  "snapshots": 3,
+  "numerical_summary": {
+    "revenue_30d": {
+      "count": 60,
+      "mean": 6044.772833333333,
+      "median": 5495.265,
+      "std": 3003.988126143955,
+      "min": 1669.1,
+      "p25": 3430.7475,
+      "p75": 8185.87,
+      "p95": 11116.743999999999,
+      "max": 12139.43
+    },
+    "units_30d": {
+      "count": 60,
+      "mean": 2497.65,
+      "median": 2299.5,
+      "std": 1247.863324015787,
+      "min": 688.0,
+      "p25": 1397.75,
+      "p75": 3385.5,
+      "p95": 4650.4,
+      "max": 4987.0
+    },
+    "profit_30d": {
+      "count": 60,
+      "mean": 2994.979666666667,
+      "median": 2720.11,
+      "std": 1488.2217280854522,
+      "min": 826.56,
+      "p25": 1698.8025,
+      "p75": 4052.6725,
+      "p95": 5501.317999999999,
+      "max": 6019.3
+    },
+    "active_skus_30d": {
+      "count": 60,
+      "mean": 48.0,
+      "median": 48.0,
+      "std": 0.0,
+      "min": 48.0,
+      "p25": 48.0,
+      "p75": 48.0,
+      "p95": 48.0,
+      "max": 48.0
+    },
+    "average_price_30d": {
+      "count": 60,
+      "mean": 2.642927228846655,
+      "median": 2.652655533191176,
+      "std": 0.041657202675779444,
+      "min": 2.5251445086705204,
+      "p25": 2.6240124526990924,
+      "p75": 2.6731201946354215,
+      "p95": 2.6881323677875284,
+      "max": 2.710436005625879
+    },
+    "promotion_unit_share_30d": {
+      "count": 60,
+      "mean": 0.1457672581539792,
+      "median": 0.14505873315248263,
+      "std": 0.018338006974114845,
+      "min": 0.0998719590268886,
+      "p25": 0.13377914846343628,
+      "p75": 0.15834339578892923,
+      "p95": 0.17272979293433838,
+      "max": 0.18894117647058822
+    },
+    "revenue_volatility_30d": {
+      "count": 60,
+      "mean": 4.310038059096091,
+      "median": 4.355048698752729,
+      "std": 0.455410655798065,
+      "min": 3.1018354121418286,
+      "p25": 3.9754032330666433,
+      "p75": 4.650672440385197,
+      "p95": 4.9557868913667225,
+      "max": 5.240127491415484
+    },
+    "floor_area_m2": {
+      "count": 60,
+      "mean": 567.5,
+      "median": 567.5,
+      "std": 203.5229966600618,
+      "min": 235.0,
+      "p25": 401.25,
+      "p75": 733.75,
+      "p95": 866.7499999999999,
+      "max": 900.0
+    }
+  },
+  "correlation_matrix": {
+    "revenue_30d": {
+      "revenue_30d": 0.9999999999999999,
+      "units_30d": 0.9996736734770106,
+      "profit_30d": 0.9999980577962554,
+      "active_skus_30d": null,
+      "average_price_30d": 0.5322580384772152,
+      "promotion_unit_share_30d": 0.1220414950346494,
+      "revenue_volatility_30d": 0.9101918689280032,
+      "floor_area_m2": 0.9827718411095885
+    },
+    "units_30d": {
+      "revenue_30d": 0.9996736734770107,
+      "units_30d": 1.0,
+      "profit_30d": 0.9996687475559467,
+      "active_skus_30d": null,
+      "average_price_30d": 0.5182987309387148,
+      "promotion_unit_share_30d": 0.12403706703767604,
+      "revenue_volatility_30d": 0.9068851109935412,
+      "floor_area_m2": 0.9831741295230242
+    },
+    "profit_30d": {
+      "revenue_30d": 0.9999980577962555,
+      "units_30d": 0.9996687475559466,
+      "profit_30d": 1.0,
+      "active_skus_30d": null,
+      "average_price_30d": 0.5323379441742578,
+      "promotion_unit_share_30d": 0.12042666181855965,
+      "revenue_volatility_30d": 0.9100868749447735,
+      "floor_area_m2": 0.9828283725017339
+    },
+    "active_skus_30d": {
+      "revenue_30d": null,
+      "units_30d": null,
+      "profit_30d": null,
+      "active_skus_30d": null,
+      "average_price_30d": null,
+      "promotion_unit_share_30d": null,
+      "revenue_volatility_30d": null,
+      "floor_area_m2": null
+    },
+    "average_price_30d": {
+      "revenue_30d": 0.5322580384772152,
+      "units_30d": 0.5182987309387148,
+      "profit_30d": 0.5323379441742577,
+      "active_skus_30d": null,
+      "average_price_30d": 0.9999999999999998,
+      "promotion_unit_share_30d": 0.04035028740580558,
+      "revenue_volatility_30d": 0.5916447472585827,
+      "floor_area_m2": 0.5630291188978103
+    },
+    "promotion_unit_share_30d": {
+      "revenue_30d": 0.1220414950346494,
+      "units_30d": 0.12403706703767604,
+      "profit_30d": 0.12042666181855967,
+      "active_skus_30d": null,
+      "average_price_30d": 0.04035028740580558,
+      "promotion_unit_share_30d": 1.0,
+      "revenue_volatility_30d": 0.11824617243812674,
+      "floor_area_m2": 0.1104232911485104
+    },
+    "revenue_volatility_30d": {
+      "revenue_30d": 0.9101918689280031,
+      "units_30d": 0.9068851109935412,
+      "profit_30d": 0.9100868749447735,
+      "active_skus_30d": null,
+      "average_price_30d": 0.5916447472585827,
+      "promotion_unit_share_30d": 0.11824617243812675,
+      "revenue_volatility_30d": 1.0,
+      "floor_area_m2": 0.9156091597456739
+    },
+    "floor_area_m2": {
+      "revenue_30d": 0.9827718411095886,
+      "units_30d": 0.9831741295230242,
+      "profit_30d": 0.9828283725017339,
+      "active_skus_30d": null,
+      "average_price_30d": 0.5630291188978103,
+      "promotion_unit_share_30d": 0.11042329114851039,
+      "revenue_volatility_30d": 0.915609159745674,
+      "floor_area_m2": 1.0
+    }
+  },
+  "categorical_cardinality": {
+    "store_type": 4,
+    "channel": 5,
+    "region_id": 4
+  },
+  "categorical_composition": {
+    "store_type": [
+      {
+        "store_type": "convenience",
+        "len": 15
+      },
+      {
+        "store_type": "discount",
+        "len": 15
+      },
+      {
+        "store_type": "horeca",
+        "len": 15
+      },
+      {
+        "store_type": "supermarket",
+        "len": 15
+      }
+    ],
+    "channel": [
+      {
+        "channel": "convenience",
+        "len": 12
+      },
+      {
+        "channel": "ecommerce",
+        "len": 12
+      },
+      {
+        "channel": "horeca",
+        "len": 12
+      },
+      {
+        "channel": "modern_trade",
+        "len": 12
+      },
+      {
+        "channel": "traditional_trade",
+        "len": 12
+      }
+    ],
+    "region_id": [
+      {
+        "region_id": 1,
+        "len": 15
+      },
+      {
+        "region_id": 2,
+        "len": 15
+      },
+      {
+        "region_id": 3,
+        "len": 15
+      },
+      {
+        "region_id": 4,
+        "len": 15
+      }
+    ]
+  },
+  "snapshot_change": {
+    "revenue_change": {
+      "count": 40,
+      "mean": 0.06570267154142176,
+      "median": 0.0598253570380622,
+      "std": 0.07037519273199581,
+      "min": -0.04911835822794954,
+      "p25": 0.03388916479194101,
+      "p75": 0.09108533512331815,
+      "p95": 0.14270458705640648,
+      "max": 0.34073634006451736
+    },
+    "units_change": {
+      "count": 40,
+      "mean": 0.06261659184331571,
+      "median": 0.05388887655048909,
+      "std": 0.06754659739685795,
+      "min": -0.044950213371266,
+      "p25": 0.025008997812723772,
+      "p75": 0.09450116532591535,
+      "p95": 0.17557516611295657,
+      "max": 0.28425096030729835
+    }
+  },
+  "features_requiring_scaling": [
+    "revenue_30d",
+    "units_30d",
+    "profit_30d",
+    "active_skus_30d",
+    "average_price_30d",
+    "promotion_unit_share_30d",
+    "revenue_volatility_30d",
+    "floor_area_m2"
+  ]
+}

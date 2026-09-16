@@ -1,0 +1,278 @@
+{
+  "row_counts": {
+    "categories": {
+      "database": 6,
+      "csv": 6,
+      "match": true
+    },
+    "brands": {
+      "database": 6,
+      "csv": 6,
+      "match": true
+    },
+    "products": {
+      "database": 48,
+      "csv": 48,
+      "match": true
+    },
+    "skus": {
+      "database": 48,
+      "csv": 48,
+      "match": true
+    },
+    "regions": {
+      "database": 4,
+      "csv": 4,
+      "match": true
+    },
+    "stores": {
+      "database": 20,
+      "csv": 20,
+      "match": true
+    },
+    "warehouses": {
+      "database": 4,
+      "csv": 4,
+      "match": true
+    },
+    "promotions": {
+      "database": 3,
+      "csv": 3,
+      "match": true
+    },
+    "promotion_skus": {
+      "database": 144,
+      "csv": 144,
+      "match": true
+    },
+    "promotion_stores": {
+      "database": 60,
+      "csv": 60,
+      "match": true
+    },
+    "product_prices": {
+      "database": 12480,
+      "csv": 12480,
+      "match": true
+    },
+    "sales": {
+      "database": 35032,
+      "csv": 35032,
+      "match": true
+    },
+    "daily_demand": {
+      "database": 86400,
+      "csv": 86400,
+      "match": true
+    },
+    "orders": {
+      "database": 2000,
+      "csv": 2000,
+      "match": true
+    },
+    "order_items": {
+      "database": 24370,
+      "csv": 24370,
+      "match": true
+    },
+    "deliveries": {
+      "database": 2000,
+      "csv": 2000,
+      "match": true
+    },
+    "delivery_items": {
+      "database": 24370,
+      "csv": 24370,
+      "match": true
+    },
+    "inventory": {
+      "database": 17280,
+      "csv": 17280,
+      "match": true
+    }
+  },
+  "checks": {
+    "orphan sales sku": {
+      "violations": 0,
+      "pass": true
+    },
+    "orphan sales store": {
+      "violations": 0,
+      "pass": true
+    },
+    "orphan daily demand": {
+      "violations": 0,
+      "pass": true
+    },
+    "orphan inventory sku": {
+      "violations": 0,
+      "pass": true
+    },
+    "orphan inventory warehouse": {
+      "violations": 0,
+      "pass": true
+    },
+    "orphan order items order": {
+      "violations": 0,
+      "pass": true
+    },
+    "orphan order items sku": {
+      "violations": 0,
+      "pass": true
+    },
+    "orphan promotion sku mapping": {
+      "violations": 0,
+      "pass": true
+    },
+    "orphan promotion store mapping": {
+      "violations": 0,
+      "pass": true
+    },
+    "orphan price": {
+      "violations": 0,
+      "pass": true
+    },
+    "duplicate sales grain": {
+      "violations": 0,
+      "pass": true
+    },
+    "duplicate demand grain": {
+      "violations": 0,
+      "pass": true
+    },
+    "duplicate inventory grain": {
+      "violations": 0,
+      "pass": true
+    },
+    "duplicate price start grain": {
+      "violations": 0,
+      "pass": true
+    },
+    "overlapping price periods": {
+      "violations": 0,
+      "pass": true
+    },
+    "invalid sales numerics": {
+      "violations": 0,
+      "pass": true
+    },
+    "invalid inventory numerics": {
+      "violations": 0,
+      "pass": true
+    },
+    "invalid demand reconciliation": {
+      "violations": 0,
+      "pass": true
+    },
+    "order reconciliation": {
+      "violations": 0,
+      "pass": true
+    },
+    "inventory flow": {
+      "violations": 0,
+      "pass": true
+    },
+    "daily demand to inventory reconciliation": {
+      "violations": 0,
+      "pass": true
+    },
+    "invalid promotion dates": {
+      "violations": 0,
+      "pass": true
+    },
+    "invalid price dates": {
+      "violations": 0,
+      "pass": true
+    },
+    "invalid order chronology": {
+      "violations": 0,
+      "pass": true
+    },
+    "invalid delivery chronology": {
+      "violations": 0,
+      "pass": true
+    },
+    "unmapped promoted sale": {
+      "violations": 0,
+      "pass": true
+    }
+  },
+  "constraint_tests": {
+    "orphan order item": {
+      "rejected": true
+    },
+    "orphan sale": {
+      "rejected": true
+    },
+    "negative quantity": {
+      "rejected": true
+    },
+    "duplicate sales grain": {
+      "rejected": true
+    },
+    "duplicate inventory grain": {
+      "rejected": true
+    },
+    "invalid promotion range": {
+      "rejected": true
+    },
+    "invalid price": {
+      "rejected": true
+    }
+  },
+  "smoke_queries": [
+    {
+      "query": 1,
+      "executed": true,
+      "sample_rows": 5
+    },
+    {
+      "query": 2,
+      "executed": true,
+      "sample_rows": 5
+    },
+    {
+      "query": 3,
+      "executed": true,
+      "sample_rows": 5
+    },
+    {
+      "query": 4,
+      "executed": true,
+      "sample_rows": 5
+    },
+    {
+      "query": 5,
+      "executed": true,
+      "sample_rows": 2
+    },
+    {
+      "query": 6,
+      "executed": true,
+      "sample_rows": 5
+    },
+    {
+      "query": 7,
+      "executed": true,
+      "sample_rows": 5
+    },
+    {
+      "query": 8,
+      "executed": true,
+      "sample_rows": 5
+    },
+    {
+      "query": 9,
+      "executed": true,
+      "sample_rows": 1
+    },
+    {
+      "query": 10,
+      "executed": true,
+      "sample_rows": 5
+    }
+  ],
+  "postgresql_version": "17.11",
+  "database": "fmcg",
+  "passed": true
+}

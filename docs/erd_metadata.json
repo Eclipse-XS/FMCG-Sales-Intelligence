@@ -1,0 +1,1641 @@
+{
+  "generated_at": "2026-09-16T14:25:15.599626+00:00",
+  "database": "fmcg",
+  "schema": "fmcg",
+  "postgresql_version": "17.11",
+  "tables": {
+    "brands": [
+      {
+        "position": 1,
+        "name": "brand_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "PK"
+        ]
+      },
+      {
+        "position": 2,
+        "name": "brand_name",
+        "type": "text",
+        "nullable": false,
+        "keys": [
+          "UK"
+        ]
+      },
+      {
+        "position": 3,
+        "name": "manufacturer",
+        "type": "text",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 4,
+        "name": "partner_brand",
+        "type": "boolean",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 5,
+        "name": "active",
+        "type": "boolean",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 6,
+        "name": "provenance",
+        "type": "provenance_kind",
+        "nullable": false,
+        "keys": []
+      }
+    ],
+    "categories": [
+      {
+        "position": 1,
+        "name": "category_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "PK"
+        ]
+      },
+      {
+        "position": 2,
+        "name": "category_name",
+        "type": "text",
+        "nullable": false,
+        "keys": [
+          "UK"
+        ]
+      },
+      {
+        "position": 3,
+        "name": "parent_category_id",
+        "type": "bigint",
+        "nullable": true,
+        "keys": [
+          "UK",
+          "FK"
+        ]
+      },
+      {
+        "position": 4,
+        "name": "description",
+        "type": "text",
+        "nullable": true,
+        "keys": []
+      }
+    ],
+    "daily_demand": [
+      {
+        "position": 1,
+        "name": "demand_observation_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "PK"
+        ]
+      },
+      {
+        "position": 2,
+        "name": "observation_date",
+        "type": "date",
+        "nullable": false,
+        "keys": [
+          "UK"
+        ]
+      },
+      {
+        "position": 3,
+        "name": "store_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "UK",
+          "FK"
+        ]
+      },
+      {
+        "position": 4,
+        "name": "sku_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "UK",
+          "FK"
+        ]
+      },
+      {
+        "position": 5,
+        "name": "warehouse_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "FK"
+        ]
+      },
+      {
+        "position": 6,
+        "name": "requested_demand_units",
+        "type": "integer",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 7,
+        "name": "realized_sales_units",
+        "type": "integer",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 8,
+        "name": "lost_sales_units",
+        "type": "integer",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 9,
+        "name": "demand_censored_by_inventory",
+        "type": "boolean",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 10,
+        "name": "inventory_available_before",
+        "type": "integer",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 11,
+        "name": "promotion_id",
+        "type": "bigint",
+        "nullable": true,
+        "keys": [
+          "FK"
+        ]
+      }
+    ],
+    "deliveries": [
+      {
+        "position": 1,
+        "name": "delivery_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "PK"
+        ]
+      },
+      {
+        "position": 2,
+        "name": "delivery_code",
+        "type": "text",
+        "nullable": false,
+        "keys": [
+          "UK"
+        ]
+      },
+      {
+        "position": 3,
+        "name": "order_id",
+        "type": "bigint",
+        "nullable": true,
+        "keys": [
+          "FK"
+        ]
+      },
+      {
+        "position": 4,
+        "name": "warehouse_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "FK"
+        ]
+      },
+      {
+        "position": 5,
+        "name": "store_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "FK"
+        ]
+      },
+      {
+        "position": 6,
+        "name": "shipped_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "keys": []
+      },
+      {
+        "position": 7,
+        "name": "delivered_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "keys": []
+      },
+      {
+        "position": 8,
+        "name": "status",
+        "type": "delivery_status",
+        "nullable": false,
+        "keys": []
+      }
+    ],
+    "delivery_items": [
+      {
+        "position": 1,
+        "name": "delivery_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "PK",
+          "FK"
+        ]
+      },
+      {
+        "position": 2,
+        "name": "sku_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "PK",
+          "FK"
+        ]
+      },
+      {
+        "position": 3,
+        "name": "quantity",
+        "type": "integer",
+        "nullable": false,
+        "keys": []
+      }
+    ],
+    "inventory": [
+      {
+        "position": 1,
+        "name": "inventory_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "PK"
+        ]
+      },
+      {
+        "position": 2,
+        "name": "snapshot_date",
+        "type": "date",
+        "nullable": false,
+        "keys": [
+          "UK"
+        ]
+      },
+      {
+        "position": 3,
+        "name": "warehouse_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "UK",
+          "FK"
+        ]
+      },
+      {
+        "position": 4,
+        "name": "sku_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "UK",
+          "FK"
+        ]
+      },
+      {
+        "position": 5,
+        "name": "opening_stock_quantity",
+        "type": "integer",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 6,
+        "name": "stock_quantity",
+        "type": "integer",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 7,
+        "name": "reserved_quantity",
+        "type": "integer",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 8,
+        "name": "available_quantity",
+        "type": "integer",
+        "nullable": true,
+        "keys": []
+      },
+      {
+        "position": 9,
+        "name": "reorder_point",
+        "type": "integer",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 10,
+        "name": "safety_stock",
+        "type": "integer",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 11,
+        "name": "replenishment_quantity",
+        "type": "integer",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 12,
+        "name": "replenishment_ordered_quantity",
+        "type": "integer",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 13,
+        "name": "replenishment_lead_time_days",
+        "type": "integer",
+        "nullable": true,
+        "keys": []
+      },
+      {
+        "position": 14,
+        "name": "expected_replenishment_date",
+        "type": "date",
+        "nullable": true,
+        "keys": []
+      },
+      {
+        "position": 15,
+        "name": "demand_requested",
+        "type": "integer",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 16,
+        "name": "demand_fulfilled",
+        "type": "integer",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 17,
+        "name": "lost_sales_quantity",
+        "type": "integer",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 18,
+        "name": "adjustment_quantity",
+        "type": "integer",
+        "nullable": false,
+        "keys": []
+      }
+    ],
+    "order_items": [
+      {
+        "position": 1,
+        "name": "order_item_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "PK"
+        ]
+      },
+      {
+        "position": 2,
+        "name": "order_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "UK",
+          "FK"
+        ]
+      },
+      {
+        "position": 3,
+        "name": "sku_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "UK",
+          "FK"
+        ]
+      },
+      {
+        "position": 4,
+        "name": "quantity",
+        "type": "integer",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 5,
+        "name": "unit_price",
+        "type": "numeric(12,2)",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 6,
+        "name": "discount_amount",
+        "type": "numeric(12,2)",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 7,
+        "name": "line_total",
+        "type": "numeric(14,2)",
+        "nullable": true,
+        "keys": []
+      }
+    ],
+    "orders": [
+      {
+        "position": 1,
+        "name": "order_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "PK"
+        ]
+      },
+      {
+        "position": 2,
+        "name": "order_code",
+        "type": "text",
+        "nullable": false,
+        "keys": [
+          "UK"
+        ]
+      },
+      {
+        "position": 3,
+        "name": "store_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "FK"
+        ]
+      },
+      {
+        "position": 4,
+        "name": "order_date",
+        "type": "date",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 5,
+        "name": "requested_delivery_date",
+        "type": "date",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 6,
+        "name": "actual_delivery_date",
+        "type": "date",
+        "nullable": true,
+        "keys": []
+      },
+      {
+        "position": 7,
+        "name": "status",
+        "type": "order_status",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 8,
+        "name": "subtotal",
+        "type": "numeric(14,2)",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 9,
+        "name": "discount_amount",
+        "type": "numeric(14,2)",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 10,
+        "name": "total_amount",
+        "type": "numeric(14,2)",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 11,
+        "name": "provenance",
+        "type": "provenance_kind",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 12,
+        "name": "external_source",
+        "type": "text",
+        "nullable": true,
+        "keys": []
+      },
+      {
+        "position": 13,
+        "name": "external_id",
+        "type": "text",
+        "nullable": true,
+        "keys": []
+      }
+    ],
+    "product_prices": [
+      {
+        "position": 1,
+        "name": "price_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "PK"
+        ]
+      },
+      {
+        "position": 2,
+        "name": "store_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "UK",
+          "FK"
+        ]
+      },
+      {
+        "position": 3,
+        "name": "sku_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "UK",
+          "FK"
+        ]
+      },
+      {
+        "position": 4,
+        "name": "valid_from",
+        "type": "date",
+        "nullable": false,
+        "keys": [
+          "UK"
+        ]
+      },
+      {
+        "position": 5,
+        "name": "valid_to",
+        "type": "date",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 6,
+        "name": "regular_price",
+        "type": "numeric(12,2)",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 7,
+        "name": "selling_price",
+        "type": "numeric(12,2)",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 8,
+        "name": "provenance",
+        "type": "provenance_kind",
+        "nullable": false,
+        "keys": []
+      }
+    ],
+    "products": [
+      {
+        "position": 1,
+        "name": "product_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "PK"
+        ]
+      },
+      {
+        "position": 2,
+        "name": "category_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "FK"
+        ]
+      },
+      {
+        "position": 3,
+        "name": "brand_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "UK",
+          "FK"
+        ]
+      },
+      {
+        "position": 4,
+        "name": "product_name",
+        "type": "text",
+        "nullable": false,
+        "keys": [
+          "UK"
+        ]
+      },
+      {
+        "position": 5,
+        "name": "description",
+        "type": "text",
+        "nullable": true,
+        "keys": []
+      },
+      {
+        "position": 6,
+        "name": "sugar_free",
+        "type": "boolean",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 7,
+        "name": "active",
+        "type": "boolean",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 8,
+        "name": "provenance",
+        "type": "provenance_kind",
+        "nullable": false,
+        "keys": []
+      }
+    ],
+    "promotion_skus": [
+      {
+        "position": 1,
+        "name": "promotion_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "PK",
+          "FK"
+        ]
+      },
+      {
+        "position": 2,
+        "name": "sku_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "PK",
+          "FK"
+        ]
+      }
+    ],
+    "promotion_stores": [
+      {
+        "position": 1,
+        "name": "promotion_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "PK",
+          "FK"
+        ]
+      },
+      {
+        "position": 2,
+        "name": "store_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "PK",
+          "FK"
+        ]
+      }
+    ],
+    "promotions": [
+      {
+        "position": 1,
+        "name": "promotion_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "PK"
+        ]
+      },
+      {
+        "position": 2,
+        "name": "promotion_name",
+        "type": "text",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 3,
+        "name": "promotion_type",
+        "type": "text",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 4,
+        "name": "start_date",
+        "type": "date",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 5,
+        "name": "end_date",
+        "type": "date",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 6,
+        "name": "discount_type",
+        "type": "text",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 7,
+        "name": "discount_value",
+        "type": "numeric(12,2)",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 8,
+        "name": "description",
+        "type": "text",
+        "nullable": true,
+        "keys": []
+      },
+      {
+        "position": 9,
+        "name": "provenance",
+        "type": "provenance_kind",
+        "nullable": false,
+        "keys": []
+      }
+    ],
+    "regions": [
+      {
+        "position": 1,
+        "name": "region_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "PK"
+        ]
+      },
+      {
+        "position": 2,
+        "name": "region_name",
+        "type": "text",
+        "nullable": false,
+        "keys": [
+          "UK"
+        ]
+      },
+      {
+        "position": 3,
+        "name": "country",
+        "type": "text",
+        "nullable": false,
+        "keys": [
+          "UK"
+        ]
+      }
+    ],
+    "sales": [
+      {
+        "position": 1,
+        "name": "sale_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "PK"
+        ]
+      },
+      {
+        "position": 2,
+        "name": "sale_date",
+        "type": "date",
+        "nullable": false,
+        "keys": [
+          "UK"
+        ]
+      },
+      {
+        "position": 3,
+        "name": "store_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "UK",
+          "FK"
+        ]
+      },
+      {
+        "position": 4,
+        "name": "sku_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "UK",
+          "FK"
+        ]
+      },
+      {
+        "position": 5,
+        "name": "quantity_units",
+        "type": "integer",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 6,
+        "name": "unit_price",
+        "type": "numeric(12,2)",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 7,
+        "name": "gross_revenue",
+        "type": "numeric(14,2)",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 8,
+        "name": "discount_amount",
+        "type": "numeric(14,2)",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 9,
+        "name": "net_revenue",
+        "type": "numeric(14,2)",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 10,
+        "name": "unit_cost",
+        "type": "numeric(12,2)",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 11,
+        "name": "gross_profit",
+        "type": "numeric(14,2)",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 12,
+        "name": "promotion_id",
+        "type": "bigint",
+        "nullable": true,
+        "keys": [
+          "FK"
+        ]
+      },
+      {
+        "position": 13,
+        "name": "provenance",
+        "type": "provenance_kind",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 14,
+        "name": "external_source",
+        "type": "text",
+        "nullable": true,
+        "keys": []
+      },
+      {
+        "position": 15,
+        "name": "external_id",
+        "type": "text",
+        "nullable": true,
+        "keys": []
+      }
+    ],
+    "skus": [
+      {
+        "position": 1,
+        "name": "sku_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "PK"
+        ]
+      },
+      {
+        "position": 2,
+        "name": "product_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "UK",
+          "FK"
+        ]
+      },
+      {
+        "position": 3,
+        "name": "sku_code",
+        "type": "text",
+        "nullable": false,
+        "keys": [
+          "UK"
+        ]
+      },
+      {
+        "position": 4,
+        "name": "flavor",
+        "type": "text",
+        "nullable": true,
+        "keys": [
+          "UK"
+        ]
+      },
+      {
+        "position": 5,
+        "name": "package_type",
+        "type": "text",
+        "nullable": false,
+        "keys": [
+          "UK"
+        ]
+      },
+      {
+        "position": 6,
+        "name": "volume_ml",
+        "type": "integer",
+        "nullable": false,
+        "keys": [
+          "UK"
+        ]
+      },
+      {
+        "position": 7,
+        "name": "units_per_case",
+        "type": "integer",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 8,
+        "name": "base_price",
+        "type": "numeric(12,2)",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 9,
+        "name": "standard_cost",
+        "type": "numeric(12,2)",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 10,
+        "name": "active",
+        "type": "boolean",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 11,
+        "name": "provenance",
+        "type": "provenance_kind",
+        "nullable": false,
+        "keys": []
+      }
+    ],
+    "stores": [
+      {
+        "position": 1,
+        "name": "store_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "PK"
+        ]
+      },
+      {
+        "position": 2,
+        "name": "external_store_code",
+        "type": "text",
+        "nullable": true,
+        "keys": [
+          "UK"
+        ]
+      },
+      {
+        "position": 3,
+        "name": "store_name",
+        "type": "text",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 4,
+        "name": "region_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "FK"
+        ]
+      },
+      {
+        "position": 5,
+        "name": "city",
+        "type": "text",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 6,
+        "name": "store_type",
+        "type": "text",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 7,
+        "name": "channel",
+        "type": "text",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 8,
+        "name": "floor_area_m2",
+        "type": "numeric(12,2)",
+        "nullable": true,
+        "keys": []
+      },
+      {
+        "position": 9,
+        "name": "active",
+        "type": "boolean",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 10,
+        "name": "opened_at",
+        "type": "date",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 11,
+        "name": "provenance",
+        "type": "provenance_kind",
+        "nullable": false,
+        "keys": []
+      }
+    ],
+    "warehouses": [
+      {
+        "position": 1,
+        "name": "warehouse_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "PK"
+        ]
+      },
+      {
+        "position": 2,
+        "name": "warehouse_code",
+        "type": "text",
+        "nullable": false,
+        "keys": [
+          "UK"
+        ]
+      },
+      {
+        "position": 3,
+        "name": "warehouse_name",
+        "type": "text",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 4,
+        "name": "region_id",
+        "type": "bigint",
+        "nullable": false,
+        "keys": [
+          "FK"
+        ]
+      },
+      {
+        "position": 5,
+        "name": "city",
+        "type": "text",
+        "nullable": false,
+        "keys": []
+      },
+      {
+        "position": 6,
+        "name": "capacity_units",
+        "type": "integer",
+        "nullable": true,
+        "keys": []
+      },
+      {
+        "position": 7,
+        "name": "active",
+        "type": "boolean",
+        "nullable": false,
+        "keys": []
+      }
+    ]
+  },
+  "foreign_keys": [
+    {
+      "constraint": "categories_parent_category_id_fkey",
+      "child_table": "categories",
+      "child_column": "parent_category_id",
+      "parent_table": "categories",
+      "parent_column": "category_id",
+      "nullable": true
+    },
+    {
+      "constraint": "daily_demand_promotion_id_fkey",
+      "child_table": "daily_demand",
+      "child_column": "promotion_id",
+      "parent_table": "promotions",
+      "parent_column": "promotion_id",
+      "nullable": true
+    },
+    {
+      "constraint": "daily_demand_sku_id_fkey",
+      "child_table": "daily_demand",
+      "child_column": "sku_id",
+      "parent_table": "skus",
+      "parent_column": "sku_id",
+      "nullable": false
+    },
+    {
+      "constraint": "daily_demand_store_id_fkey",
+      "child_table": "daily_demand",
+      "child_column": "store_id",
+      "parent_table": "stores",
+      "parent_column": "store_id",
+      "nullable": false
+    },
+    {
+      "constraint": "daily_demand_warehouse_id_fkey",
+      "child_table": "daily_demand",
+      "child_column": "warehouse_id",
+      "parent_table": "warehouses",
+      "parent_column": "warehouse_id",
+      "nullable": false
+    },
+    {
+      "constraint": "deliveries_order_id_fkey",
+      "child_table": "deliveries",
+      "child_column": "order_id",
+      "parent_table": "orders",
+      "parent_column": "order_id",
+      "nullable": true
+    },
+    {
+      "constraint": "deliveries_store_id_fkey",
+      "child_table": "deliveries",
+      "child_column": "store_id",
+      "parent_table": "stores",
+      "parent_column": "store_id",
+      "nullable": false
+    },
+    {
+      "constraint": "deliveries_warehouse_id_fkey",
+      "child_table": "deliveries",
+      "child_column": "warehouse_id",
+      "parent_table": "warehouses",
+      "parent_column": "warehouse_id",
+      "nullable": false
+    },
+    {
+      "constraint": "delivery_items_delivery_id_fkey",
+      "child_table": "delivery_items",
+      "child_column": "delivery_id",
+      "parent_table": "deliveries",
+      "parent_column": "delivery_id",
+      "nullable": false
+    },
+    {
+      "constraint": "delivery_items_sku_id_fkey",
+      "child_table": "delivery_items",
+      "child_column": "sku_id",
+      "parent_table": "skus",
+      "parent_column": "sku_id",
+      "nullable": false
+    },
+    {
+      "constraint": "inventory_sku_id_fkey",
+      "child_table": "inventory",
+      "child_column": "sku_id",
+      "parent_table": "skus",
+      "parent_column": "sku_id",
+      "nullable": false
+    },
+    {
+      "constraint": "inventory_warehouse_id_fkey",
+      "child_table": "inventory",
+      "child_column": "warehouse_id",
+      "parent_table": "warehouses",
+      "parent_column": "warehouse_id",
+      "nullable": false
+    },
+    {
+      "constraint": "order_items_order_id_fkey",
+      "child_table": "order_items",
+      "child_column": "order_id",
+      "parent_table": "orders",
+      "parent_column": "order_id",
+      "nullable": false
+    },
+    {
+      "constraint": "order_items_sku_id_fkey",
+      "child_table": "order_items",
+      "child_column": "sku_id",
+      "parent_table": "skus",
+      "parent_column": "sku_id",
+      "nullable": false
+    },
+    {
+      "constraint": "orders_store_id_fkey",
+      "child_table": "orders",
+      "child_column": "store_id",
+      "parent_table": "stores",
+      "parent_column": "store_id",
+      "nullable": false
+    },
+    {
+      "constraint": "product_prices_sku_id_fkey",
+      "child_table": "product_prices",
+      "child_column": "sku_id",
+      "parent_table": "skus",
+      "parent_column": "sku_id",
+      "nullable": false
+    },
+    {
+      "constraint": "product_prices_store_id_fkey",
+      "child_table": "product_prices",
+      "child_column": "store_id",
+      "parent_table": "stores",
+      "parent_column": "store_id",
+      "nullable": false
+    },
+    {
+      "constraint": "products_brand_id_fkey",
+      "child_table": "products",
+      "child_column": "brand_id",
+      "parent_table": "brands",
+      "parent_column": "brand_id",
+      "nullable": false
+    },
+    {
+      "constraint": "products_category_id_fkey",
+      "child_table": "products",
+      "child_column": "category_id",
+      "parent_table": "categories",
+      "parent_column": "category_id",
+      "nullable": false
+    },
+    {
+      "constraint": "promotion_skus_promotion_id_fkey",
+      "child_table": "promotion_skus",
+      "child_column": "promotion_id",
+      "parent_table": "promotions",
+      "parent_column": "promotion_id",
+      "nullable": false
+    },
+    {
+      "constraint": "promotion_skus_sku_id_fkey",
+      "child_table": "promotion_skus",
+      "child_column": "sku_id",
+      "parent_table": "skus",
+      "parent_column": "sku_id",
+      "nullable": false
+    },
+    {
+      "constraint": "promotion_stores_promotion_id_fkey",
+      "child_table": "promotion_stores",
+      "child_column": "promotion_id",
+      "parent_table": "promotions",
+      "parent_column": "promotion_id",
+      "nullable": false
+    },
+    {
+      "constraint": "promotion_stores_store_id_fkey",
+      "child_table": "promotion_stores",
+      "child_column": "store_id",
+      "parent_table": "stores",
+      "parent_column": "store_id",
+      "nullable": false
+    },
+    {
+      "constraint": "sales_promotion_id_fkey",
+      "child_table": "sales",
+      "child_column": "promotion_id",
+      "parent_table": "promotions",
+      "parent_column": "promotion_id",
+      "nullable": true
+    },
+    {
+      "constraint": "sales_sku_id_fkey",
+      "child_table": "sales",
+      "child_column": "sku_id",
+      "parent_table": "skus",
+      "parent_column": "sku_id",
+      "nullable": false
+    },
+    {
+      "constraint": "sales_store_id_fkey",
+      "child_table": "sales",
+      "child_column": "store_id",
+      "parent_table": "stores",
+      "parent_column": "store_id",
+      "nullable": false
+    },
+    {
+      "constraint": "skus_product_id_fkey",
+      "child_table": "skus",
+      "child_column": "product_id",
+      "parent_table": "products",
+      "parent_column": "product_id",
+      "nullable": false
+    },
+    {
+      "constraint": "stores_region_id_fkey",
+      "child_table": "stores",
+      "child_column": "region_id",
+      "parent_table": "regions",
+      "parent_column": "region_id",
+      "nullable": false
+    },
+    {
+      "constraint": "warehouses_region_id_fkey",
+      "child_table": "warehouses",
+      "child_column": "region_id",
+      "parent_table": "regions",
+      "parent_column": "region_id",
+      "nullable": false
+    }
+  ],
+  "business_keys": [
+    {
+      "table": "brands",
+      "constraint": "brands_pkey",
+      "kind": "PK",
+      "definition": "PRIMARY KEY (brand_id)"
+    },
+    {
+      "table": "brands",
+      "constraint": "brands_brand_name_key",
+      "kind": "UK",
+      "definition": "UNIQUE (brand_name)"
+    },
+    {
+      "table": "categories",
+      "constraint": "categories_pkey",
+      "kind": "PK",
+      "definition": "PRIMARY KEY (category_id)"
+    },
+    {
+      "table": "categories",
+      "constraint": "categories_category_name_parent_category_id_key",
+      "kind": "UK",
+      "definition": "UNIQUE (category_name, parent_category_id)"
+    },
+    {
+      "table": "daily_demand",
+      "constraint": "daily_demand_pkey",
+      "kind": "PK",
+      "definition": "PRIMARY KEY (demand_observation_id)"
+    },
+    {
+      "table": "daily_demand",
+      "constraint": "daily_demand_observation_date_store_id_sku_id_key",
+      "kind": "UK",
+      "definition": "UNIQUE (observation_date, store_id, sku_id)"
+    },
+    {
+      "table": "deliveries",
+      "constraint": "deliveries_pkey",
+      "kind": "PK",
+      "definition": "PRIMARY KEY (delivery_id)"
+    },
+    {
+      "table": "deliveries",
+      "constraint": "deliveries_delivery_code_key",
+      "kind": "UK",
+      "definition": "UNIQUE (delivery_code)"
+    },
+    {
+      "table": "delivery_items",
+      "constraint": "delivery_items_pkey",
+      "kind": "PK",
+      "definition": "PRIMARY KEY (delivery_id, sku_id)"
+    },
+    {
+      "table": "inventory",
+      "constraint": "inventory_pkey",
+      "kind": "PK",
+      "definition": "PRIMARY KEY (inventory_id)"
+    },
+    {
+      "table": "inventory",
+      "constraint": "inventory_snapshot_date_warehouse_id_sku_id_key",
+      "kind": "UK",
+      "definition": "UNIQUE (snapshot_date, warehouse_id, sku_id)"
+    },
+    {
+      "table": "order_items",
+      "constraint": "order_items_pkey",
+      "kind": "PK",
+      "definition": "PRIMARY KEY (order_item_id)"
+    },
+    {
+      "table": "order_items",
+      "constraint": "order_items_order_id_sku_id_key",
+      "kind": "UK",
+      "definition": "UNIQUE (order_id, sku_id)"
+    },
+    {
+      "table": "orders",
+      "constraint": "orders_pkey",
+      "kind": "PK",
+      "definition": "PRIMARY KEY (order_id)"
+    },
+    {
+      "table": "orders",
+      "constraint": "orders_order_code_key",
+      "kind": "UK",
+      "definition": "UNIQUE (order_code)"
+    },
+    {
+      "table": "product_prices",
+      "constraint": "product_prices_pkey",
+      "kind": "PK",
+      "definition": "PRIMARY KEY (price_id)"
+    },
+    {
+      "table": "product_prices",
+      "constraint": "product_prices_store_id_sku_id_valid_from_key",
+      "kind": "UK",
+      "definition": "UNIQUE (store_id, sku_id, valid_from)"
+    },
+    {
+      "table": "products",
+      "constraint": "products_pkey",
+      "kind": "PK",
+      "definition": "PRIMARY KEY (product_id)"
+    },
+    {
+      "table": "products",
+      "constraint": "products_brand_id_product_name_key",
+      "kind": "UK",
+      "definition": "UNIQUE (brand_id, product_name)"
+    },
+    {
+      "table": "promotion_skus",
+      "constraint": "promotion_skus_pkey",
+      "kind": "PK",
+      "definition": "PRIMARY KEY (promotion_id, sku_id)"
+    },
+    {
+      "table": "promotion_stores",
+      "constraint": "promotion_stores_pkey",
+      "kind": "PK",
+      "definition": "PRIMARY KEY (promotion_id, store_id)"
+    },
+    {
+      "table": "promotions",
+      "constraint": "promotions_pkey",
+      "kind": "PK",
+      "definition": "PRIMARY KEY (promotion_id)"
+    },
+    {
+      "table": "regions",
+      "constraint": "regions_pkey",
+      "kind": "PK",
+      "definition": "PRIMARY KEY (region_id)"
+    },
+    {
+      "table": "regions",
+      "constraint": "regions_country_region_name_key",
+      "kind": "UK",
+      "definition": "UNIQUE (country, region_name)"
+    },
+    {
+      "table": "sales",
+      "constraint": "sales_pkey",
+      "kind": "PK",
+      "definition": "PRIMARY KEY (sale_id)"
+    },
+    {
+      "table": "sales",
+      "constraint": "sales_sale_date_store_id_sku_id_key",
+      "kind": "UK",
+      "definition": "UNIQUE (sale_date, store_id, sku_id)"
+    },
+    {
+      "table": "skus",
+      "constraint": "skus_pkey",
+      "kind": "PK",
+      "definition": "PRIMARY KEY (sku_id)"
+    },
+    {
+      "table": "skus",
+      "constraint": "skus_product_id_package_type_volume_ml_flavor_key",
+      "kind": "UK",
+      "definition": "UNIQUE (product_id, package_type, volume_ml, flavor)"
+    },
+    {
+      "table": "skus",
+      "constraint": "skus_sku_code_key",
+      "kind": "UK",
+      "definition": "UNIQUE (sku_code)"
+    },
+    {
+      "table": "stores",
+      "constraint": "stores_pkey",
+      "kind": "PK",
+      "definition": "PRIMARY KEY (store_id)"
+    },
+    {
+      "table": "stores",
+      "constraint": "stores_external_store_code_key",
+      "kind": "UK",
+      "definition": "UNIQUE (external_store_code)"
+    },
+    {
+      "table": "warehouses",
+      "constraint": "warehouses_pkey",
+      "kind": "PK",
+      "definition": "PRIMARY KEY (warehouse_id)"
+    },
+    {
+      "table": "warehouses",
+      "constraint": "warehouses_warehouse_code_key",
+      "kind": "UK",
+      "definition": "UNIQUE (warehouse_code)"
+    }
+  ]
+}

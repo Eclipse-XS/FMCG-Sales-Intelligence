@@ -1,0 +1,10 @@
+contract_version: 1
+task: promotion_performance
+status: READY_WITH_LIMITATIONS
+analysis_type: descriptive_non_causal
+grain: [promotion_id, store_id, sku_id]
+measures: [baseline_units, promo_units, post_units, promo_revenue, promo_profit]
+derived_measures: [absolute_uplift, percentage_uplift_with_nonzero_baseline]
+slice_columns: [promotion_id, promotion_type, store_type, region_id, channel]
+forbidden_claims: [causal_uplift, treatment_effect, incremental_sales]
+future_predictive_question: predict_promo_period_sales_not_causal_effect

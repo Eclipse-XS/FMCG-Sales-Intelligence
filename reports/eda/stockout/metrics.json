@@ -1,0 +1,1001 @@
+{
+  "rows": 17280,
+  "observed_events": 14,
+  "event_rate_all": 0.0008101851851851852,
+  "complete_non_events": 15922,
+  "incomplete_horizons": 1344,
+  "classification_complete_rows": 15936,
+  "classification_event_rate": 0.0008785140562248996,
+  "censoring_rate": 0.9991898148148148,
+  "event_time_days": {
+    "count": 14,
+    "mean": 4.0,
+    "median": 4.0,
+    "std": 2.0754980866510833,
+    "min": 1.0,
+    "p25": 2.25,
+    "p75": 5.75,
+    "p95": 7.0,
+    "max": 7.0
+  },
+  "censor_time_days": {
+    "count": 17266,
+    "mean": 6.688636626896791,
+    "median": 7.0,
+    "std": 1.208285674833061,
+    "min": 0.0,
+    "p25": 7.0,
+    "p75": 7.0,
+    "p95": 7.0,
+    "max": 7.0
+  },
+  "event_feature_summary": {
+    "stock_quantity": {
+      "count": 14,
+      "mean": 86.78571428571429,
+      "median": 88.0,
+      "std": 47.177534698411066,
+      "min": 10.0,
+      "p25": 57.75,
+      "p75": 121.75,
+      "p95": 150.1,
+      "max": 167.0
+    },
+    "reserved_quantity": {
+      "count": 14,
+      "mean": 0.0,
+      "median": 0.0,
+      "std": 0.0,
+      "min": 0.0,
+      "p25": 0.0,
+      "p75": 0.0,
+      "p95": 0.0,
+      "max": 0.0
+    },
+    "available_quantity": {
+      "count": 14,
+      "mean": 86.78571428571429,
+      "median": 88.0,
+      "std": 47.177534698411066,
+      "min": 10.0,
+      "p25": 57.75,
+      "p75": 121.75,
+      "p95": 150.1,
+      "max": 167.0
+    },
+    "reorder_point": {
+      "count": 14,
+      "mean": 93.5,
+      "median": 93.5,
+      "std": 11.93411399824373,
+      "min": 82.0,
+      "p25": 82.0,
+      "p75": 105.0,
+      "p95": 105.0,
+      "max": 105.0
+    },
+    "safety_stock": {
+      "count": 14,
+      "mean": 46.5,
+      "median": 46.5,
+      "std": 5.70761973829048,
+      "min": 41.0,
+      "p25": 41.0,
+      "p75": 52.0,
+      "p95": 52.0,
+      "max": 52.0
+    },
+    "stock_to_safety_ratio": {
+      "count": 14,
+      "mean": 1.8543285982310371,
+      "median": 2.1013133208255157,
+      "std": 0.9631973151334724,
+      "min": 0.24390243902439024,
+      "p25": 1.2501172607879925,
+      "p75": 2.582317073170732,
+      "p95": 3.1057457786116323,
+      "max": 3.2115384615384617
+    },
+    "distance_to_reorder_point": {
+      "count": 14,
+      "mean": -6.714285714285714,
+      "median": 4.5,
+      "std": 44.70317244193779,
+      "min": -84.0,
+      "p25": -38.25,
+      "p75": 25.0,
+      "p95": 49.64999999999999,
+      "max": 62.0
+    },
+    "sales_velocity_7d": {
+      "count": 14,
+      "mean": 6.82994175410959,
+      "median": 6.870600414078675,
+      "std": 1.0508698162590793,
+      "min": 5.619047619047619,
+      "p25": 5.8125,
+      "p75": 7.815015479876161,
+      "p95": 8.06921052631579,
+      "max": 8.1
+    },
+    "replenishment_sum_7d": {
+      "count": 14,
+      "mean": 22.5,
+      "median": 0.0,
+      "std": 84.18729120241368,
+      "min": 0.0,
+      "p25": 0.0,
+      "p75": 0.0,
+      "p95": 110.24999999999989,
+      "max": 315.0
+    }
+  },
+  "complete_non_event_feature_summary": {
+    "stock_quantity": {
+      "count": 15922,
+      "mean": 324.56776786835826,
+      "median": 282.0,
+      "std": 189.36920027513128,
+      "min": 0.0,
+      "p25": 176.0,
+      "p75": 448.0,
+      "p95": 697.0,
+      "max": 894.0
+    },
+    "reserved_quantity": {
+      "count": 15922,
+      "mean": 0.0,
+      "median": 0.0,
+      "std": 0.0,
+      "min": 0.0,
+      "p25": 0.0,
+      "p75": 0.0,
+      "p95": 0.0,
+      "max": 0.0
+    },
+    "available_quantity": {
+      "count": 15922,
+      "mean": 324.56776786835826,
+      "median": 282.0,
+      "std": 189.36920027513128,
+      "min": 0.0,
+      "p25": 176.0,
+      "p75": 448.0,
+      "p95": 697.0,
+      "max": 894.0
+    },
+    "reorder_point": {
+      "count": 15922,
+      "mean": 67.78991332747142,
+      "median": 64.0,
+      "std": 9.904037582454475,
+      "min": 58.0,
+      "p25": 61.0,
+      "p75": 71.0,
+      "p95": 89.0,
+      "max": 105.0
+    },
+    "safety_stock": {
+      "count": 15922,
+      "mean": 33.65538248963698,
+      "median": 32.0,
+      "std": 4.9572133483119325,
+      "min": 29.0,
+      "p25": 30.0,
+      "p75": 35.0,
+      "p95": 44.0,
+      "max": 52.0
+    },
+    "stock_to_safety_ratio": {
+      "count": 15922,
+      "mean": 9.932616739619066,
+      "median": 8.344827586206897,
+      "std": 6.091412907439509,
+      "min": 0.0,
+      "p25": 5.131578947368421,
+      "p75": 14.0,
+      "p95": 21.757575757575758,
+      "max": 30.82758620689655
+    },
+    "distance_to_reorder_point": {
+      "count": 15922,
+      "mean": 256.77785454088684,
+      "median": 213.0,
+      "std": 191.1397165984145,
+      "min": -105.0,
+      "p25": 107.0,
+      "p75": 383.0,
+      "p95": 631.0,
+      "max": 835.0
+    },
+    "sales_velocity_7d": {
+      "count": 15717,
+      "mean": 3.9517046158219586,
+      "median": 3.6923076923076925,
+      "std": 1.1656873226036515,
+      "min": 1.0,
+      "p25": 3.2,
+      "p75": 4.384615384615385,
+      "p95": 6.3,
+      "max": 10.227272727272727
+    },
+    "replenishment_sum_7d": {
+      "count": 15730,
+      "mean": 23.32581055308328,
+      "median": 0.0,
+      "std": 70.61115423287612,
+      "min": 0.0,
+      "p25": 0.0,
+      "p75": 0.0,
+      "p95": 222.0,
+      "max": 315.0
+    }
+  },
+  "physical_stockout_episode_starts": 2,
+  "affected_warehouse_sku_series": 2,
+  "warehouse_distribution": [
+    {
+      "warehouse_id": 1,
+      "rows": 4320,
+      "events": 7
+    },
+    {
+      "warehouse_id": 2,
+      "rows": 4320,
+      "events": 0
+    },
+    {
+      "warehouse_id": 3,
+      "rows": 4320,
+      "events": 0
+    },
+    {
+      "warehouse_id": 4,
+      "rows": 4320,
+      "events": 7
+    }
+  ],
+  "sku_distribution": [
+    {
+      "sku_id": 1,
+      "rows": 360,
+      "events": 7,
+      "mean_available": 277.5833333333333
+    },
+    {
+      "sku_id": 5,
+      "rows": 360,
+      "events": 7,
+      "mean_available": 259.18888888888887
+    },
+    {
+      "sku_id": 2,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 266.5472222222222
+    },
+    {
+      "sku_id": 3,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 250.5611111111111
+    },
+    {
+      "sku_id": 4,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 244.82222222222222
+    },
+    {
+      "sku_id": 6,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 235.01111111111112
+    },
+    {
+      "sku_id": 7,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 258.0388888888889
+    },
+    {
+      "sku_id": 8,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 253.7111111111111
+    },
+    {
+      "sku_id": 9,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 266.43611111111113
+    },
+    {
+      "sku_id": 10,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 404.39722222222224
+    },
+    {
+      "sku_id": 11,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 342.1638888888889
+    },
+    {
+      "sku_id": 12,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 213.3
+    },
+    {
+      "sku_id": 13,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 211.06944444444446
+    },
+    {
+      "sku_id": 14,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 237.19722222222222
+    },
+    {
+      "sku_id": 15,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 288.90277777777777
+    },
+    {
+      "sku_id": 16,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 281.22777777777776
+    },
+    {
+      "sku_id": 17,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 266.4138888888889
+    },
+    {
+      "sku_id": 18,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 294.3722222222222
+    },
+    {
+      "sku_id": 19,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 277.4472222222222
+    },
+    {
+      "sku_id": 20,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 323.56666666666666
+    },
+    {
+      "sku_id": 21,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 315.5777777777778
+    },
+    {
+      "sku_id": 22,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 361.2083333333333
+    },
+    {
+      "sku_id": 23,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 349.73333333333335
+    },
+    {
+      "sku_id": 24,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 329.4472222222222
+    },
+    {
+      "sku_id": 25,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 238.4361111111111
+    },
+    {
+      "sku_id": 26,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 446.225
+    },
+    {
+      "sku_id": 27,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 345.15833333333336
+    },
+    {
+      "sku_id": 28,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 374.81666666666666
+    },
+    {
+      "sku_id": 29,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 358.18611111111113
+    },
+    {
+      "sku_id": 30,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 429.89166666666665
+    },
+    {
+      "sku_id": 31,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 360.63055555555553
+    },
+    {
+      "sku_id": 32,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 308.6222222222222
+    },
+    {
+      "sku_id": 33,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 441.675
+    },
+    {
+      "sku_id": 34,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 297.9888888888889
+    },
+    {
+      "sku_id": 35,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 257.43333333333334
+    },
+    {
+      "sku_id": 36,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 395.31666666666666
+    },
+    {
+      "sku_id": 37,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 225.8527777777778
+    },
+    {
+      "sku_id": 38,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 456.30833333333334
+    },
+    {
+      "sku_id": 39,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 358.2472222222222
+    },
+    {
+      "sku_id": 40,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 328.1222222222222
+    },
+    {
+      "sku_id": 41,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 216.4111111111111
+    },
+    {
+      "sku_id": 42,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 296.89722222222224
+    },
+    {
+      "sku_id": 43,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 421.5861111111111
+    },
+    {
+      "sku_id": 44,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 328.6611111111111
+    },
+    {
+      "sku_id": 45,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 373.46666666666664
+    },
+    {
+      "sku_id": 46,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 220.78333333333333
+    },
+    {
+      "sku_id": 47,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 371.3388888888889
+    },
+    {
+      "sku_id": 48,
+      "rows": 360,
+      "events": 0,
+      "mean_available": 326.8666666666667
+    }
+  ],
+  "temporal_distribution": [
+    {
+      "prediction_date": "2024-01-01",
+      "events": 0,
+      "mean_available": 578.7604166666666
+    },
+    {
+      "prediction_date": "2024-01-02",
+      "events": 0,
+      "mean_available": 571.6979166666666
+    },
+    {
+      "prediction_date": "2024-01-03",
+      "events": 0,
+      "mean_available": 563.8177083333334
+    },
+    {
+      "prediction_date": "2024-01-04",
+      "events": 0,
+      "mean_available": 557.015625
+    },
+    {
+      "prediction_date": "2024-01-05",
+      "events": 0,
+      "mean_available": 549.9791666666666
+    },
+    {
+      "prediction_date": "2024-01-06",
+      "events": 0,
+      "mean_available": 541.1614583333334
+    },
+    {
+      "prediction_date": "2024-01-07",
+      "events": 0,
+      "mean_available": 532.0364583333334
+    },
+    {
+      "prediction_date": "2024-01-08",
+      "events": 0,
+      "mean_available": 523.7447916666666
+    },
+    {
+      "prediction_date": "2024-01-09",
+      "events": 0,
+      "mean_available": 515.9583333333334
+    },
+    {
+      "prediction_date": "2024-01-10",
+      "events": 0,
+      "mean_available": 508.1979166666667
+    },
+    {
+      "prediction_date": "2024-01-11",
+      "events": 0,
+      "mean_available": 501.0625
+    },
+    {
+      "prediction_date": "2024-01-12",
+      "events": 0,
+      "mean_available": 493.34375
+    },
+    {
+      "prediction_date": "2024-01-13",
+      "events": 0,
+      "mean_available": 483.765625
+    },
+    {
+      "prediction_date": "2024-01-14",
+      "events": 0,
+      "mean_available": 474.4270833333333
+    },
+    {
+      "prediction_date": "2024-01-15",
+      "events": 0,
+      "mean_available": 466.6770833333333
+    },
+    {
+      "prediction_date": "2024-01-16",
+      "events": 0,
+      "mean_available": 460.390625
+    },
+    {
+      "prediction_date": "2024-01-17",
+      "events": 0,
+      "mean_available": 452.7083333333333
+    },
+    {
+      "prediction_date": "2024-01-18",
+      "events": 0,
+      "mean_available": 444.5104166666667
+    },
+    {
+      "prediction_date": "2024-01-19",
+      "events": 0,
+      "mean_available": 436.7552083333333
+    },
+    {
+      "prediction_date": "2024-01-20",
+      "events": 0,
+      "mean_available": 427.8125
+    },
+    {
+      "prediction_date": "2024-01-21",
+      "events": 0,
+      "mean_available": 418.4635416666667
+    },
+    {
+      "prediction_date": "2024-01-22",
+      "events": 0,
+      "mean_available": 412.328125
+    },
+    {
+      "prediction_date": "2024-01-23",
+      "events": 0,
+      "mean_available": 406.2291666666667
+    },
+    {
+      "prediction_date": "2024-01-24",
+      "events": 0,
+      "mean_available": 399.7708333333333
+    },
+    {
+      "prediction_date": "2024-01-25",
+      "events": 0,
+      "mean_available": 392.9375
+    },
+    {
+      "prediction_date": "2024-01-26",
+      "events": 0,
+      "mean_available": 390.3802083333333
+    },
+    {
+      "prediction_date": "2024-01-27",
+      "events": 0,
+      "mean_available": 380.6041666666667
+    },
+    {
+      "prediction_date": "2024-01-28",
+      "events": 0,
+      "mean_available": 373.34375
+    },
+    {
+      "prediction_date": "2024-01-29",
+      "events": 0,
+      "mean_available": 367.7291666666667
+    },
+    {
+      "prediction_date": "2024-01-30",
+      "events": 0,
+      "mean_available": 363.203125
+    },
+    {
+      "prediction_date": "2024-01-31",
+      "events": 0,
+      "mean_available": 357.6197916666667
+    },
+    {
+      "prediction_date": "2024-02-01",
+      "events": 0,
+      "mean_available": 354.9010416666667
+    },
+    {
+      "prediction_date": "2024-02-02",
+      "events": 0,
+      "mean_available": 348.578125
+    },
+    {
+      "prediction_date": "2024-02-03",
+      "events": 0,
+      "mean_available": 342.3125
+    },
+    {
+      "prediction_date": "2024-02-04",
+      "events": 0,
+      "mean_available": 335.4322916666667
+    },
+    {
+      "prediction_date": "2024-02-05",
+      "events": 0,
+      "mean_available": 329.7604166666667
+    },
+    {
+      "prediction_date": "2024-02-06",
+      "events": 0,
+      "mean_available": 325.1666666666667
+    },
+    {
+      "prediction_date": "2024-02-07",
+      "events": 0,
+      "mean_available": 317.3645833333333
+    },
+    {
+      "prediction_date": "2024-02-08",
+      "events": 0,
+      "mean_available": 310.265625
+    },
+    {
+      "prediction_date": "2024-02-09",
+      "events": 0,
+      "mean_available": 304.1770833333333
+    },
+    {
+      "prediction_date": "2024-02-10",
+      "events": 0,
+      "mean_available": 298.0729166666667
+    },
+    {
+      "prediction_date": "2024-02-11",
+      "events": 0,
+      "mean_available": 290.8541666666667
+    },
+    {
+      "prediction_date": "2024-02-12",
+      "events": 0,
+      "mean_available": 287.5
+    },
+    {
+      "prediction_date": "2024-02-13",
+      "events": 0,
+      "mean_available": 279.6927083333333
+    },
+    {
+      "prediction_date": "2024-02-14",
+      "events": 0,
+      "mean_available": 275.2916666666667
+    },
+    {
+      "prediction_date": "2024-02-15",
+      "events": 0,
+      "mean_available": 278.3645833333333
+    },
+    {
+      "prediction_date": "2024-02-16",
+      "events": 0,
+      "mean_available": 273.859375
+    },
+    {
+      "prediction_date": "2024-02-17",
+      "events": 0,
+      "mean_available": 269.328125
+    },
+    {
+      "prediction_date": "2024-02-18",
+      "events": 0,
+      "mean_available": 268.8697916666667
+    },
+    {
+      "prediction_date": "2024-02-19",
+      "events": 0,
+      "mean_available": 267.96875
+    },
+    {
+      "prediction_date": "2024-02-20",
+      "events": 0,
+      "mean_available": 261.9895833333333
+    },
+    {
+      "prediction_date": "2024-02-21",
+      "events": 0,
+      "mean_available": 260.03125
+    },
+    {
+      "prediction_date": "2024-02-22",
+      "events": 0,
+      "mean_available": 254.58333333333334
+    },
+    {
+      "prediction_date": "2024-02-23",
+      "events": 0,
+      "mean_available": 247.265625
+    },
+    {
+      "prediction_date": "2024-02-24",
+      "events": 0,
+      "mean_available": 239.36458333333334
+    },
+    {
+      "prediction_date": "2024-02-25",
+      "events": 1,
+      "mean_available": 232.17708333333334
+    },
+    {
+      "prediction_date": "2024-02-26",
+      "events": 1,
+      "mean_available": 228.953125
+    },
+    {
+      "prediction_date": "2024-02-27",
+      "events": 1,
+      "mean_available": 227.98958333333334
+    },
+    {
+      "prediction_date": "2024-02-28",
+      "events": 1,
+      "mean_available": 225.36979166666666
+    },
+    {
+      "prediction_date": "2024-02-29",
+      "events": 1,
+      "mean_available": 223.71875
+    },
+    {
+      "prediction_date": "2024-03-01",
+      "events": 1,
+      "mean_available": 221.09895833333334
+    },
+    {
+      "prediction_date": "2024-03-02",
+      "events": 1,
+      "mean_available": 219.16145833333334
+    },
+    {
+      "prediction_date": "2024-03-03",
+      "events": 0,
+      "mean_available": 211.46875
+    },
+    {
+      "prediction_date": "2024-03-04",
+      "events": 0,
+      "mean_available": 205.125
+    },
+    {
+      "prediction_date": "2024-03-05",
+      "events": 0,
+      "mean_available": 202.68229166666666
+    },
+    {
+      "prediction_date": "2024-03-06",
+      "events": 0,
+      "mean_available": 206.078125
+    },
+    {
+      "prediction_date": "2024-03-07",
+      "events": 0,
+      "mean_available": 202.91666666666666
+    },
+    {
+      "prediction_date": "2024-03-08",
+      "events": 0,
+      "mean_available": 201.22395833333334
+    },
+    {
+      "prediction_date": "2024-03-09",
+      "events": 0,
+      "mean_available": 198.3125
+    },
+    {
+      "prediction_date": "2024-03-10",
+      "events": 0,
+      "mean_available": 192.921875
+    },
+    {
+      "prediction_date": "2024-03-11",
+      "events": 0,
+      "mean_available": 189.77083333333334
+    },
+    {
+      "prediction_date": "2024-03-12",
+      "events": 0,
+      "mean_available": 188.79166666666666
+    },
+    {
+      "prediction_date": "2024-03-13",
+      "events": 0,
+      "mean_available": 186.66666666666666
+    },
+    {
+      "prediction_date": "2024-03-14",
+      "events": 1,
+      "mean_available": 185.60416666666666
+    },
+    {
+      "prediction_date": "2024-03-15",
+      "events": 1,
+      "mean_available": 182.83854166666666
+    },
+    {
+      "prediction_date": "2024-03-16",
+      "events": 1,
+      "mean_available": 180.90625
+    },
+    {
+      "prediction_date": "2024-03-17",
+      "events": 1,
+      "mean_available": 181.41666666666666
+    },
+    {
+      "prediction_date": "2024-03-18",
+      "events": 1,
+      "mean_available": 181.93229166666666
+    },
+    {
+      "prediction_date": "2024-03-19",
+      "events": 1,
+      "mean_available": 178.30208333333334
+    },
+    {
+      "prediction_date": "2024-03-20",
+      "events": 1,
+      "mean_available": 178.01041666666666
+    },
+    {
+      "prediction_date": "2024-03-21",
+      "events": 0,
+      "mean_available": 175.03645833333334
+    },
+    {
+      "prediction_date": "2024-03-22",
+      "events": 0,
+      "mean_available": 174.41145833333334
+    },
+    {
+      "prediction_date": "2024-03-23",
+      "events": 0,
+      "mean_available": 171.47395833333334
+    },
+    {
+      "prediction_date": "2024-03-24",
+      "events": 0,
+      "mean_available": 166.875
+    },
+    {
+      "prediction_date": "2024-03-25",
+      "events": 0,
+      "mean_available": 168.52604166666666
+    },
+    {
+      "prediction_date": "2024-03-26",
+      "events": 0,
+      "mean_available": 169.80729166666666
+    },
+    {
+      "prediction_date": "2024-03-27",
+      "events": 0,
+      "mean_available": 169.77604166666666
+    },
+    {
+      "prediction_date": "2024-03-28",
+      "events": 0,
+      "mean_available": 167.46875
+    },
+    {
+      "prediction_date": "2024-03-29",
+      "events": 0,
+      "mean_available": 169.83854166666666
+    },
+    {
+      "prediction_date": "2024-03-30",
+      "events": 0,
+      "mean_available": 166.26041666666666
+    }
+  ],
+  "generator_evidence": "initial stock 300-900; reorder trigger below reorder point; replenishment is 3x reorder point only when a five-day modular condition is met"
+}

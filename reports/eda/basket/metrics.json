@@ -1,0 +1,426 @@
+{
+  "rows": 24216,
+  "orders": 2000,
+  "skus": 48,
+  "basket_size": {
+    "count": 2000,
+    "mean": 12.108,
+    "median": 8.0,
+    "std": 6.662396698252247,
+    "min": 5.0,
+    "p25": 5.0,
+    "p75": 14.0,
+    "p95": 25.0,
+    "max": 25.0
+  },
+  "quantity_per_line": {
+    "count": 24216,
+    "mean": 2.5814337628014536,
+    "median": 2.0,
+    "std": 2.16951846034393,
+    "min": 1.0,
+    "p25": 1.0,
+    "p75": 3.0,
+    "p95": 6.0,
+    "max": 12.0
+  },
+  "top_skus": [
+    {
+      "sku_id": 1,
+      "product_name": "Northstar Cola Line 1",
+      "orders": 1546
+    },
+    {
+      "sku_id": 2,
+      "product_name": "Volt Line 1",
+      "orders": 1303
+    },
+    {
+      "sku_id": 3,
+      "product_name": "Orchard Line 1",
+      "orders": 1115
+    },
+    {
+      "sku_id": 4,
+      "product_name": "ClearSpring Line 1",
+      "orders": 958
+    },
+    {
+      "sku_id": 5,
+      "product_name": "Leafline Line 1",
+      "orders": 912
+    },
+    {
+      "sku_id": 6,
+      "product_name": "RoastGo Line 1",
+      "orders": 907
+    },
+    {
+      "sku_id": 7,
+      "product_name": "Northstar Cola Line 2",
+      "orders": 790
+    },
+    {
+      "sku_id": 9,
+      "product_name": "Orchard Line 2",
+      "orders": 712
+    },
+    {
+      "sku_id": 8,
+      "product_name": "Volt Line 2",
+      "orders": 709
+    },
+    {
+      "sku_id": 10,
+      "product_name": "ClearSpring Line 2",
+      "orders": 647
+    },
+    {
+      "sku_id": 12,
+      "product_name": "RoastGo Line 2",
+      "orders": 619
+    },
+    {
+      "sku_id": 11,
+      "product_name": "Leafline Line 2",
+      "orders": 610
+    },
+    {
+      "sku_id": 13,
+      "product_name": "Northstar Cola Line 3",
+      "orders": 580
+    },
+    {
+      "sku_id": 14,
+      "product_name": "Volt Line 3",
+      "orders": 562
+    },
+    {
+      "sku_id": 15,
+      "product_name": "Orchard Line 3",
+      "orders": 529
+    },
+    {
+      "sku_id": 17,
+      "product_name": "Leafline Line 3",
+      "orders": 512
+    },
+    {
+      "sku_id": 18,
+      "product_name": "RoastGo Line 3",
+      "orders": 502
+    },
+    {
+      "sku_id": 16,
+      "product_name": "ClearSpring Line 3",
+      "orders": 501
+    },
+    {
+      "sku_id": 20,
+      "product_name": "Volt Line 4",
+      "orders": 464
+    },
+    {
+      "sku_id": 19,
+      "product_name": "Northstar Cola Line 4",
+      "orders": 456
+    }
+  ],
+  "category_frequency": [
+    {
+      "category_name": "Carbonated Soft Drinks",
+      "orders": 1834,
+      "lines": 4718
+    },
+    {
+      "category_name": "Energy Drinks",
+      "orders": 1753,
+      "lines": 4332
+    },
+    {
+      "category_name": "Juice",
+      "orders": 1701,
+      "lines": 4083
+    },
+    {
+      "category_name": "Water",
+      "orders": 1629,
+      "lines": 3742
+    },
+    {
+      "category_name": "RTD Tea",
+      "orders": 1608,
+      "lines": 3745
+    },
+    {
+      "category_name": "Coffee",
+      "orders": 1592,
+      "lines": 3596
+    }
+  ],
+  "top_pairs": [
+    {
+      "sku_a": 1,
+      "sku_b": 2,
+      "orders": 1084,
+      "support": 0.542
+    },
+    {
+      "sku_a": 1,
+      "sku_b": 3,
+      "orders": 947,
+      "support": 0.4735
+    },
+    {
+      "sku_a": 2,
+      "sku_b": 3,
+      "orders": 826,
+      "support": 0.413
+    },
+    {
+      "sku_a": 1,
+      "sku_b": 4,
+      "orders": 815,
+      "support": 0.4075
+    },
+    {
+      "sku_a": 1,
+      "sku_b": 5,
+      "orders": 771,
+      "support": 0.3855
+    },
+    {
+      "sku_a": 1,
+      "sku_b": 6,
+      "orders": 767,
+      "support": 0.3835
+    },
+    {
+      "sku_a": 2,
+      "sku_b": 4,
+      "orders": 704,
+      "support": 0.352
+    },
+    {
+      "sku_a": 1,
+      "sku_b": 7,
+      "orders": 684,
+      "support": 0.342
+    },
+    {
+      "sku_a": 2,
+      "sku_b": 5,
+      "orders": 677,
+      "support": 0.3385
+    },
+    {
+      "sku_a": 2,
+      "sku_b": 6,
+      "orders": 668,
+      "support": 0.334
+    },
+    {
+      "sku_a": 3,
+      "sku_b": 4,
+      "orders": 623,
+      "support": 0.3115
+    },
+    {
+      "sku_a": 1,
+      "sku_b": 8,
+      "orders": 622,
+      "support": 0.311
+    },
+    {
+      "sku_a": 1,
+      "sku_b": 9,
+      "orders": 602,
+      "support": 0.301
+    },
+    {
+      "sku_a": 2,
+      "sku_b": 7,
+      "orders": 589,
+      "support": 0.2945
+    },
+    {
+      "sku_a": 3,
+      "sku_b": 5,
+      "orders": 588,
+      "support": 0.294
+    },
+    {
+      "sku_a": 3,
+      "sku_b": 6,
+      "orders": 586,
+      "support": 0.293
+    },
+    {
+      "sku_a": 2,
+      "sku_b": 9,
+      "orders": 554,
+      "support": 0.277
+    },
+    {
+      "sku_a": 1,
+      "sku_b": 10,
+      "orders": 544,
+      "support": 0.272
+    },
+    {
+      "sku_a": 2,
+      "sku_b": 8,
+      "orders": 535,
+      "support": 0.2675
+    },
+    {
+      "sku_a": 4,
+      "sku_b": 5,
+      "orders": 535,
+      "support": 0.2675
+    }
+  ],
+  "context_counts": [
+    {
+      "store_type": "horeca",
+      "channel": "modern_trade",
+      "region_id": 3,
+      "orders": 100,
+      "lines": 1255
+    },
+    {
+      "store_type": "convenience",
+      "channel": "traditional_trade",
+      "region_id": 2,
+      "orders": 100,
+      "lines": 1252
+    },
+    {
+      "store_type": "horeca",
+      "channel": "ecommerce",
+      "region_id": 3,
+      "orders": 100,
+      "lines": 1199
+    },
+    {
+      "store_type": "convenience",
+      "channel": "convenience",
+      "region_id": 2,
+      "orders": 100,
+      "lines": 1307
+    },
+    {
+      "store_type": "convenience",
+      "channel": "horeca",
+      "region_id": 2,
+      "orders": 100,
+      "lines": 1210
+    },
+    {
+      "store_type": "discount",
+      "channel": "modern_trade",
+      "region_id": 1,
+      "orders": 100,
+      "lines": 1163
+    },
+    {
+      "store_type": "discount",
+      "channel": "ecommerce",
+      "region_id": 1,
+      "orders": 100,
+      "lines": 1255
+    },
+    {
+      "store_type": "discount",
+      "channel": "traditional_trade",
+      "region_id": 1,
+      "orders": 100,
+      "lines": 1180
+    },
+    {
+      "store_type": "discount",
+      "channel": "convenience",
+      "region_id": 1,
+      "orders": 100,
+      "lines": 1126
+    },
+    {
+      "store_type": "convenience",
+      "channel": "ecommerce",
+      "region_id": 2,
+      "orders": 100,
+      "lines": 1144
+    },
+    {
+      "store_type": "convenience",
+      "channel": "modern_trade",
+      "region_id": 2,
+      "orders": 100,
+      "lines": 1182
+    },
+    {
+      "store_type": "horeca",
+      "channel": "horeca",
+      "region_id": 3,
+      "orders": 100,
+      "lines": 1131
+    },
+    {
+      "store_type": "horeca",
+      "channel": "convenience",
+      "region_id": 3,
+      "orders": 100,
+      "lines": 1173
+    },
+    {
+      "store_type": "supermarket",
+      "channel": "traditional_trade",
+      "region_id": 4,
+      "orders": 100,
+      "lines": 1278
+    },
+    {
+      "store_type": "horeca",
+      "channel": "traditional_trade",
+      "region_id": 3,
+      "orders": 100,
+      "lines": 1147
+    },
+    {
+      "store_type": "supermarket",
+      "channel": "horeca",
+      "region_id": 4,
+      "orders": 100,
+      "lines": 1288
+    },
+    {
+      "store_type": "discount",
+      "channel": "horeca",
+      "region_id": 1,
+      "orders": 100,
+      "lines": 1239
+    },
+    {
+      "store_type": "supermarket",
+      "channel": "modern_trade",
+      "region_id": 4,
+      "orders": 100,
+      "lines": 1162
+    },
+    {
+      "store_type": "supermarket",
+      "channel": "convenience",
+      "region_id": 4,
+      "orders": 100,
+      "lines": 1243
+    },
+    {
+      "store_type": "supermarket",
+      "channel": "ecommerce",
+      "region_id": 4,
+      "orders": 100,
+      "lines": 1282
+    }
+  ],
+  "duplicate_order_sku": 0
+}

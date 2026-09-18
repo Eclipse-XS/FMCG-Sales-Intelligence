@@ -3,12 +3,17 @@ from __future__ import annotations
 from datetime import datetime
 from airflow.decorators import dag, task
 from airflow.exceptions import AirflowException
-import subprocess,sys
+import os
+import subprocess
+import sys
 from pathlib import Path
-ROOT=Path("/opt/airflow/project")
+ROOT=Path(os.environ.get("FSI_PROJECT_ROOT", Path(__file__).resolve().parents[1])).resolve()
 def run(*args):
+    if not (ROOT / "pyproject.toml").is_file():
+        raise AirflowException("FSI_PROJECT_ROOT does not identify the project root")
     result=subprocess.run(args,cwd=ROOT,text=True,capture_output=True)
-    if result.returncode:raise AirflowException(result.stderr[-2000:])
+    if result.returncode:
+        raise AirflowException(result.stderr[-2000:])
 @dag(schedule="0 3 * * *",start_date=datetime(2024,1,1),catchup=False,tags=["fmcg","data-platform"])
 def fmcg_data_platform():
     @task

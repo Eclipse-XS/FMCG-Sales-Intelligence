@@ -1,4 +1,5 @@
-# Future DVC remote setup
+# DVC remote status
 
-No DVC remote is configured. Git contains source, contracts, pointers and pipeline metadata; a fresh machine cannot retrieve cached datasets/models. An S3-compatible remote is recommended for durable automation and GitHub compatibility. Google Drive is simpler for a single-user demonstration but weaker for unattended CI. Configure credentials outside Git, push DVC objects, then prove reproduction in a clean clone before claiming cross-machine reproducibility.
+The tracked default remote is `gdrive://1eOCs3trjFQAAQDagx59FcgEhlEik_hQm`. Credentials and OAuth tokens are not stored in Git. `dvc push` reached Google OAuth but was not completed because interactive account consent is a user-only security boundary. Therefore remote population and cross-machine `dvc pull` are **BLOCKED_AUTH**, not PASS.
 
+After the owner authorizes the account, run `dvc push`, clone into an isolated directory, install from locked requirements, run `dvc pull`, and verify `dvc status`, model readiness, tests, and dashboard build. Until that succeeds, only local-cache reproducibility is proven.

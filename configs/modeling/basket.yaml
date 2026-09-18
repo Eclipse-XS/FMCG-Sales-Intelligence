@@ -9,3 +9,15 @@ candidate_algorithm: fp_growth
 metrics: [support, confidence, lift]
 threshold_policy: derive_from_empirical_item_and_basket_frequency
 temporal_stability_period: calendar_month
+primary_level: sku_id
+canonical_algorithm: fp_growth
+minimum_support: 0.05
+minimum_confidence: 0.20
+minimum_lift: 1.05
+maximum_itemset_size: 2
+maximum_antecedent_size: 1
+consequent_size: 1
+support_sensitivity: [0.02, 0.05, 0.10]
+minimum_slice_baskets: 100
+top_rule_count: 100
+pruning_policy: exact_duplicates_then_lexicographic_lift_support_confidence

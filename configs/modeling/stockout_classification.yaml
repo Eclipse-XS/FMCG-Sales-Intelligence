@@ -24,3 +24,9 @@ secondary_metrics: [precision, recall, f1, roc_auc, brier_score]
 baselines: [always_no_stockout, below_reorder_point, below_safety_stock, days_of_cover_rule]
 candidate_models: [logistic_regression_balanced, histogram_gradient_boosting]
 random_seed: 20260916
+models:
+  logistic_regression_balanced: {C: 1.0, max_iter: 1000, class_weight: balanced}
+  histogram_gradient_boosting: {learning_rate: 0.08, max_iter: 200, max_leaf_nodes: 15, l2_regularization: 1.0, class_weight: balanced}
+threshold_policy: maximize_validation_f1
+episode_purge_policy: remove_training_rows_whose_positive_episode_is_represented_in_evaluation
+minimum_slice_rows: 100

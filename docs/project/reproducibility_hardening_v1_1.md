@@ -2,17 +2,17 @@
 
 ## Gate summary
 
-The starting point was clean `main` at `d0e8284fcd39c1960d059f0a86a088e437ecf0b6`; `origin` contained no branch refs, so there was no remote divergence to reconcile. DVC was locally current but had no remote.
+The milestone is now `PROVEN_FROM_GITHUB_AND_DVC`. The repository was published to GitHub with normal, non-forced pushes and reproduced in an independent clone from the GitHub URL.
 
-The tracked `gdrive` remote is now configured and `dvc-gdrive==3.0.1` is pinned. Seven processed dataset pointers and seven canonical stage outputs were audited; serving bundles are owned. `dvc push -v` reached Google OAuth and stopped at interactive consent. No token or secret entered Git. Consequently DVC push, second-push completeness, Git push and genuine remote clean-clone pull/serving parity are not claimed.
+The tracked `gdrive` remote is configured and complete. Initial and no-op pushes passed. A clean-clone pull exposed and resolved ownership gaps for processed contracts, segment-assignment features, generated validation inputs, metrics, and the analytical warehouse. OAuth client material remains only in ignored local DVC configuration; no credential or token entered Git.
 
-A separate local clone with a new Python 3.13.5 virtual environment completed the locked requirements install, editable package install and package import (`1.0.0`). API liveness returned 200 and readiness correctly returned 503 without DVC artifacts. A fresh `npm ci`, 7 frontend tests and production build passed. The clean clone exposed cross-platform DVC dependency hash drift from line-ending conversion; `.gitattributes` now fixes pipeline text dependencies to LF, and a second new clone confirms only the expected missing DVC-managed datasets/artifacts remain. This is `LOCAL_CLONE_REPRO_PROVEN_ONLY`, not remote artifact reproduction.
+A fresh Python 3.13.5 virtual environment installed the dependency set and package 1.0.0. DVC restored the required data and artifacts; API liveness and readiness both returned 200. Forecasting and stockout serving matched the original checkout exactly. Offline analytics read the restored outputs and warehouse. The reproduction status is `PROVEN_FROM_GITHUB_AND_DVC`.
 
 Dashboard V1.1 implements typed backend-driven global filters, URL persistence, supported-page propagation, explicit non-applicability, no-data/loading/error states, freshness/model metadata, modular ECharts and code splitting. The largest V1.1 chunk is 360.59 kB versus the former 1,341.16 kB entry bundle.
 
 The local-demo API now has restricted CORS, body/batch/page/list limits, structured safe errors, request IDs, security headers and parameterized analytical queries. Authentication, authorization, TLS, distributed rate limits and secrets management remain production-deferred.
 
-Kafka runtime was attempted and blocked by an unavailable Docker Desktop Linux engine. Airflow source parses, its task structure is covered, and its project root is portable; no Airflow runtime is installed. Airbyte and BigQuery remain templates.
+Docker Desktop was started safely but its Linux engine remained unavailable after the bounded poll. Current Compose, MLflow, Kafka, and Airflow-container checks therefore remain optional runtime blockers. Airflow source and task structure remain covered; Airbyte and BigQuery remain templates.
 
 ## Validation
 
@@ -30,6 +30,6 @@ Kafka runtime was attempted and blocked by an unavailable Docker Desktop Linux e
 
 No training or final evaluation was run. Persisted metrics remain: Forecast WAPE `0.3778884755`; Stockout AP `0.2551216857`; Survival C-index `0.7922890233`; segmentation `k=3`, silhouette `0.3307169762`; anomaly rate `0.0241503797`; basket rules `1262`; promotion descriptive units change `0.0621638304`; Segment Assignment `BLOCKED / NOT_READY`.
 
-## Remaining external boundary
+## Remaining optional runtime boundary
 
-Run `dvc push` after owner OAuth consent, verify a second no-op push, then publish Git normally and execute the documented GitHub clean-clone/DVC-pull parity proof. Until then the correct overall status is `REPRODUCIBILITY_HARDENING_V1_1_COMPLETE_WITH_EXTERNAL_AUTH_BLOCKER`.
+Cross-machine GitHub+DVC reproduction is proven. The only current environment limitation is the unavailable Docker Linux engine, which prevents re-executing the optional container runtime checks in this milestone.

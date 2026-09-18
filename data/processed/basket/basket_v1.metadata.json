@@ -1,0 +1,33 @@
+{
+  "dataset_name": "basket",
+  "dataset_version": "v1",
+  "feature_version": "v1",
+  "generated_at": "2026-09-16T14:21:49.599923+00:00",
+  "source_cutoff": "2024-03-30",
+  "row_count": 24370,
+  "column_count": 11,
+  "date_column": "order_date",
+  "date_range": [
+    "2024-01-01",
+    "2024-03-30"
+  ],
+  "keys": [
+    "order_id",
+    "sku_id"
+  ],
+  "duplicate_keys": 0,
+  "targets": [],
+  "schema": {
+    "order_id": "Int64",
+    "order_date": "Date",
+    "store_id": "Int64",
+    "sku_id": "Int64",
+    "quantity": "Int64",
+    "product_name": "String",
+    "brand_name": "String",
+    "category_name": "String",
+    "region_id": "Int64",
+    "store_type": "String",
+    "channel": "String"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "dataset_name": "promotion_daily",
+  "dataset_version": "v1",
+  "feature_version": "v1",
+  "generated_at": "2026-09-18T06:10:29.195258+00:00",
+  "source_cutoff": "2024-04-29",
+  "row_count": 259200,
+  "column_count": 26,
+  "date_column": "calendar_date",
+  "date_range": [
+    "2023-12-02",
+    "2024-04-29"
+  ],
+  "keys": [
+    "promotion_id",
+    "store_id",
+    "sku_id",
+    "calendar_date"
+  ],
+  "duplicate_keys": 0,
+  "targets": [],
+  "schema": {
+    "promotion_id": "Int64",
+    "store_id": "Int64",
+    "sku_id": "Int64",
+    "calendar_date": "Date",
+    "period": "String",
+    "promotion_start_date": "Date",
+    "promotion_end_date": "Date",
+    "promotion_duration_days": "Int64",
+    "is_observable": "Boolean",
+    "boundary_status": "String",
+    "realized_sales_units": "Int64",
+    "requested_demand_units": "Int64",
+    "lost_sales_units": "Int64",
+    "demand_censored_by_inventory": "Boolean",
+    "valid_selling_price": "Decimal(precision=38, scale=2)",
+    "price_semantics": "String",
+    "realized_revenue": "Decimal(precision=38, scale=2)",
+    "promotion_overlap": "Boolean",
+    "overlapping_promotion_ids": "String",
+    "brand_name": "String",
+    "category_name": "String",
+    "region_id": "Int64",
+    "store_type": "String",
+    "channel": "String",
+    "requested_demand_semantics": "String",
+    "lost_sales_semantics": "String"
+  }
+}

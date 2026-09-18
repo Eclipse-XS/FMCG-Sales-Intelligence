@@ -1,0 +1,35 @@
+{
+  "dataset_name": "segmentation",
+  "dataset_version": "v1",
+  "feature_version": "v1",
+  "generated_at": "2026-09-16T14:21:49.437398+00:00",
+  "source_cutoff": "2024-03-30",
+  "row_count": 60,
+  "column_count": 13,
+  "date_column": "snapshot_date",
+  "date_range": [
+    "2024-01-31",
+    "2024-03-30"
+  ],
+  "keys": [
+    "snapshot_date",
+    "store_id"
+  ],
+  "duplicate_keys": 0,
+  "targets": [],
+  "schema": {
+    "snapshot_date": "Date",
+    "store_id": "Int64",
+    "region_id": "Int64",
+    "store_type": "String",
+    "channel": "String",
+    "floor_area_m2": "Decimal(precision=38, scale=2)",
+    "revenue_30d": "Decimal(precision=38, scale=2)",
+    "units_30d": "Decimal(precision=38, scale=0)",
+    "profit_30d": "Decimal(precision=38, scale=2)",
+    "active_skus_30d": "Int64",
+    "average_price_30d": "Float64",
+    "promotion_unit_share_30d": "Float64",
+    "revenue_volatility_30d": "Float64"
+  }
+}

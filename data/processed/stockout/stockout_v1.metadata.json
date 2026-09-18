@@ -1,0 +1,47 @@
+{
+  "dataset_name": "stockout",
+  "dataset_version": "v1",
+  "feature_version": "v1",
+  "generated_at": "2026-09-16T14:21:47.816443+00:00",
+  "source_cutoff": "2024-03-30",
+  "row_count": 17280,
+  "column_count": 18,
+  "date_column": "prediction_date",
+  "date_range": [
+    "2024-01-01",
+    "2024-03-30"
+  ],
+  "keys": [
+    "prediction_date",
+    "warehouse_id",
+    "sku_id"
+  ],
+  "duplicate_keys": 0,
+  "targets": [
+    "stockout_within_7d",
+    "event_observed",
+    "event_time_days",
+    "censor_time_days",
+    "horizon_complete"
+  ],
+  "schema": {
+    "prediction_date": "Date",
+    "warehouse_id": "Int64",
+    "sku_id": "Int64",
+    "stock_quantity": "Int64",
+    "reserved_quantity": "Int64",
+    "available_quantity": "Int64",
+    "reorder_point": "Int64",
+    "safety_stock": "Int64",
+    "stock_to_safety_ratio": "Float64",
+    "distance_to_reorder_point": "Int64",
+    "sales_velocity_7d": "Float64",
+    "replenishment_sum_7d": "Decimal(precision=38, scale=0)",
+    "first_stockout_date": "Date",
+    "stockout_within_7d": "Boolean",
+    "event_observed": "Boolean",
+    "event_time_days": "Int64",
+    "censor_time_days": "Int64",
+    "horizon_complete": "Boolean"
+  }
+}

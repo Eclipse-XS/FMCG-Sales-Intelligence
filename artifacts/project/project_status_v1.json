@@ -1,5 +1,5 @@
 {
-  "project_status": "REPRODUCIBILITY_HARDENING_V1_1_COMPLETE_WITH_EXTERNAL_AUTH_BLOCKER",
+  "project_status": "CROSS_MACHINE_REPRODUCIBILITY_PROVEN_WITH_OPTIONAL_RUNTIME_BLOCKERS",
   "checkpoint_version": "reproducibility_hardening_v1_1",
   "scientific_core_status": "FROZEN_V1_UNCHANGED",
   "core_boundary_status": "PASS",
@@ -13,17 +13,17 @@
   "backend_status": "PASS_DOCKER_AND_TESTCLIENT",
   "dashboard_status": "PASS_V1_1_GLOBAL_FILTERS_AND_CODE_SPLITTING",
   "frontend_status": "PASS_7_TESTS_BUILD_NO_CHUNK_OVER_500KB_AUDIT_ZERO_VULNERABILITIES",
-  "dvc_remote_status": "CONFIGURED_AUTHORIZATION_REQUIRED",
+  "dvc_remote_status": "PASS_COMPLETE",
   "dvc_remote_type": "gdrive",
-  "dvc_remote_push_result": "BLOCKED_AUTH",
-  "clean_clone_result": "LOCAL_CLONE_CODE_ENV_API_LIVENESS_FRONTEND_PASS_DVC_PULL_BLOCKED_AUTH",
+  "dvc_remote_push_result": "PASS_FIRST_AND_NO_OP_SECOND_PUSH",
+  "clean_clone_result": "PROVEN_FROM_GITHUB_AND_DVC",
   "dashboard_v1_1_status": "PASS",
   "security_boundary_status": "LOCAL_DEMO_BASELINE_HARDENED",
   "kafka_runtime_status": "ACTIVE_PARTIAL_DOCKER_ENGINE_UNAVAILABLE",
   "airflow_runtime_status": "IMPLEMENTED_NOT_RUNTIME_VERIFIED",
   "capability_registry_status": "PASS_7_AVAILABLE_1_SCIENTIFICALLY_BLOCKED",
   "company_onboarding_status": "PASS_TEMPLATE_AND_TWO_PROFILES",
-  "Docker_status": "PASS_CORE_MLOPS_OBSERVABILITY",
+  "Docker_status": "ENGINE_UNAVAILABLE_CURRENT_OPTIONAL_RUNTIME_BLOCKER",
   "observability_status": "PASS_LOCAL_PROMETHEUS_GRAFANA",
   "data_platform_status": {
     "postgresql": "HEALTHY_LOCAL",
@@ -48,14 +48,13 @@
   "offline_analytics": ["stockout_survival", "segmentation", "anomaly", "basket", "promotion"],
   "blockers": [
     "segment assignment remains scientifically blocked",
-    "DVC Google Drive OAuth consent is required before push and clean-clone pull proof",
     "production authentication, authorization, TLS, distributed rate limiting and secrets management remain deferred",
     "Docker engine unavailable for current Kafka and stack revalidation",
     "Airflow is definition-only; Airbyte and BigQuery are templates"
   ],
   "git": {
     "branch": "main",
-    "upstream_push_performed": false,
+    "upstream_push_performed": true,
     "scientific_history_rewritten": false
   }
 }

@@ -1,6 +1,6 @@
 {
-  "project_status": "PRODUCTIZATION_V1_COMPLETE_WITH_BLOCKERS",
-  "checkpoint_version": "productization_v1",
+  "project_status": "REPRODUCIBILITY_HARDENING_V1_1_COMPLETE_WITH_EXTERNAL_AUTH_BLOCKER",
+  "checkpoint_version": "reproducibility_hardening_v1_1",
   "scientific_core_status": "FROZEN_V1_UNCHANGED",
   "core_boundary_status": "PASS",
   "contract_registry_status": "PASS_11_CONTRACTS",
@@ -11,8 +11,16 @@
   "mlflow_registered_models": ["fsi.forecasting@serving-v1", "fsi.stockout_classification@serving-v1"],
   "canonical_import_status": "PASS_IDEMPOTENT",
   "backend_status": "PASS_DOCKER_AND_TESTCLIENT",
-  "dashboard_status": "PASS_API_DRIVEN_WITH_LIMITATIONS",
-  "frontend_status": "PASS_2_TESTS_BUILD_AUDIT_ZERO_HIGH_VULNERABILITIES",
+  "dashboard_status": "PASS_V1_1_GLOBAL_FILTERS_AND_CODE_SPLITTING",
+  "frontend_status": "PASS_7_TESTS_BUILD_NO_CHUNK_OVER_500KB_AUDIT_ZERO_VULNERABILITIES",
+  "dvc_remote_status": "CONFIGURED_AUTHORIZATION_REQUIRED",
+  "dvc_remote_type": "gdrive",
+  "dvc_remote_push_result": "BLOCKED_AUTH",
+  "clean_clone_result": "BLOCKED_BY_DVC_AUTH_AND_GIT_PUBLICATION_GATE",
+  "dashboard_v1_1_status": "PASS",
+  "security_boundary_status": "LOCAL_DEMO_BASELINE_HARDENED",
+  "kafka_runtime_status": "ACTIVE_PARTIAL_DOCKER_ENGINE_UNAVAILABLE",
+  "airflow_runtime_status": "IMPLEMENTED_NOT_RUNTIME_VERIFIED",
   "capability_registry_status": "PASS_7_AVAILABLE_1_SCIENTIFICALLY_BLOCKED",
   "company_onboarding_status": "PASS_TEMPLATE_AND_TWO_PROFILES",
   "Docker_status": "PASS_CORE_MLOPS_OBSERVABILITY",
@@ -21,18 +29,18 @@
     "postgresql": "HEALTHY_LOCAL",
     "duckdb_dbt": "PASS_55",
     "great_expectations": "PASS_8_DATASETS",
-    "kafka": "IMPLEMENTED_NOT_REVALIDATED_THIS_MILESTONE",
-    "airflow": "DEFINITION_ONLY_NOT_DEPLOYED",
+    "kafka": "ACTIVE_PARTIAL_DOCKER_ENGINE_UNAVAILABLE",
+    "airflow": "SYNTAX_AND_STRUCTURE_VALIDATED_RUNTIME_NOT_DEPLOYED",
     "airbyte": "TEMPLATE_ONLY",
     "bigquery": "TEMPLATE_ONLY"
   },
   "test_status": {
-    "pytest": "121_PASS",
+    "pytest": "124_PASS_3_SKIPPED",
     "ruff": "PASS",
     "dbt": "55_PASS",
     "great_expectations": "PASS_8_DATASETS",
-    "frontend": "2_PASS_BUILD_PASS_NPM_AUDIT_0",
-    "docker": "API_FRONTEND_MLFLOW_PROMETHEUS_GRAFANA_HEALTHY"
+    "frontend": "7_PASS_BUILD_PASS_NPM_AUDIT_0",
+    "docker": "PREVIOUS_V1_PASS_CURRENT_ENGINE_UNAVAILABLE"
   },
   "implemented_core_count": 7,
   "blocked_core_count": 1,
@@ -40,10 +48,10 @@
   "offline_analytics": ["stockout_survival", "segmentation", "anomaly", "basket", "promotion"],
   "blockers": [
     "segment assignment remains scientifically blocked",
-    "no DVC remote or clean-machine artifact reproduction proof",
-    "local demo has no authentication, authorization, TLS, rate limiting or production secrets manager",
-    "dashboard has no cross-page global dimension filters and frontend bundle exceeds the preferred 500 kB chunk threshold",
-    "Kafka, Airflow, Airbyte and BigQuery are not part of the validated default runtime"
+    "DVC Google Drive OAuth consent is required before push and clean-clone pull proof",
+    "production authentication, authorization, TLS, distributed rate limiting and secrets management remain deferred",
+    "Docker engine unavailable for current Kafka and stack revalidation",
+    "Airflow is definition-only; Airbyte and BigQuery are templates"
   ],
   "git": {
     "branch": "main",

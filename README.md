@@ -40,12 +40,12 @@ Dashboard development: `cd apps/dashboard`, then `npm ci` and `npm run dev`. Doc
 |---|---|---|
 | PostgreSQL | operational source | active/executed |
 | DuckDB + dbt | local warehouse | active/executed |
-| DVC | data/pipeline ownership | active; no remote |
+| DVC | data/pipeline ownership | gdrive configured; push blocked on owner OAuth consent |
 | MLflow | runs/registry metadata | active/executed in isolated container |
 | FastAPI | product backend | active/tested |
-| React/Vite/ECharts | business dashboard | active/build- and Docker-tested |
+| React/Vite/ECharts | business dashboard | V1.1 global filters, URL state and split bundles tested |
 | Prometheus / Grafana | local engineering observability | active/executed |
-| Kafka | replay simulation | implemented, runtime proof pending |
+| Kafka | replay simulation | implemented; current runtime smoke blocked by unavailable Docker engine |
 | Airflow | DAG definition | not runtime verified |
 | Airbyte / BigQuery | connector/cloud templates | template only |
 
@@ -151,4 +151,4 @@ Kafka UI is available at `http://localhost:8088`. The producer uses broker-level
 
 Forecasting Modeling V1, Stockout Classification V1, Stockout Survival V1, Store Segmentation V1 and Sales Anomaly Detection V1 are implemented and verified. Store segmentation outputs versioned pseudo-labels, not ground truth. Anomaly V1 compares a strict-prior rolling z-score with reference-fitted Isolation Forest and produces unreviewed candidates rather than verified anomaly labels. Segment Assignment, the remaining ML tasks, a production API, MLflow and production deployment are not implemented.
 
-DVC locally owns the ML-ready forecasting Parquet and the canonical Forecasting V1 model, predictions and metrics. The repository currently has no DVC remote. On this machine, Git metadata plus the local DVC cache can reproduce the current artifact state. On another machine, a Git clone provides code and DVC metadata only; `dvc pull` cannot recover binary artifacts until a project-approved remote is configured and populated. A future setup would use `dvc remote add -d <name> <remote>` followed by `dvc push`, then `dvc pull` after cloning elsewhere. No provider or credentials are selected by this repository.
+DVC locally owns all seven processed datasets and all seven canonical stage outputs. A private Google Drive remote is configured as `gdrive`, but remote population and clean-clone pull proof remain blocked on normal owner OAuth consent. Credentials are not stored in Git. See [DVC remote status](docs/deployment/dvc_remote_v1.md) and [clean-clone procedure](docs/deployment/clean_clone_v1.md).

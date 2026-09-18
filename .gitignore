@@ -19,6 +19,7 @@ data/raw/**
 data/external/
 data/generated/*.csv
 data/processed/**
+!data/processed/segment_assignment.dvc
 !data/processed/forecasting/
 data/processed/forecasting/*
 !data/processed/forecasting/*.dvc

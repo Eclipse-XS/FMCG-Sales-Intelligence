@@ -1,0 +1,6 @@
+outs:
+- md5: f785541978a4de4bfc3d65d515d6269f.dir
+  size: 8867
+  nfiles: 2
+  hash: md5
+  path: segment_assignment

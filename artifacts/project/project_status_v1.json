@@ -16,7 +16,7 @@
   "dvc_remote_status": "CONFIGURED_AUTHORIZATION_REQUIRED",
   "dvc_remote_type": "gdrive",
   "dvc_remote_push_result": "BLOCKED_AUTH",
-  "clean_clone_result": "BLOCKED_BY_DVC_AUTH_AND_GIT_PUBLICATION_GATE",
+  "clean_clone_result": "LOCAL_CLONE_CODE_ENV_API_LIVENESS_FRONTEND_PASS_DVC_PULL_BLOCKED_AUTH",
   "dashboard_v1_1_status": "PASS",
   "security_boundary_status": "LOCAL_DEMO_BASELINE_HARDENED",
   "kafka_runtime_status": "ACTIVE_PARTIAL_DOCKER_ENGINE_UNAVAILABLE",

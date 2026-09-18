@@ -15,7 +15,7 @@
   ,"v1_1": {
     "status": "REPRODUCIBILITY_HARDENING_V1_1_COMPLETE_WITH_EXTERNAL_AUTH_BLOCKER",
     "dvc_remote": "gdrive_configured_push_blocked_auth",
-    "clean_clone": "blocked_auth",
+    "clean_clone": "local_code_env_frontend_pass_dvc_pull_blocked_auth",
     "dashboard": "global_filters_and_code_splitting_pass",
     "security": "local_demo_baseline_hardened",
     "kafka": "active_partial_docker_engine_unavailable",

@@ -1,0 +1,5 @@
+outs:
+- md5: 8a5756846301710f08733051e92d58c3
+  size: 266880
+  hash: md5
+  path: promotion_daily_v1.parquet

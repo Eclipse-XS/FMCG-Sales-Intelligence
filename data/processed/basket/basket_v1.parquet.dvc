@@ -1,0 +1,5 @@
+outs:
+- md5: 396fdcd4a2a3726b50bf64c5a9afe98b
+  size: 91756
+  hash: md5
+  path: basket_v1.parquet

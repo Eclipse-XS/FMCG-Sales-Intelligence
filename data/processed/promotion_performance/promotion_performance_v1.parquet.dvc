@@ -1,0 +1,5 @@
+outs:
+- md5: 997da46ba87b3dece8fc23767116c76e
+  size: 109161
+  hash: md5
+  path: promotion_performance_v1.parquet

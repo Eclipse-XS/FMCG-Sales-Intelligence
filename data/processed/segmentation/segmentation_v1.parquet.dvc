@@ -1,0 +1,5 @@
+outs:
+- md5: 482b9bb575f19e2ef217b7831b859e58
+  size: 7910
+  hash: md5
+  path: segmentation_v1.parquet

@@ -6,6 +6,8 @@ venv/
 .idea/
 .vscode/
 __pycache__/
+*.egg-info/
+*.tsbuildinfo
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
@@ -64,3 +66,10 @@ reports/eda/runs/
 reports/eda/latest.json
 *.tmp
 *.temp
+node_modules/
+dist/
+.vite/
+mlruns/
+artifacts/mlflow/
+*.db-shm
+*.db-wal

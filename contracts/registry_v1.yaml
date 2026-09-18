@@ -1,0 +1,122 @@
+registry_version: v1
+contracts:
+  - contract_id: sales_daily
+    contract_version: v1
+    grain: one row per calendar date, store, and SKU
+    business_key: [observation_date, store_id, sku_id]
+    source_of_truth: fmcg.daily_demand
+    consumers: [forecasting, anomaly, segmentation, promotion]
+    fields:
+      - {name: observation_date, type: date, required: true, nullable: false, semantic: business observation date}
+      - {name: store_id, type: integer, required: true, nullable: false, semantic: canonical store identifier}
+      - {name: sku_id, type: integer, required: true, nullable: false, semantic: canonical SKU identifier}
+      - {name: observed_units, type: number, required: true, nullable: false, unit: units, semantic: realized units sold}
+      - {name: requested_demand_units, type: number, required: false, nullable: true, unit: units, semantic: latent requested demand where available}
+      - {name: lost_sales_units, type: number, required: false, nullable: true, unit: units, semantic: inventory-censored unmet demand}
+  - contract_id: sku_master
+    contract_version: v1
+    grain: one row per SKU
+    business_key: [sku_id]
+    source_of_truth: fmcg.skus
+    consumers: [forecasting, stockout, anomaly, basket, promotion]
+    fields:
+      - {name: sku_id, type: integer, required: true, nullable: false, semantic: sellable stock keeping unit}
+      - {name: product_id, type: integer, required: true, nullable: false, semantic: parent product}
+      - {name: sku_name, type: string, required: true, nullable: false, semantic: SKU display name}
+      - {name: package_type, type: string, required: false, nullable: true, semantic: package format}
+      - {name: volume_ml, type: number, required: false, nullable: true, unit: ml, semantic: package volume}
+  - contract_id: locations
+    contract_version: v1
+    grain: one row per store
+    business_key: [store_id]
+    source_of_truth: fmcg.stores
+    consumers: [forecasting, segmentation, anomaly, promotion]
+    fields:
+      - {name: store_id, type: integer, required: true, nullable: false, semantic: canonical store identifier}
+      - {name: region_id, type: integer, required: true, nullable: false, semantic: parent region}
+      - {name: store_name, type: string, required: true, nullable: false, semantic: location display name}
+      - {name: store_type, type: string, required: false, nullable: true, semantic: location format}
+      - {name: channel, type: string, required: false, nullable: true, semantic: sales channel}
+  - contract_id: prices
+    contract_version: v1
+    grain: one effective price period per store and SKU
+    business_key: [store_id, sku_id, valid_from]
+    source_of_truth: fmcg.product_prices
+    consumers: [forecasting, anomaly, promotion]
+    fields:
+      - {name: store_id, type: integer, required: true, nullable: false, semantic: canonical store identifier}
+      - {name: sku_id, type: integer, required: true, nullable: false, semantic: canonical SKU identifier}
+      - {name: valid_from, type: date, required: true, nullable: false, semantic: inclusive start date}
+      - {name: valid_to, type: date, required: false, nullable: true, semantic: inclusive end date}
+      - {name: unit_price, type: number, required: true, nullable: false, unit: currency per unit, semantic: scheduled selling price}
+  - contract_id: inventory_snapshots
+    contract_version: v1
+    grain: one row per date, warehouse, and SKU
+    business_key: [snapshot_date, warehouse_id, sku_id]
+    source_of_truth: fmcg.inventory
+    consumers: [stockout]
+    fields:
+      - {name: snapshot_date, type: date, required: true, nullable: false, semantic: inventory observation date}
+      - {name: warehouse_id, type: integer, required: true, nullable: false, semantic: canonical warehouse identifier}
+      - {name: sku_id, type: integer, required: true, nullable: false, semantic: canonical SKU identifier}
+      - {name: stock_quantity, type: number, required: true, nullable: false, unit: units, semantic: physical stock}
+      - {name: reserved_quantity, type: number, required: true, nullable: false, unit: units, semantic: reserved stock}
+  - contract_id: deliveries
+    contract_version: v1
+    grain: one row per delivery line
+    business_key: [delivery_id, sku_id]
+    source_of_truth: fmcg.delivery_items
+    consumers: [stockout]
+    fields:
+      - {name: delivery_id, type: integer, required: true, nullable: false, semantic: delivery identifier}
+      - {name: sku_id, type: integer, required: true, nullable: false, semantic: canonical SKU identifier}
+      - {name: delivered_quantity, type: number, required: true, nullable: false, unit: units, semantic: received quantity}
+  - contract_id: orders
+    contract_version: v1
+    grain: one row per order
+    business_key: [order_id]
+    source_of_truth: fmcg.orders
+    consumers: [basket]
+    fields:
+      - {name: order_id, type: integer, required: true, nullable: false, semantic: basket identity}
+      - {name: store_id, type: integer, required: true, nullable: false, semantic: order location}
+      - {name: order_date, type: date, required: true, nullable: false, semantic: order date}
+  - contract_id: order_items
+    contract_version: v1
+    grain: one row per order and SKU
+    business_key: [order_id, sku_id]
+    source_of_truth: fmcg.order_items
+    consumers: [basket]
+    fields:
+      - {name: order_id, type: integer, required: true, nullable: false, semantic: basket identity}
+      - {name: sku_id, type: integer, required: true, nullable: false, semantic: canonical SKU identifier}
+      - {name: quantity, type: number, required: true, nullable: false, unit: units, semantic: ordered quantity}
+  - contract_id: promotions
+    contract_version: v1
+    grain: one row per promotion
+    business_key: [promotion_id]
+    source_of_truth: fmcg.promotions
+    consumers: [forecasting, promotion]
+    fields:
+      - {name: promotion_id, type: integer, required: true, nullable: false, semantic: campaign identifier}
+      - {name: start_date, type: date, required: true, nullable: false, semantic: inclusive start}
+      - {name: end_date, type: date, required: true, nullable: false, semantic: inclusive end}
+      - {name: discount_percent, type: number, required: false, nullable: true, unit: percent, semantic: scheduled discount}
+  - contract_id: promotion_stores
+    contract_version: v1
+    grain: one row per promotion and store
+    business_key: [promotion_id, store_id]
+    source_of_truth: fmcg.promotion_stores
+    consumers: [promotion]
+    fields:
+      - {name: promotion_id, type: integer, required: true, nullable: false, semantic: campaign identifier}
+      - {name: store_id, type: integer, required: true, nullable: false, semantic: eligible store}
+  - contract_id: promotion_skus
+    contract_version: v1
+    grain: one row per promotion and SKU
+    business_key: [promotion_id, sku_id]
+    source_of_truth: fmcg.promotion_skus
+    consumers: [promotion]
+    fields:
+      - {name: promotion_id, type: integer, required: true, nullable: false, semantic: campaign identifier}
+      - {name: sku_id, type: integer, required: true, nullable: false, semantic: eligible SKU}

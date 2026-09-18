@@ -1,0 +1,16 @@
+mapping_version: v1
+source: current_project_canonical
+datasets:
+  sales_daily:
+    source_table: fmcg.daily_demand
+    columns: {observation_date: observation_date, store_id: store_id, sku_id: sku_id, observed_units: observed_units, requested_demand_units: requested_demand_units, lost_sales_units: lost_sales_units}
+  sku_master:
+    source_table: fmcg.skus
+    columns: {sku_id: sku_id, product_id: product_id, sku_name: sku_name, package_type: package_type, volume_ml: volume_ml}
+  locations:
+    source_table: fmcg.stores
+    columns: {store_id: store_id, region_id: region_id, store_name: store_name, store_type: store_type, channel: channel}
+coercion_policy: explicit_contract_types
+null_policy: reject_required_nulls
+identifier_policy: preserve_canonical_ids
+

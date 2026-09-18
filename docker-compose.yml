@@ -5,6 +5,7 @@ services:
     ports: ["${POSTGRES_PORT:-55432}:5432"]
     volumes:
       - fmcg_pgdata:/var/lib/postgresql/data
+      - ./db/init/05-mlflow-database.sql:/docker-entrypoint-initdb.d/05-mlflow-database.sql:ro
       - ./db/schema.sql:/docker-entrypoint-initdb.d/10-schema.sql:ro
       - ./db/indexes.sql:/docker-entrypoint-initdb.d/20-indexes.sql:ro
     healthcheck:
@@ -61,5 +62,66 @@ services:
       interval: 10s
       timeout: 5s
       retries: 12
+  api:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/api.Dockerfile
+    profiles: [core, full-demo, observability]
+    environment:
+      FSI_PROJECT_ROOT: /app
+      FSI_ACTIVE_DOMAIN_PACK: ${FSI_ACTIVE_DOMAIN_PACK:-coca_cola_demo}
+      FSI_ARTIFACT_ROOT: /app/artifacts/canonical
+      FSI_MLFLOW_TRACKING_URI: http://mlflow:5000
+      FSI_MLFLOW_REQUIRED_FOR_READINESS: "false"
+      FSI_CORS_ORIGINS: http://localhost:${FRONTEND_PORT:-8080},http://localhost:5173
+    ports: ["${FSI_API_PORT:-8000}:8000"]
+    volumes:
+      - ./artifacts/canonical:/app/artifacts/canonical:ro
+      - ./domain_packs:/app/domain_packs:ro
+      - ./contracts:/app/contracts:ro
+      - ./data/warehouse:/app/data/warehouse:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/ready', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+  frontend:
+    build:
+      context: apps/dashboard
+      dockerfile: Dockerfile
+    profiles: [core, full-demo]
+    ports: ["${FRONTEND_PORT:-8080}:80"]
+    depends_on:
+      api: {condition: service_healthy}
+  mlflow:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/mlflow.Dockerfile
+    profiles: [mlops, full-demo]
+    command: ["mlflow", "server", "--host", "0.0.0.0", "--port", "5000", "--backend-store-uri", "postgresql+psycopg://fmcg:${POSTGRES_PASSWORD:-change_me}@postgres:5432/${MLFLOW_DB:-mlflow}", "--artifacts-destination", "/mlflow/artifacts", "--serve-artifacts"]
+    ports: ["${MLFLOW_PORT:-5000}:5000"]
+    volumes:
+      - mlflow_artifacts:/mlflow/artifacts
+      - ./artifacts/canonical:/app/artifacts/canonical:ro
+      - ./src/fmcg_sales_intelligence:/app/src/fmcg_sales_intelligence:ro
+    environment:
+      PYTHONPATH: /app/src
+    depends_on:
+      postgres: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/health', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 18
+  prometheus:
+    image: prom/prometheus:v3.5.0
+    profiles: [observability, full-demo]
+    command: ["--config.file=/etc/prometheus/prometheus.yml"]
+    ports: ["${PROMETHEUS_PORT:-9090}:9090"]
+    volumes:
+      - ./infrastructure/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    depends_on:
+      api: {condition: service_healthy}
 volumes:
   fmcg_pgdata:
+  mlflow_artifacts:

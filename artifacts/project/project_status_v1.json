@@ -1,7 +1,7 @@
 {
   "project_status": "V1_MODELING_ANALYTICS_SCOPE_COMPLETE_WITH_LIMITATIONS",
   "checkpoint_version": "v1",
-  "git": {"branch": "main", "head": "d6f2d9d8a3c72bfb4ed75b102e43c7c49f9d2465", "working_tree": "DIRTY_INTENTIONAL", "remote": "https://github.com/Eclipse-XS/FMCG-Sales-Intelligence.git"},
+  "git": {"branch": "main", "head": "HEAD", "working_tree": "CLEAN_AFTER_FREEZE_COMMIT", "remote": "https://github.com/Eclipse-XS/FMCG-Sales-Intelligence.git", "local_freeze": "COMPLETE", "pushed": false},
   "dvc": {"version": "3.63.0", "stage_count": 7, "status": "UP_TO_DATE", "remote": null},
   "data_platform_status": {"postgresql": "EXECUTED_LOCAL", "duckdb_dbt": "EXECUTED_LOCAL", "kafka": "IMPLEMENTED_DEMO_NO_RECORDED_RUNTIME_EVIDENCE", "airflow": "DEFINITION_ONLY_NOT_DEPLOYED", "airbyte": "CONFIGURED_NOT_EXECUTED", "bigquery": "CONFIGURED_NOT_EXECUTED", "grafana": "COMPOSE_PROFILE_NOT_RUNTIME_VERIFIED"},
   "implemented_core_count": 7,
@@ -12,6 +12,6 @@
   "human_review_outputs": ["segmentation profiles", "anomaly candidates", "basket rules", "promotion summaries", "survival diagnostics"],
   "test_status": {"pytest": "105_PASS", "dbt_full_latest_recorded": "55_PASS", "dbt_promotion_latest": "14_PASS", "great_expectations": "PASS_8_DATASETS"},
   "quality_status": "PASS_WITH_SCIENTIFIC_LIMITATIONS",
-  "major_blockers": ["no DVC remote", "dirty uncommitted checkpoint", "segment assignment blocked", "no implemented inference service", "no production monitoring", "cloud/orchestration templates not executed", "canonical manifests contain local absolute paths", "synthetic short-history data"],
-  "next_milestones": ["safe Git checkpoint", "DVC remote decision", "predictive serving design for forecasting and stockout classification", "BI mart design", "monitoring contracts", "portfolio documentation and demo"]
+  "major_blockers": ["no DVC remote", "segment assignment blocked", "no implemented inference service", "no production monitoring", "cloud/orchestration templates not executed", "synthetic short-history data"],
+  "next_milestones": ["DVC remote decision", "clean-machine reproduction", "predictive serving design for forecasting and stockout classification", "BI mart design", "monitoring contracts", "portfolio documentation and demo"]
 }

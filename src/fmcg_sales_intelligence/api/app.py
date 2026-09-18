@@ -3,16 +3,18 @@ from __future__ import annotations
 import logging
 import time
 import uuid
+from datetime import date
 from pathlib import Path
 
 import pandas as pd
-from fastapi import FastAPI, HTTPException, Query, Request
+from fastapi import Depends, FastAPI, HTTPException, Query, Request
+from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, Response
 from prometheus_client import CONTENT_TYPE_LATEST, Counter, Gauge, Histogram, generate_latest
 
 from .. import __version__
-from ..analytics import AnalyticsReadService, BusinessIntelligenceService
+from ..analytics import AnalyticsFilters, AnalyticsReadService, BusinessIntelligenceService
 from ..capabilities import evaluate_capabilities
 from ..contracts import load_registry
 from ..domain_packs import DomainPackRegistry
@@ -26,6 +28,20 @@ REQUESTS = Counter("fsi_http_requests_total", "HTTP requests", ["method", "route
 LATENCY = Histogram("fsi_http_request_duration_seconds", "HTTP request latency", ["route"])
 INFERENCE = Counter("fsi_inference_rows_total", "Inference rows", ["model", "status"])
 READY = Gauge("fsi_model_ready", "Frozen model readiness", ["model"])
+
+
+def parse_analytics_filters(
+    date_from: date | None = Query(None), date_to: date | None = Query(None),
+    regions: list[int] | None = Query(None), channels: list[str] | None = Query(None),
+    stores: list[int] | None = Query(None), categories: list[str] | None = Query(None),
+    brands: list[str] | None = Query(None), skus: list[int] | None = Query(None),
+    promotion: bool | None = Query(None),
+) -> AnalyticsFilters:
+    return AnalyticsFilters(
+        date_from=date_from, date_to=date_to, regions=regions or [], channels=channels or [],
+        stores=stores or [], categories=categories or [], brands=brands or [], skus=skus or [],
+        promotion=promotion,
+    ).validate_range()
 
 
 def create_app(settings: Settings | None = None, artifact_root: str | Path | None = None) -> FastAPI:
@@ -59,6 +75,17 @@ def create_app(settings: Settings | None = None, artifact_root: str | Path | Non
         request_id = request.headers.get("X-Request-ID", str(uuid.uuid4()))
         request.state.request_id = request_id
         started = time.perf_counter()
+        if request.method in {"POST", "PUT", "PATCH"}:
+            length = request.headers.get("content-length")
+            try:
+                too_large = bool(length) and int(length) > settings.max_request_bytes
+            except ValueError:
+                too_large = True
+            if too_large:
+                response = JSONResponse(status_code=413, content={"error": {"code": "REQUEST_TOO_LARGE", "message": "Request body exceeds configured limit", "details": None, "request_id": request_id}})
+                response.headers["X-Request-ID"] = request_id
+                response.headers["X-Content-Type-Options"] = "nosniff"
+                return response
         try:
             response = await call_next(request)
         except Exception:
@@ -76,6 +103,9 @@ def create_app(settings: Settings | None = None, artifact_root: str | Path | Non
             )
         elapsed = time.perf_counter() - started
         response.headers["X-Request-ID"] = request_id
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["Referrer-Policy"] = "no-referrer"
+        response.headers["X-Frame-Options"] = "SAMEORIGIN"
         route = request.url.path
         REQUESTS.labels(request.method, route, str(response.status_code)).inc()
         LATENCY.labels(route).observe(elapsed)
@@ -89,6 +119,10 @@ def create_app(settings: Settings | None = None, artifact_root: str | Path | Non
             },
         )
         return response
+
+    @application.exception_handler(RequestValidationError)
+    async def validation_error(request: Request, exc: RequestValidationError):
+        return JSONResponse(status_code=422, content={"error": {"code": "VALIDATION_ERROR", "message": "Request validation failed", "details": exc.errors(), "request_id": getattr(request.state, "request_id", "unknown")}})
 
     @application.exception_handler(ValueError)
     async def value_error(request: Request, exc: ValueError):
@@ -185,6 +219,10 @@ def create_app(settings: Settings | None = None, artifact_root: str | Path | Non
         INFERENCE.labels("stockout_classification", "success").inc(len(values))
         return {"items": values}
 
+    @application.get("/api/v1/analytics/filters", summary="Read bounded analytical filter values")
+    def analytics_filters():
+        return bi.filter_metadata()
+
     @application.get("/api/v1/analytics/{name}", summary="Read frozen offline analytical outputs")
     def read_analytics(name: str, offset: int = Query(0, ge=0), limit: int = Query(100, ge=1, le=500)):
         try:
@@ -193,18 +231,18 @@ def create_app(settings: Settings | None = None, artifact_root: str | Path | Non
             raise HTTPException(404, "Unknown analytical output")
 
     @application.get("/api/v1/bi/summary", summary="Read supported sales KPI summary")
-    def bi_summary():
-        return bi.summary()
+    def bi_summary(filters: AnalyticsFilters = Depends(parse_analytics_filters)):
+        return bi.summary(filters)
 
     @application.get("/api/v1/bi/timeseries", summary="Read aggregate sales time series")
-    def bi_timeseries(limit: int = Query(120, ge=1, le=366)):
-        return {"items": bi.timeseries(limit)}
+    def bi_timeseries(limit: int = Query(120, ge=1, le=366), filters: AnalyticsFilters = Depends(parse_analytics_filters)):
+        return {"items": bi.timeseries(limit, filters)}
 
     @application.get(
         "/api/v1/bi/breakdown/{dimension}", summary="Read a supported dimensional sales breakdown"
     )
-    def bi_breakdown(dimension: str, limit: int = Query(20, ge=1, le=100)):
-        return {"dimension": dimension, "items": bi.breakdown(dimension, limit)}
+    def bi_breakdown(dimension: str, limit: int = Query(20, ge=1, le=100), filters: AnalyticsFilters = Depends(parse_analytics_filters)):
+        return {"dimension": dimension, "items": bi.breakdown(dimension, limit, filters)}
 
     return application
 

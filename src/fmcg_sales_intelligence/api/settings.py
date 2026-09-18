@@ -13,3 +13,4 @@ class Settings(BaseSettings):
     api_port: int = 8000
     log_level: str = "INFO"
     cors_origins: str = "http://localhost:5173,http://localhost:8080"
+    max_request_bytes: int = 2_000_000

@@ -1,0 +1,24 @@
+{
+  "version": "v1",
+  "flow": [
+    "operational PostgreSQL",
+    "dbt staging/intermediate/marts",
+    "DuckDB analytical warehouse",
+    "versioned feature contracts",
+    "frozen canonical model/analytical artifacts",
+    "FastAPI read and inference services",
+    "React dashboard"
+  ],
+  "controls": {
+    "data_and_model_reproducibility": "DVC",
+    "run_and_registry_metadata": "MLflow",
+    "contract_authority": "contracts/registry_v1.yaml",
+    "company_presentation_and_mappings": "domain_packs/<profile>"
+  },
+  "serving": {
+    "forecasting": "canonical forecasting_v1 bundle -> validated request frame -> CatBoost predict -> non-negative 7-day units",
+    "stockout_classification": "canonical stockout_classification_v1 bundle -> validated request frame -> classifier score -> frozen threshold flag"
+  },
+  "offline_outputs": ["stockout_survival", "segmentation", "anomaly", "basket", "promotion"],
+  "blocked": ["segment_assignment"]
+}

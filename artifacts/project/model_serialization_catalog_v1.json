@@ -1,0 +1,54 @@
+{
+  "catalog_version": "v1",
+  "authority": "artifacts/canonical plus DVC",
+  "serving_default": "canonical_path",
+  "models": [
+    {
+      "task": "forecasting",
+      "path": "artifacts/canonical/forecasting_v1/models/final_model.joblib",
+      "format": "joblib",
+      "sha256": "8a9ff6dc69a89f45455817f6f756a68c988b1b514f3b0048d45a3bf90aaaafe8",
+      "bytes": 1597212,
+      "serving_eligible": true,
+      "mlflow_registered_name": "fsi.forecasting",
+      "mlflow_alias": "serving-v1"
+    },
+    {
+      "task": "stockout_classification",
+      "path": "artifacts/canonical/stockout_classification_v1/models/final_model.joblib",
+      "format": "joblib",
+      "sha256": "8f485804791e0cfeb9ee29882d32706c083e808d822173ed20ceef3349136c02",
+      "bytes": 224973,
+      "serving_eligible": true,
+      "mlflow_registered_name": "fsi.stockout_classification",
+      "mlflow_alias": "serving-v1"
+    },
+    {
+      "task": "stockout_survival",
+      "path": "artifacts/canonical/stockout_survival_v1/models/final_model.joblib",
+      "format": "joblib",
+      "sha256": "5fdd94be89cb589aa9148df4e07616147baa8f6d293ee7ef07ca43f8cf36d412",
+      "bytes": 1241273,
+      "serving_eligible": false,
+      "reason": "offline analytical core"
+    },
+    {
+      "task": "segmentation",
+      "path": "artifacts/canonical/segmentation_v1/models/final_model.joblib",
+      "format": "joblib",
+      "sha256": "61c1dd118d738d48dc32da9a75dfd7fd0009b4731117f9711be00874f99b0a41",
+      "bytes": 2101,
+      "serving_eligible": false,
+      "reason": "exploratory segmentation with limited retention"
+    },
+    {
+      "task": "anomaly",
+      "path": "artifacts/canonical/anomaly_v1/models/isolation_forest.joblib",
+      "format": "joblib",
+      "sha256": "d882e9ef028ec8642d09d566e3e02f45644bbbd2244f681b3a16733e4fbd3e2f",
+      "bytes": 4057600,
+      "serving_eligible": false,
+      "reason": "post-event review candidate generator"
+    }
+  ]
+}

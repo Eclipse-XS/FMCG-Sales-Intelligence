@@ -11,8 +11,7 @@ stages:
     outs:
       - artifacts/canonical/forecasting_v1
     metrics:
-      - artifacts/forecasting_v1_metrics.json:
-          cache: false
+      - artifacts/forecasting_v1_metrics.json
   stockout_classification_v1:
     cmd: python -m src.modeling.cli run --task stockout_classification --output artifacts/canonical/stockout_classification_v1 --experiment-id stockout_classification_v1_canonical --overwrite
     deps:
@@ -25,8 +24,7 @@ stages:
     outs:
       - artifacts/canonical/stockout_classification_v1
     metrics:
-      - artifacts/stockout_classification_v1_metrics.json:
-          cache: false
+      - artifacts/stockout_classification_v1_metrics.json
   stockout_survival_v1:
     cmd: python -m src.modeling.cli run --task stockout_survival --output artifacts/canonical/stockout_survival_v1 --experiment-id stockout_survival_v1_canonical --overwrite
     deps:
@@ -39,8 +37,7 @@ stages:
     outs:
       - artifacts/canonical/stockout_survival_v1
     metrics:
-      - artifacts/stockout_survival_v1_metrics.json:
-          cache: false
+      - artifacts/stockout_survival_v1_metrics.json
   segmentation_v1:
     cmd: '".venv\Scripts\python.exe" -m src.modeling.cli run --task segmentation --output artifacts/canonical/segmentation_v1 --experiment-id segmentation_v1_canonical --overwrite'
     deps:
@@ -50,8 +47,7 @@ stages:
     outs:
       - artifacts/canonical/segmentation_v1
     metrics:
-      - artifacts/segmentation_v1_metrics.json:
-          cache: false
+      - artifacts/segmentation_v1_metrics.json
   anomaly_v1:
     cmd: '".venv\Scripts\python.exe" -m src.modeling.cli run --task anomaly --output artifacts/canonical/anomaly_v1 --experiment-id anomaly_v1_canonical --overwrite'
     deps:
@@ -61,8 +57,7 @@ stages:
     outs:
       - artifacts/canonical/anomaly_v1
     metrics:
-      - artifacts/anomaly_v1_metrics.json:
-          cache: false
+      - artifacts/anomaly_v1_metrics.json
   basket_v1:
     cmd: '".venv\Scripts\python.exe" -m src.modeling.cli run --task basket --output artifacts/canonical/basket_v1 --experiment-id basket_v1_canonical --overwrite'
     deps:
@@ -72,8 +67,7 @@ stages:
     outs:
       - artifacts/canonical/basket_v1
     metrics:
-      - artifacts/basket_v1_metrics.json:
-          cache: false
+      - artifacts/basket_v1_metrics.json
   promotion_v1:
     cmd: '".venv\Scripts\python.exe" -m src.modeling.cli run --task promotion --output artifacts/canonical/promotion_v1 --experiment-id promotion_v1_canonical --overwrite'
     deps:
@@ -84,5 +78,4 @@ stages:
     outs:
       - artifacts/canonical/promotion_v1
     metrics:
-      - artifacts/promotion_v1_metrics.json:
-          cache: false
+      - artifacts/promotion_v1_metrics.json

@@ -1,0 +1,5 @@
+outs:
+- md5: f6790b8041933a0b6cbfe90befaa8974
+  size: 23605248
+  hash: md5
+  path: fmcg.duckdb

@@ -1,0 +1,1182 @@
+{
+  "registry_version": "v1",
+  "generated_from": "repository audit 2026-09-18",
+  "state_taxonomy": [
+    "ACTIVE_EXECUTED",
+    "ACTIVE_PARTIAL",
+    "IMPLEMENTED_NOT_RUNTIME_VERIFIED",
+    "TEMPLATE_ONLY",
+    "PLANNED_THIS_MILESTONE",
+    "OPTIONAL",
+    "DEFERRED",
+    "NOT_NEEDED",
+    "BLOCKED"
+  ],
+  "technologies": [
+    {
+      "name": "Python",
+      "category": "language",
+      "version": "3.13.5",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "application and scientific runtime",
+      "required_for_default_stack": true,
+      "required_for_training": true,
+      "required_for_serving": true,
+      "required_for_offline_analytics": true,
+      "required_for_data_engineering": true,
+      "required_for_observability": false,
+      "required_for_frontend": false,
+      "required_for_ci": false,
+      "runtime_location": "host/API container",
+      "configuration_paths": [
+        "pyproject.toml",
+        "requirements.txt"
+      ],
+      "main_source_paths": [
+        "src/"
+      ],
+      "health_check": "package import and pytest",
+      "validation_command": "package import and pytest",
+      "persistent_state": "virtual environment",
+      "credentials_required": false,
+      "network_ports": [],
+      "dependencies_on_other_services": [],
+      "consumers": [
+        "all Python components"
+      ],
+      "owner_layer": "core",
+      "evidence": [
+        "Repository audit: package import and pytest"
+      ],
+      "known_limitations": [],
+      "planned_action": "retain"
+    },
+    {
+      "name": "pip + pyproject",
+      "category": "packaging",
+      "version": "pip 25.1.1",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "dependency installation and importable package",
+      "required_for_default_stack": true,
+      "required_for_training": true,
+      "required_for_serving": true,
+      "required_for_offline_analytics": true,
+      "required_for_data_engineering": true,
+      "required_for_observability": false,
+      "required_for_frontend": true,
+      "required_for_ci": true,
+      "runtime_location": "host/CI",
+      "configuration_paths": [
+        "pyproject.toml",
+        "requirements.txt",
+        "requirements-mlflow.txt"
+      ],
+      "main_source_paths": [],
+      "health_check": "pip check",
+      "validation_command": "pip check",
+      "persistent_state": "installed packages",
+      "credentials_required": false,
+      "network_ports": [],
+      "dependencies_on_other_services": [
+        "Python"
+      ],
+      "consumers": [
+        "developers",
+        "CI"
+      ],
+      "owner_layer": "core",
+      "evidence": [
+        "Repository audit: pip check"
+      ],
+      "known_limitations": [
+        "MLflow requires isolated dependency set"
+      ],
+      "planned_action": "retain split environments"
+    },
+    {
+      "name": "PostgreSQL",
+      "category": "operational data",
+      "version": "17.11",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "operational database and isolated MLflow metadata database",
+      "required_for_default_stack": true,
+      "required_for_training": false,
+      "required_for_serving": false,
+      "required_for_offline_analytics": true,
+      "required_for_data_engineering": true,
+      "required_for_observability": false,
+      "required_for_frontend": false,
+      "required_for_ci": false,
+      "runtime_location": "Docker",
+      "configuration_paths": [
+        "docker-compose.yml",
+        ".env.example"
+      ],
+      "main_source_paths": [
+        "db/"
+      ],
+      "health_check": "pg_isready; validate_database.py",
+      "validation_command": "pg_isready; validate_database.py",
+      "persistent_state": "fmcg_pgdata",
+      "credentials_required": true,
+      "network_ports": [
+        55432
+      ],
+      "dependencies_on_other_services": [
+        "Docker"
+      ],
+      "consumers": [
+        "data platform",
+        "MLflow"
+      ],
+      "owner_layer": "data",
+      "evidence": [
+        "Repository audit: pg_isready; validate_database.py"
+      ],
+      "known_limitations": [],
+      "planned_action": "retain"
+    },
+    {
+      "name": "DuckDB",
+      "category": "warehouse",
+      "version": "1.5.5",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "local analytical warehouse",
+      "required_for_default_stack": false,
+      "required_for_training": true,
+      "required_for_serving": false,
+      "required_for_offline_analytics": true,
+      "required_for_data_engineering": true,
+      "required_for_observability": false,
+      "required_for_frontend": false,
+      "required_for_ci": false,
+      "runtime_location": "local file",
+      "configuration_paths": [
+        "dbt/profiles.yml"
+      ],
+      "main_source_paths": [
+        "src/warehouse",
+        "dbt/"
+      ],
+      "health_check": "dbt build",
+      "validation_command": "dbt build",
+      "persistent_state": "data/warehouse/fmcg.duckdb",
+      "credentials_required": false,
+      "network_ports": [],
+      "dependencies_on_other_services": [
+        "dbt"
+      ],
+      "consumers": [
+        "builders",
+        "BI service"
+      ],
+      "owner_layer": "data",
+      "evidence": [
+        "Repository audit: dbt build"
+      ],
+      "known_limitations": [],
+      "planned_action": "retain"
+    },
+    {
+      "name": "dbt",
+      "category": "transformation",
+      "version": "1.12.5",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "warehouse transformations and relational tests",
+      "required_for_default_stack": false,
+      "required_for_training": false,
+      "required_for_serving": false,
+      "required_for_offline_analytics": true,
+      "required_for_data_engineering": true,
+      "required_for_observability": false,
+      "required_for_frontend": true,
+      "required_for_ci": false,
+      "runtime_location": "host",
+      "configuration_paths": [
+        "dbt/dbt_project.yml",
+        "dbt/profiles.yml"
+      ],
+      "main_source_paths": [
+        "dbt/models",
+        "dbt/tests"
+      ],
+      "health_check": "dbt build",
+      "validation_command": "dbt build",
+      "persistent_state": "DuckDB relations",
+      "credentials_required": false,
+      "network_ports": [],
+      "dependencies_on_other_services": [
+        "DuckDB"
+      ],
+      "consumers": [
+        "datasets"
+      ],
+      "owner_layer": "data",
+      "evidence": [
+        "Repository audit: dbt build"
+      ],
+      "known_limitations": [],
+      "planned_action": "retain"
+    },
+    {
+      "name": "Polars",
+      "category": "dataframe",
+      "version": "1.44.2",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "dataset construction and high-volume transforms",
+      "required_for_default_stack": false,
+      "required_for_training": true,
+      "required_for_serving": false,
+      "required_for_offline_analytics": true,
+      "required_for_data_engineering": true,
+      "required_for_observability": false,
+      "required_for_frontend": false,
+      "required_for_ci": false,
+      "runtime_location": "host",
+      "configuration_paths": [
+        "requirements.txt"
+      ],
+      "main_source_paths": [
+        "src/datasets"
+      ],
+      "health_check": "pytest",
+      "validation_command": "pytest",
+      "persistent_state": "none",
+      "credentials_required": false,
+      "network_ports": [],
+      "dependencies_on_other_services": [
+        "Python"
+      ],
+      "consumers": [
+        "dataset builders"
+      ],
+      "owner_layer": "data",
+      "evidence": [
+        "Repository audit: pytest"
+      ],
+      "known_limitations": [],
+      "planned_action": "retain"
+    },
+    {
+      "name": "pandas + NumPy",
+      "category": "dataframe",
+      "version": "3.0.5 / 2.5.3",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "model interoperability and compact analysis",
+      "required_for_default_stack": false,
+      "required_for_training": true,
+      "required_for_serving": true,
+      "required_for_offline_analytics": true,
+      "required_for_data_engineering": false,
+      "required_for_observability": false,
+      "required_for_frontend": false,
+      "required_for_ci": false,
+      "runtime_location": "host/API",
+      "configuration_paths": [
+        "requirements.txt"
+      ],
+      "main_source_paths": [
+        "src/modeling",
+        "src/fmcg_sales_intelligence"
+      ],
+      "health_check": "pytest",
+      "validation_command": "pytest",
+      "persistent_state": "none",
+      "credentials_required": false,
+      "network_ports": [],
+      "dependencies_on_other_services": [
+        "Python"
+      ],
+      "consumers": [
+        "modeling",
+        "serving"
+      ],
+      "owner_layer": "core",
+      "evidence": [
+        "Repository audit: pytest"
+      ],
+      "known_limitations": [],
+      "planned_action": "retain"
+    },
+    {
+      "name": "Great Expectations",
+      "category": "quality",
+      "version": "1.23.0",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "published dataset validation",
+      "required_for_default_stack": false,
+      "required_for_training": false,
+      "required_for_serving": false,
+      "required_for_offline_analytics": true,
+      "required_for_data_engineering": true,
+      "required_for_observability": false,
+      "required_for_frontend": true,
+      "required_for_ci": true,
+      "runtime_location": "host",
+      "configuration_paths": [
+        "requirements.txt"
+      ],
+      "main_source_paths": [
+        "src/quality"
+      ],
+      "health_check": "python src/quality/validate_datasets.py",
+      "validation_command": "python src/quality/validate_datasets.py",
+      "persistent_state": "reports",
+      "credentials_required": false,
+      "network_ports": [],
+      "dependencies_on_other_services": [
+        "processed datasets"
+      ],
+      "consumers": [
+        "data platform"
+      ],
+      "owner_layer": "quality",
+      "evidence": [
+        "Repository audit: python src/quality/validate_datasets.py"
+      ],
+      "known_limitations": [],
+      "planned_action": "retain"
+    },
+    {
+      "name": "pytest",
+      "category": "quality",
+      "version": "9.1.1",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "application, contract, scientific and integration tests",
+      "required_for_default_stack": false,
+      "required_for_training": true,
+      "required_for_serving": true,
+      "required_for_offline_analytics": true,
+      "required_for_data_engineering": true,
+      "required_for_observability": false,
+      "required_for_frontend": true,
+      "required_for_ci": true,
+      "runtime_location": "host/CI",
+      "configuration_paths": [
+        "requirements.txt",
+        "pyproject.toml"
+      ],
+      "main_source_paths": [
+        "tests/"
+      ],
+      "health_check": "python -m pytest",
+      "validation_command": "python -m pytest",
+      "persistent_state": "reports only",
+      "credentials_required": false,
+      "network_ports": [],
+      "dependencies_on_other_services": [
+        "Python"
+      ],
+      "consumers": [
+        "all layers"
+      ],
+      "owner_layer": "quality",
+      "evidence": [
+        "Repository audit: python -m pytest"
+      ],
+      "known_limitations": [],
+      "planned_action": "retain"
+    },
+    {
+      "name": "Kafka",
+      "category": "streaming",
+      "version": "3.9.0",
+      "state": "IMPLEMENTED_NOT_RUNTIME_VERIFIED",
+      "purpose": "optional event replay and DLQ simulation",
+      "required_for_default_stack": false,
+      "required_for_training": false,
+      "required_for_serving": false,
+      "required_for_offline_analytics": false,
+      "required_for_data_engineering": true,
+      "required_for_observability": false,
+      "required_for_frontend": false,
+      "required_for_ci": false,
+      "runtime_location": "Docker streaming profile",
+      "configuration_paths": [
+        "docker-compose.yml"
+      ],
+      "main_source_paths": [
+        "src/streaming"
+      ],
+      "health_check": "docker profile smoke not yet recorded",
+      "validation_command": "docker profile smoke not yet recorded",
+      "persistent_state": "broker runtime",
+      "credentials_required": false,
+      "network_ports": [
+        9094,
+        8088
+      ],
+      "dependencies_on_other_services": [
+        "PostgreSQL"
+      ],
+      "consumers": [
+        "replay demo"
+      ],
+      "owner_layer": "ingestion",
+      "evidence": [
+        "Repository audit: docker profile smoke not yet recorded"
+      ],
+      "known_limitations": [
+        "not required for batch inference"
+      ],
+      "planned_action": "retain optional"
+    },
+    {
+      "name": "Airflow",
+      "category": "orchestration",
+      "version": "2.10+ target",
+      "state": "IMPLEMENTED_NOT_RUNTIME_VERIFIED",
+      "purpose": "batch DAG definition",
+      "required_for_default_stack": false,
+      "required_for_training": false,
+      "required_for_serving": false,
+      "required_for_offline_analytics": false,
+      "required_for_data_engineering": true,
+      "required_for_observability": false,
+      "required_for_frontend": false,
+      "required_for_ci": false,
+      "runtime_location": "external Airflow DAG directory",
+      "configuration_paths": [],
+      "main_source_paths": [
+        "dags/"
+      ],
+      "health_check": "DAG import where Airflow installed",
+      "validation_command": "DAG import where Airflow installed",
+      "persistent_state": "external",
+      "credentials_required": false,
+      "network_ports": [],
+      "dependencies_on_other_services": [
+        "project mount"
+      ],
+      "consumers": [
+        "operators"
+      ],
+      "owner_layer": "orchestration",
+      "evidence": [
+        "Repository audit: DAG import where Airflow installed"
+      ],
+      "known_limitations": [
+        "no local container/runtime proof"
+      ],
+      "planned_action": "retain definition"
+    },
+    {
+      "name": "Airbyte",
+      "category": "integration",
+      "version": "undiscovered",
+      "state": "TEMPLATE_ONLY",
+      "purpose": "future connector configuration example",
+      "required_for_default_stack": false,
+      "required_for_training": false,
+      "required_for_serving": false,
+      "required_for_offline_analytics": false,
+      "required_for_data_engineering": false,
+      "required_for_observability": false,
+      "required_for_frontend": false,
+      "required_for_ci": false,
+      "runtime_location": "template",
+      "configuration_paths": [
+        "infrastructure/airbyte/postgres_to_bigquery.json"
+      ],
+      "main_source_paths": [],
+      "health_check": "schema inspection only",
+      "validation_command": "schema inspection only",
+      "persistent_state": "none",
+      "credentials_required": true,
+      "network_ports": [],
+      "dependencies_on_other_services": [
+        "PostgreSQL",
+        "BigQuery"
+      ],
+      "consumers": [
+        "future deployment"
+      ],
+      "owner_layer": "integration",
+      "evidence": [
+        "Repository audit: schema inspection only"
+      ],
+      "known_limitations": [
+        "no sync executed"
+      ],
+      "planned_action": "retain template"
+    },
+    {
+      "name": "BigQuery",
+      "category": "cloud warehouse",
+      "version": "undiscovered",
+      "state": "TEMPLATE_ONLY",
+      "purpose": "cloud warehouse target alternative",
+      "required_for_default_stack": false,
+      "required_for_training": false,
+      "required_for_serving": false,
+      "required_for_offline_analytics": false,
+      "required_for_data_engineering": false,
+      "required_for_observability": false,
+      "required_for_frontend": false,
+      "required_for_ci": false,
+      "runtime_location": "dbt template",
+      "configuration_paths": [
+        "dbt/profiles.yml"
+      ],
+      "main_source_paths": [],
+      "health_check": "configuration inspection",
+      "validation_command": "configuration inspection",
+      "persistent_state": "none",
+      "credentials_required": true,
+      "network_ports": [],
+      "dependencies_on_other_services": [
+        "GCP"
+      ],
+      "consumers": [
+        "future deployment"
+      ],
+      "owner_layer": "data",
+      "evidence": [
+        "Repository audit: configuration inspection"
+      ],
+      "known_limitations": [
+        "no cloud execution"
+      ],
+      "planned_action": "retain template"
+    },
+    {
+      "name": "scikit-learn",
+      "category": "ML",
+      "version": "1.7.2",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "preprocessing, classic ML, clustering and anomaly models",
+      "required_for_default_stack": false,
+      "required_for_training": true,
+      "required_for_serving": true,
+      "required_for_offline_analytics": false,
+      "required_for_data_engineering": false,
+      "required_for_observability": false,
+      "required_for_frontend": false,
+      "required_for_ci": false,
+      "runtime_location": "host/API",
+      "configuration_paths": [
+        "requirements.txt"
+      ],
+      "main_source_paths": [
+        "src/modeling"
+      ],
+      "health_check": "trusted artifact load tests",
+      "validation_command": "trusted artifact load tests",
+      "persistent_state": "joblib bundles",
+      "credentials_required": false,
+      "network_ports": [],
+      "dependencies_on_other_services": [
+        "joblib"
+      ],
+      "consumers": [
+        "five analytical cores"
+      ],
+      "owner_layer": "modeling",
+      "evidence": [
+        "Repository audit: trusted artifact load tests"
+      ],
+      "known_limitations": [],
+      "planned_action": "retain"
+    },
+    {
+      "name": "CatBoost",
+      "category": "ML",
+      "version": "1.2.8",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "frozen forecasting regressor",
+      "required_for_default_stack": false,
+      "required_for_training": true,
+      "required_for_serving": true,
+      "required_for_offline_analytics": false,
+      "required_for_data_engineering": false,
+      "required_for_observability": false,
+      "required_for_frontend": false,
+      "required_for_ci": false,
+      "runtime_location": "host/API",
+      "configuration_paths": [
+        "requirements.txt"
+      ],
+      "main_source_paths": [
+        "src/modeling/forecasting.py"
+      ],
+      "health_check": "forecast parity test",
+      "validation_command": "forecast parity test",
+      "persistent_state": "joblib bundle",
+      "credentials_required": false,
+      "network_ports": [],
+      "dependencies_on_other_services": [
+        "joblib"
+      ],
+      "consumers": [
+        "forecasting"
+      ],
+      "owner_layer": "modeling",
+      "evidence": [
+        "Repository audit: forecast parity test"
+      ],
+      "known_limitations": [],
+      "planned_action": "retain"
+    },
+    {
+      "name": "lifelines",
+      "category": "statistics",
+      "version": "0.30.0",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "offline survival analysis",
+      "required_for_default_stack": false,
+      "required_for_training": true,
+      "required_for_serving": false,
+      "required_for_offline_analytics": false,
+      "required_for_data_engineering": false,
+      "required_for_observability": false,
+      "required_for_frontend": false,
+      "required_for_ci": false,
+      "runtime_location": "training environment",
+      "configuration_paths": [
+        "requirements.txt"
+      ],
+      "main_source_paths": [
+        "src/modeling/survival.py"
+      ],
+      "health_check": "survival tests",
+      "validation_command": "survival tests",
+      "persistent_state": "joblib bundle",
+      "credentials_required": false,
+      "network_ports": [],
+      "dependencies_on_other_services": [
+        "pandas"
+      ],
+      "consumers": [
+        "survival"
+      ],
+      "owner_layer": "modeling",
+      "evidence": [
+        "Repository audit: survival tests"
+      ],
+      "known_limitations": [
+        "offline only"
+      ],
+      "planned_action": "retain"
+    },
+    {
+      "name": "mlxtend",
+      "category": "association mining",
+      "version": "0.23.4",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "basket itemsets and rules",
+      "required_for_default_stack": false,
+      "required_for_training": true,
+      "required_for_serving": false,
+      "required_for_offline_analytics": false,
+      "required_for_data_engineering": false,
+      "required_for_observability": false,
+      "required_for_frontend": false,
+      "required_for_ci": false,
+      "runtime_location": "training environment",
+      "configuration_paths": [
+        "requirements.txt"
+      ],
+      "main_source_paths": [
+        "src/modeling/basket.py"
+      ],
+      "health_check": "basket tests",
+      "validation_command": "basket tests",
+      "persistent_state": "canonical tables",
+      "credentials_required": false,
+      "network_ports": [],
+      "dependencies_on_other_services": [
+        "pandas"
+      ],
+      "consumers": [
+        "basket"
+      ],
+      "owner_layer": "modeling",
+      "evidence": [
+        "Repository audit: basket tests"
+      ],
+      "known_limitations": [
+        "not a recommender"
+      ],
+      "planned_action": "retain"
+    },
+    {
+      "name": "joblib",
+      "category": "serialization",
+      "version": "1.5.2",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "trusted fitted bundle serialization",
+      "required_for_default_stack": true,
+      "required_for_training": true,
+      "required_for_serving": true,
+      "required_for_offline_analytics": false,
+      "required_for_data_engineering": false,
+      "required_for_observability": false,
+      "required_for_frontend": false,
+      "required_for_ci": false,
+      "runtime_location": "host/API",
+      "configuration_paths": [
+        "requirements.txt"
+      ],
+      "main_source_paths": [
+        "artifacts/canonical"
+      ],
+      "health_check": "artifact load/parity tests",
+      "validation_command": "artifact load/parity tests",
+      "persistent_state": "DVC-owned bundles",
+      "credentials_required": false,
+      "network_ports": [],
+      "dependencies_on_other_services": [
+        "scientific libraries"
+      ],
+      "consumers": [
+        "serving"
+      ],
+      "owner_layer": "modeling",
+      "evidence": [
+        "Repository audit: artifact load/parity tests"
+      ],
+      "known_limitations": [
+        "trusted local artifacts only"
+      ],
+      "planned_action": "retain"
+    },
+    {
+      "name": "DVC",
+      "category": "reproducibility",
+      "version": "3.63.0",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "data, pipeline and canonical artifact ownership",
+      "required_for_default_stack": false,
+      "required_for_training": true,
+      "required_for_serving": true,
+      "required_for_offline_analytics": true,
+      "required_for_data_engineering": true,
+      "required_for_observability": false,
+      "required_for_frontend": false,
+      "required_for_ci": false,
+      "runtime_location": "host",
+      "configuration_paths": [
+        "dvc.yaml",
+        "dvc.lock"
+      ],
+      "main_source_paths": [
+        "data/processed",
+        "artifacts/canonical"
+      ],
+      "health_check": "dvc status/dag/doctor/metrics",
+      "validation_command": "dvc status/dag/doctor/metrics",
+      "persistent_state": "local cache",
+      "credentials_required": false,
+      "network_ports": [],
+      "dependencies_on_other_services": [
+        "Git"
+      ],
+      "consumers": [
+        "all cores"
+      ],
+      "owner_layer": "reproducibility",
+      "evidence": [
+        "Repository audit: dvc status/dag/doctor/metrics"
+      ],
+      "known_limitations": [
+        "no remote"
+      ],
+      "planned_action": "retain"
+    },
+    {
+      "name": "MLflow",
+      "category": "experiment management",
+      "version": "3.16.1",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "run tracking and model registry metadata",
+      "required_for_default_stack": false,
+      "required_for_training": true,
+      "required_for_serving": false,
+      "required_for_offline_analytics": false,
+      "required_for_data_engineering": false,
+      "required_for_observability": false,
+      "required_for_frontend": false,
+      "required_for_ci": false,
+      "runtime_location": "Docker mlops profile",
+      "configuration_paths": [
+        "docker-compose.yml",
+        "requirements-mlflow.txt"
+      ],
+      "main_source_paths": [
+        "src/fmcg_sales_intelligence/tracking"
+      ],
+      "health_check": "health plus canonical sync",
+      "validation_command": "health plus canonical sync",
+      "persistent_state": "PostgreSQL mlflow DB and volume",
+      "credentials_required": false,
+      "network_ports": [
+        5000
+      ],
+      "dependencies_on_other_services": [
+        "PostgreSQL"
+      ],
+      "consumers": [
+        "developers"
+      ],
+      "owner_layer": "mlops",
+      "evidence": [
+        "Docker health passed; canonical sync produced 7 idempotent runs and 2 aliased registered models"
+      ],
+      "known_limitations": [
+        "isolated from the frozen scientific runtime"
+      ],
+      "planned_action": "retain"
+    },
+    {
+      "name": "FastAPI + Pydantic + Uvicorn",
+      "category": "backend",
+      "version": "0.116.1 / 2.11.7 / 0.35.0",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "typed API and ASGI runtime",
+      "required_for_default_stack": true,
+      "required_for_training": false,
+      "required_for_serving": true,
+      "required_for_offline_analytics": false,
+      "required_for_data_engineering": false,
+      "required_for_observability": false,
+      "required_for_frontend": true,
+      "required_for_ci": false,
+      "runtime_location": "host/API container",
+      "configuration_paths": [
+        "pyproject.toml",
+        ".env.example"
+      ],
+      "main_source_paths": [
+        "src/fmcg_sales_intelligence/api"
+      ],
+      "health_check": "TestClient and /ready",
+      "validation_command": "TestClient and /ready",
+      "persistent_state": "none",
+      "credentials_required": false,
+      "network_ports": [
+        8000
+      ],
+      "dependencies_on_other_services": [
+        "canonical artifacts"
+      ],
+      "consumers": [
+        "dashboard",
+        "integrators"
+      ],
+      "owner_layer": "serving",
+      "evidence": [
+        "Repository audit: TestClient and /ready"
+      ],
+      "known_limitations": [],
+      "planned_action": "retain"
+    },
+    {
+      "name": "Prometheus",
+      "category": "observability",
+      "version": "3.5.0 image",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "service metrics collection",
+      "required_for_default_stack": false,
+      "required_for_training": false,
+      "required_for_serving": false,
+      "required_for_offline_analytics": false,
+      "required_for_data_engineering": false,
+      "required_for_observability": true,
+      "required_for_frontend": false,
+      "required_for_ci": false,
+      "runtime_location": "Docker observability profile",
+      "configuration_paths": [
+        "docker-compose.yml",
+        "infrastructure/prometheus/prometheus.yml"
+      ],
+      "main_source_paths": [
+        "src/fmcg_sales_intelligence/api"
+      ],
+      "health_check": "/metrics scrape config",
+      "validation_command": "/metrics scrape config",
+      "persistent_state": "runtime TSDB",
+      "credentials_required": false,
+      "network_ports": [
+        9090
+      ],
+      "dependencies_on_other_services": [
+        "API"
+      ],
+      "consumers": [
+        "Grafana"
+      ],
+      "owner_layer": "observability",
+      "evidence": [
+        "Docker readiness endpoint returned HTTP 200 and API scrape target was configured"
+      ],
+      "known_limitations": [],
+      "planned_action": "retain"
+    },
+    {
+      "name": "Grafana",
+      "category": "observability",
+      "version": "11.5.2",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "engineering dashboard provisioning",
+      "required_for_default_stack": false,
+      "required_for_training": false,
+      "required_for_serving": false,
+      "required_for_offline_analytics": false,
+      "required_for_data_engineering": false,
+      "required_for_observability": true,
+      "required_for_frontend": false,
+      "required_for_ci": false,
+      "runtime_location": "Docker observability profile",
+      "configuration_paths": [
+        "docker-compose.yml"
+      ],
+      "main_source_paths": [
+        "infrastructure/grafana"
+      ],
+      "health_check": "/api/health",
+      "validation_command": "/api/health",
+      "persistent_state": "container state",
+      "credentials_required": true,
+      "network_ports": [
+        3001
+      ],
+      "dependencies_on_other_services": [
+        "Prometheus",
+        "PostgreSQL"
+      ],
+      "consumers": [
+        "engineers"
+      ],
+      "owner_layer": "observability",
+      "evidence": [
+        "Docker /api/health returned database=ok with provisioned Prometheus datasource and platform dashboard"
+      ],
+      "known_limitations": [],
+      "planned_action": "retain"
+    },
+    {
+      "name": "Docker + Compose",
+      "category": "containerization",
+      "version": "29.7.2 / 5.5.1",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "local service isolation and profiles",
+      "required_for_default_stack": true,
+      "required_for_training": false,
+      "required_for_serving": true,
+      "required_for_offline_analytics": true,
+      "required_for_data_engineering": true,
+      "required_for_observability": true,
+      "required_for_frontend": true,
+      "required_for_ci": true,
+      "runtime_location": "host",
+      "configuration_paths": [
+        "docker-compose.yml"
+      ],
+      "main_source_paths": [
+        "infrastructure/docker",
+        "apps/dashboard/Dockerfile"
+      ],
+      "health_check": "docker compose config/build/ps",
+      "validation_command": "docker compose config/build/ps",
+      "persistent_state": "named volumes",
+      "credentials_required": false,
+      "network_ports": [],
+      "dependencies_on_other_services": [
+        "Docker Desktop"
+      ],
+      "consumers": [
+        "developers"
+      ],
+      "owner_layer": "infrastructure",
+      "evidence": [
+        "Repository audit: docker compose config/build/ps"
+      ],
+      "known_limitations": [],
+      "planned_action": "retain"
+    },
+    {
+      "name": "React + TypeScript + Vite + ECharts",
+      "category": "frontend",
+      "version": "19.1.1 / 5.9.2 / 7.3.6 / 6.1.0",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "API-driven business dashboard",
+      "required_for_default_stack": true,
+      "required_for_training": false,
+      "required_for_serving": false,
+      "required_for_offline_analytics": false,
+      "required_for_data_engineering": false,
+      "required_for_observability": false,
+      "required_for_frontend": true,
+      "required_for_ci": false,
+      "runtime_location": "Node/Docker frontend",
+      "configuration_paths": [
+        "apps/dashboard/package.json"
+      ],
+      "main_source_paths": [
+        "apps/dashboard/src"
+      ],
+      "health_check": "npm audit/test/build",
+      "validation_command": "npm audit/test/build",
+      "persistent_state": "none",
+      "credentials_required": false,
+      "network_ports": [
+        8080,
+        5173
+      ],
+      "dependencies_on_other_services": [
+        "FastAPI"
+      ],
+      "consumers": [
+        "business users"
+      ],
+      "owner_layer": "frontend",
+      "evidence": [
+        "Repository audit: npm audit/test/build"
+      ],
+      "known_limitations": [
+        "large JS bundle warning"
+      ],
+      "planned_action": "retain and code-split later"
+    },
+    {
+      "name": "Git + GitHub",
+      "category": "version control",
+      "version": "Git version undiscovered",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "source history and collaboration",
+      "required_for_default_stack": true,
+      "required_for_training": true,
+      "required_for_serving": true,
+      "required_for_offline_analytics": true,
+      "required_for_data_engineering": true,
+      "required_for_observability": true,
+      "required_for_frontend": true,
+      "required_for_ci": true,
+      "runtime_location": "host/remote",
+      "configuration_paths": [
+        ".gitignore"
+      ],
+      "main_source_paths": [
+        "repository"
+      ],
+      "health_check": "git status",
+      "validation_command": "git status",
+      "persistent_state": "Git objects",
+      "credentials_required": true,
+      "network_ports": [],
+      "dependencies_on_other_services": [],
+      "consumers": [
+        "developers",
+        "CI"
+      ],
+      "owner_layer": "reproducibility",
+      "evidence": [
+        "Repository audit: git status"
+      ],
+      "known_limitations": [
+        "no push in milestone"
+      ],
+      "planned_action": "retain"
+    },
+    {
+      "name": "GitHub Actions",
+      "category": "CI",
+      "version": "hosted action versions",
+      "state": "ACTIVE_PARTIAL",
+      "purpose": "fixture-safe Python/frontend validation",
+      "required_for_default_stack": false,
+      "required_for_training": false,
+      "required_for_serving": false,
+      "required_for_offline_analytics": false,
+      "required_for_data_engineering": false,
+      "required_for_observability": false,
+      "required_for_frontend": true,
+      "required_for_ci": true,
+      "runtime_location": "GitHub hosted",
+      "configuration_paths": [
+        ".github/workflows/ci.yml"
+      ],
+      "main_source_paths": [],
+      "health_check": "workflow syntax and future remote run",
+      "validation_command": "workflow syntax and future remote run",
+      "persistent_state": "hosted logs",
+      "credentials_required": false,
+      "network_ports": [],
+      "dependencies_on_other_services": [
+        "GitHub"
+      ],
+      "consumers": [
+        "contributors"
+      ],
+      "owner_layer": "CI",
+      "evidence": [
+        "Repository audit: workflow syntax and future remote run"
+      ],
+      "known_limitations": [
+        "cannot reproduce DVC artifacts without remote"
+      ],
+      "planned_action": "validate after push"
+    },
+    {
+      "name": "OpenAPI",
+      "category": "API contract",
+      "version": "FastAPI-generated",
+      "state": "ACTIVE_EXECUTED",
+      "purpose": "machine-readable HTTP documentation",
+      "required_for_default_stack": true,
+      "required_for_training": false,
+      "required_for_serving": true,
+      "required_for_offline_analytics": false,
+      "required_for_data_engineering": false,
+      "required_for_observability": false,
+      "required_for_frontend": true,
+      "required_for_ci": false,
+      "runtime_location": "API",
+      "configuration_paths": [
+        "src/fmcg_sales_intelligence/api"
+      ],
+      "main_source_paths": [],
+      "health_check": "GET /openapi.json",
+      "validation_command": "GET /openapi.json",
+      "persistent_state": "none",
+      "credentials_required": false,
+      "network_ports": [
+        8000
+      ],
+      "dependencies_on_other_services": [
+        "FastAPI"
+      ],
+      "consumers": [
+        "integrators"
+      ],
+      "owner_layer": "serving",
+      "evidence": [
+        "Repository audit: GET /openapi.json"
+      ],
+      "known_limitations": [],
+      "planned_action": "retain"
+    }
+  ],
+  "not_needed": [
+    {
+      "name": "Kubernetes",
+      "reason": "No orchestration scale requirement"
+    },
+    {
+      "name": "Spark",
+      "reason": "Local data volume is served by Polars/DuckDB"
+    },
+    {
+      "name": "Redis/Celery",
+      "reason": "No cache or asynchronous queue requirement"
+    },
+    {
+      "name": "MinIO",
+      "reason": "Local MLflow volume is sufficient"
+    },
+    {
+      "name": "Streamlit",
+      "reason": "React is the single business dashboard"
+    }
+  ]
+}

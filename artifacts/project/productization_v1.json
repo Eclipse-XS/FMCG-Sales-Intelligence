@@ -10,8 +10,8 @@
   "mlflow": {"version": "3.16.1", "experiments": 7, "runs": 7, "registered_models": 2, "idempotent_sync": true},
   "dashboard_pages": 11,
   "docker_services_validated": ["postgres", "api", "frontend", "mlflow", "prometheus", "grafana"],
-  "validation": {"pytest": 124, "pytest_skipped": 3, "dbt": 55, "great_expectations_datasets": 8, "frontend_tests": 7, "npm_vulnerabilities": 0},
-  "blockers": ["segment_assignment", "production_security_controls", "docker_runtime_unavailable"]
+  "validation": {"pytest": 130, "pytest_skipped": 0, "dbt": 55, "great_expectations_datasets": 8, "frontend_tests": 7, "npm_vulnerabilities": 0},
+  "blockers": ["supervised_segment_classification", "production_security_controls"]
   ,"v1_1": {
     "status": "CROSS_MACHINE_REPRODUCIBILITY_PROVEN_WITH_OPTIONAL_RUNTIME_BLOCKERS",
     "dvc_remote": "gdrive_complete_first_and_second_push_pass",
@@ -20,6 +20,17 @@
     "security": "local_demo_baseline_hardened",
     "kafka": "active_partial_docker_engine_unavailable",
     "airflow": "implemented_not_runtime_verified",
+    "scientific_results_changed": false
+  },
+  "v1_2": {
+    "status": "RUNTIME_PLATFORM_V1_2_COMPLETE",
+    "docker": "active_executed_local",
+    "compose": "core_mlops_observability_streaming_pass",
+    "mlflow": "7_canonical_runs_idempotent_restart_persistent",
+    "kafka": "active_executed_local_simulation",
+    "airflow": "active_executed_local_orchestration_demo",
+    "segment_cluster_membership_assignment": "ACTIVE_EXPERIMENTAL",
+    "supervised_segment_classification": "DEFERRED_NOT_JUSTIFIED_V1",
     "scientific_results_changed": false
   }
 }

@@ -381,7 +381,7 @@
       "name": "Kafka",
       "category": "streaming",
       "version": "3.9.0",
-      "state": "IMPLEMENTED_NOT_RUNTIME_VERIFIED",
+      "state": "ACTIVE_EXECUTED_LOCAL_SIMULATION",
       "purpose": "optional event replay and DLQ simulation",
       "required_for_default_stack": false,
       "required_for_training": false,
@@ -398,8 +398,8 @@
       "main_source_paths": [
         "src/streaming"
       ],
-      "health_check": "docker profile smoke not yet recorded",
-      "validation_command": "docker profile smoke not yet recorded",
+      "health_check": "broker health plus deterministic replay and DLQ",
+      "validation_command": "producer, consumer, replay idempotency and DLQ smoke",
       "persistent_state": "broker runtime",
       "credentials_required": false,
       "network_ports": [
@@ -414,7 +414,7 @@
       ],
       "owner_layer": "ingestion",
       "evidence": [
-        "Repository audit: docker profile smoke not yet recorded"
+        "V1.2 runtime: broker healthy, replay idempotent at 20 rows, malformed events routed to DLQ"
       ],
       "known_limitations": [
         "not required for batch inference"
@@ -424,8 +424,8 @@
     {
       "name": "Airflow",
       "category": "orchestration",
-      "version": "2.10+ target",
-      "state": "IMPLEMENTED_NOT_RUNTIME_VERIFIED",
+      "version": "2.10.5",
+      "state": "ACTIVE_EXECUTED_LOCAL_ORCHESTRATION_DEMO",
       "purpose": "batch DAG definition",
       "required_for_default_stack": false,
       "required_for_training": false,
@@ -435,14 +435,14 @@
       "required_for_observability": false,
       "required_for_frontend": false,
       "required_for_ci": false,
-      "runtime_location": "external Airflow DAG directory",
+      "runtime_location": "ephemeral local Docker orchestration demo",
       "configuration_paths": [],
       "main_source_paths": [
         "dags/"
       ],
-      "health_check": "DAG import where Airflow installed",
-      "validation_command": "DAG import where Airflow installed",
-      "persistent_state": "external",
+      "health_check": "DAG discovery and bounded task execution",
+      "validation_command": "airflow tasks test fmcg_runtime_smoke verify_frozen_evidence",
+      "persistent_state": "ephemeral local metadata for runtime proof",
       "credentials_required": false,
       "network_ports": [],
       "dependencies_on_other_services": [
@@ -453,12 +453,12 @@
       ],
       "owner_layer": "orchestration",
       "evidence": [
-        "Repository audit: DAG import where Airflow installed"
+        "V1.2 runtime: DAG discovery passed and frozen-evidence smoke task succeeded"
       ],
       "known_limitations": [
-        "no local container/runtime proof"
+        "local ephemeral demonstration, not a deployed scheduler"
       ],
-      "planned_action": "retain definition"
+      "planned_action": "retain bounded demo"
     },
     {
       "name": "Airbyte",
@@ -787,7 +787,7 @@
       "name": "MLflow",
       "category": "experiment management",
       "version": "3.16.1",
-      "state": "ACTIVE_EXECUTED",
+      "state": "ACTIVE_EXECUTED_LOCAL",
       "purpose": "run tracking and model registry metadata",
       "required_for_default_stack": false,
       "required_for_training": true,
@@ -874,7 +874,7 @@
       "name": "Prometheus",
       "category": "observability",
       "version": "3.5.0 image",
-      "state": "ACTIVE_EXECUTED",
+      "state": "ACTIVE_EXECUTED_LOCAL",
       "purpose": "service metrics collection",
       "required_for_default_stack": false,
       "required_for_training": false,
@@ -916,7 +916,7 @@
       "name": "Grafana",
       "category": "observability",
       "version": "11.5.2",
-      "state": "ACTIVE_EXECUTED",
+      "state": "ACTIVE_EXECUTED_LOCAL",
       "purpose": "engineering dashboard provisioning",
       "required_for_default_stack": false,
       "required_for_training": false,
@@ -958,7 +958,7 @@
       "name": "Docker + Compose",
       "category": "containerization",
       "version": "29.7.2 / 5.5.1",
-      "state": "ACTIVE_EXECUTED",
+      "state": "ACTIVE_EXECUTED_LOCAL",
       "purpose": "local service isolation and profiles",
       "required_for_default_stack": true,
       "required_for_training": false,

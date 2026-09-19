@@ -23,7 +23,16 @@ CAPABILITIES = {
         "required": ["sales_daily", "promotions", "promotion_stores", "promotion_skus"],
         "optional": ["prices", "inventory_snapshots"],
     },
-    "segment_assignment": {"required": [], "optional": [], "scientifically_blocked": True},
+    "segment_cluster_membership_assignment": {
+        "required": ["sales_daily", "locations"],
+        "optional": ["prices", "promotions"],
+        "experimental": True,
+    },
+    "supervised_segment_classification": {
+        "required": [],
+        "optional": [],
+        "scientifically_blocked": True,
+    },
 }
 
 
@@ -39,7 +48,8 @@ def evaluate_capabilities(
         elif required & invalid:
             status, missing = "INVALID_CONTRACT", sorted(required & invalid)
         elif required <= supplied:
-            status, missing = "AVAILABLE", []
+            status = "ACTIVE_EXPERIMENTAL" if rule.get("experimental") else "AVAILABLE"
+            missing = []
         else:
             status, missing = "UNAVAILABLE_MISSING_CONTRACT", sorted(required - supplied)
         results.append(

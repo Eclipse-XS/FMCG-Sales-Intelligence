@@ -18,7 +18,7 @@ from ..analytics import AnalyticsFilters, AnalyticsReadService, BusinessIntellig
 from ..capabilities import evaluate_capabilities
 from ..contracts import load_registry
 from ..domain_packs import DomainPackRegistry
-from ..serving import ForecastService, FrozenModelRegistry, StockoutService
+from ..serving import ForecastService, FrozenModelRegistry, SegmentMembershipService, StockoutService
 from .schemas import BatchRequest, ContractRowsRequest
 from .settings import Settings
 
@@ -54,6 +54,10 @@ def create_app(settings: Settings | None = None, artifact_root: str | Path | Non
         BusinessIntelligenceService(),
     )
     forecast, stockout = ForecastService(registry), StockoutService(registry)
+    try:
+        segment_membership = SegmentMembershipService(artifact_root or settings.artifact_root)
+    except (FileNotFoundError, ValueError):
+        segment_membership = None
     for name, record in registry.records.items():
         READY.labels(model=name).set(1 if record.ready else 0)
 
@@ -222,6 +226,15 @@ def create_app(settings: Settings | None = None, artifact_root: str | Path | Non
     @application.get("/api/v1/analytics/filters", summary="Read bounded analytical filter values")
     def analytics_filters():
         return bi.filter_metadata()
+
+    @application.post(
+        "/api/v1/analytics/segments/assign",
+        summary="Assign exploratory membership with the frozen segmentation model",
+    )
+    def assign_segment_membership(body: BatchRequest):
+        if segment_membership is None:
+            raise HTTPException(503, "Frozen segmentation artifact is unavailable")
+        return {"items": segment_membership.assign(body.rows)}
 
     @application.get("/api/v1/analytics/{name}", summary="Read frozen offline analytical outputs")
     def read_analytics(name: str, offset: int = Query(0, ge=0), limit: int = Query(100, ge=1, le=500)):

@@ -5,10 +5,10 @@ import json
 
 import uvicorn
 
-from .api.settings import Settings
-from .capabilities import evaluate_capabilities
-from .contracts import load_registry
-from .domain_packs import DomainPackRegistry
+from .product.api.settings import Settings
+from .product.capabilities import evaluate_capabilities
+from .product.contracts import load_registry
+from .product.domains import DomainPackRegistry
 
 
 def main() -> None:
@@ -63,7 +63,7 @@ def main() -> None:
     elif args.command == "serve":
         settings = Settings()
         uvicorn.run(
-            "fmcg_sales_intelligence.api.app:app",
+            "fmcg_sales_intelligence.product.api.app:app",
             host=args.host or settings.api_host,
             port=args.port or settings.api_port,
         )

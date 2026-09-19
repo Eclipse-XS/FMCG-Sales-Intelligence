@@ -5,9 +5,9 @@ services:
     ports: ["${POSTGRES_PORT:-55432}:5432"]
     volumes:
       - fmcg_pgdata:/var/lib/postgresql/data
-      - ./db/init/05-mlflow-database.sql:/docker-entrypoint-initdb.d/05-mlflow-database.sql:ro
-      - ./db/schema.sql:/docker-entrypoint-initdb.d/10-schema.sql:ro
-      - ./db/indexes.sql:/docker-entrypoint-initdb.d/20-indexes.sql:ro
+      - ./platform/postgres/init/05-mlflow-database.sql:/docker-entrypoint-initdb.d/05-mlflow-database.sql:ro
+      - ./platform/postgres/schema.sql:/docker-entrypoint-initdb.d/10-schema.sql:ro
+      - ./platform/postgres/indexes.sql:/docker-entrypoint-initdb.d/20-indexes.sql:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
       interval: 5s
@@ -54,7 +54,7 @@ services:
       GF_USERS_ALLOW_SIGN_UP: "false"
     ports: ["3001:3000"]
     volumes:
-      - ./infrastructure/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./platform/observability/grafana/provisioning:/etc/grafana/provisioning:ro
     depends_on:
       postgres: {condition: service_healthy}
     healthcheck:
@@ -65,7 +65,7 @@ services:
   api:
     build:
       context: .
-      dockerfile: infrastructure/docker/api.Dockerfile
+      dockerfile: platform/docker/api.Dockerfile
     profiles: [core, full-demo, observability]
     environment:
       FSI_PROJECT_ROOT: /app
@@ -77,8 +77,8 @@ services:
     ports: ["${FSI_API_PORT:-8000}:8000"]
     volumes:
       - ./artifacts/canonical:/app/artifacts/canonical:ro
-      - ./domain_packs:/app/domain_packs:ro
-      - ./contracts:/app/contracts:ro
+      - ./config/domains:/app/config/domains:ro
+      - ./config/contracts:/app/config/contracts:ro
       - ./data/warehouse:/app/data/warehouse:ro
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/ready', timeout=3)"]
@@ -96,7 +96,7 @@ services:
   mlflow:
     build:
       context: .
-      dockerfile: infrastructure/docker/mlflow.Dockerfile
+      dockerfile: platform/docker/mlflow.Dockerfile
     profiles: [mlops, full-demo]
     command: ["mlflow", "server", "--host", "0.0.0.0", "--port", "5000", "--backend-store-uri", "postgresql+psycopg://fmcg:${POSTGRES_PASSWORD:-change_me}@postgres:5432/${MLFLOW_DB:-mlflow}", "--artifacts-destination", "/mlflow/artifacts", "--serve-artifacts"]
     ports: ["${MLFLOW_PORT:-5000}:5000"]
@@ -119,7 +119,7 @@ services:
     command: ["--config.file=/etc/prometheus/prometheus.yml"]
     ports: ["${PROMETHEUS_PORT:-9090}:9090"]
     volumes:
-      - ./infrastructure/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./platform/observability/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
     depends_on:
       api: {condition: service_healthy}
 volumes:

@@ -12,8 +12,8 @@
   "controls": {
     "data_and_model_reproducibility": "DVC",
     "run_and_registry_metadata": "MLflow",
-    "contract_authority": "contracts/registry_v1.yaml",
-    "company_presentation_and_mappings": "domain_packs/<profile>"
+    "contract_authority": "config/contracts/registry_v1.yaml",
+    "company_presentation_and_mappings": "config/domains/<profile>"
   },
   "serving": {
     "forecasting": "canonical forecasting_v1 bundle -> validated request frame -> CatBoost predict -> non-negative 7-day units",

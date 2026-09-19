@@ -17,7 +17,7 @@ UCI Online Retail II is the open transaction donor. The Dunnhumby repository pro
 
 ## Limitations
 
-The dev generator uses measured priors: Instacart basket quantiles and reorder cadence; Favorita positive-unit quantiles, promotion frequency and returns; M5 nonzero demand frequency and within-series price ratios. Favorita calibration is based on a continuous 2016 subset with 10 stores, 372 items and 455,269 observations. M5 calibration covers all 30,490 series for identity/schema counts and a stratified 1,200-series sample for demand/price distributions. These are donor priors, not copied business records. PostgreSQL 17 runtime loading and validation are recorded in `reports/database_validation.md`.
+The dev generator uses measured priors: Instacart basket quantiles and reorder cadence; Favorita positive-unit quantiles, promotion frequency and returns; M5 nonzero demand frequency and within-series price ratios. Favorita calibration is based on a continuous 2016 subset with 10 stores, 372 items and 455,269 observations. M5 calibration covers all 30,490 series for identity/schema counts and a stratified 1,200-series sample for demand/price distributions. These are donor priors, not copied business records. PostgreSQL 17 runtime loading and validation are recorded in `artifacts/reports/database_validation.md`.
 
 ## Operational indexes
 

@@ -1,6 +1,6 @@
 # Modeling feature policy
 
-The authoritative task lists are the YAML contracts under `configs/modeling/`; this document explains enforcement.
+The authoritative task lists are the YAML contracts under `config/modeling/`; this document explains enforcement.
 
 - A target or target-observability column may never appear in `features`.
 - Date and entity keys remain identifiers even when also declared categorical.

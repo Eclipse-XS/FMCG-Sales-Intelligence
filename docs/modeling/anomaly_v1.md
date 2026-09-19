@@ -27,5 +27,5 @@ The data are synthetic, cover about 90 days, omit zero-sale days, and have no ve
 ## Reproduction
 
 ```powershell
-.venv\Scripts\python.exe -m src.modeling.cli run --task anomaly --output artifacts/canonical/anomaly_v1 --experiment-id anomaly_v1_canonical --overwrite
+.venv\Scripts\python.exe -m fmcg_sales_intelligence.science.cli run --task anomaly --output artifacts/canonical/anomaly_v1 --experiment-id anomaly_v1_canonical --overwrite
 ```

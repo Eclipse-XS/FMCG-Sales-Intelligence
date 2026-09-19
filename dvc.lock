@@ -1,11 +1,11 @@
 schema: '2.0'
 stages:
   forecasting_v1:
-    cmd: python -m src.modeling.cli run --task forecasting --output 
-      artifacts/canonical/forecasting_v1 --experiment-id 
+    cmd: python -m fmcg_sales_intelligence.science.cli run --task forecasting
+      --output artifacts/canonical/forecasting_v1 --experiment-id
       forecasting_v1_canonical --overwrite
     deps:
-    - path: configs/modeling/forecasting.yaml
+    - path: config/modeling/forecasting.yaml
       hash: md5
       md5: 93ccab285460e4c33bfd8e69d5ac7d0f
       size: 1369
@@ -13,19 +13,19 @@ stages:
       hash: md5
       md5: ff7817045cab0a7a2aa66e3bbedeef61
       size: 1060872
-    - path: src/modeling/__init__.py
+    - path: src/fmcg_sales_intelligence/science/__init__.py
       hash: md5
       md5: 740a7e525f4e5a3b496e8687da504cfb
       size: 1339
-    - path: src/modeling/cli.py
+    - path: src/fmcg_sales_intelligence/science/cli.py
       hash: md5
-      md5: 28a1306ce6cc79b3e4a37060c27e5be1
-      size: 3207
-    - path: src/modeling/forecasting.py
+      md5: 327399e41e6603746a9bd1c5a2d5b200
+      size: 3200
+    - path: src/fmcg_sales_intelligence/science/forecasting/__init__.py
       hash: md5
-      md5: f5620538fcd9b07376f55d0928a37f8e
-      size: 16043
-    - path: src/modeling/metrics.py
+      md5: 44281d8902241d7572c05261190424c2
+      size: 16086
+    - path: src/fmcg_sales_intelligence/science/metrics.py
       hash: md5
       md5: d48714a734e886b9506c78bb6e0923d3
       size: 660
@@ -40,34 +40,35 @@ stages:
       md5: b5db53edebf547800bd7d20d63c05320
       size: 155
   stockout_classification_v1:
-    cmd: python -m src.modeling.cli run --task stockout_classification --output 
-      artifacts/canonical/stockout_classification_v1 --experiment-id 
+    cmd: python -m fmcg_sales_intelligence.science.cli run --task
+      stockout_classification --output
+      artifacts/canonical/stockout_classification_v1 --experiment-id
       stockout_classification_v1_canonical --overwrite
     deps:
-    - path: configs/modeling/stockout_classification.yaml
+    - path: config/modeling/stockout_classification.yaml
       hash: md5
       md5: 2b019dd78a7bafb93d070453817b9b60
       size: 1894
+    - path: data/processed/stockout/stockout_episodes.parquet
+      hash: md5
+      md5: cd7362200a066bc13ef9d8fffc825317
+      size: 2760
     - path: data/processed/stockout/stockout_v1.parquet
       hash: md5
       md5: e60f74472a031f0a54a9ca27052f948b
       size: 208437
-    - path: reports/data_refinement/stockout_episodes.parquet
-      hash: md5
-      md5: cd7362200a066bc13ef9d8fffc825317
-      size: 2760
-    - path: src/modeling/__init__.py
+    - path: src/fmcg_sales_intelligence/science/__init__.py
       hash: md5
       md5: 740a7e525f4e5a3b496e8687da504cfb
       size: 1339
-    - path: src/modeling/cli.py
+    - path: src/fmcg_sales_intelligence/science/cli.py
       hash: md5
-      md5: 28a1306ce6cc79b3e4a37060c27e5be1
-      size: 3207
-    - path: src/modeling/stockout.py
+      md5: 327399e41e6603746a9bd1c5a2d5b200
+      size: 3200
+    - path: src/fmcg_sales_intelligence/science/stockout/__init__.py
       hash: md5
-      md5: fd3d3f2a1596b0e91bae35e74acb45ba
-      size: 28337
+      md5: fb0537ef1b075b5a27048723dfc4ba99
+      size: 28379
     outs:
     - path: artifacts/canonical/stockout_classification_v1
       hash: md5
@@ -79,34 +80,34 @@ stages:
       md5: c2314d2c0cffc3aed05909b4d73b9432
       size: 344
   stockout_survival_v1:
-    cmd: python -m src.modeling.cli run --task stockout_survival --output 
-      artifacts/canonical/stockout_survival_v1 --experiment-id 
-      stockout_survival_v1_canonical --overwrite
+    cmd: python -m fmcg_sales_intelligence.science.cli run --task
+      stockout_survival --output artifacts/canonical/stockout_survival_v1
+      --experiment-id stockout_survival_v1_canonical --overwrite
     deps:
-    - path: configs/modeling/stockout_classification.yaml
+    - path: config/modeling/stockout_classification.yaml
       hash: md5
       md5: 2b019dd78a7bafb93d070453817b9b60
       size: 1894
-    - path: configs/modeling/stockout_survival.yaml
+    - path: config/modeling/stockout_survival.yaml
       hash: md5
       md5: 5b29df817fb7e6d0c4456ece3eddcba8
       size: 1413
+    - path: data/processed/stockout/stockout_episodes.parquet
+      hash: md5
+      md5: cd7362200a066bc13ef9d8fffc825317
+      size: 2760
     - path: data/processed/stockout/stockout_v1.parquet
       hash: md5
       md5: e60f74472a031f0a54a9ca27052f948b
       size: 208437
-    - path: reports/data_refinement/stockout_episodes.parquet
+    - path: src/fmcg_sales_intelligence/science/stockout/__init__.py
       hash: md5
-      md5: cd7362200a066bc13ef9d8fffc825317
-      size: 2760
-    - path: src/modeling/stockout.py
+      md5: fb0537ef1b075b5a27048723dfc4ba99
+      size: 28379
+    - path: src/fmcg_sales_intelligence/science/survival/__init__.py
       hash: md5
-      md5: fd3d3f2a1596b0e91bae35e74acb45ba
-      size: 28337
-    - path: src/modeling/survival.py
-      hash: md5
-      md5: 034c296cc4ce23a9408835a9f26f7a96
-      size: 21630
+      md5: 766a00c619f5b42c1732c19927d953c2
+      size: 21673
     outs:
     - path: artifacts/canonical/stockout_survival_v1
       hash: md5
@@ -118,11 +119,11 @@ stages:
       md5: 254c83cbf083a3d1519303c5b122cb99
       size: 191
   segmentation_v1:
-    cmd: '".venv\Scripts\python.exe" -m src.modeling.cli run --task segmentation --output
-      artifacts/canonical/segmentation_v1 --experiment-id segmentation_v1_canonical
-      --overwrite'
+    cmd: python -m fmcg_sales_intelligence.science.cli run --task segmentation
+      --output artifacts/canonical/segmentation_v1 --experiment-id
+      segmentation_v1_canonical --overwrite
     deps:
-    - path: configs/modeling/segmentation.yaml
+    - path: config/modeling/segmentation.yaml
       hash: md5
       md5: 1da9e02f3a3760fc4376b6970ba82b8f
       size: 1430
@@ -130,10 +131,10 @@ stages:
       hash: md5
       md5: 482b9bb575f19e2ef217b7831b859e58
       size: 7910
-    - path: src/modeling/segmentation.py
+    - path: src/fmcg_sales_intelligence/science/segmentation/__init__.py
       hash: md5
-      md5: 33df3537b693e39887a0b0de5da3d674
-      size: 21631
+      md5: dc6b79f23973acd855c9e9cc6e31ce49
+      size: 21672
     outs:
     - path: artifacts/canonical/segmentation_v1
       hash: md5
@@ -145,10 +146,11 @@ stages:
       md5: 72fd8485bc8016d979c8df404f4bea47
       size: 346
   anomaly_v1:
-    cmd: '".venv\Scripts\python.exe" -m src.modeling.cli run --task anomaly --output
-      artifacts/canonical/anomaly_v1 --experiment-id anomaly_v1_canonical --overwrite'
+    cmd: python -m fmcg_sales_intelligence.science.cli run --task anomaly
+      --output artifacts/canonical/anomaly_v1 --experiment-id
+      anomaly_v1_canonical --overwrite
     deps:
-    - path: configs/modeling/anomaly.yaml
+    - path: config/modeling/anomaly.yaml
       hash: md5
       md5: b1e23df733cd860455e33cacbfd1475b
       size: 1315
@@ -156,10 +158,10 @@ stages:
       hash: md5
       md5: ced5e43d09a1f1c2defdff5e198e85c2
       size: 312086
-    - path: src/modeling/anomaly.py
+    - path: src/fmcg_sales_intelligence/science/anomaly/__init__.py
       hash: md5
-      md5: 36d1338fdf2be81d2a57bba6987fb1a5
-      size: 21925
+      md5: 41e24218dd2b5726f641780cfd598eaa
+      size: 21969
     outs:
     - path: artifacts/anomaly_v1_metrics.json
       hash: md5
@@ -171,10 +173,11 @@ stages:
       size: 5345939
       nfiles: 19
   basket_v1:
-    cmd: '".venv\Scripts\python.exe" -m src.modeling.cli run --task basket --output
-      artifacts/canonical/basket_v1 --experiment-id basket_v1_canonical --overwrite'
+    cmd: python -m fmcg_sales_intelligence.science.cli run --task basket
+      --output artifacts/canonical/basket_v1 --experiment-id basket_v1_canonical
+      --overwrite
     deps:
-    - path: configs/modeling/basket.yaml
+    - path: config/modeling/basket.yaml
       hash: md5
       md5: 5936515bd7d6db7da9544048685b7656
       size: 732
@@ -182,10 +185,10 @@ stages:
       hash: md5
       md5: 396fdcd4a2a3726b50bf64c5a9afe98b
       size: 91756
-    - path: src/modeling/basket.py
+    - path: src/fmcg_sales_intelligence/science/basket/__init__.py
       hash: md5
-      md5: d3149f448d4356b0a50c5edfcaeaaaf1
-      size: 14300
+      md5: 64ea11154dff2da28a95ab57f650b58c
+      size: 14353
     outs:
     - path: artifacts/basket_v1_metrics.json
       hash: md5
@@ -197,10 +200,11 @@ stages:
       size: 546491
       nfiles: 19
   promotion_v1:
-    cmd: '".venv\Scripts\python.exe" -m src.modeling.cli run --task promotion --output
-      artifacts/canonical/promotion_v1 --experiment-id promotion_v1_canonical --overwrite'
+    cmd: python -m fmcg_sales_intelligence.science.cli run --task promotion
+      --output artifacts/canonical/promotion_v1 --experiment-id
+      promotion_v1_canonical --overwrite
     deps:
-    - path: configs/modeling/promotion.yaml
+    - path: config/modeling/promotion.yaml
       hash: md5
       md5: b5ae16ad04f32d3d36be381b87996a2d
       size: 1576
@@ -213,10 +217,10 @@ stages:
       hash: md5
       md5: 997da46ba87b3dece8fc23767116c76e
       size: 109161
-    - path: src/modeling/promotion.py
+    - path: src/fmcg_sales_intelligence/science/promotion/__init__.py
       hash: md5
-      md5: 71c8c900d826724ee771b6176f1040c6
-      size: 23414
+      md5: 11612864d93d136f877d5dca7f234195
+      size: 23456
     outs:
     - path: artifacts/canonical/promotion_v1
       hash: md5

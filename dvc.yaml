@@ -1,80 +1,80 @@
 stages:
   forecasting_v1:
-    cmd: python -m src.modeling.cli run --task forecasting --output artifacts/canonical/forecasting_v1 --experiment-id forecasting_v1_canonical --overwrite
+    cmd: python -m fmcg_sales_intelligence.science.cli run --task forecasting --output artifacts/canonical/forecasting_v1 --experiment-id forecasting_v1_canonical --overwrite
     deps:
-      - configs/modeling/forecasting.yaml
+      - config/modeling/forecasting.yaml
       - data/processed/forecasting/forecasting_v1.parquet
-      - src/modeling/__init__.py
-      - src/modeling/cli.py
-      - src/modeling/forecasting.py
-      - src/modeling/metrics.py
+      - src/fmcg_sales_intelligence/science/__init__.py
+      - src/fmcg_sales_intelligence/science/cli.py
+      - src/fmcg_sales_intelligence/science/forecasting/__init__.py
+      - src/fmcg_sales_intelligence/science/metrics.py
     outs:
       - artifacts/canonical/forecasting_v1
     metrics:
       - artifacts/forecasting_v1_metrics.json
   stockout_classification_v1:
-    cmd: python -m src.modeling.cli run --task stockout_classification --output artifacts/canonical/stockout_classification_v1 --experiment-id stockout_classification_v1_canonical --overwrite
+    cmd: python -m fmcg_sales_intelligence.science.cli run --task stockout_classification --output artifacts/canonical/stockout_classification_v1 --experiment-id stockout_classification_v1_canonical --overwrite
     deps:
-      - configs/modeling/stockout_classification.yaml
+      - config/modeling/stockout_classification.yaml
       - data/processed/stockout/stockout_v1.parquet
-      - reports/data_refinement/stockout_episodes.parquet
-      - src/modeling/__init__.py
-      - src/modeling/cli.py
-      - src/modeling/stockout.py
+      - data/processed/stockout/stockout_episodes.parquet
+      - src/fmcg_sales_intelligence/science/__init__.py
+      - src/fmcg_sales_intelligence/science/cli.py
+      - src/fmcg_sales_intelligence/science/stockout/__init__.py
     outs:
       - artifacts/canonical/stockout_classification_v1
     metrics:
       - artifacts/stockout_classification_v1_metrics.json
   stockout_survival_v1:
-    cmd: python -m src.modeling.cli run --task stockout_survival --output artifacts/canonical/stockout_survival_v1 --experiment-id stockout_survival_v1_canonical --overwrite
+    cmd: python -m fmcg_sales_intelligence.science.cli run --task stockout_survival --output artifacts/canonical/stockout_survival_v1 --experiment-id stockout_survival_v1_canonical --overwrite
     deps:
-      - configs/modeling/stockout_survival.yaml
-      - configs/modeling/stockout_classification.yaml
+      - config/modeling/stockout_survival.yaml
+      - config/modeling/stockout_classification.yaml
       - data/processed/stockout/stockout_v1.parquet
-      - reports/data_refinement/stockout_episodes.parquet
-      - src/modeling/survival.py
-      - src/modeling/stockout.py
+      - data/processed/stockout/stockout_episodes.parquet
+      - src/fmcg_sales_intelligence/science/survival/__init__.py
+      - src/fmcg_sales_intelligence/science/stockout/__init__.py
     outs:
       - artifacts/canonical/stockout_survival_v1
     metrics:
       - artifacts/stockout_survival_v1_metrics.json
   segmentation_v1:
-    cmd: '".venv\Scripts\python.exe" -m src.modeling.cli run --task segmentation --output artifacts/canonical/segmentation_v1 --experiment-id segmentation_v1_canonical --overwrite'
+    cmd: python -m fmcg_sales_intelligence.science.cli run --task segmentation --output artifacts/canonical/segmentation_v1 --experiment-id segmentation_v1_canonical --overwrite
     deps:
-      - configs/modeling/segmentation.yaml
+      - config/modeling/segmentation.yaml
       - data/processed/segmentation/segmentation_v1.parquet
-      - src/modeling/segmentation.py
+      - src/fmcg_sales_intelligence/science/segmentation/__init__.py
     outs:
       - artifacts/canonical/segmentation_v1
     metrics:
       - artifacts/segmentation_v1_metrics.json
   anomaly_v1:
-    cmd: '".venv\Scripts\python.exe" -m src.modeling.cli run --task anomaly --output artifacts/canonical/anomaly_v1 --experiment-id anomaly_v1_canonical --overwrite'
+    cmd: python -m fmcg_sales_intelligence.science.cli run --task anomaly --output artifacts/canonical/anomaly_v1 --experiment-id anomaly_v1_canonical --overwrite
     deps:
-      - configs/modeling/anomaly.yaml
+      - config/modeling/anomaly.yaml
       - data/processed/anomaly/anomaly_v1.parquet
-      - src/modeling/anomaly.py
+      - src/fmcg_sales_intelligence/science/anomaly/__init__.py
     outs:
       - artifacts/canonical/anomaly_v1
     metrics:
       - artifacts/anomaly_v1_metrics.json
   basket_v1:
-    cmd: '".venv\Scripts\python.exe" -m src.modeling.cli run --task basket --output artifacts/canonical/basket_v1 --experiment-id basket_v1_canonical --overwrite'
+    cmd: python -m fmcg_sales_intelligence.science.cli run --task basket --output artifacts/canonical/basket_v1 --experiment-id basket_v1_canonical --overwrite
     deps:
-      - configs/modeling/basket.yaml
+      - config/modeling/basket.yaml
       - data/processed/basket/basket_v1.parquet
-      - src/modeling/basket.py
+      - src/fmcg_sales_intelligence/science/basket/__init__.py
     outs:
       - artifacts/canonical/basket_v1
     metrics:
       - artifacts/basket_v1_metrics.json
   promotion_v1:
-    cmd: '".venv\Scripts\python.exe" -m src.modeling.cli run --task promotion --output artifacts/canonical/promotion_v1 --experiment-id promotion_v1_canonical --overwrite'
+    cmd: python -m fmcg_sales_intelligence.science.cli run --task promotion --output artifacts/canonical/promotion_v1 --experiment-id promotion_v1_canonical --overwrite
     deps:
-      - configs/modeling/promotion.yaml
+      - config/modeling/promotion.yaml
       - data/processed/promotion_daily/promotion_daily_v1.parquet
       - data/processed/promotion_performance/promotion_performance_v1.parquet
-      - src/modeling/promotion.py
+      - src/fmcg_sales_intelligence/science/promotion/__init__.py
     outs:
       - artifacts/canonical/promotion_v1
     metrics:

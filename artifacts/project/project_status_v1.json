@@ -1,6 +1,11 @@
 {
-  "project_status": "RUNTIME_PLATFORM_V1_2_COMPLETE",
-  "checkpoint_version": "runtime_platform_and_segment_assignment_v1_2",
+  "project_status": "REPOSITORY_STRUCTURAL_CONSOLIDATION_V1_3_COMPLETE_WITH_DOCUMENTED_EXCEPTIONS",
+  "checkpoint_version": "repository_structural_consolidation_v1_3",
+  "repository_structure_status": "PASS_COMPACT_NINE_LAYER_ROOT",
+  "python_package_consolidation": "PASS_SINGLE_FMCG_SALES_INTELLIGENCE_PACKAGE",
+  "configuration_consolidation": "PASS_CONFIG_BOUNDARY",
+  "platform_consolidation": "PASS_PLATFORM_BOUNDARY",
+  "test_taxonomy": "PASS_UNIT_INTEGRATION_SCIENTIFIC_RUNTIME",
   "scientific_core_status": "FROZEN_V1_UNCHANGED",
   "core_boundary_status": "PASS",
   "contract_registry_status": "PASS_11_CONTRACTS",
@@ -54,7 +59,7 @@
     "Airbyte and BigQuery remain templates"
   ],
   "git": {
-    "branch": "main",
+    "branch": "refactor/repository-structure-v1.3",
     "upstream_push_performed": true,
     "scientific_history_rewritten": false
   }

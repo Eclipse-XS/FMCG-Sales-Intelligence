@@ -1,8 +1,8 @@
 # Forecasting Modeling V1
 
-The production-like experiment entry point is `python -m src.modeling.cli run --task forecasting`. The Python API is `src.modeling.run_experiment`.
+The production-like experiment entry point is `python -m fmcg_sales_intelligence.science.cli run --task forecasting`. The Python API is `fmcg_sales_intelligence.science.run_experiment`.
 
-Prediction time is the start of day `t`. The target is total observed units in `(t,t+7 days]`. Only the approved pre-event core features in `configs/modeling/forecasting.yaml` are supplied to estimators. Realized same-day outcomes and all target/observability fields are excluded. The two optional experimental fields are deliberately excluded from V1.
+Prediction time is the start of day `t`. The target is total observed units in `(t,t+7 days]`. Only the approved pre-event core features in `config/modeling/forecasting.yaml` are supplied to estimators. Realized same-day outcomes and all target/observability fields are excluded. The two optional experimental fields are deliberately excluded from V1.
 
 Model selection uses only the validation interval and WAPE. If candidates are within 0.5% relative WAPE, the deterministic simplicity order is Ridge, Poisson, CatBoost. The chosen specification is persisted before test access. The chosen estimator is then fit from scratch on the final-training interval and evaluated once on test. All negative predictions are clipped to zero.
 
@@ -10,7 +10,7 @@ Each normal API run creates a collision-safe immutable directory under `artifact
 
 DVC tracks the ML-ready forecasting Parquet and the stable canonical experiment output. Source code, configuration, PostgreSQL state, raw source archives, and ad-hoc timestamped experiments remain outside DVC. No DVC remote is configured; therefore this repository provides local reproducibility but not yet cross-machine artifact transfer.
 
-The artifact contains manifest, frozen selection, resolved config, validation/test metrics, DVC scalar metrics, test predictions, slice metrics, serialized final model, diagnostics, figures, and report. `final_model.joblib` bundles preprocessing metadata and supports inference with `src.modeling.forecasting.predict_saved`.
+The artifact contains manifest, frozen selection, resolved config, validation/test metrics, DVC scalar metrics, test predictions, slice metrics, serialized final model, diagnostics, figures, and report. `final_model.joblib` bundles preprocessing metadata and supports inference with `fmcg_sales_intelligence.science.forecasting.predict_saved`.
 
 ## Final-evaluation incident record
 

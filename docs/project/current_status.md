@@ -5,7 +5,7 @@ Current checkpoint: **Repository Structural Consolidation V1.3**.
 - Scientific core: frozen V1; persisted metrics and serving outputs unchanged.
 - Repository: one Python package, consolidated `config`, `platform`, `artifacts/reports`, categorized tests, and developer `tools`.
 - Runtime: PostgreSQL, FastAPI, frontend, MLflow, Prometheus, Grafana and Kafka validated locally; Airflow validated as a bounded ephemeral orchestration demo.
-- Reproducibility: DVC Google Drive remote synchronized; clean-clone proof is recorded in the V1.3 migration report.
+- Reproducibility: DVC Google Drive remote synchronized; GitHub clone plus DVC restoration and exact serving parity proven.
 - Segment membership: frozen KMeans assignment is experimental and active; supervised segment classification remains `DEFERRED_NOT_JUSTIFIED_V1`.
 
 Evidence:

@@ -22,7 +22,7 @@
   "dvc_remote_type": "gdrive",
   "dvc_remote_push_result": "PASS_FIRST_AND_NO_OP_SECOND_PUSH",
   "clean_clone_result": "PROVEN_FROM_GITHUB_AND_DVC",
-  "v1_3_clean_clone_result": "PASS_LOCAL_GIT_SOURCE_PLUS_GDRIVE_DVC_134_CANONICAL_FILES_IDENTICAL",
+  "v1_3_clean_clone_result": "PROVEN_FROM_GITHUB_AND_GDRIVE_DVC_134_CANONICAL_FILES_IDENTICAL",
   "dashboard_v1_1_status": "PASS",
   "security_boundary_status": "LOCAL_DEMO_BASELINE_HARDENED",
   "kafka_runtime_status": "ACTIVE_EXECUTED_LOCAL_SIMULATION",
@@ -60,7 +60,7 @@
     "Airbyte and BigQuery remain templates"
   ],
   "git": {
-    "branch": "refactor/repository-structure-v1.3",
+    "branch": "main",
     "upstream_push_performed": true,
     "scientific_history_rewritten": false
   }

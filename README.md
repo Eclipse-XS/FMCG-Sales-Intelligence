@@ -1,166 +1,160 @@
 # FMCG Sales Intelligence
 
-A reusable local sales/retail/distribution intelligence product: canonical company onboarding contracts, PostgreSQL and DuckDB/dbt data layers, seven frozen ML/analytics cores, MLflow/DVC governance, FastAPI inference and an API-driven React dashboard. The `coca_cola_demo` domain pack is replaceable presentation/mapping configuration—not an official Coca-Cola product and not internal company data.
+FMCG Sales Intelligence is a reproducible local AI/ML platform for retail and distribution analytics. It combines an operational database, analytical warehouse, seven frozen analytical cores, governed artifacts, APIs, a business dashboard, and engineering observability behind a generic core with replaceable company/domain configuration.
 
-```mermaid
-flowchart LR
-  A[Company data] --> B[Adapter + domain pack]
-  B --> C[Canonical contracts]
-  C --> D[PostgreSQL → DuckDB/dbt → quality]
-  D --> E[ML / analytics cores]
-  E --> F[DVC + MLflow]
-  F --> G[Serving / analytics API]
-  G --> H[Company-configured dashboard]
-```
+The Coca-Cola configuration is synthetic and demonstration-only: it is not an official Coca-Cola product and uses no internal Coca-Cola data. The project was developed in an academic/practice context. Its analytical core is company-independent for compatible FMCG, retail, and distribution use cases.
 
-## Product quick start
+## What the project does
 
-```powershell
-Copy-Item .env.example .env
-.venv\Scripts\python -m pip install -r requirements.txt
-.venv\Scripts\python -m pip install -e . --no-deps
-.venv\Scripts\python tools/verify_environment.py
-.venv\Scripts\python -m fmcg_sales_intelligence.cli serve
-```
-
-Dashboard development: `cd apps/dashboard`, then `npm ci` and `npm run dev`. Docker product stack: `docker compose --profile core up -d --build`. Optional MLflow: `docker compose --profile mlops up -d --build`.
-
-| Core | Method | Mode | Serving |
-|---|---|---|---|
-| Demand Forecasting | CatBoost regression | scheduled batch + HTTP demo | frozen V1 |
-| Stockout Classification | histogram gradient boosting | scheduled batch + HTTP demo | frozen V1 |
-| Stockout Survival | Cox PH | offline experimental | no |
-| Store Segmentation | k-means | human-review analytics | no |
-| Sales Anomaly Detection | Isolation Forest | human-review analytics | no |
-| Market Basket | FP-Growth | human-review analytics | no |
-| Promotion Performance | descriptive matched windows | offline analytics | no |
-| Cluster Membership Assignment | frozen KMeans predict | experimental API analytics | exploratory |
-| Supervised Segment Classification | no governed target | deferred/not justified V1 | no |
-
-| Technology | Role | Evidence-based state |
-|---|---|---|
-| PostgreSQL | operational source | active/executed |
-| DuckDB + dbt | local warehouse | active/executed |
-| DVC | data/pipeline ownership | Google Drive remote synchronized; repeat push is a no-op |
-| MLflow | runs/registry metadata | active/executed in isolated container |
-| FastAPI | product backend | active/tested |
-| React/Vite/ECharts | business dashboard | V1.1 global filters, URL state and split bundles tested |
-| Prometheus / Grafana | local engineering observability | active/executed |
-| Kafka | replay simulation | active/executed local simulation; replay and DLQ smoke passed |
-| Airflow | DAG definition | active bounded local orchestration demo; safe task passed |
-| Airbyte / BigQuery | connector/cloud templates | template only |
-
-Architecture: [system](docs/architecture/system_architecture.md), [repository V1.3](docs/architecture/repository_structure_v1_3.md), [contracts](docs/data/canonical_contracts_v1.md), [serving](docs/deployment/serving_v1.md), [dashboard](docs/visualization/dashboard_v1.md), and [technology registry](docs/architecture/technology_stack_v1.md).
-
-## Repository map
-
-- `apps/`: React dashboard.
-- `src/fmcg_sales_intelligence/`: one installable Python boundary: `product`, `science`, `pipelines`, `tracking`, and `common`.
-- `config/`: modeling, contract, and replaceable domain-pack configuration.
-- `platform/`: PostgreSQL, dbt, Airflow, Docker, Airbyte, and observability assets.
-- `data/`: raw/external, generated, processed, metadata, and warehouse data ownership.
-- `artifacts/`: canonical scientific objects, generated reports, and project evidence.
-- `tests/`: unit, integration, scientific, and runtime validation.
-- `tools/`: developer-facing utilities.
-
-## Reproduce
-
-```powershell
-Copy-Item .env.example .env
-.venv\Scripts\python -m pip install -r requirements.txt
-.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/ingestion/download_sources.py
-.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/profiling/profile_sources.py
-.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/generation/generate_dev_data.py
-.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/validation/validate_generated.py
-docker compose up -d
-```
-
-Competition downloads remain unavailable, so reproducible mirror provenance is explicit: Favorita uses `evgeniypolin/favorita-grocery-sales-forecasting`; M5 uses University of Nicosia Zenodo record `10.5281/zenodo.10203108`; Instacart uses the CC0-declared `psparks` mirror. Canonical filenames, columns and M5 MD5 checksums are verified before use. Keep credentials outside the repository. Raw files are immutable inputs and ignored by Git.
+- normalizes company data through versioned contracts and domain packs;
+- maintains PostgreSQL operational facts and DuckDB/dbt analytical models;
+- builds point-in-time-aware task datasets with Great Expectations checks;
+- serves frozen forecasting and stockout models through FastAPI;
+- exposes exploratory cluster membership and offline analytical outputs;
+- tracks data/model identity with DVC and canonical run metadata with MLflow;
+- provides a React dashboard and Prometheus/Grafana engineering telemetry.
 
 ## Architecture
 
-`data/raw` preserves downloads. Profiling records evidence in `data/metadata`; unrelated IDs are never joined. Donors inform distributions used by deterministic generation. PostgreSQL holds operational facts only. Analytical features and model outputs remain outside the operational schema.
+```mermaid
+flowchart LR
+  A[Company / source systems] --> B[Adapter + domain pack]
+  B --> C[Canonical contracts]
+  C --> D[Ingestion + validation]
+  D --> E[(PostgreSQL)]
+  E --> F[(DuckDB + dbt)]
+  F --> G[Processed task datasets]
+  G --> H[Scientific analytical cores]
+  H --> I[DVC + MLflow]
+  I --> J[FastAPI]
+  J --> K[React dashboard]
+  L[Kafka local replay] -. optional ingestion path .-> D
+  M[Airflow bounded orchestration] -. schedules batch steps .-> D
+  J -. metrics .-> N[Prometheus]
+  N --> O[Grafana]
+```
 
-The development generator is intentionally small by default. It creates correlated store/SKU/day demand, seasonal and weekend effects, promotion response, constrained sales, inventory depletion and lead-time-like replenishment. It does not claim to reproduce donor distributions until all donor profiles are available.
+Supporting components are not part of every synchronous API request. See the [architecture description](docs/architecture/portfolio_architecture_v1_3.md).
 
-## Operational PostgreSQL Database
+## Analytical capabilities
 
-Prerequisites: Docker Desktop with Linux containers and Python 3.11+ with the packages in `requirements.txt`. The project maps PostgreSQL to host port `55432` by default because port 5432 is commonly occupied by a native installation.
+| Capability | Method | Output | Status |
+|---|---|---|---|
+| Demand forecasting | CatBoost regression | units over `(t,t+7d]` | Frozen V1 serving |
+| Stockout classification | HistGradientBoosting | seven-day risk score | Frozen V1 serving; not claimed strongly calibrated |
+| Stockout survival | Cox PH | time-to-event analysis | Offline experimental |
+| Store segmentation | KMeans, `k=3` | exploratory clusters | Offline review |
+| Cluster membership | frozen KMeans `predict` | cluster assignment and centroid distance | Experimental serving |
+| Anomaly detection | Isolation Forest | candidate anomalies | Offline review |
+| Basket analysis | FP-Growth | association rules | Offline analytics |
+| Promotion analysis | descriptive before/during/after windows | observed change | Offline analytics; not causal uplift |
 
-Create the local configuration and Python environment:
+Cluster membership is not a validated business-segment classifier. Supervised segment classification remains `DEFERRED_NOT_JUSTIFIED_V1` because no governed ground-truth taxonomy exists.
+
+## Key scientific results
+
+These are persisted frozen evaluation values, not general production guarantees.
+
+| Evidence | Frozen result |
+|---|---:|
+| Forecast test WAPE | 0.3778884755 |
+| Stockout test average precision | 0.2551216857 |
+| Survival test C-index | 0.7922890233 |
+| Segmentation | k=3; silhouette 0.3307169762 |
+| Isolation Forest candidate rate | 0.0241503797 |
+| Canonical basket rules | 1,262 |
+| Promotion descriptive units change | 0.0621638304 |
+
+## Technology stack
+
+| Layer | Active technology |
+|---|---|
+| Data platform | PostgreSQL, DuckDB, dbt, optional local Kafka replay |
+| ML and analytics | Python, scikit-learn, CatBoost, lifelines, mlxtend |
+| MLOps | DVC, MLflow |
+| Serving | FastAPI, Pydantic, Uvicorn |
+| Frontend | React, TypeScript, Vite, ECharts |
+| Platform | Docker Compose, bounded local Airflow demo |
+| Observability | Prometheus, Grafana |
+| Quality | pytest, Ruff, Great Expectations |
+
+Airbyte and BigQuery assets are templates only; no executed cloud deployment is claimed.
+
+## Repository structure
+
+```text
+apps/       dashboard
+artifacts/  canonical outputs, reports, project evidence
+config/     contracts, domain packs, modeling configuration
+data/       external, generated, processed and warehouse ownership
+docs/       current guidance, references and historical evidence
+platform/   PostgreSQL, dbt, Airflow, Docker and observability assets
+src/        single fmcg_sales_intelligence Python package
+tests/      unit, integration, scientific and runtime validation
+tools/      developer and demo utilities
+```
+
+## Quick start
+
+Prerequisites: Git, Python 3.11+, Node.js/npm, Docker Desktop, and authorized access to the configured private DVC Google Drive remote.
 
 ```powershell
-Copy-Item .env.example .env
+git clone https://github.com/Eclipse-XS/FMCG-Sales-Intelligence.git
+cd FMCG-Sales-Intelligence
 python -m venv .venv
 .venv\Scripts\python -m pip install -r requirements.txt
+.venv\Scripts\python -m pip install -e . --no-deps
 ```
 
-Generate canonical data, start PostgreSQL, recreate the schema, load data and validate it:
+Configure Google OAuth only in ignored `.dvc/config.local`, then restore every DVC-owned target:
 
 ```powershell
-.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/generation/generate_dev_data.py --days 90 --stores 20 --skus 48
-docker compose up -d
-.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/persistence/create_schema.py --reset
-.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/persistence/load_data.py
-.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/persistence/validate_database.py
-.venv\Scripts\python -m pytest -q
+.venv\Scripts\dvc pull
+git ls-files *.dvc | ForEach-Object { .venv\Scripts\dvc pull $_ }
+Copy-Item .env.example .env
+.venv\Scripts\python tools/demo_check.py
 ```
 
-`create_schema.py --reset` drops only the `fmcg` schema and is the supported local-development reset. The loader uses one transaction, dependency-safe ordering and PostgreSQL `COPY`; any error rolls back the entire load. It loads only canonical files from `data/generated`, never raw donors. Validation writes `artifacts/reports/database_validation.md` and its machine-readable JSON equivalent.
-
-Connect with `psql`:
+Start the local product stack:
 
 ```powershell
-$env:PGPASSWORD = 'change_me'
-psql -h localhost -p 55432 -U fmcg -d fmcg
+docker compose --profile core --profile mlops --profile observability up -d --build
 ```
 
-Use the same host, port, database, user and password in DBeaver or pgAdmin. Configuration comes from `.env`; do not commit that file. Operational smoke queries are in `platform/postgres/queries/smoke.sql`.
+API/OpenAPI: `http://localhost:8000/docs`; dashboard: `http://localhost:8080`; MLflow: `http://localhost:5000`; Prometheus: `http://localhost:9090`; Grafana: `http://localhost:3001`.
 
-To destroy the local project database completely and recreate it:
+Kafka is optional: `docker compose --profile streaming up -d`. Working request bodies are in [API examples](docs/deployment/api_examples_v1_3.md).
 
-```powershell
-docker compose down -v
-docker compose up -d
-.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/persistence/create_schema.py --reset
-.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/persistence/load_data.py
-.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/persistence/validate_database.py
-```
+## Validation
 
-The `-v` command deletes only this Compose project's PostgreSQL volume. Derived ML features and predictions are deliberately excluded from the operational schema.
+- pytest: 130 passed in the configured runtime;
+- dbt: 55/55 passed;
+- Great Expectations: 8/8 datasets passed;
+- frontend: 7/7 tests, production build passed, npm audit 0;
+- GitHub clean clone plus DVC restoration: passed;
+- frozen forecast and stockout serving parity: exact.
 
-## Data platform
+Three operational tests may skip in a clean clone when local `.env` is intentionally absent.
 
-The operational schema remains the source of record. The executed analytical fallback is DuckDB: `src/fmcg_sales_intelligence/pipelines/warehouse/extract_operational.py` copies all 18 `fmcg` tables to `data/warehouse/fmcg.duckdb` under the `raw` schema and writes matching raw Parquet extracts. This includes the complete `daily_demand` date × store × SKU grid that distinguishes requested, realized and inventory-censored demand. dbt builds `analytics` staging, intermediate, dimensions, facts and marts in the same DuckDB database. Polars then creates versioned Parquet datasets; Great Expectations checks their contracts.
+## Limitations
 
-Run the complete local analytical path after the OLTP database is loaded:
+- Inputs are synthetic and public donor data, not production company data.
+- The historical horizon and number of stores are limited.
+- Cluster temporal stability is limited and no governed business-segment taxonomy exists.
+- Kafka is a local replay simulation; Airflow is a bounded local orchestration demo.
+- Production authentication, TLS, distributed rate limiting and managed secrets are out of scope.
+- Airbyte and BigQuery remain templates only.
+- Repository licensing requires an explicit owner decision; external-source rights remain source-specific.
 
-```powershell
-.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/orchestration/run_local.py
-.venv\Scripts\python -m pytest -q
-```
+## Documentation
 
-The generated datasets are `forecasting`, `stockout`, `segmentation`, `segment_assignment`, `anomaly`, `basket`, and `promotion_performance`. Forecasting scores at the start of day `t`; its model features contain no realized values from `t`, and its target is the fully observed sum over `(t,t+7]`. Anomaly detection is explicitly post-event. `segment_assignment` is only a compatibility alias of the pre-clustering segmentation features and contains no cluster label or target. The artifacts are ignored by Git. Dataset contracts, point-in-time rules and feature definitions are in [docs/data/dataset_contracts.md](docs/data/dataset_contracts.md) and [docs/data/feature_catalog.md](docs/data/feature_catalog.md). Lineage is in [docs/data/lineage.md](docs/data/lineage.md).
-
-DuckDB is executed and validated locally. BigQuery is a configured target template only; no BigQuery load is claimed without credentials. Airbyte is likewise a deployment template only; the local extractor provides the executed bounded batch replication path. Details: [BigQuery](docs/operations/bigquery.md), [Airbyte](docs/operations/airbyte.md).
-
-## Streaming and operations
-
-Kafka is an optional Compose profile. It is isolated from the operational `fmcg` schema and demonstrates a schema-validated sales replay, DLQ and idempotent consumer materialization:
-
-```powershell
-docker compose --profile streaming up -d
-.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/streaming/init_streaming.py
-.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/streaming/produce_replay.py
-.venv\Scripts\python src/fmcg_sales_intelligence/pipelines/streaming/consume_replay.py
-```
-
-Kafka UI is available at `http://localhost:8088`. The producer uses broker-level idempotence; replay rows are deduplicated by `event_id`. One deliberately malformed event exercises `sales.dlq`. See [Kafka operations](docs/operations/kafka.md).
-
-`platform/airflow/dags/fmcg_platform.py` supplies the batch definition, and `platform/airflow/dags/fmcg_runtime_smoke.py` provides a bounded non-scientific runtime proof. Airflow was executed as a local ephemeral orchestration demo, not deployed as a production scheduler. Start the optional Grafana profile with `docker compose --profile observability up -d`; its provisioned operational dashboard is at `http://localhost:3001`. See [Airflow](docs/operations/airflow.md) and [Grafana](docs/operations/grafana.md).
-
-## Modeling and reproducibility status
-
-Forecasting Modeling V1, Stockout Classification V1, Stockout Survival V1, Store Segmentation V1 and Sales Anomaly Detection V1 are implemented and verified. Store segmentation outputs versioned pseudo-labels, not ground truth. V1.2 exposes only frozen KMeans cluster membership assignment; supervised business-segment classification remains deferred because stable labels do not exist. Anomaly V1 produces unreviewed candidates rather than verified anomaly labels.
-
-DVC owns the processed datasets, generated validation inputs, analytical warehouse, metrics, and canonical artifacts. The private `gdrive` remote is synchronized and a real GitHub clean-clone pull proof passed. Credentials are not stored in Git. See [clean-clone proof](docs/project/clean_clone_reproduction_v1.md) and [clean-clone procedure](docs/deployment/clean_clone_v1.md).
+- [Current status](docs/project/current_status.md)
+- [Architecture](docs/architecture/portfolio_architecture_v1_3.md)
+- [Repository structure](docs/architecture/repository_structure_v1_3.md)
+- [Dataset contracts](docs/data/dataset_contracts.md)
+- [Modeling checkpoint](docs/project/modeling_checkpoint_v1.md)
+- [Runtime validation](docs/project/runtime_platform_validation_v1_2.md)
+- [Clean-clone proof](docs/project/clean_clone_reproduction_v1.md)
+- [Release notes](docs/project/release_v1_3.md)
+- [Data-source attribution](docs/data_sources.md)
+- [License and attribution audit](docs/project/license_and_attribution_audit_v1_3.md)

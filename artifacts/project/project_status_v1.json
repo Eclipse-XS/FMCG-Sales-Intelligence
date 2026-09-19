@@ -1,6 +1,10 @@
 {
-  "project_status": "REPOSITORY_STRUCTURAL_CONSOLIDATION_V1_3_COMPLETE_WITH_DOCUMENTED_EXCEPTIONS",
-  "checkpoint_version": "repository_structural_consolidation_v1_3",
+  "project_status": "PORTFOLIO_RELEASE_V1_3_COMPLETE_WITH_DOCUMENTED_LIMITATIONS",
+  "checkpoint_version": "release_and_portfolio_polish_v1_4",
+  "release_version": "v1.3.0",
+  "portfolio_readiness": "PASS",
+  "repository_hygiene": "PASS",
+  "repository_license": "OWNER_DECISION_REQUIRED",
   "repository_structure_status": "PASS_COMPACT_NINE_LAYER_ROOT",
   "python_package_consolidation": "PASS_SINGLE_FMCG_SALES_INTELLIGENCE_PACKAGE",
   "configuration_consolidation": "PASS_CONFIG_BOUNDARY",

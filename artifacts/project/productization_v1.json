@@ -42,5 +42,14 @@
     "report_root": "artifacts/reports",
     "test_taxonomy": ["unit", "integration", "scientific", "runtime"],
     "scientific_results_changed": false
+  },
+  "release_v1_3_0": {
+    "status": "PORTFOLIO_RELEASE_V1_3_COMPLETE_WITH_DOCUMENTED_LIMITATIONS",
+    "readme": "portfolio_entrypoint_pass",
+    "demo_check": "non_destructive_pass",
+    "api_examples": "validated_pass",
+    "repository_hygiene": "pass",
+    "license": "owner_decision_required",
+    "scientific_results_changed": false
   }
 }

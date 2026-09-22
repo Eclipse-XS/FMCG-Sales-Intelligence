@@ -38,3 +38,17 @@ jobs:
         if: always()
       - run: docker compose -f docker-compose.demo.yml down
         if: always()
+  servicedesk-integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker compose -f examples/external_company_integration/compose.yml up -d --build --wait --wait-timeout 240
+      - run: docker compose -f examples/external_company_integration/compose.yml --profile verification run --build --rm verify
+      - name: Prove backend package independence
+        run: docker compose -f examples/external_company_integration/compose.yml exec -T servicedesk python -c "import importlib.util; assert importlib.util.find_spec('fmcg_sales_intelligence') is None; assert importlib.util.find_spec('mlflow') is None; assert importlib.util.find_spec('sklearn') is None"
+      - name: Verify initialization is repeatable
+        run: docker compose -f examples/external_company_integration/compose.yml run --rm initialize
+      - run: docker compose -f examples/external_company_integration/compose.yml logs --no-color
+        if: always()
+      - run: docker compose -f examples/external_company_integration/compose.yml down -v
+        if: always()

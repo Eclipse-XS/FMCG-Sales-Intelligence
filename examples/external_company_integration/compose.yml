@@ -1,10 +1,7 @@
 name: servicedesk-integration
 x-engine: &engine
-  build:
-    context: ../..
-    dockerfile: examples/external_company_integration/engine.Dockerfile
-    target: engine
   image: servicedesk-integration-engine
+  pull_policy: never
 services:
   registry:
     <<: *engine
@@ -28,6 +25,10 @@ services:
     restart: 'no'
   engine:
     <<: *engine
+    build:
+      context: ../..
+      dockerfile: examples/external_company_integration/engine.Dockerfile
+      target: engine
     environment:
       MLFLOW_TRACKING_URI: http://registry:5000
     volumes: [deployment-data:/state:ro]

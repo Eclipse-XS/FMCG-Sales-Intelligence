@@ -1,0 +1,10 @@
+metric,value
+selected_silhouette,0.3307169762039364
+selected_davies_bouldin,0.9043004004021856
+selected_calinski_harabasz,12.58752767509517
+number_of_clusters,3
+minimum_cluster_size,4
+maximum_cluster_size,9
+temporal_assignment_retention,0.525
+store_count,20
+pseudo_label_readiness,NOT_READY

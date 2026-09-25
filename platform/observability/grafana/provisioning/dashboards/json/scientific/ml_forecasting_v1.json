@@ -1,0 +1,840 @@
+{
+  "title": "ML \u2014 Demand Forecasting",
+  "uid": "ml_forecasting_v1",
+  "timezone": "browser",
+  "refresh": "5m",
+  "schemaVersion": 39,
+  "tags": [
+    "scientific",
+    "ml",
+    "forecasting",
+    "catboost",
+    "fmcg"
+  ],
+  "time": {
+    "from": "2024-01-01T00:00:00.000Z",
+    "to": "2024-03-31T23:59:59.000Z"
+  },
+  "templating": {
+    "list": []
+  },
+  "panels": [
+    {
+      "id": 1,
+      "title": "Scientific Model Card & Validation Context",
+      "type": "text",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 3
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "**Core:** `forecasting_v1` | **Model Architecture:** `CatBoost Gradient Boosted Decision Trees (Regressor)`\n**Evaluation Horizon:** 20 out-of-sample forward days across 20 retail outlets and 48 SKUs (19,200 evaluated episodes).\n> \u26a0\ufe0f **Model Performance Context:** Predictions are strictly out-of-sample evaluated on purged test partitions. WAPE captures absolute percentage deviation relative to aggregate physical throughput."
+      }
+    },
+    {
+      "id": 2,
+      "title": "Selected Model",
+      "type": "stat",
+      "description": "Governed champion production model architecture",
+      "gridPos": {
+        "x": 0,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT selected_model FROM ml_results.forecasting_v1_metrics LIMIT 1;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "value",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false,
+          "fields": "/.*/"
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "string",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "blue"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 3,
+      "title": "Test WAPE",
+      "type": "stat",
+      "description": "Weighted Absolute Percentage Error on test partition",
+      "gridPos": {
+        "x": 6,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT cast(test::json->selected_model->>'wape' as float) * 100 FROM ml_results.forecasting_v1_metrics LIMIT 1;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "green"
+          },
+          "decimals": 1
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 4,
+      "title": "Test MAE",
+      "type": "stat",
+      "description": "Mean Absolute Error in unit demand",
+      "gridPos": {
+        "x": 12,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT cast(test::json->selected_model->>'mae' as float) FROM ml_results.forecasting_v1_metrics LIMIT 1;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "purple"
+          },
+          "decimals": 2
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 5,
+      "title": "Test Episodes",
+      "type": "stat",
+      "description": "Total scored out-of-sample store-SKU-day instances",
+      "gridPos": {
+        "x": 18,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT COUNT(*) FROM ml_results.forecasting_v1_predictions;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 6,
+      "title": "Actual vs Predicted Parity Scatter",
+      "type": "xychart",
+      "pluginVersion": "11.5.2",
+      "description": "Actual observed units vs model point forecast across all 19,200 test episodes with perfect parity line (y=x)",
+      "gridPos": {
+        "x": 0,
+        "y": 6,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "postgres",
+        "uid": "postgres_db"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT round(actual::numeric, 1) as actual, round(prediction::numeric, 1) as prediction, round(actual::numeric, 1) as parity_line FROM ml_results.forecasting_v1_predictions WHERE actual IS NOT NULL AND prediction IS NOT NULL ORDER BY prediction_date, store_id, sku_id;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "mapping": "manual",
+        "series": [
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "actual"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "prediction"
+              }
+            },
+            "name": {
+              "fixed": "Model Predictions (n=19,200)"
+            }
+          },
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "actual"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "parity_line"
+              }
+            },
+            "name": {
+              "fixed": "Perfect Parity Line (y = x)"
+            }
+          }
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "show": "points",
+            "pointSize": {
+              "fixed": 4
+            },
+            "lineWidth": 2,
+            "fillOpacity": 50
+          },
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "#5794F2"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "prediction"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "points"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 3
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#B877D9"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "parity_line"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "lines"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 4
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    4,
+                    4
+                  ]
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#73BF69"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "title": "Residual vs Predicted Scatter (Heteroscedasticity Diagnostic)",
+      "type": "xychart",
+      "pluginVersion": "11.5.2",
+      "description": "Residual error plotted against predicted demand level across all 19,200 episodes detecting variance growth and systematic bias",
+      "gridPos": {
+        "x": 12,
+        "y": 6,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "postgres",
+        "uid": "postgres_db"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT round(prediction::numeric, 1) as prediction, round(residual::numeric, 1) as residual, 0.0 as zero_bias_line FROM ml_results.forecasting_v1_predictions WHERE actual IS NOT NULL AND prediction IS NOT NULL ORDER BY prediction_date, store_id, sku_id;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "mapping": "manual",
+        "series": [
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "prediction"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "residual"
+              }
+            },
+            "name": {
+              "fixed": "Forecast Residual (Actual - Predicted)"
+            }
+          },
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "prediction"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "zero_bias_line"
+              }
+            },
+            "name": {
+              "fixed": "Zero-Bias Reference (y = 0)"
+            }
+          }
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "show": "points",
+            "pointSize": {
+              "fixed": 4
+            },
+            "lineWidth": 2,
+            "fillOpacity": 50
+          },
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "#5794F2"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "residual"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "points"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 3
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#FF9830"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "zero_bias_line"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "lines"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 4
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    4,
+                    4
+                  ]
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#5794F2"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "title": "Observed vs Predicted Daily Demand Trajectory",
+      "type": "timeseries",
+      "description": "Total actual store sales volume vs model forecasts across the 20-day evaluation window",
+      "gridPos": {
+        "x": 0,
+        "y": 14,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "time_series",
+          "rawSql": "SELECT prediction_date AS time, round(sum(actual)::numeric, 0) as \"Observed Demand\", round(sum(prediction)::numeric, 0) as \"Forecasted Demand\" FROM ml_results.forecasting_v1_predictions GROUP BY 1 ORDER BY 1;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "fillOpacity": 15,
+            "pointSize": 5,
+            "showPoints": "auto"
+          },
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Observed Demand"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "green"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Forecasted Demand"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "purple"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "title": "Forecast Residual Error Distribution (Balanced Diverging Histogram)",
+      "type": "barchart",
+      "description": "Diverging distribution of forecast residuals (actual - prediction) across 19,200 test episodes",
+      "gridPos": {
+        "x": 12,
+        "y": 14,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT case     when residual < -20 then '< -20 Units (Over-forecast)'     when residual < -10 then '-20 to -10 Units'     when residual < -5 then '-10 to -5 Units'     when residual < 0 then '-5 to 0 Units'     when residual < 5 then '0 to +5 Units'     when residual < 10 then '+5 to +10 Units'     when residual < 20 then '+10 to +20 Units'     else '> +20 Units (Under-forecast)' end as error_bracket, count(*) as episode_count FROM ml_results.forecasting_v1_predictions GROUP BY 1 ORDER BY min(residual);",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "showValue": "always",
+        "xField": null,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "purple"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 10,
+      "title": "Forecast Performance by Demand Volume Tier",
+      "type": "barchart",
+      "description": "Model error metrics broken down across low, medium, and high demand SKU groups",
+      "gridPos": {
+        "x": 0,
+        "y": 22,
+        "w": 12,
+        "h": 7
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT demand_volume_group as volume_tier, round((sum(abs(residual)) / nullif(sum(actual), 0) * 100)::numeric, 1) as \"WAPE (%)\", round(avg(abs(residual))::numeric, 2) as \"MAE (Units)\" FROM ml_results.forecasting_v1_predictions GROUP BY 1 ORDER BY min(actual) ASC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "showValue": "always",
+        "xField": "volume_tier",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "WAPE (%)"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "orange"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MAE (Units)"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "blue"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "title": "Mean Absolute Error by Category",
+      "type": "barchart",
+      "description": "Forecast accuracy variance across commercial product categories",
+      "gridPos": {
+        "x": 12,
+        "y": 22,
+        "w": 12,
+        "h": 7
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT category_name as category, round(avg(abs(residual))::numeric, 2) as mae FROM ml_results.forecasting_v1_predictions GROUP BY 1 ORDER BY mae ASC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "showValue": "always",
+        "xField": null,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "blue"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 12,
+      "title": "Test Predictions Inspection & Error Diagnostics",
+      "type": "table",
+      "description": "Granular out-of-sample prediction episodes sorted by absolute residual error",
+      "gridPos": {
+        "x": 0,
+        "y": 29,
+        "w": 24,
+        "h": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT to_char(prediction_date, 'YYYY-MM-DD') as date, store_id, sku_id, category_name, demand_volume_group, round(actual::numeric, 1) as actual_units, round(prediction::numeric, 1) as predicted_units, round(residual::numeric, 1) as error_units, round((abs(residual) / nullif(actual, 0) * 100)::numeric, 1) as abs_pct_error FROM ml_results.forecasting_v1_predictions ORDER BY abs(residual) DESC LIMIT 200;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "footer": {
+          "enablePagination": true,
+          "show": true
+        },
+        "showHeader": true
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          }
+        },
+        "overrides": []
+      }
+    }
+  ]
+}

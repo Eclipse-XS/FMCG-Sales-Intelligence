@@ -1,0 +1,595 @@
+{
+  "title": "ML \u2014 Store Segmentation",
+  "uid": "ml_segmentation_v1",
+  "timezone": "browser",
+  "refresh": "5m",
+  "schemaVersion": 39,
+  "tags": [
+    "scientific",
+    "ml",
+    "clustering",
+    "segmentation",
+    "fmcg"
+  ],
+  "time": {
+    "from": "2024-01-01T00:00:00.000Z",
+    "to": "2024-03-31T23:59:59.000Z"
+  },
+  "templating": {
+    "list": []
+  },
+  "panels": [
+    {
+      "id": 1,
+      "title": "Scientific Model Card & Clustering Context",
+      "type": "text",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 3
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "**Core:** `segmentation_v1` | **Algorithm:** `K-Means Clustering on Robust Scaled Commercial Features`\n**Evaluation Scope:** 20 retail outlets tracked across consecutive quarters to assess commercial segment stability.\n> \u26a0\ufe0f **Cluster Selection Evidence:** K-selection candidate metrics evaluate silhouette separation across candidate k-values. Standardized profiles highlight dimensional departures from the retail network mean."
+      }
+    },
+    {
+      "id": 2,
+      "title": "Analyzed Stores",
+      "type": "stat",
+      "description": "Total physical store locations analyzed",
+      "gridPos": {
+        "x": 0,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT COUNT(DISTINCT store_id) FROM ml_results.segmentation_v1_assignments;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 3,
+      "title": "Optimal Clusters",
+      "type": "stat",
+      "description": "Selected cluster count from silhouette optimization",
+      "gridPos": {
+        "x": 6,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT number_of_clusters FROM ml_results.segmentation_v1_metrics LIMIT 1;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "purple"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 4,
+      "title": "Silhouette Score",
+      "type": "stat",
+      "description": "Mean silhouette coefficient measuring cluster separation",
+      "gridPos": {
+        "x": 12,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT selected_silhouette FROM ml_results.segmentation_v1_metrics LIMIT 1;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "blue"
+          },
+          "decimals": 3
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 5,
+      "title": "Temporal Retention",
+      "type": "stat",
+      "description": "Percentage stability of cluster assignments across quarterly periods",
+      "gridPos": {
+        "x": 18,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT temporal_assignment_retention * 100 FROM ml_results.segmentation_v1_metrics LIMIT 1;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "green"
+          },
+          "decimals": 1
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 6,
+      "title": "K-Selection Model Optimization (Silhouette & Davies-Bouldin Curves)",
+      "type": "xychart",
+      "pluginVersion": "11.5.2",
+      "description": "Cluster selection evaluation curves proving mathematical optimality of k=3 (Peak Silhouette, Lowest Davies-Bouldin)",
+      "gridPos": {
+        "x": 0,
+        "y": 6,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "postgres",
+        "uid": "postgres_db"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT k, round(silhouette::numeric, 4) as \"Silhouette Score (Higher is Better)\", round(davies_bouldin::numeric, 4) as \"Davies-Bouldin Index (Lower is Better)\" FROM ml_results.segmentation_v1_candidates WHERE algorithm = 'kmeans' ORDER BY k ASC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "mapping": "manual",
+        "series": [
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "k"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "Silhouette Score (Higher is Better)"
+              }
+            },
+            "name": {
+              "fixed": "Silhouette Score (Higher is Better)"
+            }
+          },
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "k"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "Davies-Bouldin Index (Lower is Better)"
+              }
+            },
+            "name": {
+              "fixed": "Davies-Bouldin Index (Lower is Better)"
+            }
+          }
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "show": "points",
+            "pointSize": {
+              "fixed": 4
+            },
+            "lineWidth": 2,
+            "fillOpacity": 50
+          },
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "#5794F2"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Silhouette Score (Higher is Better)"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "points+lines"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 6
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#B877D9"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Davies-Bouldin Index (Lower is Better)"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "points+lines"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 6
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#FF9830"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "title": "Standardized Cluster Profiles (Pivoted Multi-Feature Deviations)",
+      "type": "barchart",
+      "description": "Standardized feature centroid deviations comparing the three discovered store clusters",
+      "gridPos": {
+        "x": 12,
+        "y": 6,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT case when feature = 'revenue_30d' then '30-Day Revenue' when feature = 'promotion_unit_share_30d' then 'Promotion Unit Share' when feature = 'average_price_30d' then 'Average Unit Price' when feature = 'revenue_volatility_30d' then 'Revenue Volatility' end as feature_name, round(max(case when cluster_id = 0 then standardized_profile end)::numeric, 2) as \"Cluster 0 (Lower-Vol Lower-Promo)\", round(max(case when cluster_id = 1 then standardized_profile end)::numeric, 2) as \"Cluster 1 (Higher-Vol Balanced-Promo)\", round(max(case when cluster_id = 2 then standardized_profile end)::numeric, 2) as \"Cluster 2 (Lower-Vol Promo-Leaning)\" FROM ml_results.segmentation_v1_profiles GROUP BY feature ORDER BY feature;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "vertical",
+        "showValue": "always",
+        "xField": "feature_name",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Cluster 0 (Lower-Vol Lower-Promo)"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "blue"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Cluster 1 (Higher-Vol Balanced-Promo)"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "green"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Cluster 2 (Lower-Vol Promo-Leaning)"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "purple"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "title": "Centroid Distance Margin Distribution (Assignment Ambiguity)",
+      "type": "barchart",
+      "description": "Distance margin separating primary cluster from nearest alternative cluster",
+      "gridPos": {
+        "x": 0,
+        "y": 14,
+        "w": 12,
+        "h": 7
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT case     when centroid_distance_margin < 0.5 then 'Low Margin (< 0.5 - Boundary Stores)'     when centroid_distance_margin < 1.0 then 'Moderate Margin (0.5 - 1.0)'     else 'High Margin (> 1.0 - Core Exemplars)' end as margin_tier, count(*) as store_snapshots FROM ml_results.segmentation_v1_assignments GROUP BY 1 ORDER BY min(centroid_distance_margin) ASC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "showValue": "always",
+        "xField": null,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "purple"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 9,
+      "title": "Stores per Commercial Segment",
+      "type": "barchart",
+      "description": "Store distribution across the 3 discovered commercial clusters",
+      "gridPos": {
+        "x": 12,
+        "y": 14,
+        "w": 12,
+        "h": 7
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT segment_name as segment, sum(store_count) as store_count FROM ml_results.segmentation_v1_sizes GROUP BY 1 ORDER BY 2 DESC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "showValue": "always",
+        "xField": null,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "blue"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 10,
+      "title": "Store Cluster Assignments & Centroid Distances",
+      "type": "table",
+      "description": "Store-level cluster memberships, centroid distances, and distance margins",
+      "gridPos": {
+        "x": 0,
+        "y": 21,
+        "w": 24,
+        "h": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT s.store_id, st.store_name, st.store_type, st.channel, r.region_name, to_char(s.snapshot_date, 'YYYY-MM-DD') as snapshot_date, s.reference_cluster_id as cluster_id, s.segment_name, round(s.distance_to_centroid::numeric, 3) as centroid_dist, round(s.centroid_distance_margin::numeric, 3) as dist_margin FROM ml_results.segmentation_v1_assignments s JOIN fmcg.stores st ON s.store_id = st.store_id JOIN fmcg.regions r ON st.region_id = r.region_id ORDER BY s.snapshot_date DESC, s.reference_cluster_id, s.distance_to_centroid ASC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "footer": {
+          "enablePagination": true,
+          "show": true
+        },
+        "showHeader": true
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          }
+        },
+        "overrides": []
+      }
+    }
+  ]
+}

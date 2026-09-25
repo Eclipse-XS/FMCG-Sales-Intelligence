@@ -1,0 +1,760 @@
+{
+  "title": "ML \u2014 Anomaly Detection",
+  "uid": "ml_anomaly_v1",
+  "timezone": "browser",
+  "refresh": "5m",
+  "schemaVersion": 39,
+  "tags": [
+    "scientific",
+    "ml",
+    "anomaly",
+    "isolation-forest",
+    "fmcg"
+  ],
+  "time": {
+    "from": "2024-01-01T00:00:00.000Z",
+    "to": "2024-03-31T23:59:59.000Z"
+  },
+  "templating": {
+    "list": []
+  },
+  "panels": [
+    {
+      "id": 1,
+      "title": "Scientific Model Card & Anomaly Detection Context",
+      "type": "text",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 3
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "**Core:** `anomaly_v1` | **Detectors:** `Statistical 7-Day Rolling Z-Score` & `Unsupervised Isolation Forest Ensemble`\n**Evaluation Scope:** 100 screened candidate outlier sales events prioritized for commercial and operational audit.\n> \u26a0\ufe0f **Candidate Screening Subtitle:** Displays the prioritized review candidate subset (n=100) combining statistical and tree-based detector outputs."
+      }
+    },
+    {
+      "id": 2,
+      "title": "Review Candidates",
+      "type": "stat",
+      "description": "Total prioritized outlier demand events",
+      "gridPos": {
+        "x": 0,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT COUNT(*) FROM ml_results.anomaly_v1_candidates;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "orange"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 3,
+      "title": "Z-Score Candidates",
+      "type": "stat",
+      "description": "Candidates flagged by 7-day historical z-score threshold",
+      "gridPos": {
+        "x": 6,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT COUNT(*) FROM ml_results.anomaly_v1_candidates WHERE zscore_candidate = true;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "blue"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 4,
+      "title": "Isolation Forest Candidates",
+      "type": "stat",
+      "description": "Candidates flagged by multi-dimensional Isolation Forest",
+      "gridPos": {
+        "x": 12,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT COUNT(*) FROM ml_results.anomaly_v1_candidates WHERE iforest_candidate = true;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "purple"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 5,
+      "title": "Both Ensembles Agree",
+      "type": "stat",
+      "description": "High-confidence consensus outliers flagged by both models",
+      "gridPos": {
+        "x": 18,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT COUNT(*) FROM ml_results.anomaly_v1_candidates WHERE method_agreement = 'BOTH';",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "red"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 6,
+      "title": "Historical Z-Score vs. Isolation Forest Anomaly Score (Bivariate Decision Space)",
+      "type": "xychart",
+      "pluginVersion": "11.5.2",
+      "description": "Bivariate decision space comparing statistical Z-Score departures against Isolation Forest scores (Review candidate subset, n=100)",
+      "gridPos": {
+        "x": 0,
+        "y": 6,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "postgres",
+        "uid": "postgres_db"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT round(historical_zscore::numeric, 2) as zscore,        case when method_agreement = 'BOTH' and zscore_direction = 'HIGH' then round(iforest_anomaly_score::numeric, 4) end as \"Consensus Spike (Both Agree)\",        case when method_agreement = 'BOTH' and zscore_direction = 'LOW' then round(iforest_anomaly_score::numeric, 4) end as \"Consensus Collapse (Both Agree)\",        case when method_agreement = 'IFOREST_ONLY' then round(iforest_anomaly_score::numeric, 4) end as \"Multidimensional Outlier (IF Only)\" FROM ml_results.anomaly_v1_candidates ORDER BY zscore ASC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "mapping": "manual",
+        "series": [
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "zscore"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "Consensus Spike (Both Agree)"
+              }
+            },
+            "name": {
+              "fixed": "Consensus Spike (Both Agree)"
+            }
+          },
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "zscore"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "Consensus Collapse (Both Agree)"
+              }
+            },
+            "name": {
+              "fixed": "Consensus Collapse (Both Agree)"
+            }
+          },
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "zscore"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "Multidimensional Outlier (IF Only)"
+              }
+            },
+            "name": {
+              "fixed": "Multidimensional Outlier (IF Only)"
+            }
+          }
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "show": "points",
+            "pointSize": {
+              "fixed": 4
+            },
+            "lineWidth": 2,
+            "fillOpacity": 50
+          },
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "#5794F2"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Consensus Spike (Both Agree)"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "points"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 6
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#F2495C"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Consensus Collapse (Both Agree)"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "points"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 6
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#5794F2"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Multidimensional Outlier (IF Only)"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "points"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 5
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#B877D9"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "title": "Observed Sales Units vs. 7-Day Historical Baseline",
+      "type": "xychart",
+      "pluginVersion": "11.5.2",
+      "description": "Physical sales volume departures plotted against 7-day expected baseline demand",
+      "gridPos": {
+        "x": 12,
+        "y": 6,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "postgres",
+        "uid": "postgres_db"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT round(historical_mean_7d::numeric, 1) as historical_mean_7d, event_observed_units as observed_units, round(historical_mean_7d::numeric, 1) as expected_baseline FROM ml_results.anomaly_v1_candidates ORDER BY historical_mean_7d ASC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "mapping": "manual",
+        "series": [
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "historical_mean_7d"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "observed_units"
+              }
+            },
+            "name": {
+              "fixed": "Flagged Outlier Events"
+            }
+          },
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "historical_mean_7d"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "expected_baseline"
+              }
+            },
+            "name": {
+              "fixed": "Expected Baseline (y = x)"
+            }
+          }
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "show": "points",
+            "pointSize": {
+              "fixed": 4
+            },
+            "lineWidth": 2,
+            "fillOpacity": 50
+          },
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "#5794F2"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "observed_units"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "points"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 5
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#FF9830"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "expected_baseline"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "lines"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 4
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    4,
+                    4
+                  ]
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#73BF69"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "title": "Anomaly Candidates by Pattern & Direction",
+      "type": "barchart",
+      "description": "Classification of outliers into volume spikes, volume collapses, and multi-dimensional deviations",
+      "gridPos": {
+        "x": 0,
+        "y": 14,
+        "w": 12,
+        "h": 7
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT case when zscore_direction = 'HIGH' then 'Demand Spike (Z-Score High)' when zscore_direction = 'LOW' then 'Demand Collapse (Z-Score Low)' when zscore_direction = 'NONE' and method_agreement = 'IFOREST_ONLY' then 'Multi-Dimensional Outlier (Isolation Forest)' else 'Unclassified' end as anomaly_pattern, count(*) as candidate_count FROM ml_results.anomaly_v1_candidates GROUP BY 1 ORDER BY 2 DESC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "showValue": "always",
+        "xField": null,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "orange"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 9,
+      "title": "Detection Method Agreement",
+      "type": "barchart",
+      "description": "Concordance between statistical z-score and machine learning Isolation Forest models",
+      "gridPos": {
+        "x": 12,
+        "y": 14,
+        "w": 12,
+        "h": 7
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT case when method_agreement = 'BOTH' then 'Both Methods Converge' else 'Isolation Forest Only' end as detection_method, count(*) as candidate_count FROM ml_results.anomaly_v1_candidates GROUP BY 1 ORDER BY 2 DESC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "showValue": "always",
+        "xField": null,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "purple"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 10,
+      "title": "Ranked Anomaly Candidates for Business Review",
+      "type": "table",
+      "description": "Prioritized outlier episodes sorted by consensus and deviation severity",
+      "gridPos": {
+        "x": 0,
+        "y": 21,
+        "w": 24,
+        "h": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT event_date as date, store_id, sku_id, brand_name, category_name, event_observed_units as observed_units, round(historical_mean_7d::numeric, 1) as baseline_mean_7d, round(abs_historical_zscore::numeric, 2) as zscore, round(iforest_anomaly_score::numeric, 3) as iforest_score, method_agreement, case when zscore_direction = 'HIGH' then 'SPIKE' when zscore_direction = 'LOW' then 'DROP' else 'IFOREST' end as pattern FROM ml_results.anomaly_v1_candidates ORDER BY case when method_agreement = 'BOTH' then 0 else 1 end, abs_historical_zscore DESC NULLS LAST LIMIT 100;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "footer": {
+          "enablePagination": true,
+          "show": true
+        },
+        "showHeader": true
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "pattern"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "SPIKE": {
+                        "color": "red",
+                        "index": 0
+                      },
+                      "DROP": {
+                        "color": "blue",
+                        "index": 1
+                      },
+                      "IFOREST": {
+                        "color": "purple",
+                        "index": 2
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

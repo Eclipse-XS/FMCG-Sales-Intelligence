@@ -1,5 +1,6 @@
 from __future__ import annotations
-import json,uuid
+import json
+import uuid
 from decimal import Decimal, InvalidOperation
 from datetime import datetime
 REQUIRED={"event_id","event_type","event_time","source","schema_version","payload"}

@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 from fmcg_sales_intelligence.common.paths import PROJECT_ROOT
-import json,re
+import json
+import re
 import psycopg
 from fmcg_sales_intelligence.pipelines.persistence.connection import connect
 ROOT = PROJECT_ROOT;DATA=ROOT/"data/generated"

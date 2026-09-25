@@ -2,7 +2,9 @@
 from __future__ import annotations
 
 from fmcg_sales_intelligence.common.paths import PROJECT_ROOT
-import hashlib, json, zipfile
+import hashlib
+import json
+import zipfile
 from pathlib import Path
 import pandas as pd
 

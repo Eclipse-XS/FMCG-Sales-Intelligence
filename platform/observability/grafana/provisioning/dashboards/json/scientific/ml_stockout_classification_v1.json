@@ -1,0 +1,976 @@
+{
+  "title": "ML \u2014 Stockout Risk Classification",
+  "uid": "ml_stockout_classification_v1",
+  "timezone": "browser",
+  "refresh": "5m",
+  "schemaVersion": 39,
+  "tags": [
+    "scientific",
+    "ml",
+    "classification",
+    "stockout",
+    "fmcg"
+  ],
+  "time": {
+    "from": "2024-01-01T00:00:00.000Z",
+    "to": "2024-03-31T23:59:59.000Z"
+  },
+  "templating": {
+    "list": []
+  },
+  "panels": [
+    {
+      "id": 1,
+      "title": "Scientific Model Card & Classification Context",
+      "type": "text",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 3
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "**Core:** `stockout_classification_v1` | **Model Architecture:** `Gradient Boosted Decision Forest Ensemble`\n**Evaluation Horizon:** 7-Day stock depletion risk episode prediction across 4 fulfillment warehouses and 48 SKUs (3,840 test episodes).\n> \u26a0\ufe0f **Imbalanced Evaluation Context:** Base stockout rate is **4.84%** (186 events). Precision-Recall curve is the authoritative diagnostic for operational reorder tuning."
+      }
+    },
+    {
+      "id": 2,
+      "title": "Test ROC AUC",
+      "type": "stat",
+      "description": "Receiver Operating Characteristic Area Under Curve",
+      "gridPos": {
+        "x": 0,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT cast(test::json->'selected_model'->>'roc_auc' as float) FROM ml_results.stockout_classification_v1_metrics LIMIT 1;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "blue"
+          },
+          "decimals": 3
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 3,
+      "title": "Average Precision (AP)",
+      "type": "stat",
+      "description": "Average Precision (AP) on imbalanced stockout events",
+      "gridPos": {
+        "x": 6,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT cast(test::json->'selected_model'->>'average_precision' as float) FROM ml_results.stockout_classification_v1_metrics LIMIT 1;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "purple"
+          },
+          "decimals": 3
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 4,
+      "title": "High-Risk SKU Episodes",
+      "type": "stat",
+      "description": "Episodes classified as high stockout risk",
+      "gridPos": {
+        "x": 12,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT COUNT(*) FROM ml_results.stockout_classification_v1_predictions WHERE predicted_class = true;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "red"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 5,
+      "title": "Total Test Episodes",
+      "type": "stat",
+      "description": "Total evaluated out-of-sample inventory episodes",
+      "gridPos": {
+        "x": 18,
+        "y": 3,
+        "w": 6,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT COUNT(*) FROM ml_results.stockout_classification_v1_predictions;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 6,
+      "title": "Precision\u2013Recall Curve (Imbalance Diagnostic)",
+      "type": "xychart",
+      "pluginVersion": "11.5.2",
+      "description": "Empirical Precision-Recall trade-off curve across classification thresholds vs positive base rate",
+      "gridPos": {
+        "x": 0,
+        "y": 6,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "postgres",
+        "uid": "postgres_db"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "WITH thresholds AS (    SELECT generate_series(1, 99)::numeric / 100.0 as thresh), prevalence AS (    SELECT round((sum(case when stockout_within_7d then 1 else 0 end)::numeric / count(*)::numeric)::numeric, 4) as base_rate     FROM ml_results.stockout_classification_v1_predictions), classified AS (    SELECT t.thresh, p.stockout_within_7d as actual, (p.predicted_probability >= t.thresh) as pred     FROM thresholds t CROSS JOIN ml_results.stockout_classification_v1_predictions p), matrix AS (    SELECT thresh, sum(case when actual and pred then 1 else 0 end) as tp, sum(case when not actual and pred then 1 else 0 end) as fp, sum(case when actual and not pred then 1 else 0 end) as fn     FROM classified GROUP BY thresh) SELECT round((tp::numeric / nullif(tp + fn, 0))::numeric, 4) as recall, round((tp::numeric / nullif(tp + fp, 0))::numeric, 4) as precision, prev.base_rate as baseline_prevalence FROM matrix CROSS JOIN prevalence prev WHERE tp + fp > 0 ORDER BY recall ASC, precision DESC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "mapping": "manual",
+        "series": [
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "recall"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "precision"
+              }
+            },
+            "name": {
+              "fixed": "Precision-Recall Curve"
+            }
+          },
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "recall"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "baseline_prevalence"
+              }
+            },
+            "name": {
+              "fixed": "Class Prevalence Baseline (4.84%)"
+            }
+          }
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "show": "points",
+            "pointSize": {
+              "fixed": 4
+            },
+            "lineWidth": 2,
+            "fillOpacity": 50
+          },
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "#5794F2"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "precision"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "lines"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 4
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#B877D9"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "baseline_prevalence"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "lines"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 4
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 1.5
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    4,
+                    4
+                  ]
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#73BF69"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "title": "Receiver Operating Characteristic (ROC) Curve",
+      "type": "xychart",
+      "pluginVersion": "11.5.2",
+      "description": "True Positive Rate vs False Positive Rate curve evaluating global model discrimination (AUC = 0.799)",
+      "gridPos": {
+        "x": 12,
+        "y": 6,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "postgres",
+        "uid": "postgres_db"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "WITH thresholds AS (    SELECT generate_series(0, 100)::numeric / 100.0 as thresh), classified AS (    SELECT t.thresh, p.stockout_within_7d as actual, (p.predicted_probability >= t.thresh) as pred     FROM thresholds t CROSS JOIN ml_results.stockout_classification_v1_predictions p), matrix AS (    SELECT thresh, sum(case when actual and pred then 1 else 0 end) as tp, sum(case when not actual and pred then 1 else 0 end) as fp, sum(case when actual and not pred then 1 else 0 end) as fn, sum(case when not actual and not pred then 1 else 0 end) as tn     FROM classified GROUP BY thresh) SELECT round((fp::numeric / nullif(fp + tn, 0))::numeric, 4) as fpr, round((tp::numeric / nullif(tp + fn, 0))::numeric, 4) as tpr, round((fp::numeric / nullif(fp + tn, 0))::numeric, 4) as chance_line FROM matrix ORDER BY fpr ASC, tpr ASC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "mapping": "manual",
+        "series": [
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "fpr"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "tpr"
+              }
+            },
+            "name": {
+              "fixed": "ROC Curve (AUC = 0.799)"
+            }
+          },
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "fpr"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "chance_line"
+              }
+            },
+            "name": {
+              "fixed": "Chance Diagonal (AUC = 0.5)"
+            }
+          }
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "show": "points",
+            "pointSize": {
+              "fixed": 4
+            },
+            "lineWidth": 2,
+            "fillOpacity": 50
+          },
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "#5794F2"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "tpr"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "lines"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 4
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#5794F2"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "chance_line"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "lines"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 4
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 1.5
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    4,
+                    4
+                  ]
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#808080"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "title": "Predicted Risk Score Distribution by True Class",
+      "type": "barchart",
+      "description": "Score separation: non-stockout episodes cluster near 0 while actual stockouts shift toward higher risk scores",
+      "gridPos": {
+        "x": 0,
+        "y": 14,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT case     when predicted_probability < 0.05 then '0.00 - 0.05'     when predicted_probability < 0.10 then '0.05 - 0.10'     when predicted_probability < 0.15 then '0.10 - 0.15'     when predicted_probability < 0.20 then '0.15 - 0.20'     when predicted_probability < 0.25 then '0.20 - 0.25'     when predicted_probability < 0.30 then '0.25 - 0.30'     when predicted_probability < 0.40 then '0.30 - 0.40'     when predicted_probability < 0.50 then '0.40 - 0.50'     when predicted_probability < 0.60 then '0.50 - 0.60'     when predicted_probability < 0.70 then '0.60 - 0.70'     when predicted_probability < 0.80 then '0.70 - 0.80'     else '0.80 - 1.00' end as score_tier, sum(case when not stockout_within_7d then 1 else 0 end) as \"Actual Non-Stockouts\", sum(case when stockout_within_7d then 1 else 0 end) as \"Actual Stockouts\" FROM ml_results.stockout_classification_v1_predictions GROUP BY 1 ORDER BY min(predicted_probability);",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "vertical",
+        "showValue": "always",
+        "xField": "score_tier",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Actual Non-Stockouts"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "blue"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Actual Stockouts"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "red"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "title": "Threshold Diagnostics (Precision, Recall & F1-Score)",
+      "type": "xychart",
+      "pluginVersion": "11.5.2",
+      "description": "Trade-off curves of Precision, Recall, and F1 across candidate operational decision thresholds",
+      "gridPos": {
+        "x": 12,
+        "y": 14,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "postgres",
+        "uid": "postgres_db"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "WITH thresholds AS (    SELECT generate_series(5, 95, 5)::numeric / 100.0 as thresh), classified AS (    SELECT t.thresh, p.stockout_within_7d as actual, (p.predicted_probability >= t.thresh) as pred     FROM thresholds t CROSS JOIN ml_results.stockout_classification_v1_predictions p), matrix AS (    SELECT thresh, sum(case when actual and pred then 1 else 0 end) as tp, sum(case when not actual and pred then 1 else 0 end) as fp, sum(case when actual and not pred then 1 else 0 end) as fn     FROM classified GROUP BY thresh) SELECT thresh, round((tp::numeric / nullif(tp + fp, 0))::numeric, 3) as precision, round((tp::numeric / nullif(tp + fn, 0))::numeric, 3) as recall, round((2.0 * tp::numeric / nullif(2.0 * tp + fp + fn, 0))::numeric, 3) as f1_score FROM matrix WHERE tp + fp > 0 ORDER BY thresh ASC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "mapping": "manual",
+        "series": [
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "thresh"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "precision"
+              }
+            },
+            "name": {
+              "fixed": "Precision"
+            }
+          },
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "thresh"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "recall"
+              }
+            },
+            "name": {
+              "fixed": "Recall"
+            }
+          },
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "thresh"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "f1_score"
+              }
+            },
+            "name": {
+              "fixed": "F1-Score"
+            }
+          }
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "show": "points",
+            "pointSize": {
+              "fixed": 4
+            },
+            "lineWidth": 2,
+            "fillOpacity": 50
+          },
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "#5794F2"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "precision"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "lines"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 4
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2.5
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#B877D9"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "recall"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "lines"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 4
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2.5
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#5794F2"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "f1_score"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "lines"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 4
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#FF9830"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "title": "Model Decision vs Observed Event (Confusion Matrix Outcomes)",
+      "type": "barchart",
+      "description": "Breakdown across confusion matrix quadrants at operational decision boundary",
+      "gridPos": {
+        "x": 0,
+        "y": 22,
+        "w": 12,
+        "h": 7
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT case     when stockout_within_7d and predicted_class then 'True Positive (Correct Alert)'     when not stockout_within_7d and not predicted_class then 'True Negative (Correct Normal)'     when not stockout_within_7d and predicted_class then 'False Positive (False Alarm)'     else 'False Negative (Missed Stockout)' end as outcome, count(*) as episode_count FROM ml_results.stockout_classification_v1_predictions GROUP BY 1 ORDER BY 2 DESC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "showValue": "always",
+        "xField": null,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "purple"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 11,
+      "title": "High-Risk Predictions by Warehouse",
+      "type": "barchart",
+      "description": "Distribution of high-risk stockout warnings across fulfillment hubs",
+      "gridPos": {
+        "x": 12,
+        "y": 22,
+        "w": 12,
+        "h": 7
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT concat('Warehouse ', warehouse_id) as warehouse, count(*) as high_risk_positions FROM ml_results.stockout_classification_v1_predictions WHERE predicted_class = true GROUP BY 1 ORDER BY 2 DESC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "showValue": "always",
+        "xField": null,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "red"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 12,
+      "title": "Ranked High-Risk Inventory Positions",
+      "type": "table",
+      "description": "Actionable replenishment queue prioritized by predicted stockout probability",
+      "gridPos": {
+        "x": 0,
+        "y": 29,
+        "w": 24,
+        "h": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT to_char(prediction_date, 'YYYY-MM-DD') as date, warehouse_id, sku_id, round(predicted_probability::numeric, 3) as stockout_risk_score, predicted_class, available_quantity, reorder_point, safety_stock, round(sales_velocity_7d::numeric, 2) as velocity_7d FROM ml_results.stockout_classification_v1_predictions WHERE predicted_class = true ORDER BY predicted_probability DESC LIMIT 150;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "footer": {
+          "enablePagination": true,
+          "show": true
+        },
+        "showHeader": true
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          }
+        },
+        "overrides": []
+      }
+    }
+  ]
+}

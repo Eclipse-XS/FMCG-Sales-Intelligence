@@ -13,7 +13,7 @@
 | FastAPI / Pydantic / Uvicorn | 0.116.1 / 2.11.7 / 0.35.0 |
 | MLflow | 3.16.1, isolated container |
 | Docker / Compose | 29.7.2 / 5.5.1 |
-| Node.js / npm | 22.22.3 / 10.9.8 |
-| React / Vite / ECharts | 19.1.1 / 7.3.6 / 6.1.0 |
+| Grafana | 11.5.2 (11 dashboards-as-code) |
+| Prometheus | 3.5.0 |
 
 MLflow is isolated from the frozen scientific environment, which must retain pandas 3.0.5 and PyArrow 25.0.1. MLflow 3.16.1 also avoids the PostgreSQL model-alias type mismatch observed with 3.3.2. No scientific-runtime upgrades were performed.

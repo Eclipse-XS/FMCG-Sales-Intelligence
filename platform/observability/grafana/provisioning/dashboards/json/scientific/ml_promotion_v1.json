@@ -1,0 +1,729 @@
+{
+  "title": "Analytics \u2014 Promotion Performance",
+  "uid": "ml_promotion_v1",
+  "timezone": "browser",
+  "refresh": "5m",
+  "schemaVersion": 39,
+  "tags": [
+    "analytics",
+    "promotion",
+    "uplift",
+    "fmcg"
+  ],
+  "time": {
+    "from": "2024-01-01T00:00:00.000Z",
+    "to": "2024-03-31T23:59:59.000Z"
+  },
+  "templating": {
+    "list": []
+  },
+  "panels": [
+    {
+      "id": 1,
+      "title": "Analytical Methodology & Observational Context",
+      "type": "text",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 3
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "**Core:** `promotion_v1` | **Evaluation Methodology:** `Descriptive Window Comparison (Pre vs During vs Post)`\n**Scope:** 3 promotional discount events evaluated across 2,880 SKU-store exposures.\n> \u26a0\ufe0f **Observational Caveat:** The evaluation employs descriptive window comparisons without counterfactual synthetic controls. Unobserved seasonal shocks, competitor actions, and stockouts are not causally isolated."
+      }
+    },
+    {
+      "id": 2,
+      "title": "Promotions Evaluated",
+      "type": "stat",
+      "description": "Total distinct promotional campaigns evaluated",
+      "gridPos": {
+        "x": 0,
+        "y": 3,
+        "w": 8,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT promotion_count FROM ml_results.promotion_v1_metrics LIMIT 1;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 3,
+      "title": "SKU-Store Exposures",
+      "type": "stat",
+      "description": "Total SKU-store retail campaign exposures evaluated",
+      "gridPos": {
+        "x": 8,
+        "y": 3,
+        "w": 8,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT exposure_count FROM ml_results.promotion_v1_metrics LIMIT 1;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 4,
+      "title": "Evaluation Methodology",
+      "type": "stat",
+      "description": "Analytical framework applied for uplift measurement",
+      "gridPos": {
+        "x": 16,
+        "y": 3,
+        "w": 8,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT 'Descriptive Window Comparison' AS methodology;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "textMode": "value",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false,
+          "fields": "/.*/"
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "string",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "blue"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 5,
+      "title": "Units Uplift vs. Revenue Uplift Scatter (2,880 Retail Exposures)",
+      "type": "xychart",
+      "pluginVersion": "11.5.2",
+      "description": "Exposure-level volume growth vs revenue expansion revealing margin dilution and deal profitability across 2,880 exposures",
+      "gridPos": {
+        "x": 0,
+        "y": 6,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "postgres",
+        "uid": "postgres_db"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT round((during_vs_pre_relative_units_change * 100)::numeric, 1) as units_lift_pct,        case when during_vs_pre_relative_revenue_change >= 0 and during_vs_pre_relative_units_change >= 0 then round((during_vs_pre_relative_revenue_change * 100)::numeric, 1) end as \"Profitable Uplift (Units Up, Revenue Up)\",        case when during_vs_pre_relative_revenue_change < 0 and during_vs_pre_relative_units_change >= 0 then round((during_vs_pre_relative_revenue_change * 100)::numeric, 1) end as \"Margin Dilution (Units Up, Revenue Down)\",        case when during_vs_pre_relative_units_change < 0 then round((during_vs_pre_relative_revenue_change * 100)::numeric, 1) end as \"Volume Drag (Units Down)\" FROM ml_results.promotion_v1_exposure WHERE during_vs_pre_relative_units_change IS NOT NULL AND during_vs_pre_relative_revenue_change IS NOT NULL ORDER BY units_lift_pct ASC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "mapping": "manual",
+        "series": [
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "units_lift_pct"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "Profitable Uplift (Units Up, Revenue Up)"
+              }
+            },
+            "name": {
+              "fixed": "Profitable Uplift (Units Up, Revenue Up)"
+            }
+          },
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "units_lift_pct"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "Margin Dilution (Units Up, Revenue Down)"
+              }
+            },
+            "name": {
+              "fixed": "Margin Dilution (Units Up, Revenue Down)"
+            }
+          },
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "units_lift_pct"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "Volume Drag (Units Down)"
+              }
+            },
+            "name": {
+              "fixed": "Volume Drag (Units Down)"
+            }
+          }
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "show": "points",
+            "pointSize": {
+              "fixed": 4
+            },
+            "lineWidth": 2,
+            "fillOpacity": 50
+          },
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "#5794F2"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Profitable Uplift (Units Up, Revenue Up)"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "points"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 4
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#73BF69"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Margin Dilution (Units Up, Revenue Down)"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "points"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 4
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#FF9830"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Volume Drag (Units Down)"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "points"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 4
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#F2495C"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "title": "Before vs. During Sales Velocity Parity Scatter",
+      "type": "xychart",
+      "pluginVersion": "11.5.2",
+      "description": "Daily sales velocity comparison: points above baseline line represent physical volume uplift",
+      "gridPos": {
+        "x": 12,
+        "y": 6,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "postgres",
+        "uid": "postgres_db"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT round(pre_units_per_day::numeric, 1) as pre_velocity, round(during_units_per_day::numeric, 1) as promo_velocity, round(pre_units_per_day::numeric, 1) as baseline_parity FROM ml_results.promotion_v1_exposure WHERE pre_units_per_day IS NOT NULL AND during_units_per_day IS NOT NULL ORDER BY pre_velocity ASC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "mapping": "manual",
+        "series": [
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "pre_velocity"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "promo_velocity"
+              }
+            },
+            "name": {
+              "fixed": "Promotional Exposures"
+            }
+          },
+          {
+            "frame": {
+              "matcher": {
+                "id": "byIndex",
+                "options": 0
+              }
+            },
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "pre_velocity"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "baseline_parity"
+              }
+            },
+            "name": {
+              "fixed": "Pre-Promo Baseline (y = x)"
+            }
+          }
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "show": "points",
+            "pointSize": {
+              "fixed": 4
+            },
+            "lineWidth": 2,
+            "fillOpacity": 50
+          },
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "#5794F2"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "promo_velocity"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "points"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 4
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#B877D9"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "baseline_parity"
+            },
+            "properties": [
+              {
+                "id": "custom.show",
+                "value": "lines"
+              },
+              {
+                "id": "custom.pointSize",
+                "value": {
+                  "fixed": 4
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    4,
+                    4
+                  ]
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#73BF69"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "title": "Pre vs During vs Post Sales Velocity (Triple Window Comparison)",
+      "type": "barchart",
+      "description": "Daily unit sales velocity per store across pre, during, and post campaign phases",
+      "gridPos": {
+        "x": 0,
+        "y": 14,
+        "w": 12,
+        "h": 7
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT concat('Campaign ', promotion_id) as campaign, round(pre_units_per_day::numeric, 1) as \"Pre-Promo (Baseline)\", round(during_units_per_day::numeric, 1) as \"During-Promo (Uplift)\", round(coalesce(post_units_per_day, 0)::numeric, 1) as \"Post-Promo (Rebound)\" FROM ml_results.promotion_v1_summary ORDER BY promotion_id;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "vertical",
+        "showValue": "always",
+        "xField": "campaign",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Pre-Promo (Baseline)"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "blue"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "During-Promo (Uplift)"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "orange"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Post-Promo (Rebound)"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "green"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "title": "Promotional Lift by Product Category (2,880 Exposures)",
+      "type": "barchart",
+      "description": "Average percentage unit volume uplift by product category",
+      "gridPos": {
+        "x": 12,
+        "y": 14,
+        "w": 12,
+        "h": 7
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT category_name as category, round((avg(during_vs_pre_relative_units_change) * 100)::numeric, 1) as avg_units_lift_pct FROM ml_results.promotion_v1_exposure WHERE during_vs_pre_relative_units_change IS NOT NULL GROUP BY 1 ORDER BY 2 DESC;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "showValue": "always",
+        "xField": null,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "orange"
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 9,
+      "title": "Promotion Performance Summary Table",
+      "type": "table",
+      "description": "Comprehensive promotional campaign benchmarking table",
+      "gridPos": {
+        "x": 0,
+        "y": 21,
+        "w": 24,
+        "h": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres_db"
+          },
+          "format": "table",
+          "rawSql": "SELECT concat('Promo ', promotion_id) as campaign, to_char(start_date, 'YYYY-MM-DD') as start_date, to_char(end_date, 'YYYY-MM-DD') as end_date, duration_days, exposure_count, round(pre_units_per_day::numeric, 1) as pre_velocity, round(during_units_per_day::numeric, 1) as promo_velocity, round(coalesce(post_units_per_day, 0)::numeric, 1) as post_velocity, round((during_vs_pre_relative_units_change * 100)::numeric, 1) as units_lift_pct, round((during_vs_pre_relative_revenue_change * 100)::numeric, 1) as revenue_lift_pct FROM ml_results.promotion_v1_summary ORDER BY promotion_id;",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "footer": {
+          "enablePagination": true,
+          "show": true
+        },
+        "showHeader": true
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          }
+        },
+        "overrides": []
+      }
+    }
+  ]
+}

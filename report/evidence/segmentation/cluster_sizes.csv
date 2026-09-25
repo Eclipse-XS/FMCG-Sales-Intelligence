@@ -1,0 +1,4 @@
+cluster_id,segment_name,store_count
+0,Lower-Volume Lower-Promotion,9
+1,Higher-Volume Balanced-Promotion,7
+2,Lower-Volume Promotion-Leaning,4

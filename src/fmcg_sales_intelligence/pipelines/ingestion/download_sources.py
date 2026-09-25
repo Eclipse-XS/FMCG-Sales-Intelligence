@@ -2,7 +2,10 @@
 from __future__ import annotations
 
 from fmcg_sales_intelligence.common.paths import PROJECT_ROOT
-import argparse, json, shutil, urllib.request
+import argparse
+import json
+import shutil
+import urllib.request
 from pathlib import Path
 
 ROOT = PROJECT_ROOT

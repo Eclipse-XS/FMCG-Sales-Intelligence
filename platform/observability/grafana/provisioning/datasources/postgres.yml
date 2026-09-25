@@ -1,6 +1,7 @@
 apiVersion: 1
 datasources:
   - name: FMCG Operational PostgreSQL
+    uid: postgres_db
     type: postgres
     access: proxy
     url: postgres:5432

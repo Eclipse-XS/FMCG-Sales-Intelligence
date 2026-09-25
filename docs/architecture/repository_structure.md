@@ -9,7 +9,7 @@
 - `data/processed/`: DVC-owned task datasets; `data/warehouse/`: local DuckDB runtime state.
 - `artifacts/canonical/`: DVC-owned frozen scientific outputs; `artifacts/project/`: compact Git metadata.
 - `platform/dbt/`: staging, intermediate, dimensional/fact and mart transformations.
-- `apps/dashboard/`: React/TypeScript/Vite business dashboard using ECharts and backend APIs.
+- `src/fmcg_sales_intelligence/product/analytics/`: publication layer that reads frozen scientific artifacts and writes presentation tables to PostgreSQL for Grafana.
 - `infrastructure/`: Docker images, Prometheus, Grafana and connector templates.
 - `platform/airflow/dags/`: Airflow discovery path retained deliberately.
 - `tests/`: scientific, contract, API and integration regression tests.

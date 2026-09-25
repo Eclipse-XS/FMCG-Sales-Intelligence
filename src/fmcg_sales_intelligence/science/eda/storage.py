@@ -1,5 +1,6 @@
 from __future__ import annotations
-import json,shutil
+import json
+import shutil
 from pathlib import Path
 from .errors import CorruptRunError,RunNotFoundError
 from .models import ArtifactReference,DatasetIdentity,EDAResult,Finding,Readiness,Severity

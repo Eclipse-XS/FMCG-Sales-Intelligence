@@ -2,9 +2,11 @@
 from __future__ import annotations
 
 from fmcg_sales_intelligence.common.paths import PROJECT_ROOT
-import json, logging
+import json
+import logging
 from datetime import datetime, timezone
-import duckdb, polars as pl
+import duckdb
+import polars as pl
 from psycopg import sql
 from fmcg_sales_intelligence.pipelines.persistence.connection import connect
 

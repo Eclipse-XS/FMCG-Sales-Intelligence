@@ -83,3 +83,42 @@ mlruns/
 artifacts/mlflow/
 *.db-shm
 *.db-wal
+
+# Agent / document QA temporary outputs
+.codex-*
+.codex_*
+.qa_final*/
+.qa_fixed*/
+.qa_reference*/
+.qa_title_*/
+.docx-format-fix/
+
+# Local academic/reference documents (keep local)
+.qa_refs/
+
+# Internal forensic reports & audit logs (keep local)
+report/full_repository_forensic_audit.md
+report/grafana_current_state_audit.md
+report/scientific_visualization_feasibility_audit.md
+report/scientific_visualization_upgrade_report.md
+report/repository_hygiene_audit.md
+report/github_publication_readiness_audit.md
+report/live_render_verification.json
+
+# Database layout debugging report & validation logs (keep local)
+docs/diagrams/database/LAYOUT_V2_REPORT.md
+docs/diagrams/database/fmcg_layout_before.json
+docs/diagrams/database/fmcg_layout_render_validation.json
+docs/diagrams/database/fmcg_logical_layout_validation.json
+docs/diagrams/database/fmcg_physical_layout_validation.json
+docs/diagrams/database/fmcg_readable_v2_validation.json
+docs/diagrams/database/fmcg_schema_audit.json
+docs/diagrams/database/readable_v2_geometry.json
+
+# Local scratch/debug output
+scratch/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -11,11 +11,12 @@ flowchart TB
   D --> M[Seven frozen analytical cores]
   M --> V[DVC artifacts + MLflow metadata]
   V --> API[FastAPI]
-  API --> UI[React dashboard]
+  API --> DOCS[FastAPI / Swagger docs]
+  P --> G[Grafana Analytical & Operational Dashboards]
   K[Kafka local replay] -. optional event ingress .-> I
   AF[Airflow bounded demo] -. batch orchestration .-> I
   API -. operational metrics .-> PR[Prometheus]
-  PR --> G[Grafana engineering dashboard]
+  PR --> G
 ```
 
 The solid path is the primary batch-to-product lineage. Kafka is an optional isolated replay simulation. Airflow demonstrates bounded orchestration and does not imply a persistent deployment. Prometheus and Grafana observe the API; they are not inference dependencies.

@@ -25,3 +25,20 @@ class ErrorBody(BaseModel):
 
 class ErrorEnvelope(BaseModel):
     error: ErrorBody
+
+
+class BusinessForecastRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    store_id: int
+    sku_id: int
+
+
+class BusinessStockoutRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    warehouse_id: int
+    sku_id: int
+
+
+class BusinessSegmentationRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    store_id: int

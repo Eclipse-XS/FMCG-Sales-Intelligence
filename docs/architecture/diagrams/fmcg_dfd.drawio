@@ -1,0 +1,1430 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram id="dfd_context" name="Context">
+    <mxGraphModel page="1" pageWidth="2100" pageHeight="1400" pageScale="1" grid="1" gridSize="10" background="#FFFFFF">
+      <root>
+        <mxCell id="dfd_context-0" />
+        <mxCell id="dfd_context-1" parent="dfd_context-0" />
+        <mxCell id="dfd_context-c1" value="Контекстна DFD системи FMCG Sales Intelligence" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=32;fontStyle=1;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_context-1">
+          <mxGeometry as="geometry" x="40" y="35" width="2020" height="55" />
+        </mxCell>
+        <mxCell id="dfd_context-c2" value="Gane–Sarson" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=21;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_context-1">
+          <mxGeometry as="geometry" x="40" y="1360" width="2020" height="35" />
+        </mxCell>
+        <mxCell id="dfd_context-c3" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;" vertex="1" parent="dfd_context-1" dfdType="entity" logicalId="E1">
+          <mxGeometry as="geometry" x="70" y="580" width="350" height="150" />
+        </mxCell>
+        <mxCell id="dfd_context-c4" value="E1&#10;Зовнішні джерела&#10;FMCG / retail-даних" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_context-c3">
+          <mxGeometry as="geometry" x="10" y="5" width="330" height="140" />
+        </mxCell>
+        <mxCell id="dfd_context-c5" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;rounded=1;arcSize=14;" vertex="1" parent="dfd_context-1" dfdType="process" logicalId="0">
+          <mxGeometry as="geometry" x="780" y="540" width="490" height="225" />
+        </mxCell>
+        <mxCell id="dfd_context-c6" value="0" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_context-c5">
+          <mxGeometry as="geometry" x="8" y="5" width="474" height="32" />
+        </mxCell>
+        <mxCell id="dfd_context-c7" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_context-c5">
+          <mxGeometry as="geometry" x="0" y="42" width="490" height="1" />
+        </mxCell>
+        <mxCell id="dfd_context-c8" value="Обробляти FMCG-дані&#10;та надавати&#10;аналітичні результати" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_context-c5">
+          <mxGeometry as="geometry" x="10" y="49" width="470" height="170" />
+        </mxCell>
+        <mxCell id="dfd_context-c9" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;" vertex="1" parent="dfd_context-1" dfdType="entity" logicalId="E2">
+          <mxGeometry as="geometry" x="1680" y="580" width="350" height="150" />
+        </mxCell>
+        <mxCell id="dfd_context-c10" value="E2&#10;Бізнес-користувач /&#10;аналітик" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_context-c9">
+          <mxGeometry as="geometry" x="10" y="5" width="330" height="140" />
+        </mxCell>
+        <mxCell id="dfd_context-e11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.4666666666666667;exitPerimeter=0;entryX=0.0;entryY=0.4888888888888889;entryPerimeter=0;" edge="1" parent="dfd_context-1" source="dfd_context-c3" target="dfd_context-c5" flowLabel="Зовнішні FMCG-дані&#10;та довідкові набори" semanticAtoms="source_data">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="420" y="650" />
+            <mxPoint as="targetPoint" x="780" y="650" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_context-c12" value="Зовнішні FMCG-дані&#10;та довідкові набори" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_context-1">
+          <mxGeometry as="geometry" x="435" y="565" width="330" height="65" />
+        </mxCell>
+        <mxCell id="dfd_context-e13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=0.0;exitY=0.23333333333333334;exitPerimeter=0;entryX=0.6530612244897959;entryY=0.0;entryPerimeter=0;" edge="1" parent="dfd_context-1" source="dfd_context-c9" target="dfd_context-c5" flowLabel="Параметри прогнозування&#10;та аналітичних запитів" semanticAtoms="request">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1680" y="615" />
+            <mxPoint as="targetPoint" x="1100" y="540" />
+            <Array as="points">
+              <mxPoint x="1500" y="615" />
+              <mxPoint x="1500" y="460" />
+              <mxPoint x="1100" y="460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_context-c14" value="Параметри прогнозування&#10;та аналітичних запитів" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_context-1">
+          <mxGeometry as="geometry" x="1225" y="375" width="410" height="65" />
+        </mxCell>
+        <mxCell id="dfd_context-e15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.6666666666666666;exitPerimeter=0;entryX=0.0;entryY=0.7333333333333333;entryPerimeter=0;" edge="1" parent="dfd_context-1" source="dfd_context-c5" target="dfd_context-c9" flowLabel="Прогнози, ризики, KPI&#10;та аналітичні результати" semanticAtoms="response">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1270" y="690" />
+            <mxPoint as="targetPoint" x="1680" y="690" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_context-c16" value="Прогнози, ризики, KPI&#10;та аналітичні результати" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_context-1">
+          <mxGeometry as="geometry" x="1290" y="720" width="370" height="65" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="dfd_level_1" name="Level 1">
+    <mxGraphModel page="1" pageWidth="2100" pageHeight="1400" pageScale="1" grid="1" gridSize="10" background="#FFFFFF">
+      <root>
+        <mxCell id="dfd_level_1-0" />
+        <mxCell id="dfd_level_1-1" parent="dfd_level_1-0" />
+        <mxCell id="dfd_level_1-c1" value="DFD рівня 1 — основні потоки даних" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=32;fontStyle=1;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="40" y="35" width="2020" height="55" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c2" value="Gane–Sarson · Повторення позначення D означає те саме логічне сховище." style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=21;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="40" y="1360" width="2020" height="35" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c3" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;" vertex="1" parent="dfd_level_1-1" dfdType="entity" logicalId="E1">
+          <mxGeometry as="geometry" x="40" y="220" width="290" height="125" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c4" value="E1&#10;Зовнішні джерела&#10;FMCG / retail-даних" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c3">
+          <mxGeometry as="geometry" x="10" y="5" width="270" height="115" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c5" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;rounded=1;arcSize=14;" vertex="1" parent="dfd_level_1-1" dfdType="process" logicalId="1.0">
+          <mxGeometry as="geometry" x="460" y="210" width="310" height="140" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c6" value="1.0" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c5">
+          <mxGeometry as="geometry" x="8" y="5" width="294" height="32" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c7" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_1-c5">
+          <mxGeometry as="geometry" x="0" y="42" width="310" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c8" value="Інтегрувати та&#10;перевіряти FMCG-дані" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c5">
+          <mxGeometry as="geometry" x="10" y="49" width="290" height="85" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c9" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_1-1" dfdType="store" logicalId="D2">
+          <mxGeometry as="geometry" x="930" y="235" width="300" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c10" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_1-c9">
+          <mxGeometry as="geometry" x="0" y="0" width="300" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c11" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_1-c9">
+          <mxGeometry as="geometry" x="0" y="100" width="300" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c12" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_1-c9">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c13" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_1-c9">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c14" value="D2" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c9">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c15" value="Операційні&#10;FMCG-дані" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c9">
+          <mxGeometry as="geometry" x="56" y="0" width="236" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c16" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;rounded=1;arcSize=14;" vertex="1" parent="dfd_level_1-1" dfdType="process" logicalId="2.0">
+          <mxGeometry as="geometry" x="1430" y="210" width="310" height="140" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c17" value="2.0" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c16">
+          <mxGeometry as="geometry" x="8" y="5" width="294" height="32" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c18" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_1-c16">
+          <mxGeometry as="geometry" x="0" y="42" width="310" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c19" value="Формувати аналітичні&#10;набори даних" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c16">
+          <mxGeometry as="geometry" x="10" y="49" width="290" height="85" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c20" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_1-1" dfdType="store" logicalId="D1">
+          <mxGeometry as="geometry" x="460" y="530" width="340" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c21" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_1-c20">
+          <mxGeometry as="geometry" x="0" y="0" width="340" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c22" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_1-c20">
+          <mxGeometry as="geometry" x="0" y="100" width="340" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c23" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_1-c20">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c24" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_1-c20">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c25" value="D1" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c20">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c26" value="Початкові та&#10;інтегровані дані" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c20">
+          <mxGeometry as="geometry" x="56" y="0" width="276" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c27" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_1-1" dfdType="store" logicalId="D8">
+          <mxGeometry as="geometry" x="40" y="535" width="355" height="110" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c28" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_1-c27">
+          <mxGeometry as="geometry" x="0" y="0" width="355" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c29" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_1-c27">
+          <mxGeometry as="geometry" x="0" y="110" width="355" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c30" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_1-c27">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="110" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c31" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_1-c27">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="110" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c32" value="D8" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c27">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="110" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c33" value="Черга replay-подій&#10;Kafka" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c27">
+          <mxGeometry as="geometry" x="56" y="0" width="291" height="110" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c34" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_1-1" dfdType="store" logicalId="D3">
+          <mxGeometry as="geometry" x="1430" y="530" width="310" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c35" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_1-c34">
+          <mxGeometry as="geometry" x="0" y="0" width="310" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c36" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_1-c34">
+          <mxGeometry as="geometry" x="0" y="100" width="310" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c37" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_1-c34">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c38" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_1-c34">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c39" value="D3" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c34">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c40" value="Аналітичне&#10;сховище" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c34">
+          <mxGeometry as="geometry" x="56" y="0" width="246" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c41" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_1-1" dfdType="store" logicalId="D7">
+          <mxGeometry as="geometry" x="1810" y="530" width="250" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c42" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_1-c41">
+          <mxGeometry as="geometry" x="0" y="0" width="250" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c43" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_1-c41">
+          <mxGeometry as="geometry" x="0" y="100" width="250" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c44" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_1-c41">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c45" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_1-c41">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c46" value="D7" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c41">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c47" value="Звіти якості&#10;наборів даних" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c41">
+          <mxGeometry as="geometry" x="56" y="0" width="186" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c48" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_1-1" dfdType="store" logicalId="D4">
+          <mxGeometry as="geometry" x="1430" y="810" width="320" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c49" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_1-c48">
+          <mxGeometry as="geometry" x="0" y="0" width="320" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c50" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_1-c48">
+          <mxGeometry as="geometry" x="0" y="100" width="320" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c51" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_1-c48">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c52" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_1-c48">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c53" value="D4" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c48">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c54" value="Набори для&#10;аналітичних задач" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c48">
+          <mxGeometry as="geometry" x="56" y="0" width="256" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c55" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;rounded=1;arcSize=14;" vertex="1" parent="dfd_level_1-1" dfdType="process" logicalId="3.0">
+          <mxGeometry as="geometry" x="930" y="790" width="310" height="140" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c56" value="3.0" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c55">
+          <mxGeometry as="geometry" x="8" y="5" width="294" height="32" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c57" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_1-c55">
+          <mxGeometry as="geometry" x="0" y="42" width="310" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c58" value="Виконувати ML та&#10;аналітичну обробку" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c55">
+          <mxGeometry as="geometry" x="10" y="49" width="290" height="85" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c59" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_1-1" dfdType="store" logicalId="D5">
+          <mxGeometry as="geometry" x="460" y="810" width="330" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c60" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_1-c59">
+          <mxGeometry as="geometry" x="0" y="0" width="330" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c61" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_1-c59">
+          <mxGeometry as="geometry" x="0" y="100" width="330" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c62" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_1-c59">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c63" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_1-c59">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c64" value="D5" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c59">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c65" value="Канонічні ML/&#10;аналітичні артефакти&#10;та результати" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c59">
+          <mxGeometry as="geometry" x="56" y="0" width="266" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c66" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;rounded=1;arcSize=14;" vertex="1" parent="dfd_level_1-1" dfdType="process" logicalId="4.0">
+          <mxGeometry as="geometry" x="460" y="1150" width="330" height="140" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c67" value="4.0" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c66">
+          <mxGeometry as="geometry" x="8" y="5" width="314" height="32" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c68" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_1-c66">
+          <mxGeometry as="geometry" x="0" y="42" width="330" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c69" value="Реєструвати аналітичні&#10;артефакти та метадані" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c66">
+          <mxGeometry as="geometry" x="10" y="49" width="310" height="85" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c70" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_1-1" dfdType="store" logicalId="D6">
+          <mxGeometry as="geometry" x="40" y="1170" width="340" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c71" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_1-c70">
+          <mxGeometry as="geometry" x="0" y="0" width="340" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c72" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_1-c70">
+          <mxGeometry as="geometry" x="0" y="100" width="340" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c73" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_1-c70">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c74" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_1-c70">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c75" value="D6" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c70">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c76" value="Метадані експериментів,&#10;запусків і версій&#10;артефактів" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c70">
+          <mxGeometry as="geometry" x="56" y="0" width="276" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c77" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;rounded=1;arcSize=14;" vertex="1" parent="dfd_level_1-1" dfdType="process" logicalId="5.0">
+          <mxGeometry as="geometry" x="1430" y="1150" width="320" height="140" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c78" value="5.0" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c77">
+          <mxGeometry as="geometry" x="8" y="5" width="304" height="32" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c79" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_1-c77">
+          <mxGeometry as="geometry" x="0" y="42" width="320" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c80" value="Надавати прогнози та&#10;аналітичні результати" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c77">
+          <mxGeometry as="geometry" x="10" y="49" width="300" height="85" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c81" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;" vertex="1" parent="dfd_level_1-1" dfdType="entity" logicalId="E2">
+          <mxGeometry as="geometry" x="1830" y="1150" width="240" height="140" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c82" value="E2&#10;Бізнес-користувач /&#10;аналітик" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-c81">
+          <mxGeometry as="geometry" x="10" y="5" width="220" height="130" />
+        </mxCell>
+        <mxCell id="dfd_level_1-e83" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.44;exitPerimeter=0;entryX=0.0;entryY=0.4642857142857143;entryPerimeter=0;" edge="1" parent="dfd_level_1-1" source="dfd_level_1-c3" target="dfd_level_1-c5" flowLabel="Зовнішні FMCG-дані&#10;та довідкові набори" semanticAtoms="source_data">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="330" y="275" />
+            <mxPoint as="targetPoint" x="460" y="275" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_1-c84" value="Зовнішні FMCG-дані&#10;та довідкові набори" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="270" y="135" width="300" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_1-e85" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.5357142857142857;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" edge="1" parent="dfd_level_1-1" source="dfd_level_1-c5" target="dfd_level_1-c9" flowLabel="Операційні&#10;записи" semanticAtoms="operational_write">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="770" y="285" />
+            <mxPoint as="targetPoint" x="930" y="285" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_1-c86" value="Операційні&#10;записи" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="775" y="300" width="150" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_1-e87" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.5357142857142857;entryPerimeter=0;" edge="1" parent="dfd_level_1-1" source="dfd_level_1-c9" target="dfd_level_1-c16" flowLabel="Факти та&#10;довідники" semanticAtoms="operational">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1230" y="285" />
+            <mxPoint as="targetPoint" x="1430" y="285" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_1-c88" value="Факти та&#10;довідники" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="1240" y="195" width="180" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_1-e89" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=0.7741935483870968;exitY=1.0;exitPerimeter=0;entryX=0.7058823529411765;entryY=0.0;entryPerimeter=0;" edge="1" parent="dfd_level_1-1" source="dfd_level_1-c5" target="dfd_level_1-c20" flowLabel="Збережені початкові&#10;та інтегровані дані" semanticAtoms="source_files_write">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="700" y="350" />
+            <mxPoint as="targetPoint" x="700" y="530" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_1-c90" value="Збережені початкові&#10;та інтегровані дані" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="710" y="395" width="305" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_1-e91" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=0.17647058823529413;exitY=0.0;exitPerimeter=0;entryX=0.1935483870967742;entryY=1.0;entryPerimeter=0;" edge="1" parent="dfd_level_1-1" source="dfd_level_1-c20" target="dfd_level_1-c5" flowLabel="Початкові&#10;набори та&#10;параметри&#10;калібрування" semanticAtoms="source_files_read">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="520" y="530" />
+            <mxPoint as="targetPoint" x="520" y="350" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_1-c92" value="Початкові&#10;набори та&#10;параметри&#10;калібрування" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="525" y="375" width="170" height="115" />
+        </mxCell>
+        <mxCell id="dfd_level_1-e93" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=0.5;exitY=0.0;exitPerimeter=0;entryX=0.8064516129032258;entryY=0.0;entryPerimeter=0;dashed=1;dashPattern=7 4;" edge="1" parent="dfd_level_1-1" source="dfd_level_1-c9" target="dfd_level_1-c5" flowLabel="Продажі для replay&#10;(опціонально)" semanticAtoms="replay_sales">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1080" y="235" />
+            <mxPoint as="targetPoint" x="710" y="210" />
+            <Array as="points">
+              <mxPoint x="1080" y="125" />
+              <mxPoint x="710" y="125" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_1-c94" value="Продажі для replay&#10;(опціонально)" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="775" y="145" width="270" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_1-e95" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=0.0;exitY=0.8214285714285714;exitPerimeter=0;entryX=0.7887323943661971;entryY=0.0;entryPerimeter=0;dashed=1;dashPattern=7 4;" edge="1" parent="dfd_level_1-1" source="dfd_level_1-c5" target="dfd_level_1-c27" flowLabel="Опубліковані&#10;replay-події" semanticAtoms="replay_write">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="460" y="325" />
+            <mxPoint as="targetPoint" x="320" y="535" />
+            <Array as="points">
+              <mxPoint x="420" y="325" />
+              <mxPoint x="420" y="465" />
+              <mxPoint x="320" y="465" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_1-c96" value="Опубліковані&#10;replay-події" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="75" y="390" width="315" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_1-e97" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=0.8732394366197183;exitY=1.0;exitPerimeter=0;entryX=0.0;entryY=0.9642857142857143;entryPerimeter=0;dashed=1;dashPattern=7 4;" edge="1" parent="dfd_level_1-1" source="dfd_level_1-c27" target="dfd_level_1-c5" flowLabel="Потік FMCG-подій&#10;(опціонально; Kafka)" semanticAtoms="replay_read">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="350" y="645" />
+            <mxPoint as="targetPoint" x="460" y="345" />
+            <Array as="points">
+              <mxPoint x="350" y="765" />
+              <mxPoint x="440" y="765" />
+              <mxPoint x="440" y="345" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_1-c98" value="Потік FMCG-подій&#10;(опціонально; Kafka)" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="40" y="675" width="300" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_1-e99" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=0.25806451612903225;exitY=1.0;exitPerimeter=0;entryX=0.25806451612903225;entryY=0.0;entryPerimeter=0;" edge="1" parent="dfd_level_1-1" source="dfd_level_1-c16" target="dfd_level_1-c34" flowLabel="Аналітичні&#10;дані та&#10;вітрини" semanticAtoms="raw|transformed|marts">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1510" y="350" />
+            <mxPoint as="targetPoint" x="1510" y="530" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_1-c100" value="Аналітичні&#10;дані та&#10;вітрини" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="1360" y="385" width="145" height="95" />
+        </mxCell>
+        <mxCell id="dfd_level_1-e101" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=0.6451612903225806;exitY=0.0;exitPerimeter=0;entryX=0.6451612903225806;entryY=1.0;entryPerimeter=0;" edge="1" parent="dfd_level_1-1" source="dfd_level_1-c34" target="dfd_level_1-c16" flowLabel="Аналітичні&#10;дані та&#10;вітрини" semanticAtoms="raw|transformed|marts">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1630" y="530" />
+            <mxPoint as="targetPoint" x="1630" y="350" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_1-c102" value="Аналітичні&#10;дані та&#10;вітрини" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="1640" y="385" width="135" height="95" />
+        </mxCell>
+        <mxCell id="dfd_level_1-e103" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=0.0;exitY=0.8571428571428571;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" edge="1" parent="dfd_level_1-1" source="dfd_level_1-c16" target="dfd_level_1-c48" flowLabel="Ознаки, цілі&#10;та набори задач" semanticAtoms="forecast_data|stockout_data|segment_data|anomaly_data|basket_data|promotion_data">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1430" y="330" />
+            <mxPoint as="targetPoint" x="1430" y="860" />
+            <Array as="points">
+              <mxPoint x="1340" y="330" />
+              <mxPoint x="1340" y="860" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_1-c104" value="Ознаки, цілі&#10;та набори задач" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="1135" y="600" width="195" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_1-e105" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.4;exitPerimeter=0;entryX=1.0;entryY=0.42857142857142855;entryPerimeter=0;" edge="1" parent="dfd_level_1-1" source="dfd_level_1-c48" target="dfd_level_1-c16" flowLabel="Сформовані набори&#10;для перевірки" semanticAtoms="forecast_data|stockout_data|segment_data|anomaly_data|basket_data|promotion_data">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1750" y="850" />
+            <mxPoint as="targetPoint" x="1740" y="270" />
+            <Array as="points">
+              <mxPoint x="1780" y="850" />
+              <mxPoint x="1780" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_1-c106" value="Сформовані набори&#10;для перевірки" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="1800" y="735" width="275" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_1-e107" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.7857142857142857;exitPerimeter=0;entryX=0.5;entryY=0.0;entryPerimeter=0;" edge="1" parent="dfd_level_1-1" source="dfd_level_1-c16" target="dfd_level_1-c41" flowLabel="Результати&#10;перевірок якості" semanticAtoms="quality">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1740" y="320" />
+            <mxPoint as="targetPoint" x="1935" y="530" />
+            <Array as="points">
+              <mxPoint x="1935" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_1-c108" value="Результати&#10;перевірок якості" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="1820" y="230" width="270" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_1-e109" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=0.0;exitY=0.8;exitPerimeter=0;entryX=1.0;entryY=0.7142857142857143;entryPerimeter=0;" edge="1" parent="dfd_level_1-1" source="dfd_level_1-c48" target="dfd_level_1-c55" flowLabel="Підготовлені набори для&#10;ML та аналітичних задач" semanticAtoms="forecast_data|stockout_data|segment_data|anomaly_data|basket_data|promotion_data|stockout_episodes">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1430" y="890" />
+            <mxPoint as="targetPoint" x="1240" y="890" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_1-c110" value="Підготовлені набори для&#10;ML та аналітичних задач" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="1160" y="935" width="355" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_1-e111" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=0.0;exitY=0.5;exitPerimeter=0;entryX=1.0;entryY=0.5;entryPerimeter=0;" edge="1" parent="dfd_level_1-1" source="dfd_level_1-c55" target="dfd_level_1-c59" flowLabel="ML/аналітичні артефакти,&#10;метрики та результати" semanticAtoms="forecast_result|risk_result|survival_result|segment_result|anomaly_result|basket_result|promotion_result">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="930" y="860" />
+            <mxPoint as="targetPoint" x="790" y="860" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_1-c112" value="ML/аналітичні артефакти,&#10;метрики та результати" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="745" y="700" width="410" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_1-e113" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=0.48484848484848486;exitY=1.0;exitPerimeter=0;entryX=0.48484848484848486;entryY=0.0;entryPerimeter=0;" edge="1" parent="dfd_level_1-1" source="dfd_level_1-c59" target="dfd_level_1-c66" flowLabel="Метрики,&#10;маніфести та&#10;аналітичні&#10;артефакти" semanticAtoms="tracking_input">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="620" y="910" />
+            <mxPoint as="targetPoint" x="620" y="1150" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_1-c114" value="Метрики,&#10;маніфести та&#10;аналітичні&#10;артефакти" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="650" y="940" width="180" height="115" />
+        </mxCell>
+        <mxCell id="dfd_level_1-e115" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.3;exitPerimeter=0;entryX=0.0;entryY=0.35714285714285715;entryPerimeter=0;" edge="1" parent="dfd_level_1-1" source="dfd_level_1-c70" target="dfd_level_1-c66" flowLabel="Наявні записи&#10;експериментів і запусків" semanticAtoms="tracking_existing">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="380" y="1200" />
+            <mxPoint as="targetPoint" x="460" y="1200" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_1-c116" value="Наявні записи&#10;експериментів і запусків" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="140" y="1080" width="300" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_1-e117" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=0.0;exitY=0.7142857142857143;exitPerimeter=0;entryX=1.0;entryY=0.8;entryPerimeter=0;" edge="1" parent="dfd_level_1-1" source="dfd_level_1-c66" target="dfd_level_1-c70" flowLabel="Ідентифікатори запусків&#10;і версії артефактів" semanticAtoms="tracking_metadata">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="460" y="1250" />
+            <mxPoint as="targetPoint" x="380" y="1250" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_1-c118" value="Ідентифікатори запусків&#10;і версії артефактів" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="95" y="1275" width="330" height="55" />
+        </mxCell>
+        <mxCell id="dfd_level_1-e119" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.8;exitPerimeter=0;entryX=0.25;entryY=0.0;entryPerimeter=0;" edge="1" parent="dfd_level_1-1" source="dfd_level_1-c59" target="dfd_level_1-c77" flowLabel="Підтримувані ML-артефакти&#10;та аналітичні результати" semanticAtoms="serving_artifacts">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="790" y="890" />
+            <mxPoint as="targetPoint" x="1510" y="1150" />
+            <Array as="points">
+              <mxPoint x="840" y="890" />
+              <mxPoint x="840" y="1050" />
+              <mxPoint x="1510" y="1050" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_1-c120" value="Підтримувані ML-артефакти&#10;та аналітичні результати" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="985" y="1060" width="405" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_1-e121" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=0.5806451612903226;exitY=1.0;exitPerimeter=0;entryX=0.71875;entryY=0.0;entryPerimeter=0;" edge="1" parent="dfd_level_1-1" source="dfd_level_1-c34" target="dfd_level_1-c77" flowLabel="Аналітичні вітрини&#10;для KPI та фільтрів" semanticAtoms="bi_marts">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1610" y="630" />
+            <mxPoint as="targetPoint" x="1660" y="1150" />
+            <Array as="points">
+              <mxPoint x="1610" y="720" />
+              <mxPoint x="1770" y="720" />
+              <mxPoint x="1770" y="1080" />
+              <mxPoint x="1660" y="1080" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_1-c122" value="Аналітичні вітрини&#10;для KPI та фільтрів" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="1800" y="965" width="290" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_1-e123" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=0.0;exitY=0.2857142857142857;exitPerimeter=0;entryX=1.0;entryY=0.2857142857142857;entryPerimeter=0;" edge="1" parent="dfd_level_1-1" source="dfd_level_1-c81" target="dfd_level_1-c77" flowLabel="Параметри прогнозування&#10;та аналітичних запитів" semanticAtoms="request">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1830" y="1190" />
+            <mxPoint as="targetPoint" x="1750" y="1190" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_1-c124" value="Параметри прогнозування&#10;та аналітичних запитів" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="1780" y="1070" width="310" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_1-e125" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.7142857142857143;exitPerimeter=0;entryX=0.0;entryY=0.7142857142857143;entryPerimeter=0;" edge="1" parent="dfd_level_1-1" source="dfd_level_1-c77" target="dfd_level_1-c81" flowLabel="Прогнози, ризики, KPI&#10;та аналітичні результати" semanticAtoms="response">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1750" y="1250" />
+            <mxPoint as="targetPoint" x="1830" y="1250" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_1-c126" value="Прогнози, ризики, KPI&#10;та аналітичні результати" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="1720" y="1295" width="375" height="55" />
+        </mxCell>
+        <mxCell id="dfd_level_1-c127" value="Пунктир — опціональний replay." style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_1-1">
+          <mxGeometry as="geometry" x="55" y="945" width="345" height="105" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="dfd_level_2_data" name="Level 2 — Data Preparation">
+    <mxGraphModel page="1" pageWidth="2100" pageHeight="1400" pageScale="1" grid="1" gridSize="10" background="#FFFFFF">
+      <root>
+        <mxCell id="dfd_level_2_data-0" />
+        <mxCell id="dfd_level_2_data-1" parent="dfd_level_2_data-0" />
+        <mxCell id="dfd_level_2_data-c1" value="DFD рівня 2 — формування аналітичних наборів (2.0)" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=32;fontStyle=1;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-1">
+          <mxGeometry as="geometry" x="40" y="35" width="2020" height="55" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c2" value="Gane–Sarson · Повторення позначення D означає те саме логічне сховище." style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=21;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-1">
+          <mxGeometry as="geometry" x="40" y="1360" width="2020" height="35" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c3" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_2_data-1" dfdType="store" logicalId="D2">
+          <mxGeometry as="geometry" x="45" y="210" width="325" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c4" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_data-c3">
+          <mxGeometry as="geometry" x="0" y="0" width="325" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c5" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_data-c3">
+          <mxGeometry as="geometry" x="0" y="100" width="325" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c6" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_data-c3">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c7" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_data-c3">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c8" value="D2" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c3">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c9" value="Операційні&#10;FMCG-дані" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c3">
+          <mxGeometry as="geometry" x="56" y="0" width="261" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c10" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_2_data-1" dfdType="store" logicalId="D3">
+          <mxGeometry as="geometry" x="1040" y="210" width="320" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c11" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_data-c10">
+          <mxGeometry as="geometry" x="0" y="0" width="320" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c12" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_data-c10">
+          <mxGeometry as="geometry" x="0" y="100" width="320" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c13" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_data-c10">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c14" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_data-c10">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c15" value="D3" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c10">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c16" value="Аналітичне&#10;сховище" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c10">
+          <mxGeometry as="geometry" x="56" y="0" width="256" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c17" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_2_data-1" dfdType="store" logicalId="D3">
+          <mxGeometry as="geometry" x="1040" y="440" width="320" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c18" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_data-c17">
+          <mxGeometry as="geometry" x="0" y="0" width="320" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c19" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_data-c17">
+          <mxGeometry as="geometry" x="0" y="100" width="320" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c20" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_data-c17">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c21" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_data-c17">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c22" value="D3" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c17">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c23" value="Аналітичне&#10;сховище" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c17">
+          <mxGeometry as="geometry" x="56" y="0" width="256" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c24" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_2_data-1" dfdType="store" logicalId="D3">
+          <mxGeometry as="geometry" x="1040" y="670" width="320" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c25" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_data-c24">
+          <mxGeometry as="geometry" x="0" y="0" width="320" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c26" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_data-c24">
+          <mxGeometry as="geometry" x="0" y="100" width="320" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c27" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_data-c24">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c28" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_data-c24">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c29" value="D3" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c24">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c30" value="Аналітичне&#10;сховище" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c24">
+          <mxGeometry as="geometry" x="56" y="0" width="256" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c31" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_2_data-1" dfdType="store" logicalId="D3">
+          <mxGeometry as="geometry" x="45" y="900" width="325" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c32" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_data-c31">
+          <mxGeometry as="geometry" x="0" y="0" width="325" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c33" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_data-c31">
+          <mxGeometry as="geometry" x="0" y="100" width="325" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c34" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_data-c31">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c35" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_data-c31">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c36" value="D3" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c31">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c37" value="Аналітичне&#10;сховище" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c31">
+          <mxGeometry as="geometry" x="56" y="0" width="261" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c38" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_2_data-1" dfdType="store" logicalId="D4">
+          <mxGeometry as="geometry" x="1040" y="900" width="320" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c39" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_data-c38">
+          <mxGeometry as="geometry" x="0" y="0" width="320" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c40" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_data-c38">
+          <mxGeometry as="geometry" x="0" y="100" width="320" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c41" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_data-c38">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c42" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_data-c38">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c43" value="D4" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c38">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c44" value="Набори для&#10;аналітичних задач" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c38">
+          <mxGeometry as="geometry" x="56" y="0" width="256" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c45" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_2_data-1" dfdType="store" logicalId="D4">
+          <mxGeometry as="geometry" x="45" y="1130" width="325" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c46" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_data-c45">
+          <mxGeometry as="geometry" x="0" y="0" width="325" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c47" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_data-c45">
+          <mxGeometry as="geometry" x="0" y="100" width="325" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c48" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_data-c45">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c49" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_data-c45">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c50" value="D4" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c45">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c51" value="Набори для&#10;аналітичних задач" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c45">
+          <mxGeometry as="geometry" x="56" y="0" width="261" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c52" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_2_data-1" dfdType="store" logicalId="D7">
+          <mxGeometry as="geometry" x="1040" y="1130" width="320" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c53" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_data-c52">
+          <mxGeometry as="geometry" x="0" y="0" width="320" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c54" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_data-c52">
+          <mxGeometry as="geometry" x="0" y="100" width="320" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c55" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_data-c52">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c56" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_data-c52">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c57" value="D7" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c52">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c58" value="Звіти якості&#10;наборів даних" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c52">
+          <mxGeometry as="geometry" x="56" y="0" width="256" height="100" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c59" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;rounded=1;arcSize=14;" vertex="1" parent="dfd_level_2_data-1" dfdType="process" logicalId="2.1">
+          <mxGeometry as="geometry" x="620" y="195" width="330" height="140" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c60" value="2.1" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c59">
+          <mxGeometry as="geometry" x="8" y="5" width="314" height="32" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c61" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_data-c59">
+          <mxGeometry as="geometry" x="0" y="42" width="330" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c62" value="Отримувати операційні&#10;факти та довідники" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c59">
+          <mxGeometry as="geometry" x="10" y="49" width="310" height="85" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-e63" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.4642857142857143;entryPerimeter=0;" edge="1" parent="dfd_level_2_data-1" source="dfd_level_2_data-c3" target="dfd_level_2_data-c59" flowLabel="Факти та&#10;довідники" semanticAtoms="operational">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="370" y="260" />
+            <mxPoint as="targetPoint" x="620" y="260" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c64" value="Факти та&#10;довідники" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-1">
+          <mxGeometry as="geometry" x="350" y="120" width="270" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-e65" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.4642857142857143;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" edge="1" parent="dfd_level_2_data-1" source="dfd_level_2_data-c59" target="dfd_level_2_data-c10" flowLabel="Репліка&#10;операційних даних" semanticAtoms="raw">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="950" y="260" />
+            <mxPoint as="targetPoint" x="1040" y="260" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c66" value="Репліка&#10;операційних даних" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-1">
+          <mxGeometry as="geometry" x="940" y="120" width="300" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c67" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;rounded=1;arcSize=14;" vertex="1" parent="dfd_level_2_data-1" dfdType="process" logicalId="2.2">
+          <mxGeometry as="geometry" x="620" y="425" width="330" height="140" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c68" value="2.2" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c67">
+          <mxGeometry as="geometry" x="8" y="5" width="314" height="32" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c69" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_data-c67">
+          <mxGeometry as="geometry" x="0" y="42" width="330" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c70" value="Узгоджувати аналітичну&#10;структуру даних" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c67">
+          <mxGeometry as="geometry" x="10" y="49" width="310" height="85" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-e71" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=0.1875;exitY=1.0;exitPerimeter=0;entryX=0.0;entryY=0.4642857142857143;entryPerimeter=0;" edge="1" parent="dfd_level_2_data-1" source="dfd_level_2_data-c10" target="dfd_level_2_data-c67" flowLabel="Репліка&#10;операційних даних" semanticAtoms="raw">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1100" y="310" />
+            <mxPoint as="targetPoint" x="620" y="490" />
+            <Array as="points">
+              <mxPoint x="1100" y="345" />
+              <mxPoint x="540" y="345" />
+              <mxPoint x="540" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c72" value="Репліка&#10;операційних даних" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-1">
+          <mxGeometry as="geometry" x="235" y="430" width="295" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-e73" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.4642857142857143;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" edge="1" parent="dfd_level_2_data-1" source="dfd_level_2_data-c67" target="dfd_level_2_data-c17" flowLabel="Узгоджені факти&#10;та виміри" semanticAtoms="transformed">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="950" y="490" />
+            <mxPoint as="targetPoint" x="1040" y="490" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c74" value="Узгоджені факти&#10;та виміри" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-1">
+          <mxGeometry as="geometry" x="940" y="350" width="300" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c75" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;rounded=1;arcSize=14;" vertex="1" parent="dfd_level_2_data-1" dfdType="process" logicalId="2.3">
+          <mxGeometry as="geometry" x="620" y="655" width="330" height="140" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c76" value="2.3" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c75">
+          <mxGeometry as="geometry" x="8" y="5" width="314" height="32" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c77" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_data-c75">
+          <mxGeometry as="geometry" x="0" y="42" width="330" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c78" value="Формувати&#10;аналітичні вітрини" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c75">
+          <mxGeometry as="geometry" x="10" y="49" width="310" height="85" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-e79" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=0.1875;exitY=1.0;exitPerimeter=0;entryX=0.0;entryY=0.4642857142857143;entryPerimeter=0;" edge="1" parent="dfd_level_2_data-1" source="dfd_level_2_data-c17" target="dfd_level_2_data-c75" flowLabel="Узгоджені дані&#10;та репліка умов" semanticAtoms="transformed|raw">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1100" y="540" />
+            <mxPoint as="targetPoint" x="620" y="720" />
+            <Array as="points">
+              <mxPoint x="1100" y="575" />
+              <mxPoint x="540" y="575" />
+              <mxPoint x="540" y="720" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c80" value="Узгоджені дані&#10;та репліка умов" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-1">
+          <mxGeometry as="geometry" x="235" y="660" width="295" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-e81" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.4642857142857143;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" edge="1" parent="dfd_level_2_data-1" source="dfd_level_2_data-c75" target="dfd_level_2_data-c24" flowLabel="Аналітичні&#10;вітрини" semanticAtoms="marts">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="950" y="720" />
+            <mxPoint as="targetPoint" x="1040" y="720" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c82" value="Аналітичні&#10;вітрини" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-1">
+          <mxGeometry as="geometry" x="940" y="580" width="300" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c83" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;rounded=1;arcSize=14;" vertex="1" parent="dfd_level_2_data-1" dfdType="process" logicalId="2.4">
+          <mxGeometry as="geometry" x="620" y="885" width="330" height="140" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c84" value="2.4" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c83">
+          <mxGeometry as="geometry" x="8" y="5" width="314" height="32" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c85" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_data-c83">
+          <mxGeometry as="geometry" x="0" y="42" width="330" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c86" value="Будувати ознаки, цілі&#10;та набори задач" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c83">
+          <mxGeometry as="geometry" x="10" y="49" width="310" height="85" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-e87" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.4642857142857143;entryPerimeter=0;" edge="1" parent="dfd_level_2_data-1" source="dfd_level_2_data-c31" target="dfd_level_2_data-c83" flowLabel="Факти, виміри, вітрини,&#10;ціни та промоумови" semanticAtoms="raw|transformed|marts">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="370" y="950" />
+            <mxPoint as="targetPoint" x="620" y="950" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c88" value="Факти, виміри, вітрини,&#10;ціни та промоумови" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-1">
+          <mxGeometry as="geometry" x="350" y="810" width="270" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-e89" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.4642857142857143;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" edge="1" parent="dfd_level_2_data-1" source="dfd_level_2_data-c83" target="dfd_level_2_data-c38" flowLabel="Ознаки, цілі&#10;та набори задач" semanticAtoms="forecast_data|stockout_data|segment_data|anomaly_data|basket_data|promotion_data">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="950" y="950" />
+            <mxPoint as="targetPoint" x="1040" y="950" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c90" value="Ознаки, цілі&#10;та набори задач" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-1">
+          <mxGeometry as="geometry" x="940" y="810" width="300" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c91" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;rounded=1;arcSize=14;" vertex="1" parent="dfd_level_2_data-1" dfdType="process" logicalId="2.5">
+          <mxGeometry as="geometry" x="620" y="1115" width="330" height="140" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c92" value="2.5" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c91">
+          <mxGeometry as="geometry" x="8" y="5" width="314" height="32" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c93" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_data-c91">
+          <mxGeometry as="geometry" x="0" y="42" width="330" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c94" value="Перевіряти якість&#10;сформованих наборів" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-c91">
+          <mxGeometry as="geometry" x="10" y="49" width="310" height="85" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-e95" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.4642857142857143;entryPerimeter=0;" edge="1" parent="dfd_level_2_data-1" source="dfd_level_2_data-c45" target="dfd_level_2_data-c91" flowLabel="Сформовані набори&#10;для перевірки" semanticAtoms="forecast_data|stockout_data|segment_data|anomaly_data|basket_data|promotion_data">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="370" y="1180" />
+            <mxPoint as="targetPoint" x="620" y="1180" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c96" value="Сформовані набори&#10;для перевірки" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-1">
+          <mxGeometry as="geometry" x="350" y="1060" width="270" height="55" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-e97" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.4642857142857143;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" edge="1" parent="dfd_level_2_data-1" source="dfd_level_2_data-c91" target="dfd_level_2_data-c52" flowLabel="Результати&#10;перевірок якості" semanticAtoms="quality">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="950" y="1180" />
+            <mxPoint as="targetPoint" x="1040" y="1180" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c98" value="Результати&#10;перевірок якості" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-1">
+          <mxGeometry as="geometry" x="940" y="1060" width="300" height="55" />
+        </mxCell>
+        <mxCell id="dfd_level_2_data-c99" value="D3 містить репліковані дані,&#10;узгоджені аналітичні структури&#10;та вітрини." style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=24;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_data-1">
+          <mxGeometry as="geometry" x="1430" y="220" width="620" height="150" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="dfd_level_2_ml" name="Level 2 — ML &amp; Analytics">
+    <mxGraphModel page="1" pageWidth="2100" pageHeight="1400" pageScale="1" grid="1" gridSize="10" background="#FFFFFF">
+      <root>
+        <mxCell id="dfd_level_2_ml-0" />
+        <mxCell id="dfd_level_2_ml-1" parent="dfd_level_2_ml-0" />
+        <mxCell id="dfd_level_2_ml-c1" value="DFD рівня 2 — ML та аналітична обробка (3.0)" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=32;fontStyle=1;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-1">
+          <mxGeometry as="geometry" x="40" y="35" width="2020" height="55" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c2" value="Gane–Sarson · Повторення позначення D означає те саме логічне сховище." style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=21;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-1">
+          <mxGeometry as="geometry" x="40" y="1360" width="2020" height="35" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c3" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_2_ml-1" dfdType="store" logicalId="D4">
+          <mxGeometry as="geometry" x="45" y="205" width="325" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c4" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c3">
+          <mxGeometry as="geometry" x="0" y="0" width="325" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c5" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c3">
+          <mxGeometry as="geometry" x="0" y="90" width="325" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c6" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c3">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c7" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c3">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c8" value="D4" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c3">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c9" value="Набори для&#10;аналітичних задач" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c3">
+          <mxGeometry as="geometry" x="56" y="0" width="261" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c10" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;rounded=1;arcSize=14;" vertex="1" parent="dfd_level_2_ml-1" dfdType="process" logicalId="3.1">
+          <mxGeometry as="geometry" x="800" y="190" width="380" height="125" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c11" value="3.1" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c10">
+          <mxGeometry as="geometry" x="8" y="5" width="364" height="32" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c12" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c10">
+          <mxGeometry as="geometry" x="0" y="42" width="380" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c13" value="Прогнозувати&#10;обсяг продажів" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c10">
+          <mxGeometry as="geometry" x="10" y="49" width="360" height="70" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c14" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_2_ml-1" dfdType="store" logicalId="D5">
+          <mxGeometry as="geometry" x="1650" y="205" width="380" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c15" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c14">
+          <mxGeometry as="geometry" x="0" y="0" width="380" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c16" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c14">
+          <mxGeometry as="geometry" x="0" y="90" width="380" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c17" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c14">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c18" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c14">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c19" value="D5" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c14">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c20" value="Канонічні ML/&#10;аналітичні артефакти&#10;та результати" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c14">
+          <mxGeometry as="geometry" x="56" y="0" width="316" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-e21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.5222222222222223;exitPerimeter=0;entryX=0.0;entryY=0.496;entryPerimeter=0;" edge="1" parent="dfd_level_2_ml-1" source="dfd_level_2_ml-c3" target="dfd_level_2_ml-c10" flowLabel="Історичні ознаки&#10;та цілі продажів" semanticAtoms="forecast_data">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="370" y="252" />
+            <mxPoint as="targetPoint" x="800" y="252" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c22" value="Історичні ознаки&#10;та цілі продажів" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-1">
+          <mxGeometry as="geometry" x="400" y="180" width="370" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-e23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.496;exitPerimeter=0;entryX=0.0;entryY=0.5222222222222223;entryPerimeter=0;" edge="1" parent="dfd_level_2_ml-1" source="dfd_level_2_ml-c10" target="dfd_level_2_ml-c14" flowLabel="Модель, прогноз&#10;продажів і метрики" semanticAtoms="forecast_result">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1180" y="252" />
+            <mxPoint as="targetPoint" x="1650" y="252" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c24" value="Модель, прогноз&#10;продажів і метрики" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-1">
+          <mxGeometry as="geometry" x="1210" y="180" width="410" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c25" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_2_ml-1" dfdType="store" logicalId="D4">
+          <mxGeometry as="geometry" x="45" y="360" width="325" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c26" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c25">
+          <mxGeometry as="geometry" x="0" y="0" width="325" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c27" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c25">
+          <mxGeometry as="geometry" x="0" y="90" width="325" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c28" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c25">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c29" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c25">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c30" value="D4" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c25">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c31" value="Набори для&#10;аналітичних задач" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c25">
+          <mxGeometry as="geometry" x="56" y="0" width="261" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c32" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;rounded=1;arcSize=14;" vertex="1" parent="dfd_level_2_ml-1" dfdType="process" logicalId="3.2">
+          <mxGeometry as="geometry" x="800" y="345" width="380" height="125" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c33" value="3.2" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c32">
+          <mxGeometry as="geometry" x="8" y="5" width="364" height="32" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c34" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c32">
+          <mxGeometry as="geometry" x="0" y="42" width="380" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c35" value="Оцінювати&#10;ризик дефіциту" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c32">
+          <mxGeometry as="geometry" x="10" y="49" width="360" height="70" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c36" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_2_ml-1" dfdType="store" logicalId="D5">
+          <mxGeometry as="geometry" x="1650" y="360" width="380" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c37" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c36">
+          <mxGeometry as="geometry" x="0" y="0" width="380" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c38" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c36">
+          <mxGeometry as="geometry" x="0" y="90" width="380" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c39" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c36">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c40" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c36">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c41" value="D5" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c36">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c42" value="Канонічні ML/&#10;аналітичні артефакти&#10;та результати" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c36">
+          <mxGeometry as="geometry" x="56" y="0" width="316" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-e43" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.5222222222222223;exitPerimeter=0;entryX=0.0;entryY=0.496;entryPerimeter=0;" edge="1" parent="dfd_level_2_ml-1" source="dfd_level_2_ml-c25" target="dfd_level_2_ml-c32" flowLabel="Запаси, ознаки&#10;та епізоди дефіциту" semanticAtoms="stockout_data|stockout_episodes">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="370" y="407" />
+            <mxPoint as="targetPoint" x="800" y="407" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c44" value="Запаси, ознаки&#10;та епізоди дефіциту" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-1">
+          <mxGeometry as="geometry" x="400" y="335" width="370" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-e45" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.496;exitPerimeter=0;entryX=0.0;entryY=0.5222222222222223;entryPerimeter=0;" edge="1" parent="dfd_level_2_ml-1" source="dfd_level_2_ml-c32" target="dfd_level_2_ml-c36" flowLabel="Модель, ризики&#10;дефіциту і метрики" semanticAtoms="risk_result">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1180" y="407" />
+            <mxPoint as="targetPoint" x="1650" y="407" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c46" value="Модель, ризики&#10;дефіциту і метрики" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-1">
+          <mxGeometry as="geometry" x="1210" y="335" width="410" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c47" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_2_ml-1" dfdType="store" logicalId="D4">
+          <mxGeometry as="geometry" x="45" y="515" width="325" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c48" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c47">
+          <mxGeometry as="geometry" x="0" y="0" width="325" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c49" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c47">
+          <mxGeometry as="geometry" x="0" y="90" width="325" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c50" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c47">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c51" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c47">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c52" value="D4" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c47">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c53" value="Набори для&#10;аналітичних задач" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c47">
+          <mxGeometry as="geometry" x="56" y="0" width="261" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c54" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;rounded=1;arcSize=14;" vertex="1" parent="dfd_level_2_ml-1" dfdType="process" logicalId="3.3">
+          <mxGeometry as="geometry" x="800" y="500" width="380" height="125" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c55" value="3.3" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c54">
+          <mxGeometry as="geometry" x="8" y="5" width="364" height="32" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c56" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c54">
+          <mxGeometry as="geometry" x="0" y="42" width="380" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c57" value="Оцінювати час до&#10;дефіциту (офлайн)" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c54">
+          <mxGeometry as="geometry" x="10" y="49" width="360" height="70" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c58" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_2_ml-1" dfdType="store" logicalId="D5">
+          <mxGeometry as="geometry" x="1650" y="515" width="380" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c59" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c58">
+          <mxGeometry as="geometry" x="0" y="0" width="380" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c60" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c58">
+          <mxGeometry as="geometry" x="0" y="90" width="380" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c61" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c58">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c62" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c58">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c63" value="D5" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c58">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c64" value="Канонічні ML/&#10;аналітичні артефакти&#10;та результати" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c58">
+          <mxGeometry as="geometry" x="56" y="0" width="316" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-e65" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.5222222222222223;exitPerimeter=0;entryX=0.0;entryY=0.496;entryPerimeter=0;" edge="1" parent="dfd_level_2_ml-1" source="dfd_level_2_ml-c47" target="dfd_level_2_ml-c54" flowLabel="Запаси, епізоди&#10;та цензурування" semanticAtoms="stockout_data|stockout_episodes">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="370" y="562" />
+            <mxPoint as="targetPoint" x="800" y="562" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c66" value="Запаси, епізоди&#10;та цензурування" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-1">
+          <mxGeometry as="geometry" x="400" y="490" width="370" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-e67" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.496;exitPerimeter=0;entryX=0.0;entryY=0.5222222222222223;entryPerimeter=0;" edge="1" parent="dfd_level_2_ml-1" source="dfd_level_2_ml-c54" target="dfd_level_2_ml-c58" flowLabel="Модель, оцінки часу&#10;до дефіциту, метрики" semanticAtoms="survival_result">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1180" y="562" />
+            <mxPoint as="targetPoint" x="1650" y="562" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c68" value="Модель, оцінки часу&#10;до дефіциту, метрики" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-1">
+          <mxGeometry as="geometry" x="1210" y="490" width="410" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c69" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_2_ml-1" dfdType="store" logicalId="D4">
+          <mxGeometry as="geometry" x="45" y="670" width="325" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c70" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c69">
+          <mxGeometry as="geometry" x="0" y="0" width="325" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c71" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c69">
+          <mxGeometry as="geometry" x="0" y="90" width="325" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c72" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c69">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c73" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c69">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c74" value="D4" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c69">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c75" value="Набори для&#10;аналітичних задач" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c69">
+          <mxGeometry as="geometry" x="56" y="0" width="261" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c76" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;rounded=1;arcSize=14;" vertex="1" parent="dfd_level_2_ml-1" dfdType="process" logicalId="3.4">
+          <mxGeometry as="geometry" x="800" y="655" width="380" height="125" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c77" value="3.4" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c76">
+          <mxGeometry as="geometry" x="8" y="5" width="364" height="32" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c78" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c76">
+          <mxGeometry as="geometry" x="0" y="42" width="380" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c79" value="Групувати&#10;магазини" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c76">
+          <mxGeometry as="geometry" x="10" y="49" width="360" height="70" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c80" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_2_ml-1" dfdType="store" logicalId="D5">
+          <mxGeometry as="geometry" x="1650" y="670" width="380" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c81" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c80">
+          <mxGeometry as="geometry" x="0" y="0" width="380" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c82" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c80">
+          <mxGeometry as="geometry" x="0" y="90" width="380" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c83" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c80">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c84" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c80">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c85" value="D5" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c80">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c86" value="Канонічні ML/&#10;аналітичні артефакти&#10;та результати" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c80">
+          <mxGeometry as="geometry" x="56" y="0" width="316" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-e87" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.5222222222222223;exitPerimeter=0;entryX=0.0;entryY=0.496;entryPerimeter=0;" edge="1" parent="dfd_level_2_ml-1" source="dfd_level_2_ml-c69" target="dfd_level_2_ml-c76" flowLabel="Агреговані ознаки&#10;магазинів" semanticAtoms="segment_data">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="370" y="717" />
+            <mxPoint as="targetPoint" x="800" y="717" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c88" value="Агреговані ознаки&#10;магазинів" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-1">
+          <mxGeometry as="geometry" x="400" y="645" width="370" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-e89" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.496;exitPerimeter=0;entryX=0.0;entryY=0.5222222222222223;entryPerimeter=0;" edge="1" parent="dfd_level_2_ml-1" source="dfd_level_2_ml-c76" target="dfd_level_2_ml-c80" flowLabel="Модель, дослідницькі&#10;кластери і метрики" semanticAtoms="segment_result">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1180" y="717" />
+            <mxPoint as="targetPoint" x="1650" y="717" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c90" value="Модель, дослідницькі&#10;кластери і метрики" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-1">
+          <mxGeometry as="geometry" x="1210" y="645" width="410" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c91" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_2_ml-1" dfdType="store" logicalId="D4">
+          <mxGeometry as="geometry" x="45" y="825" width="325" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c92" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c91">
+          <mxGeometry as="geometry" x="0" y="0" width="325" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c93" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c91">
+          <mxGeometry as="geometry" x="0" y="90" width="325" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c94" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c91">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c95" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c91">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c96" value="D4" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c91">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c97" value="Набори для&#10;аналітичних задач" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c91">
+          <mxGeometry as="geometry" x="56" y="0" width="261" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c98" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;rounded=1;arcSize=14;" vertex="1" parent="dfd_level_2_ml-1" dfdType="process" logicalId="3.5">
+          <mxGeometry as="geometry" x="800" y="810" width="380" height="125" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c99" value="3.5" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c98">
+          <mxGeometry as="geometry" x="8" y="5" width="364" height="32" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c100" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c98">
+          <mxGeometry as="geometry" x="0" y="42" width="380" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c101" value="Виявляти&#10;аномальні спостереження" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c98">
+          <mxGeometry as="geometry" x="10" y="49" width="360" height="70" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c102" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_2_ml-1" dfdType="store" logicalId="D5">
+          <mxGeometry as="geometry" x="1650" y="825" width="380" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c103" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c102">
+          <mxGeometry as="geometry" x="0" y="0" width="380" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c104" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c102">
+          <mxGeometry as="geometry" x="0" y="90" width="380" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c105" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c102">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c106" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c102">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c107" value="D5" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c102">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c108" value="Канонічні ML/&#10;аналітичні артефакти&#10;та результати" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c102">
+          <mxGeometry as="geometry" x="56" y="0" width="316" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-e109" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.5222222222222223;exitPerimeter=0;entryX=0.0;entryY=0.496;entryPerimeter=0;" edge="1" parent="dfd_level_2_ml-1" source="dfd_level_2_ml-c91" target="dfd_level_2_ml-c98" flowLabel="Спостереження&#10;та історичні бази" semanticAtoms="anomaly_data">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="370" y="872" />
+            <mxPoint as="targetPoint" x="800" y="872" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c110" value="Спостереження&#10;та історичні бази" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-1">
+          <mxGeometry as="geometry" x="400" y="800" width="370" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-e111" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.496;exitPerimeter=0;entryX=0.0;entryY=0.5222222222222223;entryPerimeter=0;" edge="1" parent="dfd_level_2_ml-1" source="dfd_level_2_ml-c98" target="dfd_level_2_ml-c102" flowLabel="Модель, кандидати&#10;аномалій і метрики" semanticAtoms="anomaly_result">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1180" y="872" />
+            <mxPoint as="targetPoint" x="1650" y="872" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c112" value="Модель, кандидати&#10;аномалій і метрики" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-1">
+          <mxGeometry as="geometry" x="1210" y="800" width="410" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c113" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_2_ml-1" dfdType="store" logicalId="D4">
+          <mxGeometry as="geometry" x="45" y="980" width="325" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c114" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c113">
+          <mxGeometry as="geometry" x="0" y="0" width="325" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c115" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c113">
+          <mxGeometry as="geometry" x="0" y="90" width="325" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c116" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c113">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c117" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c113">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c118" value="D4" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c113">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c119" value="Набори для&#10;аналітичних задач" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c113">
+          <mxGeometry as="geometry" x="56" y="0" width="261" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c120" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;rounded=1;arcSize=14;" vertex="1" parent="dfd_level_2_ml-1" dfdType="process" logicalId="3.6">
+          <mxGeometry as="geometry" x="800" y="965" width="380" height="125" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c121" value="3.6" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c120">
+          <mxGeometry as="geometry" x="8" y="5" width="364" height="32" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c122" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c120">
+          <mxGeometry as="geometry" x="0" y="42" width="380" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c123" value="Виявляти асоціації&#10;товарів у кошиках" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c120">
+          <mxGeometry as="geometry" x="10" y="49" width="360" height="70" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c124" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_2_ml-1" dfdType="store" logicalId="D5">
+          <mxGeometry as="geometry" x="1650" y="980" width="380" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c125" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c124">
+          <mxGeometry as="geometry" x="0" y="0" width="380" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c126" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c124">
+          <mxGeometry as="geometry" x="0" y="90" width="380" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c127" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c124">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c128" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c124">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c129" value="D5" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c124">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c130" value="Канонічні ML/&#10;аналітичні артефакти&#10;та результати" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c124">
+          <mxGeometry as="geometry" x="56" y="0" width="316" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-e131" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.5222222222222223;exitPerimeter=0;entryX=0.0;entryY=0.496;entryPerimeter=0;" edge="1" parent="dfd_level_2_ml-1" source="dfd_level_2_ml-c113" target="dfd_level_2_ml-c120" flowLabel="Позиції замовлень&#10;і склад кошиків" semanticAtoms="basket_data">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="370" y="1027" />
+            <mxPoint as="targetPoint" x="800" y="1027" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c132" value="Позиції замовлень&#10;і склад кошиків" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-1">
+          <mxGeometry as="geometry" x="400" y="955" width="370" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-e133" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.496;exitPerimeter=0;entryX=0.0;entryY=0.5222222222222223;entryPerimeter=0;" edge="1" parent="dfd_level_2_ml-1" source="dfd_level_2_ml-c120" target="dfd_level_2_ml-c124" flowLabel="Асоціативні правила&#10;та їхні метрики" semanticAtoms="basket_result">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1180" y="1027" />
+            <mxPoint as="targetPoint" x="1650" y="1027" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c134" value="Асоціативні правила&#10;та їхні метрики" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-1">
+          <mxGeometry as="geometry" x="1210" y="955" width="410" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c135" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_2_ml-1" dfdType="store" logicalId="D4">
+          <mxGeometry as="geometry" x="45" y="1135" width="325" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c136" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c135">
+          <mxGeometry as="geometry" x="0" y="0" width="325" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c137" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c135">
+          <mxGeometry as="geometry" x="0" y="90" width="325" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c138" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c135">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c139" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c135">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c140" value="D4" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c135">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c141" value="Набори для&#10;аналітичних задач" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c135">
+          <mxGeometry as="geometry" x="56" y="0" width="261" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c142" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;rounded=1;arcSize=14;" vertex="1" parent="dfd_level_2_ml-1" dfdType="process" logicalId="3.7">
+          <mxGeometry as="geometry" x="800" y="1120" width="380" height="125" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c143" value="3.7" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c142">
+          <mxGeometry as="geometry" x="8" y="5" width="364" height="32" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c144" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c142">
+          <mxGeometry as="geometry" x="0" y="42" width="380" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c145" value="Порівнювати показники&#10;промоперіодів" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c142">
+          <mxGeometry as="geometry" x="10" y="49" width="360" height="70" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c146" value="" style="html=0;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;container=1;collapsible=0;strokeColor=none;" vertex="1" parent="dfd_level_2_ml-1" dfdType="store" logicalId="D5">
+          <mxGeometry as="geometry" x="1650" y="1135" width="380" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c147" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c146">
+          <mxGeometry as="geometry" x="0" y="0" width="380" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c148" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="dfd_level_2_ml-c146">
+          <mxGeometry as="geometry" x="0" y="90" width="380" height="1" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c149" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c146">
+          <mxGeometry as="geometry" x="0" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c150" value="" style="shape=line;strokeColor=#222222;strokeWidth=1.5;direction=south;" vertex="1" parent="dfd_level_2_ml-c146">
+          <mxGeometry as="geometry" x="48" y="0" width="1" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c151" value="D5" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c146">
+          <mxGeometry as="geometry" x="2" y="0" width="43" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c152" value="Канонічні ML/&#10;аналітичні артефакти&#10;та результати" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-c146">
+          <mxGeometry as="geometry" x="56" y="0" width="316" height="90" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-e153" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.5222222222222223;exitPerimeter=0;entryX=0.0;entryY=0.496;entryPerimeter=0;" edge="1" parent="dfd_level_2_ml-1" source="dfd_level_2_ml-c135" target="dfd_level_2_ml-c142" flowLabel="Щоденні промодані&#10;та підсумки кампаній" semanticAtoms="promotion_data">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="370" y="1182" />
+            <mxPoint as="targetPoint" x="800" y="1182" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c154" value="Щоденні промодані&#10;та підсумки кампаній" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-1">
+          <mxGeometry as="geometry" x="400" y="1110" width="370" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-e155" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#222222;strokeWidth=1.5;endArrow=block;endFill=1;exitX=1.0;exitY=0.496;exitPerimeter=0;entryX=0.0;entryY=0.5222222222222223;entryPerimeter=0;" edge="1" parent="dfd_level_2_ml-1" source="dfd_level_2_ml-c142" target="dfd_level_2_ml-c146" flowLabel="Описові порівняння&#10;промо та метрики" semanticAtoms="promotion_result">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1180" y="1182" />
+            <mxPoint as="targetPoint" x="1650" y="1182" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c156" value="Описові порівняння&#10;промо та метрики" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=23;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-1">
+          <mxGeometry as="geometry" x="1210" y="1110" width="410" height="65" />
+        </mxCell>
+        <mxCell id="dfd_level_2_ml-c157" value="Кластери — дослідницькі; промопорівняння — не причинний ефект." style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#111111;fontFamily=Arial;fontSize=22;fontStyle=0;spacing=0;align=center;verticalAlign=middle;" vertex="1" parent="dfd_level_2_ml-1">
+          <mxGeometry as="geometry" x="45" y="1270" width="1985" height="45" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

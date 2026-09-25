@@ -1,0 +1,1267 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" version="26.0.0">
+  <diagram id="idef0_a_minus_0" name="A-0 — Контекстна діаграма">
+    <mxGraphModel dx="1840" dy="1160" grid="1" gridSize="10" page="1" pageWidth="1840" pageHeight="1160" pageScale="1" background="#FFFFFF">
+      <root>
+        <mxCell id="idef0_a_minus_0-0" />
+        <mxCell id="idef0_a_minus_0-1" parent="idef0_a_minus_0-0" />
+        <mxCell id="idef0_a_minus_0-A0" value="" style="rounded=0;html=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.2;container=1;collapsible=0;" vertex="1" parent="idef0_a_minus_0-1" function="A0">
+          <mxGeometry as="geometry" x="620" y="400" width="600" height="270" />
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-v2" value="Обробляти FMCG-дані,&#10;формувати аналітичні результати&#10;та надавати їх користувачам" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a_minus_0-A0" inlineLabel="0">
+          <mxGeometry as="geometry" x="10" y="32" width="580" height="230" />
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-v3" value="A0" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a_minus_0-A0" inlineLabel="0">
+          <mxGeometry as="geometry" x="7" y="5" width="80" height="25" />
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.0;entryY=0.2777777777777778;entryPerimeter=0;" edge="1" parent="idef0_a_minus_0-1" semanticFlow="sources" icomRole="I" target="idef0_a_minus_0-A0" boundaryCode="I1" boundaryRole="I">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="70" y="475" />
+            <mxPoint as="targetPoint" x="620" y="475" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-v5" value="Операційні, довідкові та синтетичні&#10;FMCG-дані; донорські набори" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a_minus_0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="115" y="422" width="455" height="48" />
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.0;entryY=0.7037037037037037;entryPerimeter=0;" edge="1" parent="idef0_a_minus_0-1" semanticFlow="requests" icomRole="I" target="idef0_a_minus_0-A0" boundaryCode="I2" boundaryRole="I">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="70" y="590" />
+            <mxPoint as="targetPoint" x="620" y="590" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-v7" value="Запити та параметри отримання&#10;аналітичних результатів" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a_minus_0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="125" y="532" width="445" height="52" />
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.13333333333333333;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a_minus_0-1" semanticFlow="data_rules" icomRole="C" target="idef0_a_minus_0-A0" boundaryCode="C1" boundaryRole="C">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="700" y="100" />
+            <mxPoint as="targetPoint" x="700" y="400" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-v9" value="Контракти даних&#10;і правила якості" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a_minus_0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="592" y="215" width="216" height="80" />
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-e10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.5;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a_minus_0-1" semanticFlow="method" icomRole="C" target="idef0_a_minus_0-A0" boundaryCode="C2" boundaryRole="C">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="920" y="100" />
+            <mxPoint as="targetPoint" x="920" y="400" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-v11" value="Методика ML&#10;та аналітичної обробки" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a_minus_0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="812" y="215" width="216" height="80" />
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-e12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.8666666666666667;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a_minus_0-1" semanticFlow="execution" icomRole="C" target="idef0_a_minus_0-A0" boundaryCode="C3" boundaryRole="C">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1140" y="100" />
+            <mxPoint as="targetPoint" x="1140" y="400" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-v13" value="Доменні правила&#10;та правила виконання" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a_minus_0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="1032" y="215" width="216" height="80" />
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-e14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;exitX=1.0;exitY=0.12962962962962962;exitPerimeter=0;" edge="1" parent="idef0_a_minus_0-1" semanticFlow="canonical" icomRole="" source="idef0_a_minus_0-A0" boundaryCode="O1" boundaryRole="O">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1220" y="435" />
+            <mxPoint as="targetPoint" x="1770" y="435" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-v15" value="Канонічні моделі, результати та метрики" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a_minus_0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="1270" y="406" width="450" height="24" />
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-e16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;exitX=1.0;exitY=0.3888888888888889;exitPerimeter=0;" edge="1" parent="idef0_a_minus_0-1" semanticFlow="delivery" icomRole="" source="idef0_a_minus_0-A0" boundaryCode="O2" boundaryRole="O">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1220" y="505" />
+            <mxPoint as="targetPoint" x="1770" y="505" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-v17" value="Прогнози, ризики, KPI та відповіді API" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a_minus_0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="1270" y="476" width="450" height="24" />
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-e18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;exitX=1.0;exitY=0.6481481481481481;exitPerimeter=0;" edge="1" parent="idef0_a_minus_0-1" semanticFlow="trace" icomRole="" source="idef0_a_minus_0-A0" boundaryCode="O3" boundaryRole="O">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1220" y="575" />
+            <mxPoint as="targetPoint" x="1770" y="575" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-v19" value="Версії артефактів і метадані запусків" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a_minus_0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="1270" y="546" width="450" height="24" />
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-e20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;exitX=1.0;exitY=0.9074074074074074;exitPerimeter=0;" edge="1" parent="idef0_a_minus_0-1" semanticFlow="quality" icomRole="" source="idef0_a_minus_0-A0" boundaryCode="O4" boundaryRole="O">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1220" y="645" />
+            <mxPoint as="targetPoint" x="1770" y="645" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-v21" value="Звіти перевірок якості даних" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a_minus_0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="1270" y="616" width="450" height="24" />
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-e22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.08333333333333333;entryY=1.0;entryPerimeter=0;" edge="1" parent="idef0_a_minus_0-1" semanticFlow="data_tools" icomRole="M" target="idef0_a_minus_0-A0" boundaryCode="M1" boundaryRole="M">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="670" y="1010" />
+            <mxPoint as="targetPoint" x="670" y="670" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-v23" value="Сховища й засоби&#10;підготовки даних" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=18;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a_minus_0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="589" y="800" width="162" height="90" />
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-e24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.35833333333333334;entryY=1.0;entryPerimeter=0;" edge="1" parent="idef0_a_minus_0-1" semanticFlow="ml_tools" icomRole="M" target="idef0_a_minus_0-A0" boundaryCode="M2" boundaryRole="M">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="835" y="1010" />
+            <mxPoint as="targetPoint" x="835" y="670" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-v25" value="Модулі ML&#10;та аналітики" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=18;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a_minus_0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="754" y="800" width="162" height="90" />
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-e26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.6333333333333333;entryY=1.0;entryPerimeter=0;" edge="1" parent="idef0_a_minus_0-1" semanticFlow="lifecycle_tools" icomRole="M" target="idef0_a_minus_0-A0" boundaryCode="M3" boundaryRole="M">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1000" y="1010" />
+            <mxPoint as="targetPoint" x="1000" y="670" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-v27" value="Засоби&#10;відтворюваності" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=18;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a_minus_0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="919" y="800" width="162" height="90" />
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-e28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.9083333333333333;entryY=1.0;entryPerimeter=0;" edge="1" parent="idef0_a_minus_0-1" semanticFlow="product_tools" icomRole="M" target="idef0_a_minus_0-A0" boundaryCode="M4" boundaryRole="M">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1165" y="1010" />
+            <mxPoint as="targetPoint" x="1165" y="670" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a_minus_0-v29" value="Програмна&#10;інфраструктура&#10;та інтерфейси" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=18;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a_minus_0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="1084" y="800" width="162" height="90" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="idef0_a0" name="A0 — Декомпозиція FMCG Sales Intelligence">
+    <mxGraphModel dx="1840" dy="1160" grid="1" gridSize="10" page="1" pageWidth="1840" pageHeight="1160" pageScale="1" background="#FFFFFF">
+      <root>
+        <mxCell id="idef0_a0-0" />
+        <mxCell id="idef0_a0-1" parent="idef0_a0-0" />
+        <mxCell id="idef0_a0-A1" value="" style="rounded=0;html=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.2;container=1;collapsible=0;" vertex="1" parent="idef0_a0-1" function="A1">
+          <mxGeometry as="geometry" x="240" y="300" width="210" height="135" />
+        </mxCell>
+        <mxCell id="idef0_a0-v2" value="Інтегрувати,&#10;перевіряти й&#10;зберігати дані" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-A1" inlineLabel="0">
+          <mxGeometry as="geometry" x="10" y="32" width="190" height="95" />
+        </mxCell>
+        <mxCell id="idef0_a0-v3" value="A1" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-A1" inlineLabel="0">
+          <mxGeometry as="geometry" x="7" y="5" width="80" height="25" />
+        </mxCell>
+        <mxCell id="idef0_a0-A2" value="" style="rounded=0;html=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.2;container=1;collapsible=0;" vertex="1" parent="idef0_a0-1" function="A2">
+          <mxGeometry as="geometry" x="530" y="410" width="210" height="135" />
+        </mxCell>
+        <mxCell id="idef0_a0-v5" value="Формувати&#10;аналітичні&#10;набори даних" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-A2" inlineLabel="0">
+          <mxGeometry as="geometry" x="10" y="32" width="190" height="95" />
+        </mxCell>
+        <mxCell id="idef0_a0-v6" value="A2" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-A2" inlineLabel="0">
+          <mxGeometry as="geometry" x="7" y="5" width="80" height="25" />
+        </mxCell>
+        <mxCell id="idef0_a0-A3" value="" style="rounded=0;html=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.2;container=1;collapsible=0;" vertex="1" parent="idef0_a0-1" function="A3">
+          <mxGeometry as="geometry" x="820" y="520" width="210" height="135" />
+        </mxCell>
+        <mxCell id="idef0_a0-v8" value="Виконувати ML&#10;та аналітичну&#10;обробку даних" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-A3" inlineLabel="0">
+          <mxGeometry as="geometry" x="10" y="32" width="190" height="95" />
+        </mxCell>
+        <mxCell id="idef0_a0-v9" value="A3" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-A3" inlineLabel="0">
+          <mxGeometry as="geometry" x="7" y="5" width="80" height="25" />
+        </mxCell>
+        <mxCell id="idef0_a0-A4" value="" style="rounded=0;html=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.2;container=1;collapsible=0;" vertex="1" parent="idef0_a0-1" function="A4">
+          <mxGeometry as="geometry" x="1110" y="630" width="210" height="135" />
+        </mxCell>
+        <mxCell id="idef0_a0-v11" value="Версіонувати дані&#10;та реєструвати&#10;артефакти" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-A4" inlineLabel="0">
+          <mxGeometry as="geometry" x="10" y="32" width="190" height="95" />
+        </mxCell>
+        <mxCell id="idef0_a0-v12" value="A4" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-A4" inlineLabel="0">
+          <mxGeometry as="geometry" x="7" y="5" width="80" height="25" />
+        </mxCell>
+        <mxCell id="idef0_a0-A5" value="" style="rounded=0;html=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.2;container=1;collapsible=0;" vertex="1" parent="idef0_a0-1" function="A5">
+          <mxGeometry as="geometry" x="1400" y="740" width="210" height="135" />
+        </mxCell>
+        <mxCell id="idef0_a0-v14" value="Надавати прогнози&#10;та аналітичні&#10;результати" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-A5" inlineLabel="0">
+          <mxGeometry as="geometry" x="10" y="32" width="190" height="95" />
+        </mxCell>
+        <mxCell id="idef0_a0-v15" value="A5" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-A5" inlineLabel="0">
+          <mxGeometry as="geometry" x="7" y="5" width="80" height="25" />
+        </mxCell>
+        <mxCell id="idef0_a0-e16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a0-1" semanticFlow="data_rules" icomRole="" boundaryCode="C1" boundaryRole="C">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="345" y="25" />
+            <mxPoint as="targetPoint" x="345" y="160" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-e17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a0-1" semanticFlow="data_rules" icomRole="">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="310" y="160" />
+            <mxPoint as="targetPoint" x="1430" y="160" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v18" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a0-1">
+          <mxGeometry as="geometry" x="343" y="158" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a0-e19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.3333333333333333;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="data_rules" icomRole="C" target="idef0_a0-A1">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="310" y="160" />
+            <mxPoint as="targetPoint" x="310" y="300" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v20" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a0-1">
+          <mxGeometry as="geometry" x="308" y="158" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a0-e21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.3333333333333333;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="data_rules" icomRole="C" target="idef0_a0-A2">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="600" y="160" />
+            <mxPoint as="targetPoint" x="600" y="410" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v22" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a0-1">
+          <mxGeometry as="geometry" x="598" y="158" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a0-e23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.14285714285714285;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="data_rules" icomRole="C" target="idef0_a0-A5">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1430" y="160" />
+            <mxPoint as="targetPoint" x="1430" y="740" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v24" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a0-1">
+          <mxGeometry as="geometry" x="1428" y="158" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a0-v25" value="Контракти даних&#10;і правила якості" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="245" y="40" width="200" height="65" />
+        </mxCell>
+        <mxCell id="idef0_a0-e26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a0-1" semanticFlow="method" icomRole="" boundaryCode="C2" boundaryRole="C">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="925" y="25" />
+            <mxPoint as="targetPoint" x="925" y="200" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-e27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a0-1" semanticFlow="method" icomRole="">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="925" y="200" />
+            <mxPoint as="targetPoint" x="1505" y="200" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v28" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a0-1">
+          <mxGeometry as="geometry" x="923" y="198" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a0-e29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.5238095238095238;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="method" icomRole="C" target="idef0_a0-A3">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="930" y="200" />
+            <mxPoint as="targetPoint" x="930" y="520" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v30" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a0-1">
+          <mxGeometry as="geometry" x="928" y="198" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a0-e31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.5;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="method" icomRole="C" target="idef0_a0-A5">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1505" y="200" />
+            <mxPoint as="targetPoint" x="1505" y="740" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v32" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a0-1">
+          <mxGeometry as="geometry" x="1503" y="198" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a0-v33" value="Методика ML&#10;та аналітичної обробки" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="815" y="40" width="220" height="65" />
+        </mxCell>
+        <mxCell id="idef0_a0-e34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a0-1" semanticFlow="execution" icomRole="" boundaryCode="C3" boundaryRole="C">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1215" y="25" />
+            <mxPoint as="targetPoint" x="1215" y="110" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-e35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a0-1" semanticFlow="execution" icomRole="">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="395" y="110" />
+            <mxPoint as="targetPoint" x="1580" y="110" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v36" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a0-1">
+          <mxGeometry as="geometry" x="1213" y="108" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a0-e37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.7380952380952381;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="execution" icomRole="C" target="idef0_a0-A1">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="395" y="110" />
+            <mxPoint as="targetPoint" x="395" y="300" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v38" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a0-1">
+          <mxGeometry as="geometry" x="393" y="108" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a0-e39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.7619047619047619;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="execution" icomRole="C" target="idef0_a0-A2">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="690" y="110" />
+            <mxPoint as="targetPoint" x="690" y="410" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v40" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a0-1">
+          <mxGeometry as="geometry" x="688" y="108" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a0-e41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.5;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="execution" icomRole="C" target="idef0_a0-A4">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1215" y="110" />
+            <mxPoint as="targetPoint" x="1215" y="630" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v42" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a0-1">
+          <mxGeometry as="geometry" x="1213" y="108" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a0-e43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.8571428571428571;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="execution" icomRole="C" target="idef0_a0-A5">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1580" y="110" />
+            <mxPoint as="targetPoint" x="1580" y="740" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v44" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a0-1">
+          <mxGeometry as="geometry" x="1578" y="108" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a0-v45" value="Доменні правила&#10;та правила виконання" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="1105" y="35" width="220" height="65" />
+        </mxCell>
+        <mxCell id="idef0_a0-e46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a0-1" semanticFlow="data_tools" icomRole="" boundaryCode="M1" boundaryRole="M">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="170" y="1120" />
+            <mxPoint as="targetPoint" x="170" y="1020" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-e47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a0-1" semanticFlow="data_tools" icomRole="">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="170" y="1020" />
+            <mxPoint as="targetPoint" x="1440" y="1020" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v48" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a0-1">
+          <mxGeometry as="geometry" x="168" y="1018" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a0-e49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.2619047619047619;entryY=1.0;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="data_tools" icomRole="M" target="idef0_a0-A1">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="295" y="1020" />
+            <mxPoint as="targetPoint" x="295" y="435" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v50" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a0-1">
+          <mxGeometry as="geometry" x="293" y="1018" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a0-e51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.2619047619047619;entryY=1.0;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="data_tools" icomRole="M" target="idef0_a0-A2">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="585" y="1020" />
+            <mxPoint as="targetPoint" x="585" y="545" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v52" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a0-1">
+          <mxGeometry as="geometry" x="583" y="1018" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a0-e53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.19047619047619047;entryY=1.0;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="data_tools" icomRole="M" target="idef0_a0-A5">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1440" y="1020" />
+            <mxPoint as="targetPoint" x="1440" y="875" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v54" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a0-1">
+          <mxGeometry as="geometry" x="1438" y="1018" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a0-v55" value="Сховища й засоби&#10;підготовки даних" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="55" y="1040" width="230" height="65" />
+        </mxCell>
+        <mxCell id="idef0_a0-e56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a0-1" semanticFlow="ml_tools" icomRole="" boundaryCode="M2" boundaryRole="M">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="875" y="1120" />
+            <mxPoint as="targetPoint" x="875" y="970" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-e57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a0-1" semanticFlow="ml_tools" icomRole="">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="875" y="970" />
+            <mxPoint as="targetPoint" x="1505" y="970" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v58" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a0-1">
+          <mxGeometry as="geometry" x="873" y="968" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a0-e59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.2619047619047619;entryY=1.0;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="ml_tools" icomRole="M" target="idef0_a0-A3">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="875" y="970" />
+            <mxPoint as="targetPoint" x="875" y="655" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v60" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a0-1">
+          <mxGeometry as="geometry" x="873" y="968" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a0-e61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.5;entryY=1.0;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="ml_tools" icomRole="M" target="idef0_a0-A5">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1505" y="970" />
+            <mxPoint as="targetPoint" x="1505" y="875" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v62" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a0-1">
+          <mxGeometry as="geometry" x="1503" y="968" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a0-v63" value="Модулі ML&#10;та аналітики" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="765" y="1040" width="220" height="65" />
+        </mxCell>
+        <mxCell id="idef0_a0-e64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a0-1" semanticFlow="lifecycle_tools" icomRole="" boundaryCode="M3" boundaryRole="M">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1165" y="1120" />
+            <mxPoint as="targetPoint" x="1165" y="1000" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-e65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.2619047619047619;entryY=1.0;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="lifecycle_tools" icomRole="M" target="idef0_a0-A4">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1165" y="1000" />
+            <mxPoint as="targetPoint" x="1165" y="765" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v66" value="Засоби&#10;відтворюваності" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="1055" y="1040" width="220" height="65" />
+        </mxCell>
+        <mxCell id="idef0_a0-e67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a0-1" semanticFlow="product_tools" icomRole="" boundaryCode="M4" boundaryRole="M">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1560" y="1120" />
+            <mxPoint as="targetPoint" x="1560" y="1000" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-e68" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.7619047619047619;entryY=1.0;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="product_tools" icomRole="M" target="idef0_a0-A5">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1560" y="1000" />
+            <mxPoint as="targetPoint" x="1560" y="875" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v69" value="Програмна інфраструктура&#10;та інтерфейси" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="1430" y="1040" width="260" height="65" />
+        </mxCell>
+        <mxCell id="idef0_a0-e70" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.0;entryY=0.5185185185185185;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="sources" icomRole="I" target="idef0_a0-A1" boundaryCode="I1" boundaryRole="I">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="65" y="370" />
+            <mxPoint as="targetPoint" x="240" y="370" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v71" value="Дані FMCG&#10;та донорські&#10;набори" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="65" y="297" width="165" height="67" />
+        </mxCell>
+        <mxCell id="idef0_a0-e72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;exitX=1.0;exitY=0.5185185185185185;exitPerimeter=0;entryX=0.0;entryY=0.5185185185185185;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="operational" icomRole="I" source="idef0_a0-A1" target="idef0_a0-A2">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="450" y="370" />
+            <mxPoint as="targetPoint" x="530" y="480" />
+            <Array as="points">
+              <mxPoint x="490" y="370" />
+              <mxPoint x="490" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v73" value="Факти" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="453" y="385" width="73" height="57" />
+        </mxCell>
+        <mxCell id="idef0_a0-e74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;exitX=1.0;exitY=0.5555555555555556;exitPerimeter=0;entryX=0.0;entryY=0.48148148148148145;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="datasets" icomRole="I" source="idef0_a0-A2" target="idef0_a0-A3">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="740" y="485" />
+            <mxPoint as="targetPoint" x="820" y="585" />
+            <Array as="points">
+              <mxPoint x="780" y="485" />
+              <mxPoint x="780" y="585" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v75" value="Набори&#10;даних" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=18;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="742" y="492" width="77" height="54" />
+        </mxCell>
+        <mxCell id="idef0_a0-v76" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a0-1">
+          <mxGeometry as="geometry" x="778" y="558" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a0-e77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.0;entryY=0.4444444444444444;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="datasets" icomRole="I" target="idef0_a0-A4">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="780" y="560" />
+            <mxPoint as="targetPoint" x="1110" y="690" />
+            <Array as="points">
+              <mxPoint x="780" y="690" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v78" value="Набори даних" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-1" inlineLabel="0">
+          <mxGeometry as="geometry" x="900" y="655" width="150" height="28" />
+        </mxCell>
+        <mxCell id="idef0_a0-e79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;exitX=1.0;exitY=0.25925925925925924;exitPerimeter=0;entryX=0.0;entryY=0.3333333333333333;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="marts" icomRole="I" source="idef0_a0-A2" target="idef0_a0-A5">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="740" y="445" />
+            <mxPoint as="targetPoint" x="1400" y="785" />
+            <Array as="points">
+              <mxPoint x="790" y="445" />
+              <mxPoint x="790" y="390" />
+              <mxPoint x="1370" y="390" />
+              <mxPoint x="1370" y="785" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v80" value="Вітрини для KPI" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-1" inlineLabel="0">
+          <mxGeometry as="geometry" x="975" y="350" width="225" height="34" />
+        </mxCell>
+        <mxCell id="idef0_a0-e81" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;exitX=1.0;exitY=0.14814814814814814;exitPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="quality" icomRole="" source="idef0_a0-A2" boundaryCode="O4" boundaryRole="O">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="740" y="430" />
+            <mxPoint as="targetPoint" x="1770" y="270" />
+            <Array as="points">
+              <mxPoint x="765" y="430" />
+              <mxPoint x="765" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v82" value="Звіти перевірок&#10;якості даних" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="1620" y="208" width="150" height="56" />
+        </mxCell>
+        <mxCell id="idef0_a0-e83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;exitX=1.0;exitY=0.48148148148148145;exitPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="canonical" icomRole="" source="idef0_a0-A3" boundaryCode="O1" boundaryRole="O">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1030" y="585" />
+            <mxPoint as="targetPoint" x="1770" y="585" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v84" value="Канонічні моделі,&#10;результати&#10;та метрики" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="1610" y="503" width="160" height="76" />
+        </mxCell>
+        <mxCell id="idef0_a0-v85" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a0-1">
+          <mxGeometry as="geometry" x="1068" y="583" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a0-e86" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.0;entryY=0.7037037037037037;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="canonical" icomRole="I" target="idef0_a0-A4">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1070" y="585" />
+            <mxPoint as="targetPoint" x="1110" y="725" />
+            <Array as="points">
+              <mxPoint x="1070" y="725" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v87" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a0-1">
+          <mxGeometry as="geometry" x="1343" y="583" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a0-e88" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.0;entryY=0.6296296296296297;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="canonical" icomRole="I" target="idef0_a0-A5">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1345" y="585" />
+            <mxPoint as="targetPoint" x="1400" y="825" />
+            <Array as="points">
+              <mxPoint x="1345" y="825" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v89" value="Збережені&#10;артефакти" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-1" inlineLabel="0">
+          <mxGeometry as="geometry" x="1075" y="532" width="110" height="48" />
+        </mxCell>
+        <mxCell id="idef0_a0-e90" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;exitX=1.0;exitY=0.4444444444444444;exitPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="trace" icomRole="" source="idef0_a0-A4" boundaryCode="O3" boundaryRole="O">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1320" y="690" />
+            <mxPoint as="targetPoint" x="1770" y="690" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v91" value="Версії та&#10;метадані запусків" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="1610" y="621" width="160" height="62" />
+        </mxCell>
+        <mxCell id="idef0_a0-e92" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.0;entryY=0.8296296296296296;entryPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="requests" icomRole="I" target="idef0_a0-A5" boundaryCode="I2" boundaryRole="I">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="65" y="930" />
+            <mxPoint as="targetPoint" x="1400" y="852" />
+            <Array as="points">
+              <mxPoint x="1365" y="930" />
+              <mxPoint x="1365" y="852" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v93" value="Запити та параметри&#10;отримання результатів" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-1" inlineLabel="0">
+          <mxGeometry as="geometry" x="620" y="871" width="235" height="52" />
+        </mxCell>
+        <mxCell id="idef0_a0-e94" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;exitX=1.0;exitY=0.48148148148148145;exitPerimeter=0;" edge="1" parent="idef0_a0-1" semanticFlow="delivery" icomRole="" source="idef0_a0-A5" boundaryCode="O2" boundaryRole="O">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1610" y="805" />
+            <mxPoint as="targetPoint" x="1770" y="805" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a0-v95" value="Прогнози,&#10;KPI та відповіді" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a0-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="1620" y="735" width="150" height="60" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="idef0_a2" name="A2 — Формування аналітичних наборів даних">
+    <mxGraphModel dx="1840" dy="1160" grid="1" gridSize="10" page="1" pageWidth="1840" pageHeight="1160" pageScale="1" background="#FFFFFF">
+      <root>
+        <mxCell id="idef0_a2-0" />
+        <mxCell id="idef0_a2-1" parent="idef0_a2-0" />
+        <mxCell id="idef0_a2-A2.1" value="" style="rounded=0;html=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.2;container=1;collapsible=0;" vertex="1" parent="idef0_a2-1" function="A2.1">
+          <mxGeometry as="geometry" x="260" y="320" width="250" height="145" />
+        </mxCell>
+        <mxCell id="idef0_a2-v2" value="Копіювати операційні&#10;факти та довідники" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a2-A2.1" inlineLabel="0">
+          <mxGeometry as="geometry" x="10" y="32" width="230" height="105" />
+        </mxCell>
+        <mxCell id="idef0_a2-v3" value="A2.1" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a2-A2.1" inlineLabel="0">
+          <mxGeometry as="geometry" x="7" y="5" width="80" height="25" />
+        </mxCell>
+        <mxCell id="idef0_a2-A2.2" value="" style="rounded=0;html=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.2;container=1;collapsible=0;" vertex="1" parent="idef0_a2-1" function="A2.2">
+          <mxGeometry as="geometry" x="620" y="430" width="250" height="145" />
+        </mxCell>
+        <mxCell id="idef0_a2-v5" value="Перетворювати дані&#10;та перевіряти&#10;аналітичні вітрини" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a2-A2.2" inlineLabel="0">
+          <mxGeometry as="geometry" x="10" y="32" width="230" height="105" />
+        </mxCell>
+        <mxCell id="idef0_a2-v6" value="A2.2" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a2-A2.2" inlineLabel="0">
+          <mxGeometry as="geometry" x="7" y="5" width="80" height="25" />
+        </mxCell>
+        <mxCell id="idef0_a2-A2.3" value="" style="rounded=0;html=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.2;container=1;collapsible=0;" vertex="1" parent="idef0_a2-1" function="A2.3">
+          <mxGeometry as="geometry" x="980" y="540" width="250" height="145" />
+        </mxCell>
+        <mxCell id="idef0_a2-v8" value="Будувати ознаки,&#10;цілі та набори&#10;для окремих задач" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a2-A2.3" inlineLabel="0">
+          <mxGeometry as="geometry" x="10" y="32" width="230" height="105" />
+        </mxCell>
+        <mxCell id="idef0_a2-v9" value="A2.3" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a2-A2.3" inlineLabel="0">
+          <mxGeometry as="geometry" x="7" y="5" width="80" height="25" />
+        </mxCell>
+        <mxCell id="idef0_a2-A2.4" value="" style="rounded=0;html=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.2;container=1;collapsible=0;" vertex="1" parent="idef0_a2-1" function="A2.4">
+          <mxGeometry as="geometry" x="1340" y="650" width="250" height="145" />
+        </mxCell>
+        <mxCell id="idef0_a2-v11" value="Перевіряти якість&#10;сформованих наборів" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a2-A2.4" inlineLabel="0">
+          <mxGeometry as="geometry" x="10" y="32" width="230" height="105" />
+        </mxCell>
+        <mxCell id="idef0_a2-v12" value="A2.4" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a2-A2.4" inlineLabel="0">
+          <mxGeometry as="geometry" x="7" y="5" width="80" height="25" />
+        </mxCell>
+        <mxCell id="idef0_a2-e13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a2-1" semanticFlow="data_rules" icomRole="" boundaryCode="C1" boundaryRole="C">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="365" y="25" />
+            <mxPoint as="targetPoint" x="365" y="120" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-e14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a2-1" semanticFlow="data_rules" icomRole="">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="365" y="120" />
+            <mxPoint as="targetPoint" x="1455" y="120" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-v15" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a2-1">
+          <mxGeometry as="geometry" x="363" y="118" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a2-e16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.42;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a2-1" semanticFlow="data_rules" icomRole="C" target="idef0_a2-A2.1">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="365" y="120" />
+            <mxPoint as="targetPoint" x="365" y="320" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-v17" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a2-1">
+          <mxGeometry as="geometry" x="363" y="118" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a2-e18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.46;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a2-1" semanticFlow="data_rules" icomRole="C" target="idef0_a2-A2.2">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="735" y="120" />
+            <mxPoint as="targetPoint" x="735" y="430" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-v19" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a2-1">
+          <mxGeometry as="geometry" x="733" y="118" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a2-e20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.46;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a2-1" semanticFlow="data_rules" icomRole="C" target="idef0_a2-A2.3">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1095" y="120" />
+            <mxPoint as="targetPoint" x="1095" y="540" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-v21" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a2-1">
+          <mxGeometry as="geometry" x="1093" y="118" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a2-e22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.46;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a2-1" semanticFlow="data_rules" icomRole="C" target="idef0_a2-A2.4">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1455" y="120" />
+            <mxPoint as="targetPoint" x="1455" y="650" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-v23" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a2-1">
+          <mxGeometry as="geometry" x="1453" y="118" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a2-v24" value="Контракти даних&#10;і правила якості" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a2-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="245" y="35" width="240" height="65" />
+        </mxCell>
+        <mxCell id="idef0_a2-e25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a2-1" semanticFlow="execution" icomRole="" boundaryCode="C2" boundaryRole="C">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1050" y="25" />
+            <mxPoint as="targetPoint" x="1050" y="190" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-e26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a2-1" semanticFlow="execution" icomRole="">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="450" y="190" />
+            <mxPoint as="targetPoint" x="1530" y="190" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-v27" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a2-1">
+          <mxGeometry as="geometry" x="1048" y="188" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a2-e28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.76;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a2-1" semanticFlow="execution" icomRole="C" target="idef0_a2-A2.1">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="450" y="190" />
+            <mxPoint as="targetPoint" x="450" y="320" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-v29" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a2-1">
+          <mxGeometry as="geometry" x="448" y="188" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a2-e30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.76;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a2-1" semanticFlow="execution" icomRole="C" target="idef0_a2-A2.2">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="810" y="190" />
+            <mxPoint as="targetPoint" x="810" y="430" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-v31" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a2-1">
+          <mxGeometry as="geometry" x="808" y="188" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a2-e32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.76;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a2-1" semanticFlow="execution" icomRole="C" target="idef0_a2-A2.3">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1170" y="190" />
+            <mxPoint as="targetPoint" x="1170" y="540" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-v33" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a2-1">
+          <mxGeometry as="geometry" x="1168" y="188" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a2-e34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.76;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a2-1" semanticFlow="execution" icomRole="C" target="idef0_a2-A2.4">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1530" y="190" />
+            <mxPoint as="targetPoint" x="1530" y="650" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-v35" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a2-1">
+          <mxGeometry as="geometry" x="1528" y="188" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a2-v36" value="Правила виконання&#10;та конфігурація обробки" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a2-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="930" y="35" width="240" height="65" />
+        </mxCell>
+        <mxCell id="idef0_a2-e37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a2-1" semanticFlow="data_tools" icomRole="" boundaryCode="M1" boundaryRole="M">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="720" y="1120" />
+            <mxPoint as="targetPoint" x="720" y="990" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-e38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a2-1" semanticFlow="data_tools" icomRole="">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="325" y="990" />
+            <mxPoint as="targetPoint" x="1405" y="990" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-v39" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a2-1">
+          <mxGeometry as="geometry" x="718" y="988" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a2-e40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.26;entryY=1.0;entryPerimeter=0;" edge="1" parent="idef0_a2-1" semanticFlow="data_tools" icomRole="M" target="idef0_a2-A2.1">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="325" y="990" />
+            <mxPoint as="targetPoint" x="325" y="465" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-v41" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a2-1">
+          <mxGeometry as="geometry" x="323" y="988" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a2-e42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.26;entryY=1.0;entryPerimeter=0;" edge="1" parent="idef0_a2-1" semanticFlow="data_tools" icomRole="M" target="idef0_a2-A2.2">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="685" y="990" />
+            <mxPoint as="targetPoint" x="685" y="575" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-v43" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a2-1">
+          <mxGeometry as="geometry" x="683" y="988" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a2-e44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.26;entryY=1.0;entryPerimeter=0;" edge="1" parent="idef0_a2-1" semanticFlow="data_tools" icomRole="M" target="idef0_a2-A2.3">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1045" y="990" />
+            <mxPoint as="targetPoint" x="1045" y="685" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-v45" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a2-1">
+          <mxGeometry as="geometry" x="1043" y="988" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a2-e46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.26;entryY=1.0;entryPerimeter=0;" edge="1" parent="idef0_a2-1" semanticFlow="data_tools" icomRole="M" target="idef0_a2-A2.4">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1405" y="990" />
+            <mxPoint as="targetPoint" x="1405" y="795" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-v47" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a2-1">
+          <mxGeometry as="geometry" x="1403" y="988" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a2-v48" value="Сховища й засоби&#10;підготовки даних" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a2-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="590" y="1030" width="260" height="70" />
+        </mxCell>
+        <mxCell id="idef0_a2-e49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.0;entryY=0.496551724137931;entryPerimeter=0;" edge="1" parent="idef0_a2-1" semanticFlow="operational" icomRole="I" target="idef0_a2-A2.1" boundaryCode="I1" boundaryRole="I">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="65" y="392" />
+            <mxPoint as="targetPoint" x="260" y="392" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-v50" value="Операційні факти&#10;та довідники" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a2-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="70" y="310" width="180" height="70" />
+        </mxCell>
+        <mxCell id="idef0_a2-e51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;exitX=1.0;exitY=0.496551724137931;exitPerimeter=0;entryX=0.0;entryY=0.496551724137931;entryPerimeter=0;" edge="1" parent="idef0_a2-1" semanticFlow="raw" icomRole="I" source="idef0_a2-A2.1" target="idef0_a2-A2.2">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="510" y="392" />
+            <mxPoint as="targetPoint" x="620" y="502" />
+            <Array as="points">
+              <mxPoint x="565" y="392" />
+              <mxPoint x="565" y="502" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-v52" value="Копія&#10;даних" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a2-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="513" y="412" width="104" height="51" />
+        </mxCell>
+        <mxCell id="idef0_a2-e53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;exitX=1.0;exitY=0.496551724137931;exitPerimeter=0;entryX=0.0;entryY=0.496551724137931;entryPerimeter=0;" edge="1" parent="idef0_a2-1" semanticFlow="marts" icomRole="I" source="idef0_a2-A2.2" target="idef0_a2-A2.3">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="870" y="502" />
+            <mxPoint as="targetPoint" x="980" y="612" />
+            <Array as="points">
+              <mxPoint x="925" y="502" />
+              <mxPoint x="925" y="612" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-v54" value="Аналітичні&#10;вітрини" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a2-1" inlineLabel="0">
+          <mxGeometry as="geometry" x="925" y="430" width="150" height="48" />
+        </mxCell>
+        <mxCell id="idef0_a2-v55" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a2-1">
+          <mxGeometry as="geometry" x="923" y="500" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a2-e56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;" edge="1" parent="idef0_a2-1" semanticFlow="marts" icomRole="" boundaryCode="O2" boundaryRole="O">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="925" y="502" />
+            <mxPoint as="targetPoint" x="1770" y="370" />
+            <Array as="points">
+              <mxPoint x="925" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-v57" value="Вітрини&#10;для KPI" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a2-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="1600" y="310" width="170" height="52" />
+        </mxCell>
+        <mxCell id="idef0_a2-e58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;exitX=1.0;exitY=0.496551724137931;exitPerimeter=0;entryX=0.0;entryY=0.496551724137931;entryPerimeter=0;" edge="1" parent="idef0_a2-1" semanticFlow="datasets" icomRole="I" source="idef0_a2-A2.3" target="idef0_a2-A2.4">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1230" y="612" />
+            <mxPoint as="targetPoint" x="1340" y="722" />
+            <Array as="points">
+              <mxPoint x="1285" y="612" />
+              <mxPoint x="1285" y="722" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-v59" value="Записані&#10;набори" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a2-1" inlineLabel="0">
+          <mxGeometry as="geometry" x="1290" y="553" width="100" height="50" />
+        </mxCell>
+        <mxCell id="idef0_a2-v60" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a2-1">
+          <mxGeometry as="geometry" x="1283" y="610" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a2-e61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;" edge="1" parent="idef0_a2-1" semanticFlow="datasets" icomRole="" boundaryCode="O1" boundaryRole="O">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1285" y="612" />
+            <mxPoint as="targetPoint" x="1770" y="480" />
+            <Array as="points">
+              <mxPoint x="1285" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-v62" value="Набори даних&#10;для задач" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a2-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="1600" y="415" width="170" height="52" />
+        </mxCell>
+        <mxCell id="idef0_a2-e63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;exitX=1.0;exitY=0.496551724137931;exitPerimeter=0;" edge="1" parent="idef0_a2-1" semanticFlow="quality" icomRole="" source="idef0_a2-A2.4" boundaryCode="O3" boundaryRole="O">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1590" y="722" />
+            <mxPoint as="targetPoint" x="1770" y="722" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a2-v64" value="Звіт перевірок&#10;якості даних" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a2-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="1598" y="630" width="170" height="82" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="idef0_a3" name="A3 — ML та аналітична обробка даних">
+    <mxGraphModel dx="1840" dy="1160" grid="1" gridSize="10" page="1" pageWidth="1840" pageHeight="1160" pageScale="1" background="#FFFFFF">
+      <root>
+        <mxCell id="idef0_a3-0" />
+        <mxCell id="idef0_a3-1" parent="idef0_a3-0" />
+        <mxCell id="idef0_a3-A3.1" value="" style="rounded=0;html=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.2;container=1;collapsible=0;" vertex="1" parent="idef0_a3-1" function="A3.1">
+          <mxGeometry as="geometry" x="240" y="300" width="210" height="135" />
+        </mxCell>
+        <mxCell id="idef0_a3-v2" value="Прогнозувати попит&#10;та оцінювати ризик&#10;дефіциту" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a3-A3.1" inlineLabel="0">
+          <mxGeometry as="geometry" x="10" y="32" width="190" height="95" />
+        </mxCell>
+        <mxCell id="idef0_a3-v3" value="A3.1" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a3-A3.1" inlineLabel="0">
+          <mxGeometry as="geometry" x="7" y="5" width="80" height="25" />
+        </mxCell>
+        <mxCell id="idef0_a3-A3.2" value="" style="rounded=0;html=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.2;container=1;collapsible=0;" vertex="1" parent="idef0_a3-1" function="A3.2">
+          <mxGeometry as="geometry" x="530" y="410" width="210" height="135" />
+        </mxCell>
+        <mxCell id="idef0_a3-v5" value="Аналізувати час&#10;до дефіциту" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a3-A3.2" inlineLabel="0">
+          <mxGeometry as="geometry" x="10" y="32" width="190" height="95" />
+        </mxCell>
+        <mxCell id="idef0_a3-v6" value="A3.2" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a3-A3.2" inlineLabel="0">
+          <mxGeometry as="geometry" x="7" y="5" width="80" height="25" />
+        </mxCell>
+        <mxCell id="idef0_a3-A3.3" value="" style="rounded=0;html=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.2;container=1;collapsible=0;" vertex="1" parent="idef0_a3-1" function="A3.3">
+          <mxGeometry as="geometry" x="820" y="520" width="210" height="135" />
+        </mxCell>
+        <mxCell id="idef0_a3-v8" value="Виявляти сегменти&#10;та кандидатів&#10;в аномалії" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a3-A3.3" inlineLabel="0">
+          <mxGeometry as="geometry" x="10" y="32" width="190" height="95" />
+        </mxCell>
+        <mxCell id="idef0_a3-v9" value="A3.3" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a3-A3.3" inlineLabel="0">
+          <mxGeometry as="geometry" x="7" y="5" width="80" height="25" />
+        </mxCell>
+        <mxCell id="idef0_a3-A3.4" value="" style="rounded=0;html=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.2;container=1;collapsible=0;" vertex="1" parent="idef0_a3-1" function="A3.4">
+          <mxGeometry as="geometry" x="1110" y="630" width="210" height="135" />
+        </mxCell>
+        <mxCell id="idef0_a3-v11" value="Визначати асоціації&#10;та описувати&#10;промоційні зміни" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a3-A3.4" inlineLabel="0">
+          <mxGeometry as="geometry" x="10" y="32" width="190" height="95" />
+        </mxCell>
+        <mxCell id="idef0_a3-v12" value="A3.4" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a3-A3.4" inlineLabel="0">
+          <mxGeometry as="geometry" x="7" y="5" width="80" height="25" />
+        </mxCell>
+        <mxCell id="idef0_a3-A3.5" value="" style="rounded=0;html=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.2;container=1;collapsible=0;" vertex="1" parent="idef0_a3-1" function="A3.5">
+          <mxGeometry as="geometry" x="1400" y="740" width="210" height="135" />
+        </mxCell>
+        <mxCell id="idef0_a3-v14" value="Зберігати моделі,&#10;результати&#10;та метрики задач" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a3-A3.5" inlineLabel="0">
+          <mxGeometry as="geometry" x="10" y="32" width="190" height="95" />
+        </mxCell>
+        <mxCell id="idef0_a3-v15" value="A3.5" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a3-A3.5" inlineLabel="0">
+          <mxGeometry as="geometry" x="7" y="5" width="80" height="25" />
+        </mxCell>
+        <mxCell id="idef0_a3-e16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a3-1" semanticFlow="method" icomRole="" boundaryCode="C1" boundaryRole="C">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="925" y="25" />
+            <mxPoint as="targetPoint" x="925" y="150" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-e17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a3-1" semanticFlow="method" icomRole="">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="345" y="150" />
+            <mxPoint as="targetPoint" x="1505" y="150" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v18" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a3-1">
+          <mxGeometry as="geometry" x="923" y="148" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a3-e19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.5;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a3-1" semanticFlow="method" icomRole="C" target="idef0_a3-A3.1">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="345" y="150" />
+            <mxPoint as="targetPoint" x="345" y="300" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v20" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a3-1">
+          <mxGeometry as="geometry" x="343" y="148" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a3-e21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.5;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a3-1" semanticFlow="method" icomRole="C" target="idef0_a3-A3.2">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="635" y="150" />
+            <mxPoint as="targetPoint" x="635" y="410" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v22" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a3-1">
+          <mxGeometry as="geometry" x="633" y="148" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a3-e23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.5;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a3-1" semanticFlow="method" icomRole="C" target="idef0_a3-A3.3">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="925" y="150" />
+            <mxPoint as="targetPoint" x="925" y="520" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v24" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a3-1">
+          <mxGeometry as="geometry" x="923" y="148" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a3-e25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.5;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a3-1" semanticFlow="method" icomRole="C" target="idef0_a3-A3.4">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1215" y="150" />
+            <mxPoint as="targetPoint" x="1215" y="630" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v26" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a3-1">
+          <mxGeometry as="geometry" x="1213" y="148" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a3-e27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.5;entryY=0.0;entryPerimeter=0;" edge="1" parent="idef0_a3-1" semanticFlow="method" icomRole="C" target="idef0_a3-A3.5">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1505" y="150" />
+            <mxPoint as="targetPoint" x="1505" y="740" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v28" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a3-1">
+          <mxGeometry as="geometry" x="1503" y="148" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a3-v29" value="Методика ML&#10;та аналітичної обробки" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a3-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="810" y="35" width="230" height="75" />
+        </mxCell>
+        <mxCell id="idef0_a3-e30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a3-1" semanticFlow="ml_tools" icomRole="" boundaryCode="M1" boundaryRole="M">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="720" y="1120" />
+            <mxPoint as="targetPoint" x="720" y="1030" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-e31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a3-1" semanticFlow="ml_tools" icomRole="">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="295" y="1030" />
+            <mxPoint as="targetPoint" x="1455" y="1030" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v32" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a3-1">
+          <mxGeometry as="geometry" x="718" y="1028" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a3-e33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.2619047619047619;entryY=1.0;entryPerimeter=0;" edge="1" parent="idef0_a3-1" semanticFlow="ml_tools" icomRole="M" target="idef0_a3-A3.1">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="295" y="1030" />
+            <mxPoint as="targetPoint" x="295" y="435" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v34" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a3-1">
+          <mxGeometry as="geometry" x="293" y="1028" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a3-e35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.2619047619047619;entryY=1.0;entryPerimeter=0;" edge="1" parent="idef0_a3-1" semanticFlow="ml_tools" icomRole="M" target="idef0_a3-A3.2">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="585" y="1030" />
+            <mxPoint as="targetPoint" x="585" y="545" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v36" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a3-1">
+          <mxGeometry as="geometry" x="583" y="1028" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a3-e37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.2619047619047619;entryY=1.0;entryPerimeter=0;" edge="1" parent="idef0_a3-1" semanticFlow="ml_tools" icomRole="M" target="idef0_a3-A3.3">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="875" y="1030" />
+            <mxPoint as="targetPoint" x="875" y="655" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v38" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a3-1">
+          <mxGeometry as="geometry" x="873" y="1028" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a3-e39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.2619047619047619;entryY=1.0;entryPerimeter=0;" edge="1" parent="idef0_a3-1" semanticFlow="ml_tools" icomRole="M" target="idef0_a3-A3.4">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1165" y="1030" />
+            <mxPoint as="targetPoint" x="1165" y="765" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v40" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a3-1">
+          <mxGeometry as="geometry" x="1163" y="1028" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a3-e41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.2619047619047619;entryY=1.0;entryPerimeter=0;" edge="1" parent="idef0_a3-1" semanticFlow="ml_tools" icomRole="M" target="idef0_a3-A3.5">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1455" y="1030" />
+            <mxPoint as="targetPoint" x="1455" y="875" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v42" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a3-1">
+          <mxGeometry as="geometry" x="1453" y="1028" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a3-v43" value="Модулі ML&#10;та аналітики" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a3-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="605" y="1050" width="230" height="60" />
+        </mxCell>
+        <mxCell id="idef0_a3-e44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a3-1" semanticFlow="datasets" icomRole="" boundaryCode="I1" boundaryRole="I">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="65" y="245" />
+            <mxPoint as="targetPoint" x="1070" y="245" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v45" value="Набори даних&#10;для окремих&#10;задач" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a3-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="75" y="160" width="165" height="70" />
+        </mxCell>
+        <mxCell id="idef0_a3-e46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.0;entryY=0.5185185185185185;entryPerimeter=0;" edge="1" parent="idef0_a3-1" semanticFlow="datasets" icomRole="I" target="idef0_a3-A3.1">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="205" y="245" />
+            <mxPoint as="targetPoint" x="240" y="370" />
+            <Array as="points">
+              <mxPoint x="205" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v47" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a3-1">
+          <mxGeometry as="geometry" x="203" y="243" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a3-e48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.0;entryY=0.5185185185185185;entryPerimeter=0;" edge="1" parent="idef0_a3-1" semanticFlow="datasets" icomRole="I" target="idef0_a3-A3.2">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="495" y="245" />
+            <mxPoint as="targetPoint" x="530" y="480" />
+            <Array as="points">
+              <mxPoint x="495" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v49" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a3-1">
+          <mxGeometry as="geometry" x="493" y="243" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a3-e50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.0;entryY=0.5185185185185185;entryPerimeter=0;" edge="1" parent="idef0_a3-1" semanticFlow="datasets" icomRole="I" target="idef0_a3-A3.3">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="785" y="245" />
+            <mxPoint as="targetPoint" x="820" y="590" />
+            <Array as="points">
+              <mxPoint x="785" y="590" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v51" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a3-1">
+          <mxGeometry as="geometry" x="783" y="243" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a3-e52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.0;entryY=0.5185185185185185;entryPerimeter=0;" edge="1" parent="idef0_a3-1" semanticFlow="datasets" icomRole="I" target="idef0_a3-A3.4">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1070" y="245" />
+            <mxPoint as="targetPoint" x="1110" y="700" />
+            <Array as="points">
+              <mxPoint x="1070" y="700" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v53" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a3-1">
+          <mxGeometry as="geometry" x="1068" y="243" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a3-e54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;exitX=1.0;exitY=0.5185185185185185;exitPerimeter=0;" edge="1" parent="idef0_a3-1" semanticFlow="task_results" icomRole="" source="idef0_a3-A3.1">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="450" y="370" />
+            <mxPoint as="targetPoint" x="470" y="910" />
+            <Array as="points">
+              <mxPoint x="470" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v55" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a3-1">
+          <mxGeometry as="geometry" x="468" y="908" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a3-e56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;exitX=1.0;exitY=0.5185185185185185;exitPerimeter=0;" edge="1" parent="idef0_a3-1" semanticFlow="task_results" icomRole="" source="idef0_a3-A3.2">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="740" y="480" />
+            <mxPoint as="targetPoint" x="760" y="910" />
+            <Array as="points">
+              <mxPoint x="760" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v57" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a3-1">
+          <mxGeometry as="geometry" x="758" y="908" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a3-e58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;exitX=1.0;exitY=0.5185185185185185;exitPerimeter=0;" edge="1" parent="idef0_a3-1" semanticFlow="task_results" icomRole="" source="idef0_a3-A3.3">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1030" y="590" />
+            <mxPoint as="targetPoint" x="1050" y="910" />
+            <Array as="points">
+              <mxPoint x="1050" y="590" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v59" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a3-1">
+          <mxGeometry as="geometry" x="1048" y="908" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a3-e60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;exitX=1.0;exitY=0.5185185185185185;exitPerimeter=0;" edge="1" parent="idef0_a3-1" semanticFlow="task_results" icomRole="" source="idef0_a3-A3.4">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1320" y="700" />
+            <mxPoint as="targetPoint" x="1350" y="910" />
+            <Array as="points">
+              <mxPoint x="1350" y="700" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v61" value="" style="ellipse;fillColor=#000000;strokeColor=none;" vertex="1" parent="idef0_a3-1">
+          <mxGeometry as="geometry" x="1348" y="908" width="4" height="4" />
+        </mxCell>
+        <mxCell id="idef0_a3-e62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=none;endFill=1;" edge="1" parent="idef0_a3-1" semanticFlow="task_results" icomRole="">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="470" y="910" />
+            <mxPoint as="targetPoint" x="1375" y="910" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-e63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;entryX=0.0;entryY=0.5185185185185185;entryPerimeter=0;" edge="1" parent="idef0_a3-1" semanticFlow="task_results" icomRole="I" target="idef0_a3-A3.5">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1375" y="910" />
+            <mxPoint as="targetPoint" x="1400" y="810" />
+            <Array as="points">
+              <mxPoint x="1375" y="810" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v64" value="Результати й&#10;діагностика задач" style="text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a3-1" inlineLabel="0">
+          <mxGeometry as="geometry" x="900" y="938" width="235" height="57" />
+        </mxCell>
+        <mxCell id="idef0_a3-e65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#000000;strokeWidth=1.2;jumpStyle=arc;jumpSize=7;endArrow=block;endFill=1;exitX=1.0;exitY=0.48148148148148145;exitPerimeter=0;" edge="1" parent="idef0_a3-1" semanticFlow="canonical" icomRole="" source="idef0_a3-A3.5" boundaryCode="O1" boundaryRole="O">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1610" y="805" />
+            <mxPoint as="targetPoint" x="1770" y="805" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idef0_a3-v66" value="Канонічні моделі,&#10;результати&#10;та метрики" style="text;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Arial;fontSize=19;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1" parent="idef0_a3-1" inlineLabel="1">
+          <mxGeometry as="geometry" x="1615" y="710" width="155" height="82" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

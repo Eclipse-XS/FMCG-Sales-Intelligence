@@ -2,7 +2,12 @@
 from __future__ import annotations
 
 from fmcg_sales_intelligence.common.paths import PROJECT_ROOT
-import hashlib,json,platform,shutil,subprocess,time
+import hashlib
+import json
+import platform
+import shutil
+import subprocess
+import time
 from datetime import datetime,timezone
 from pathlib import Path
 import matplotlib.pyplot as plt

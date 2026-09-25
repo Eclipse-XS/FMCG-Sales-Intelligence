@@ -14,4 +14,4 @@
 
 ## Deferred production controls
 
-Authentication, authorization, TLS termination, distributed rate limiting, a secrets manager, WAF, centralized audit logs and multi-instance quotas are not implemented. A per-process limiter would provide misleading protection under multiple workers, so rate limiting is explicitly deferred. The system is `LOCAL_TRUSTED_ENVIRONMENT_ONLY`, not internet-production ready. Vite variables are public configuration and must never contain secrets.
+Authentication, authorization, TLS termination, distributed rate limiting, a secrets manager, WAF, centralized audit logs and multi-instance quotas are not implemented. A per-process limiter would provide misleading protection under multiple workers, so rate limiting is explicitly deferred. The system is `LOCAL_TRUSTED_ENVIRONMENT_ONLY`, not internet-production ready. Client-facing environment variables are public configuration and must never contain secrets.

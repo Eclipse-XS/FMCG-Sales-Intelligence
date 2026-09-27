@@ -1,0 +1,62 @@
+{
+  "date": "2026-11-16",
+  "base_commit": "989569ca726b6f80040227d7f3dae9edc5eacb1b",
+  "local_tests": {
+    "separate_http_processes": {
+      "tests": "17",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "112.642",
+      "junit_sha256": "ec90c611cee3f3a5c48edb230da2776e610fceb86b908c688ace347666dcb347"
+    },
+    "platform_regression": {
+      "tests": "52",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "51.795",
+      "junit_sha256": "f2e1aacbb8335c87b4ceb534214313f3322bef8fda1ffa14f41948186ae23bb4"
+    }
+  },
+  "docker_integration": {
+    "passed": 17,
+    "failed": 0,
+    "source": "clean-volume Docker execution"
+  },
+  "backend_platform_mlflow_sklearn_absent": true,
+  "engine_company_database_absent": true,
+  "backend_approval_mount_absent": true,
+  "repeat_initializer": "PASS",
+  "core_and_platform_source_changes": false,
+  "scientific_canonical_files_unchanged": 134,
+  "http_examples": {
+    "1": {
+      "ticket_id": 1,
+      "sla_breach_probability": 0.8781390737963874,
+      "model": "servicedesk-sla",
+      "model_version": "1",
+      "model_uri": "models:/servicedesk-sla/1",
+      "model_run_id": "2c59388e0b32464e8a79928f4fe2b57c",
+      "request_id": "8b303f4a-007a-4a2b-bbfc-1020af3421ce",
+      "reference_time": "2026-01-15T12:00:00+00:00",
+      "data_kind": "synthetic demonstration"
+    },
+    "2": {
+      "ticket_id": 1,
+      "sla_breach_probability": 0.9199574714967982,
+      "model": "servicedesk-sla",
+      "model_version": "2",
+      "model_uri": "models:/servicedesk-sla/2",
+      "model_run_id": "fdaeaaf4dd084fdc99ab492cdc235031",
+      "request_id": "b235ef78-9b1d-4755-96e9-63abc1877b0c",
+      "reference_time": "2026-01-15T12:00:00+00:00",
+      "data_kind": "synthetic demonstration"
+    }
+  },
+  "ci_at_documentation": [
+    43838160776,
+    43838597966
+  ],
+  "delivery_gate": "All final-head checks and all ten criteria must pass before merge"
+}

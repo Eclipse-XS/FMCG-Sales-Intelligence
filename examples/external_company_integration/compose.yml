@@ -1,0 +1,79 @@
+name: servicedesk-integration
+x-engine: &engine
+  image: servicedesk-integration-engine
+  pull_policy: never
+services:
+  registry:
+    <<: *engine
+    command: [mlflow, server, --host, 0.0.0.0, --port, '5000', --workers, '1', --allowed-hosts, 'registry:5000,127.0.0.1:*,localhost:*', --backend-store-uri, 'sqlite:////state/mlflow.db', --artifacts-destination, /state/artifacts, --serve-artifacts]
+    volumes: [registry-data:/state]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:5000/health',timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    # Private Compose network only; no unauthenticated registry port on the host.
+  initialize:
+    <<: *engine
+    command: [python, /example/train.py]
+    environment:
+      TICKET_DATABASE: /company-data/tickets.sqlite
+      MLFLOW_TRACKING_URI: http://registry:5000
+    volumes: [deployment-data:/state, company-data:/company-data]
+    depends_on:
+      registry: {condition: service_healthy}
+    restart: 'no'
+  engine:
+    <<: *engine
+    build:
+      context: ../..
+      dockerfile: examples/external_company_integration/engine.Dockerfile
+      target: engine
+    environment:
+      MLFLOW_TRACKING_URI: http://registry:5000
+    volumes: [deployment-data:/state:ro]
+    depends_on:
+      initialize: {condition: service_completed_successfully}
+    ports: ['127.0.0.1:18000:8000']
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/runtime/ready',timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  servicedesk:
+    build:
+      context: ../..
+      dockerfile: examples/external_company_integration/backend.Dockerfile
+    image: servicedesk-integration-backend
+    environment:
+      ML_ENGINE_URL: http://engine:8000
+      TICKET_DATABASE: /company-data/tickets.sqlite
+      SLA_MODEL_VERSION: '2'
+    volumes: [company-data:/company-data:ro]
+    depends_on:
+      engine: {condition: service_healthy}
+    ports: ['127.0.0.1:18090:8080']
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health',timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  verify:
+    build:
+      context: ../..
+      dockerfile: examples/external_company_integration/engine.Dockerfile
+      target: verification
+    profiles: [verification]
+    environment:
+      SERVICEDESK_TEST_URL: http://servicedesk:8080
+      ENGINE_TEST_URL: http://engine:8000
+      MLFLOW_TRACKING_URI: http://registry:5000
+      DEMO_STATE: /state
+      TICKET_DATABASE: /company-data/tickets.sqlite
+    volumes: [deployment-data:/state:ro, company-data:/company-data:ro]
+    depends_on:
+      servicedesk: {condition: service_healthy}
+volumes:
+  registry-data:
+  deployment-data:
+  company-data:

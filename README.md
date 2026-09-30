@@ -7,6 +7,9 @@ churn example demonstrates reuse outside retail.
 This is a local engineering demonstration, not a certified production service.
 Synthetic examples do not establish business effectiveness or model accuracy.
 
+For a separately packaged company backend, SQLite tickets, native MLflow versions
+and real HTTP inference, see the [ServiceDesk integration](examples/external_company_integration/README.md).
+
 ## Quick start without private data
 
 Use Python 3.13. Run from the repository root. On Windows use

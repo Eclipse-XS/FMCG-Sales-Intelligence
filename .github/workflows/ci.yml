@@ -25,3 +25,16 @@ jobs:
           path: |
             artifacts/test-results.xml
             .demo/evidence.json
+  docker-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker compose -f docker-compose.demo.yml up -d --build --wait --wait-timeout 120
+      - run: |
+          curl --fail http://127.0.0.1:8000/api/v1/runtime/ready
+          curl --fail -X POST http://127.0.0.1:8000/api/v1/models/customer-churn/inferences -H 'Content-Type: application/json' -d '{"version":"1","domain":"customer-retention","rows":[{"months":12,"fee":75,"plan":"monthly"}]}'
+          curl --fail -X POST http://127.0.0.1:8000/api/v1/models/demand-demo/inferences -H 'Content-Type: application/json' -d '{"version":"1","domain":"fmcg-demo","rows":[{"previous_units":30,"unit_price":4}]}'
+      - run: docker compose -f docker-compose.demo.yml logs --no-color
+        if: always()
+      - run: docker compose -f docker-compose.demo.yml down
+        if: always()

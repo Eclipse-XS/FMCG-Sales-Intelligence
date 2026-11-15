@@ -28,7 +28,7 @@ def register_frozen_models(target_registry, frozen):
         # Frozen models intentionally accept nullable numeric inputs through their
         # fitted preprocessing and string-coerce categorical identifiers.
         features = tuple(Feature(f, "string" if f in categorical else "number", nullable=True,
-                                 coerce=f in categorical) for f in bundle["features"])
+                                 coerce=True) for f in bundle["features"])
         signature = Signature(features, tuple(sorted(forbidden)))
         runtime = FrozenRuntime(service(frozen), output)
         target_registry.register(Model(name, record.version, task, signature, runtime,

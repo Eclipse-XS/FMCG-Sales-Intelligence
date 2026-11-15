@@ -12,11 +12,13 @@ dependencies = [
   "scikit-learn==1.7.2", "catboost==1.2.8", "joblib==1.5.2",
   "PyYAML==6.0.3", "duckdb==1.5.5", "fastapi==0.116.1", "pydantic==2.11.7",
   "pydantic-settings==2.10.1", "uvicorn==0.35.0", "prometheus-client==0.22.1",
+  "psycopg[binary]==3.3.5", "SQLAlchemy==2.0.53",
 ]
 
 [project.optional-dependencies]
 analytics = ["lifelines==0.30.0", "mlxtend==0.23.4"]
 dev = ["pytest==9.1.1", "httpx==0.28.1", "ruff==0.12.11"]
+mlflow = ["mlflow==3.16.1"]
 
 [project.scripts]
 fsi = "fmcg_sales_intelligence.cli:main"

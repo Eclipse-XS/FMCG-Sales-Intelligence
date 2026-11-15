@@ -61,7 +61,8 @@ def create_app(settings: Settings | None = None, artifact_root: str | Path | Non
     forecast, stockout = ForecastService(registry), StockoutService(registry)
     try:
         segment_membership = SegmentMembershipService(artifact_root or settings.artifact_root)
-    except (FileNotFoundError, ValueError):
+    except Exception:
+        LOGGER.info("Canonical segmentation unavailable", exc_info=True)
         segment_membership = None
     feature_resolver = FeatureResolver()
     for name, record in registry.records.items():

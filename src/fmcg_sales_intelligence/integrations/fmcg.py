@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import numpy as np
-
 from ..engine import Feature, Model, Signature
 from ..product.serving.inference import FORBIDDEN_FORECAST, FORBIDDEN_STOCKOUT, ForecastService, StockoutService
 
@@ -33,15 +31,3 @@ def register_frozen_models(target_registry, frozen):
         runtime = FrozenRuntime(service(frozen), output)
         target_registry.register(Model(name, record.version, task, signature, runtime,
                                        provenance={"sha256": record.fingerprint, "scientific": "frozen_v1"}))
-
-
-class ForecastEstimator:
-    """Reviewed adapter for a canonical fitted regressor, without retraining."""
-    def __init__(self, bundle):
-        self.bundle = bundle
-
-    def predict(self, frame):
-        frame = frame.copy()
-        for column in self.bundle["categorical"]:
-            frame[column] = frame[column].fillna("__MISSING__").astype(str)
-        return np.maximum(self.bundle["model"].predict(frame), self.bundle.get("clip_lower", 0))

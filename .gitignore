@@ -123,3 +123,5 @@ scratch/
 Thumbs.db
 desktop.ini
 .demo/
+demo-mlflow.db
+artifacts/modernization-*.xml

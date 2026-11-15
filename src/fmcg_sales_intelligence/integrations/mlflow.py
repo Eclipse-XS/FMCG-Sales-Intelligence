@@ -14,6 +14,7 @@ class MLflowRegistry:
     """
     def __init__(self, tracking_uri: str, approved: dict[str, Signature]):
         import mlflow
+        import mlflow.sklearn
         self.mlflow = mlflow
         self.client = mlflow.MlflowClient(tracking_uri=tracking_uri, registry_uri=tracking_uri)
         self.tracking_uri = tracking_uri

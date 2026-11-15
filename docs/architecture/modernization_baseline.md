@@ -37,7 +37,8 @@ Base: d37585e. Work is isolated from the original dirty main worktree.
   outside supported synchronous demo. No claim of reliable streaming inference.
 - Compose profiles: core API/publisher, streaming Kafka/UI, mlops MLflow,
   observability Grafana/Prometheus/API; full-demo omits Grafana. PostgreSQL has
-  no profile; API image omits psycopg despite BI imports. Airflow is not a
+  no profile; PostgreSQL/publisher dependencies are absent from pyproject,
+  while the BI service itself reads DuckDB. Airflow is not a
   running Compose service; do not promise scheduled orchestration.
 - tests/unit mixes isolated checks and canonical-data integration assertions.
   tests/scientific, tests/runtime and most tests/integration require substantial

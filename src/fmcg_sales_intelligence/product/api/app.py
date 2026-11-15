@@ -22,6 +22,7 @@ from ..serving import FeatureResolver, ForecastService, FrozenModelRegistry, Seg
 from .schemas import BatchRequest, ContractRowsRequest, BusinessForecastRequest, BusinessStockoutRequest, BusinessSegmentationRequest
 from .settings import Settings
 from ...engine import Engine, MemoryRegistry
+from ...engine.contracts import DependencyUnavailable
 from ...integrations.api import BodyLimit, install_engine_api
 from ...integrations.fmcg import register_frozen_models
 
@@ -154,8 +155,8 @@ def create_app(settings: Settings | None = None, artifact_root: str | Path | Non
             },
         )
 
-    @application.exception_handler(RuntimeError)
-    async def unavailable_error(request: Request, exc: RuntimeError):
+    @application.exception_handler(DependencyUnavailable)
+    async def unavailable_error(request: Request, exc: DependencyUnavailable):
         LOGGER.warning("dependency_unavailable request_id=%s", request.state.request_id, exc_info=True)
         return JSONResponse(status_code=503, content={"error": {
             "code": "SERVICE_UNAVAILABLE", "message": "Required model or data is unavailable",

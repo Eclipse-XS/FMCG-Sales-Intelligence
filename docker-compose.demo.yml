@@ -1,0 +1,27 @@
+services:
+  engine-demo:
+    environment:
+      FSI_PROJECT_ROOT: /app
+    build:
+      context: .
+      dockerfile: platform/docker/api.Dockerfile
+    command:
+    - uvicorn
+    - fmcg_sales_intelligence.integrations.demo:create_demo_app
+    - --factory
+    - --host
+    - 0.0.0.0
+    - --port
+    - '8000'
+    ports:
+    - 127.0.0.1:8000:8000
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen('http://localhost:8000/api/v1/runtime/ready',
+        timeout=3)
+      interval: 10s
+      timeout: 5s
+      retries: 12

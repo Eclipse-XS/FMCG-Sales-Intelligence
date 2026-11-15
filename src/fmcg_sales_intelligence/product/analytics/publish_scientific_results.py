@@ -3,7 +3,7 @@ import json
 import logging
 from pathlib import Path
 import pandas as pd
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine, text, URL
 import numpy as np
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
@@ -53,9 +53,11 @@ def create_engine_from_env():
     host = os.environ.get("POSTGRES_HOST", "postgres")
     port = os.environ.get("POSTGRES_PORT", "5432")
     user = os.environ.get("POSTGRES_USER", "fmcg")
-    password = os.environ.get("POSTGRES_PASSWORD", "change_me")
+    password = os.environ.get("POSTGRES_PASSWORD")
+    if not password:
+        raise ValueError("Set POSTGRES_PASSWORD")
     db = os.environ.get("POSTGRES_DB", "fmcg")
-    url = f"postgresql+psycopg://{user}:{password}@{host}:{port}/{db}"
+    url = URL.create("postgresql+psycopg", username=user, password=password, host=host, port=int(port), database=db)
     return create_engine(url)
 
 def safe_read(filepath):

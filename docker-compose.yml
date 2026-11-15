@@ -103,6 +103,7 @@ services:
     - ./config/domains:/app/config/domains:ro
     - ./config/contracts:/app/config/contracts:ro
     - ./data/warehouse:/app/data/warehouse:ro
+    - ./data/processed:/app/data/processed:ro
     healthcheck:
       test:
       - CMD
@@ -128,7 +129,8 @@ services:
     - --port
     - '5000'
     - --backend-store-uri
-    - postgresql+psycopg://fmcg:${POSTGRES_PASSWORD:?Set PostgreSQL password}@postgres:5432/${MLFLOW_DB:-mlflow}
+    - postgresql+psycopg://${POSTGRES_USER:-fmcg}:${POSTGRES_PASSWORD:?Set PostgreSQL
+      password}@postgres:5432/${MLFLOW_DB:-mlflow}
     - --artifacts-destination
     - /mlflow/artifacts
     - --serve-artifacts
@@ -189,32 +191,6 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-  engine-demo:
-    build:
-      context: .
-      dockerfile: platform/docker/api.Dockerfile
-    profiles:
-    - demo
-    command:
-    - uvicorn
-    - fmcg_sales_intelligence.integrations.demo:create_demo_app
-    - --factory
-    - --host
-    - 0.0.0.0
-    - --port
-    - '8000'
-    ports:
-    - 127.0.0.1:8000:8000
-    healthcheck:
-      test:
-      - CMD
-      - python
-      - -c
-      - import urllib.request; urllib.request.urlopen('http://localhost:8000/api/v1/runtime/ready',
-        timeout=3)
-      interval: 10s
-      timeout: 5s
-      retries: 12
 volumes:
   fmcg_pgdata: null
   mlflow_artifacts: null

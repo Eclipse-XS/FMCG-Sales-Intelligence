@@ -116,3 +116,9 @@ def test_core_dependency_direction():
         for node in ast.walk(ast.parse(source)):
             if isinstance(node, ast.ImportFrom):
                 assert not any(part in (node.module or "") for part in ("product", "science", "integrations", "fastapi"))
+def test_declarative_pack_matches_reviewed_demo():
+    from fmcg_sales_intelligence.engine import DomainPack
+    engine, _, signature, _ = build_demo()
+    pack = DomainPack.from_yaml("config/domains/customer_retention/engine.yaml")
+    assert pack.signature == signature
+    assert pack.mapping == engine.domains.get("customer-retention").mapping

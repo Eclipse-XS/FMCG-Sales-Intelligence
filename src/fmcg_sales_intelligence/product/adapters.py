@@ -4,6 +4,7 @@ from pathlib import Path
 
 import pandas as pd
 import yaml
+from ..engine.data import read_source
 
 
 class FileAdapter:
@@ -12,14 +13,8 @@ class FileAdapter:
     def __init__(self, mapping_path: str | Path):
         self.mapping = yaml.safe_load(Path(mapping_path).read_text(encoding="utf-8"))
 
-    def normalize(self, contract_id: str, source: str | Path) -> pd.DataFrame:
-        path = Path(source)
-        if path.suffix.lower() == ".csv":
-            frame = pd.read_csv(path)
-        elif path.suffix.lower() in {".parquet", ".pq"}:
-            frame = pd.read_parquet(path)
-        else:
-            raise ValueError("Only CSV and Parquet sources are supported")
+    def normalize(self, contract_id: str, source: str | Path | pd.DataFrame) -> pd.DataFrame:
+        frame = read_source(source)
         spec = self.mapping["datasets"][contract_id]
         columns = spec["columns"]
         missing = set(columns) - set(frame.columns)

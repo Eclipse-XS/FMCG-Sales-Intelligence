@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 
 from .registry import FrozenModelRegistry
+from ...engine.contracts import DependencyUnavailable
 
 
 FORBIDDEN_FORECAST = {
@@ -36,6 +37,8 @@ def _validate_rows(rows: list[dict[str, Any]], features: list[str], forbidden: s
     missing = set(features) - supplied
     if missing:
         raise ValueError(f"Missing required features: {sorted(missing)}")
+    if any(set(features) - set(row) for row in rows):
+        raise ValueError("Missing required features in individual batch rows")
     frame = pd.DataFrame(rows)
     numeric = frame[features].select_dtypes(include=["number"])
     if not numeric.empty and np.isinf(numeric.to_numpy(dtype=float)).any():
@@ -49,7 +52,7 @@ class ForecastService:
 
     def predict(self, rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
         if not self.record.ready:
-            raise RuntimeError("Forecast model unavailable")
+            raise DependencyUnavailable("Forecast model unavailable")
         bundle = self.record.bundle
         features, categorical = bundle["features"], bundle["categorical"]
         frame = _validate_rows(rows, features, FORBIDDEN_FORECAST)
@@ -77,7 +80,7 @@ class StockoutService:
 
     def predict(self, rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
         if not self.record.ready:
-            raise RuntimeError("Stockout model unavailable")
+            raise DependencyUnavailable("Stockout model unavailable")
         bundle = self.record.bundle
         frame = _validate_rows(rows, bundle["features"], FORBIDDEN_STOCKOUT)
         probabilities = bundle["model"].predict_proba(frame)[:, 1]

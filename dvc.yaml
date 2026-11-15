@@ -1,89 +1,119 @@
 stages:
   forecasting_v1:
-    cmd: python -m fmcg_sales_intelligence.science.cli run --task forecasting --output artifacts/canonical/forecasting_v1 --experiment-id forecasting_v1_canonical --overwrite
+    cmd: python -m fmcg_sales_intelligence.science.cli run --task forecasting --output artifacts/canonical/forecasting_v1 --experiment-id forecasting_v1_canonical
+      --overwrite
     deps:
-      - config/modeling/forecasting.yaml
-      - data/processed/forecasting/forecasting_v1.parquet
-      - src/fmcg_sales_intelligence/science/__init__.py
-      - src/fmcg_sales_intelligence/science/cli.py
-      - src/fmcg_sales_intelligence/science/forecasting/__init__.py
-      - src/fmcg_sales_intelligence/science/forecasting/experiment.py
-      - src/fmcg_sales_intelligence/science/metrics.py
+    - config/modeling/forecasting.yaml
+    - data/processed/forecasting/forecasting_v1.parquet
+    - src/fmcg_sales_intelligence/science/__init__.py
+    - src/fmcg_sales_intelligence/science/cli.py
+    - src/fmcg_sales_intelligence/science/forecasting/__init__.py
+    - src/fmcg_sales_intelligence/science/forecasting/experiment.py
+    - src/fmcg_sales_intelligence/science/metrics.py
+    - src/fmcg_sales_intelligence/common/paths.py
     outs:
-      - artifacts/canonical/forecasting_v1
+    - artifacts/canonical/forecasting_v1
     metrics:
-      - artifacts/forecasting_v1_metrics.json
+    - artifacts/forecasting_v1_metrics.json
   stockout_classification_v1:
-    cmd: python -m fmcg_sales_intelligence.science.cli run --task stockout_classification --output artifacts/canonical/stockout_classification_v1 --experiment-id stockout_classification_v1_canonical --overwrite
+    cmd: python -m fmcg_sales_intelligence.science.cli run --task stockout_classification --output artifacts/canonical/stockout_classification_v1
+      --experiment-id stockout_classification_v1_canonical --overwrite
     deps:
-      - config/modeling/stockout_classification.yaml
-      - data/processed/stockout/stockout_v1.parquet
-      - data/processed/stockout/stockout_episodes.parquet
-      - src/fmcg_sales_intelligence/science/__init__.py
-      - src/fmcg_sales_intelligence/science/cli.py
-      - src/fmcg_sales_intelligence/science/stockout/__init__.py
-      - src/fmcg_sales_intelligence/science/stockout/experiment.py
+    - config/modeling/stockout_classification.yaml
+    - data/processed/stockout/stockout_v1.parquet
+    - data/processed/stockout/stockout_episodes.parquet
+    - src/fmcg_sales_intelligence/science/__init__.py
+    - src/fmcg_sales_intelligence/science/cli.py
+    - src/fmcg_sales_intelligence/science/stockout/__init__.py
+    - src/fmcg_sales_intelligence/science/stockout/experiment.py
+    - src/fmcg_sales_intelligence/science/metrics.py
+    - src/fmcg_sales_intelligence/common/paths.py
     outs:
-      - artifacts/canonical/stockout_classification_v1
+    - artifacts/canonical/stockout_classification_v1
     metrics:
-      - artifacts/stockout_classification_v1_metrics.json
+    - artifacts/stockout_classification_v1_metrics.json
   stockout_survival_v1:
-    cmd: python -m fmcg_sales_intelligence.science.cli run --task stockout_survival --output artifacts/canonical/stockout_survival_v1 --experiment-id stockout_survival_v1_canonical --overwrite
+    cmd: python -m fmcg_sales_intelligence.science.cli run --task stockout_survival --output artifacts/canonical/stockout_survival_v1 --experiment-id
+      stockout_survival_v1_canonical --overwrite
     deps:
-      - config/modeling/stockout_survival.yaml
-      - config/modeling/stockout_classification.yaml
-      - data/processed/stockout/stockout_v1.parquet
-      - data/processed/stockout/stockout_episodes.parquet
-      - src/fmcg_sales_intelligence/science/survival/__init__.py
-      - src/fmcg_sales_intelligence/science/survival/experiment.py
-      - src/fmcg_sales_intelligence/science/stockout/__init__.py
-      - src/fmcg_sales_intelligence/science/stockout/experiment.py
+    - config/modeling/stockout_survival.yaml
+    - config/modeling/stockout_classification.yaml
+    - data/processed/stockout/stockout_v1.parquet
+    - data/processed/stockout/stockout_episodes.parquet
+    - src/fmcg_sales_intelligence/science/survival/__init__.py
+    - src/fmcg_sales_intelligence/science/survival/experiment.py
+    - src/fmcg_sales_intelligence/science/stockout/__init__.py
+    - src/fmcg_sales_intelligence/science/stockout/experiment.py
+    - src/fmcg_sales_intelligence/science/__init__.py
+    - src/fmcg_sales_intelligence/science/cli.py
+    - src/fmcg_sales_intelligence/science/metrics.py
+    - src/fmcg_sales_intelligence/common/paths.py
     outs:
-      - artifacts/canonical/stockout_survival_v1
+    - artifacts/canonical/stockout_survival_v1
     metrics:
-      - artifacts/stockout_survival_v1_metrics.json
+    - artifacts/stockout_survival_v1_metrics.json
   segmentation_v1:
-    cmd: python -m fmcg_sales_intelligence.science.cli run --task segmentation --output artifacts/canonical/segmentation_v1 --experiment-id segmentation_v1_canonical --overwrite
+    cmd: python -m fmcg_sales_intelligence.science.cli run --task segmentation --output artifacts/canonical/segmentation_v1 --experiment-id segmentation_v1_canonical
+      --overwrite
     deps:
-      - config/modeling/segmentation.yaml
-      - data/processed/segmentation/segmentation_v1.parquet
-      - src/fmcg_sales_intelligence/science/segmentation/__init__.py
-      - src/fmcg_sales_intelligence/science/segmentation/experiment.py
+    - config/modeling/segmentation.yaml
+    - data/processed/segmentation/segmentation_v1.parquet
+    - src/fmcg_sales_intelligence/science/segmentation/__init__.py
+    - src/fmcg_sales_intelligence/science/segmentation/experiment.py
+    - src/fmcg_sales_intelligence/science/__init__.py
+    - src/fmcg_sales_intelligence/science/cli.py
+    - src/fmcg_sales_intelligence/science/metrics.py
+    - src/fmcg_sales_intelligence/common/paths.py
     outs:
-      - artifacts/canonical/segmentation_v1
+    - artifacts/canonical/segmentation_v1
     metrics:
-      - artifacts/segmentation_v1_metrics.json
+    - artifacts/segmentation_v1_metrics.json
   anomaly_v1:
-    cmd: python -m fmcg_sales_intelligence.science.cli run --task anomaly --output artifacts/canonical/anomaly_v1 --experiment-id anomaly_v1_canonical --overwrite
+    cmd: python -m fmcg_sales_intelligence.science.cli run --task anomaly --output artifacts/canonical/anomaly_v1 --experiment-id anomaly_v1_canonical
+      --overwrite
     deps:
-      - config/modeling/anomaly.yaml
-      - data/processed/anomaly/anomaly_v1.parquet
-      - src/fmcg_sales_intelligence/science/anomaly/__init__.py
-      - src/fmcg_sales_intelligence/science/anomaly/experiment.py
+    - config/modeling/anomaly.yaml
+    - data/processed/anomaly/anomaly_v1.parquet
+    - src/fmcg_sales_intelligence/science/anomaly/__init__.py
+    - src/fmcg_sales_intelligence/science/anomaly/experiment.py
+    - src/fmcg_sales_intelligence/science/__init__.py
+    - src/fmcg_sales_intelligence/science/cli.py
+    - src/fmcg_sales_intelligence/science/metrics.py
+    - src/fmcg_sales_intelligence/common/paths.py
     outs:
-      - artifacts/canonical/anomaly_v1
+    - artifacts/canonical/anomaly_v1
     metrics:
-      - artifacts/anomaly_v1_metrics.json
+    - artifacts/anomaly_v1_metrics.json
   basket_v1:
-    cmd: python -m fmcg_sales_intelligence.science.cli run --task basket --output artifacts/canonical/basket_v1 --experiment-id basket_v1_canonical --overwrite
+    cmd: python -m fmcg_sales_intelligence.science.cli run --task basket --output artifacts/canonical/basket_v1 --experiment-id basket_v1_canonical
+      --overwrite
     deps:
-      - config/modeling/basket.yaml
-      - data/processed/basket/basket_v1.parquet
-      - src/fmcg_sales_intelligence/science/basket/__init__.py
-      - src/fmcg_sales_intelligence/science/basket/experiment.py
+    - config/modeling/basket.yaml
+    - data/processed/basket/basket_v1.parquet
+    - src/fmcg_sales_intelligence/science/basket/__init__.py
+    - src/fmcg_sales_intelligence/science/basket/experiment.py
+    - src/fmcg_sales_intelligence/science/__init__.py
+    - src/fmcg_sales_intelligence/science/cli.py
+    - src/fmcg_sales_intelligence/science/metrics.py
+    - src/fmcg_sales_intelligence/common/paths.py
     outs:
-      - artifacts/canonical/basket_v1
+    - artifacts/canonical/basket_v1
     metrics:
-      - artifacts/basket_v1_metrics.json
+    - artifacts/basket_v1_metrics.json
   promotion_v1:
-    cmd: python -m fmcg_sales_intelligence.science.cli run --task promotion --output artifacts/canonical/promotion_v1 --experiment-id promotion_v1_canonical --overwrite
+    cmd: python -m fmcg_sales_intelligence.science.cli run --task promotion --output artifacts/canonical/promotion_v1 --experiment-id promotion_v1_canonical
+      --overwrite
     deps:
-      - config/modeling/promotion.yaml
-      - data/processed/promotion_daily/promotion_daily_v1.parquet
-      - data/processed/promotion_performance/promotion_performance_v1.parquet
-      - src/fmcg_sales_intelligence/science/promotion/__init__.py
-      - src/fmcg_sales_intelligence/science/promotion/experiment.py
+    - config/modeling/promotion.yaml
+    - data/processed/promotion_daily/promotion_daily_v1.parquet
+    - data/processed/promotion_performance/promotion_performance_v1.parquet
+    - src/fmcg_sales_intelligence/science/promotion/__init__.py
+    - src/fmcg_sales_intelligence/science/promotion/experiment.py
+    - src/fmcg_sales_intelligence/science/__init__.py
+    - src/fmcg_sales_intelligence/science/cli.py
+    - src/fmcg_sales_intelligence/science/metrics.py
+    - src/fmcg_sales_intelligence/common/paths.py
     outs:
-      - artifacts/canonical/promotion_v1
+    - artifacts/canonical/promotion_v1
     metrics:
-      - artifacts/promotion_v1_metrics.json
+    - artifacts/promotion_v1_metrics.json

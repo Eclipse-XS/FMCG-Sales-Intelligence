@@ -21,6 +21,10 @@ from ..domains import DomainPackRegistry
 from ..serving import FeatureResolver, ForecastService, FrozenModelRegistry, SegmentMembershipService, StockoutService
 from .schemas import BatchRequest, ContractRowsRequest, BusinessForecastRequest, BusinessStockoutRequest, BusinessSegmentationRequest
 from .settings import Settings
+from ...engine import Engine, MemoryRegistry
+from ...engine.contracts import DependencyUnavailable
+from ...integrations.api import BodyLimit, install_engine_api
+from ...integrations.fmcg import register_frozen_models
 
 
 LOGGER = logging.getLogger("fsi.api")
@@ -44,7 +48,8 @@ def parse_analytics_filters(
     ).validate_range()
 
 
-def create_app(settings: Settings | None = None, artifact_root: str | Path | None = None) -> FastAPI:
+def create_app(settings: Settings | None = None, artifact_root: str | Path | None = None,
+               engine: Engine | None = None) -> FastAPI:
     settings = settings or Settings()
     registry = FrozenModelRegistry(artifact_root or settings.artifact_root)
     contracts, packs, analytics, bi = (
@@ -56,7 +61,8 @@ def create_app(settings: Settings | None = None, artifact_root: str | Path | Non
     forecast, stockout = ForecastService(registry), StockoutService(registry)
     try:
         segment_membership = SegmentMembershipService(artifact_root or settings.artifact_root)
-    except (FileNotFoundError, ValueError):
+    except Exception:
+        LOGGER.info("Canonical segmentation unavailable", exc_info=True)
         segment_membership = None
     feature_resolver = FeatureResolver()
     for name, record in registry.records.items():
@@ -67,6 +73,12 @@ def create_app(settings: Settings | None = None, artifact_root: str | Path | Non
         version=__version__,
         description="Company-agnostic local API for canonical contracts, frozen predictions, and reviewed analytics.",
     )
+    if engine is None:
+        deployed = MemoryRegistry()
+        register_frozen_models(deployed, registry)
+        engine = Engine(deployed, observe=lambda metadata: INFERENCE.labels(metadata["model"], "success").inc(metadata["rows"]))
+    install_engine_api(application, engine)
+    application.add_middleware(BodyLimit, max_bytes=settings.max_request_bytes)
     application.add_middleware(
         CORSMiddleware,
         allow_origins=[x.strip() for x in settings.cors_origins.split(",")],
@@ -111,7 +123,8 @@ def create_app(settings: Settings | None = None, artifact_root: str | Path | Non
         response.headers["X-Content-Type-Options"] = "nosniff"
         response.headers["Referrer-Policy"] = "no-referrer"
         response.headers["X-Frame-Options"] = "SAMEORIGIN"
-        route = request.url.path
+        matched = request.scope.get("route")
+        route = matched.path if matched else "unmatched"
         REQUESTS.labels(request.method, route, str(response.status_code)).inc()
         LATENCY.labels(route).observe(elapsed)
         LOGGER.info(
@@ -143,6 +156,19 @@ def create_app(settings: Settings | None = None, artifact_root: str | Path | Non
             },
         )
 
+    @application.exception_handler(DependencyUnavailable)
+    async def unavailable_error(request: Request, exc: DependencyUnavailable):
+        LOGGER.warning("dependency_unavailable request_id=%s", request.state.request_id, exc_info=True)
+        return JSONResponse(status_code=503, content={"error": {
+            "code": "SERVICE_UNAVAILABLE", "message": "Required model or data is unavailable",
+            "request_id": request.state.request_id}})
+
+    @application.exception_handler(HTTPException)
+    async def http_error(request: Request, exc: HTTPException):
+        return JSONResponse(status_code=exc.status_code, content={"error": {
+            "code": f"HTTP_{exc.status_code}", "message": str(exc.detail),
+            "request_id": request.state.request_id}})
+
     @application.get("/health", summary="Process liveness")
     def health():
         return {"status": "alive", "service": "fmcg-sales-intelligence"}
@@ -164,11 +190,11 @@ def create_app(settings: Settings | None = None, artifact_root: str | Path | Non
     def metrics():
         return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
 
-    @application.get("/api/v1/models", summary="List safe frozen-model metadata")
+    @application.get("/api/v1/legacy/models", summary="List canonical compatibility metadata")
     def models():
         return {"items": registry.metadata()}
 
-    @application.get("/api/v1/models/{model_name}", summary="Get frozen-model metadata")
+    @application.get("/api/v1/legacy/models/{model_name}", summary="Get canonical compatibility metadata")
     def model(model_name: str):
         try:
             return registry.get(model_name).public_metadata()

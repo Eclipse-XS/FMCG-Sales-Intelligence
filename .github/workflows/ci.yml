@@ -1,13 +1,27 @@
 name: validation
 on: [push, pull_request]
 jobs:
-  python:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: "3.13"}
-      - run: python -m pip install -r requirements.txt
-      - run: python -m pip install -e . --no-deps
-      - run: python -m pytest tests/unit -q
+      - run: python -m pip install ruff==0.12.11
       - run: ruff check .
+  isolated:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install -e '.[dev,mlflow]' matplotlib
+      - run: python -m pytest tests/unit tests/engine -q --junitxml=artifacts/test-results.xml
+      - run: python -m fmcg_sales_intelligence.integrations.demo --output .demo --mlflow-uri sqlite:///demo-mlflow.db
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verification-evidence
+          path: |
+            artifacts/test-results.xml
+            .demo/evidence.json

@@ -15,4 +15,4 @@ FROM engine AS verification
 USER root
 RUN pip install --no-cache-dir pytest==9.1.1 httpx==0.28.1
 USER demo
-CMD ["python", "-m", "pytest", "/example/tests", "-q", "--tb=short"]
+CMD ["python", "-m", "pytest", "/example/tests", "-q", "--tb=short", "-o", "cache_dir=/tmp/pytest-cache"]

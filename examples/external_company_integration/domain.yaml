@@ -1,0 +1,18 @@
+name: servicedesk
+version: '1'
+signature:
+  features:
+    - {name: ticket_age_hours, dtype: number}
+    - {name: priority, dtype: string, categories: [low, normal, high, urgent]}
+    - {name: customer_tier, dtype: string, categories: [standard, premium, enterprise]}
+    - {name: agent_workload, dtype: integer}
+    - {name: ticket_status, dtype: string, categories: [open, pending, escalated]}
+    - {name: sla_target_hours, dtype: number}
+  forbidden: [sla_breached, resolved_at, future_resolution_hours]
+mapping:
+  hours_open: ticket_age_hours
+  urgency: priority
+  account_level: customer_tier
+  assigned_agent_open_tickets: agent_workload
+  state: ticket_status
+  sla_hours: sla_target_hours
